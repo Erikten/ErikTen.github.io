@@ -53,42 +53,6 @@
   </entry>
   
   <entry>
-    <title>Heybbs-2.0多处逻辑漏洞复现</title>
-    <link href="https://Erikten.github.io/posts/17fd92ae.html"/>
-    <id>https://Erikten.github.io/posts/17fd92ae.html</id>
-    <published>2021-01-04T16:00:00.000Z</published>
-    <updated>2021-02-17T11:34:24.596Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
-    
-    
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-      <category term="Exp" scheme="https://Erikten.github.io/tags/Exp/"/>
-    
-      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
-    
-      <category term="0day" scheme="https://Erikten.github.io/tags/0day/"/>
-    
-      <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-      <category term="逻辑漏洞" scheme="https://Erikten.github.io/tags/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Heybbs-2.0存储型XSS漏洞复现</title>
     <link href="https://Erikten.github.io/posts/17fd92ae.html"/>
     <id>https://Erikten.github.io/posts/17fd92ae.html</id>
@@ -124,6 +88,42 @@
       <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
       <category term="XSS" scheme="https://Erikten.github.io/tags/XSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Heybbs-2.0多处逻辑漏洞复现</title>
+    <link href="https://Erikten.github.io/posts/17fd92ae.html"/>
+    <id>https://Erikten.github.io/posts/17fd92ae.html</id>
+    <published>2021-01-04T16:00:00.000Z</published>
+    <updated>2021-02-17T11:34:24.596Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
+    
+    
+      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+      <category term="Exp" scheme="https://Erikten.github.io/tags/Exp/"/>
+    
+      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
+    
+      <category term="0day" scheme="https://Erikten.github.io/tags/0day/"/>
+    
+      <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="逻辑漏洞" scheme="https://Erikten.github.io/tags/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/"/>
     
   </entry>
   
