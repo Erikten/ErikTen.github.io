@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Erikten.github.io/"/>
-  <updated>2021-02-17T20:38:45.352Z</updated>
+  <updated>2021-02-18T10:10:23.426Z</updated>
   <id>https://Erikten.github.io/</id>
   
   <author>
@@ -15,6 +15,205 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>详解Python中的选择结构（if语句）</title>
+    <link href="https://Erikten.github.io/posts/7a7c390.html"/>
+    <id>https://Erikten.github.io/posts/7a7c390.html</id>
+    <published>2021-02-18T08:55:16.228Z</published>
+    <updated>2021-02-18T10:10:23.426Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;（1）条件语句：这是一个可鞥为真也可能为假的语句，由if关键字开始，由冒号结束，例如：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
+    
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
+    
+      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>详解Python中的continue与break</title>
+    <link href="https://Erikten.github.io/posts/4288d5.html"/>
+    <id>https://Erikten.github.io/posts/4288d5.html</id>
+    <published>2021-02-18T08:55:16.227Z</published>
+    <updated>2021-02-18T10:02:38.732Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;continue的用法：&quot;&gt;&lt;a href=&quot;#continue的用法：&quot; class=&quot;headerlink&quot; title=&quot;continue的用法：&quot;&gt;&lt;/a&gt;continue的用法：&lt;/h2&gt;&lt;pre class=&quot;line-numbers
+        
+      
+    
+    </summary>
+    
+      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
+    
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
+    
+      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>详解Python中的函数与模块</title>
+    <link href="https://Erikten.github.io/posts/488d91ba.html"/>
+    <id>https://Erikten.github.io/posts/488d91ba.html</id>
+    <published>2021-02-18T08:55:16.227Z</published>
+    <updated>2021-02-18T10:05:42.509Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Python中的函数可以分为两种：一种是Python中内置的函数，例如众所周知的print()；而另一种就是自定义函数。&lt;br&gt;编写一个函数很简单，Python中的函数一般包含以下五个部分。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;函数的标识符。首先要用def来创建一个函数，这里的def
+        
+      
+    
+    </summary>
+    
+      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
+    
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
+    
+      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>详解Python中的列表、元组和字典</title>
+    <link href="https://Erikten.github.io/posts/10c43bcf.html"/>
+    <id>https://Erikten.github.io/posts/10c43bcf.html</id>
+    <published>2021-02-18T08:55:16.227Z</published>
+    <updated>2021-02-18T10:07:39.235Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;列表：&quot;&gt;&lt;a href=&quot;#列表：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
+    
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
+    
+      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>金微手机商城v0.3.7SQL注入漏洞复现</title>
+    <link href="https://Erikten.github.io/posts/407cb4d.html"/>
+    <id>https://Erikten.github.io/posts/407cb4d.html</id>
+    <published>2021-02-18T08:55:16.182Z</published>
+    <updated>2021-02-18T09:55:17.053Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
+    
+    
+      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+      <category term="Exp" scheme="https://Erikten.github.io/tags/Exp/"/>
+    
+      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
+    
+      <category term="0day" scheme="https://Erikten.github.io/tags/0day/"/>
+    
+      <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="SQL注入" scheme="https://Erikten.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+      <category term="漏洞挖掘" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>金微手机商城v0.3.7任意文件删除漏洞复现</title>
+    <link href="https://Erikten.github.io/posts/c8638861.html"/>
+    <id>https://Erikten.github.io/posts/c8638861.html</id>
+    <published>2021-02-18T08:55:16.182Z</published>
+    <updated>2021-02-18T09:57:20.304Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;这里还是用的我本地的站点，先跑一下之前写好的exp，拿到后台账号admin，密码Admin888。&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
+    
+    
+      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+      <category term="Exp" scheme="https://Erikten.github.io/tags/Exp/"/>
+    
+      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
+    
+      <category term="0day" scheme="https://Erikten.github.io/tags/0day/"/>
+    
+      <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="任意文件删除" scheme="https://Erikten.github.io/tags/%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4/"/>
+    
+      <category term="漏洞挖掘" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
+    
+  </entry>
   
   <entry>
     <title>Heybbs-2.0前台SQL注入漏洞复现</title>
@@ -57,7 +256,7 @@
     <link href="https://Erikten.github.io/posts/fa941309.html"/>
     <id>https://Erikten.github.io/posts/fa941309.html</id>
     <published>2021-01-04T16:00:00.000Z</published>
-    <updated>2021-02-17T20:32:54.767Z</updated>
+    <updated>2021-02-18T10:11:36.146Z</updated>
     
     <summary type="html">
     
@@ -132,7 +331,7 @@
     <link href="https://Erikten.github.io/posts/e178bb2.html"/>
     <id>https://Erikten.github.io/posts/e178bb2.html</id>
     <published>2020-06-04T16:00:00.000Z</published>
-    <updated>2021-02-17T20:32:19.254Z</updated>
+    <updated>2021-02-18T10:11:20.333Z</updated>
     
     <summary type="html">
     
@@ -228,7 +427,7 @@
     <link href="https://Erikten.github.io/posts/34ae5c62.html"/>
     <id>https://Erikten.github.io/posts/34ae5c62.html</id>
     <published>2020-03-14T16:00:00.000Z</published>
-    <updated>2021-02-17T20:31:18.106Z</updated>
+    <updated>2021-02-18T10:10:48.426Z</updated>
     
     <summary type="html">
     
@@ -474,195 +673,6 @@
       <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
     
       <category term="命令执行" scheme="https://Erikten.github.io/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP代码审计基础：宽字节注入及二次注入漏洞</title>
-    <link href="https://Erikten.github.io/posts/c8ed1bcb.html"/>
-    <id>https://Erikten.github.io/posts/c8ed1bcb.html</id>
-    <published>2020-01-13T16:00:00.000Z</published>
-    <updated>2021-02-17T20:34:59.072Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;宽字节注入&quot;&gt;&lt;a href=&quot;#宽字节注入&quot; class=&quot;headerlink&quot; title=&quot;宽字节注入&quot;&gt;&lt;/a&gt;宽字节注入&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;在使用PHP连接MySQL的时候，当设置“setcharacter_set_client
-        
-      
-    
-    </summary>
-    
-      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
-    
-    
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
-    
-      <category term="SQL注入" scheme="https://Erikten.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
-    
-      <category term="宽字节注入" scheme="https://Erikten.github.io/tags/%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5/"/>
-    
-      <category term="二次注入" scheme="https://Erikten.github.io/tags/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP代码审计基础：会话认证漏洞</title>
-    <link href="https://Erikten.github.io/posts/8cae4f4a.html"/>
-    <id>https://Erikten.github.io/posts/8cae4f4a.html</id>
-    <published>2020-01-12T16:00:00.000Z</published>
-    <updated>2021-02-17T20:34:52.446Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;会话认证漏洞&quot;&gt;&lt;a href=&quot;#会话认证漏洞&quot; class=&quot;headerlink&quot; title=&quot;会话认证漏洞&quot;&gt;&lt;/a&gt;会话认证漏洞&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;session固定攻击&lt;/li&gt;
-&lt;li&gt;session劫持攻击&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3
-        
-      
-    
-    </summary>
-    
-      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
-    
-    
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
-    
-      <category term="会话认证" scheme="https://Erikten.github.io/tags/%E4%BC%9A%E8%AF%9D%E8%AE%A4%E8%AF%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP代码审计基础：反序列化漏洞</title>
-    <link href="https://Erikten.github.io/posts/8f83a13c.html"/>
-    <id>https://Erikten.github.io/posts/8f83a13c.html</id>
-    <published>2020-01-11T16:00:00.000Z</published>
-    <updated>2021-02-17T20:34:04.551Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;序列化与反序列化&quot;&gt;&lt;a href=&quot;#序列化与反序列化&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
-    
-    
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
-    
-      <category term="反序列化" scheme="https://Erikten.github.io/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP代码审计基础：代码执行漏洞</title>
-    <link href="https://Erikten.github.io/posts/750291cd.html"/>
-    <id>https://Erikten.github.io/posts/750291cd.html</id>
-    <published>2020-01-10T16:00:00.000Z</published>
-    <updated>2021-02-17T20:33:57.828Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;代码执行漏洞&quot;&gt;&lt;a href=&quot;#代码执行漏洞&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
-    
-    
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
-    
-      <category term="代码执行" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP代码审计基础：变量覆盖漏洞</title>
-    <link href="https://Erikten.github.io/posts/908580e2.html"/>
-    <id>https://Erikten.github.io/posts/908580e2.html</id>
-    <published>2020-01-09T16:00:00.000Z</published>
-    <updated>2021-02-17T20:33:50.741Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;变量覆盖&quot;&gt;&lt;a href=&quot;#变量覆盖&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
-    
-    
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
-    
-      <category term="变量覆盖" scheme="https://Erikten.github.io/tags/%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP代码审计基础：XSS漏洞</title>
-    <link href="https://Erikten.github.io/posts/85b3150f.html"/>
-    <id>https://Erikten.github.io/posts/85b3150f.html</id>
-    <published>2020-01-08T16:00:00.000Z</published>
-    <updated>2021-02-17T20:33:41.488Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;xss攻击&quot;&gt;&lt;a href=&quot;#xss攻击&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
-    
-    
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-      <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
-    
-      <category term="XSS" scheme="https://Erikten.github.io/tags/XSS/"/>
     
   </entry>
   
