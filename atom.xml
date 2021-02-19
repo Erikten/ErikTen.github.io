@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Erikten.github.io/"/>
-  <updated>2021-02-19T15:49:35.489Z</updated>
+  <updated>2021-02-19T15:52:05.742Z</updated>
   <id>https://Erikten.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://Erikten.github.io/posts/24292e4b.html"/>
     <id>https://Erikten.github.io/posts/24292e4b.html</id>
     <published>2021-02-18T08:55:16.231Z</published>
-    <updated>2021-02-19T15:49:35.489Z</updated>
+    <updated>2021-02-19T15:52:05.742Z</updated>
     
     <summary type="html">
     
@@ -53,7 +53,7 @@
     <link href="https://Erikten.github.io/posts/c752b67c.html"/>
     <id>https://Erikten.github.io/posts/c752b67c.html</id>
     <published>2021-02-18T08:55:16.229Z</published>
-    <updated>2021-02-19T15:31:51.575Z</updated>
+    <updated>2021-02-19T15:52:05.745Z</updated>
     
     <summary type="html">
     
@@ -86,7 +86,7 @@
     <link href="https://Erikten.github.io/posts/def80e39.html"/>
     <id>https://Erikten.github.io/posts/def80e39.html</id>
     <published>2021-02-18T08:55:16.229Z</published>
-    <updated>2021-02-19T15:34:31.929Z</updated>
+    <updated>2021-02-19T15:52:05.747Z</updated>
     
     <summary type="html">
     
@@ -115,11 +115,11 @@
   </entry>
   
   <entry>
-    <title>详解Python中的选择结构（if语句）</title>
-    <link href="https://Erikten.github.io/posts/7a7c390.html"/>
-    <id>https://Erikten.github.io/posts/7a7c390.html</id>
+    <title>详解Python中的循环结构（where与for）</title>
+    <link href="https://Erikten.github.io/posts/fbf7eab5.html"/>
+    <id>https://Erikten.github.io/posts/fbf7eab5.html</id>
     <published>2021-02-18T08:55:16.228Z</published>
-    <updated>2021-02-18T10:12:56.018Z</updated>
+    <updated>2021-02-18T16:26:51.262Z</updated>
     
     <summary type="html">
     
@@ -127,8 +127,7 @@
       
         
         
-          &lt;p&gt;（1）条件语句：这是一个可鞥为真也可能为假的语句，由if关键字开始，由冒号结束，例如：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span
+          &lt;p&gt; 在日常生活中经常会遇到一些有规律的重复操作，例如，输出从1到100的自然数。如果使用顺序结构来实现这个程序，那么需要使用100个print语句。其实这些语句都是重复执行的，也只需要使用一个循环语句就可以代替这100个语句。在Python中的循环语句也有while和for
         
       
     
@@ -146,11 +145,11 @@
   </entry>
   
   <entry>
-    <title>详解Python中的循环结构（where与for）</title>
-    <link href="https://Erikten.github.io/posts/fbf7eab5.html"/>
-    <id>https://Erikten.github.io/posts/fbf7eab5.html</id>
+    <title>详解Python中的选择结构（if语句）</title>
+    <link href="https://Erikten.github.io/posts/7a7c390.html"/>
+    <id>https://Erikten.github.io/posts/7a7c390.html</id>
     <published>2021-02-18T08:55:16.228Z</published>
-    <updated>2021-02-18T16:26:51.262Z</updated>
+    <updated>2021-02-18T10:12:56.018Z</updated>
     
     <summary type="html">
     
@@ -158,7 +157,8 @@
       
         
         
-          &lt;p&gt; 在日常生活中经常会遇到一些有规律的重复操作，例如，输出从1到100的自然数。如果使用顺序结构来实现这个程序，那么需要使用100个print语句。其实这些语句都是重复执行的，也只需要使用一个循环语句就可以代替这100个语句。在Python中的循环语句也有while和for
+          &lt;p&gt;（1）条件语句：这是一个可鞥为真也可能为假的语句，由if关键字开始，由冒号结束，例如：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span
         
       
     
@@ -393,7 +393,7 @@
     <link href="https://Erikten.github.io/posts/d726e92e.html"/>
     <id>https://Erikten.github.io/posts/d726e92e.html</id>
     <published>2021-02-18T08:55:16.224Z</published>
-    <updated>2021-02-19T15:44:15.755Z</updated>
+    <updated>2021-02-19T15:52:05.751Z</updated>
     
     <summary type="html">
     
@@ -426,7 +426,7 @@
     <link href="https://Erikten.github.io/posts/ccae1bbc.html"/>
     <id>https://Erikten.github.io/posts/ccae1bbc.html</id>
     <published>2021-02-18T08:55:16.221Z</published>
-    <updated>2021-02-19T15:45:56.414Z</updated>
+    <updated>2021-02-19T15:52:05.750Z</updated>
     
     <summary type="html">
     
@@ -458,7 +458,7 @@
     <link href="https://Erikten.github.io/posts/6b89328c.html"/>
     <id>https://Erikten.github.io/posts/6b89328c.html</id>
     <published>2021-02-18T08:55:16.220Z</published>
-    <updated>2021-02-19T15:27:54.827Z</updated>
+    <updated>2021-02-19T15:52:05.744Z</updated>
     
     <summary type="html">
     
@@ -486,11 +486,11 @@
   </entry>
   
   <entry>
-    <title>靶机渗透——Zico</title>
-    <link href="https://Erikten.github.io/posts/f882b92c.html"/>
-    <id>https://Erikten.github.io/posts/f882b92c.html</id>
+    <title>靶机渗透——Mr.Robot</title>
+    <link href="https://Erikten.github.io/posts/df372537.html"/>
+    <id>https://Erikten.github.io/posts/df372537.html</id>
     <published>2021-02-18T08:55:16.220Z</published>
-    <updated>2021-02-19T15:46:47.731Z</updated>
+    <updated>2021-02-19T15:52:05.751Z</updated>
     
     <summary type="html">
     
@@ -518,11 +518,11 @@
   </entry>
   
   <entry>
-    <title>靶机渗透——Mr.Robot</title>
-    <link href="https://Erikten.github.io/posts/df372537.html"/>
-    <id>https://Erikten.github.io/posts/df372537.html</id>
+    <title>靶机渗透——Zico</title>
+    <link href="https://Erikten.github.io/posts/f882b92c.html"/>
+    <id>https://Erikten.github.io/posts/f882b92c.html</id>
     <published>2021-02-18T08:55:16.220Z</published>
-    <updated>2021-02-19T15:46:24.102Z</updated>
+    <updated>2021-02-19T15:52:05.750Z</updated>
     
     <summary type="html">
     
@@ -554,7 +554,7 @@
     <link href="https://Erikten.github.io/posts/d3a7d8d7.html"/>
     <id>https://Erikten.github.io/posts/d3a7d8d7.html</id>
     <published>2021-02-18T08:55:16.219Z</published>
-    <updated>2021-02-19T15:28:53.672Z</updated>
+    <updated>2021-02-19T15:52:05.748Z</updated>
     
     <summary type="html">
     
@@ -592,7 +592,7 @@ Windows
     <link href="https://Erikten.github.io/posts/9c105788.html"/>
     <id>https://Erikten.github.io/posts/9c105788.html</id>
     <published>2021-02-18T08:55:16.219Z</published>
-    <updated>2021-02-19T15:45:12.781Z</updated>
+    <updated>2021-02-19T15:52:05.749Z</updated>
     
     <summary type="html">
     
@@ -624,7 +624,7 @@ Windows
     <link href="https://Erikten.github.io/posts/9bdda3fd.html"/>
     <id>https://Erikten.github.io/posts/9bdda3fd.html</id>
     <published>2021-02-18T08:55:16.219Z</published>
-    <updated>2021-02-19T15:45:33.629Z</updated>
+    <updated>2021-02-19T15:52:05.749Z</updated>
     
     <summary type="html">
     
