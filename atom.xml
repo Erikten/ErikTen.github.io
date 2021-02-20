@@ -138,9 +138,9 @@
     
       <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
       <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
     
   </entry>
   
@@ -169,9 +169,9 @@
     
       <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
       <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
     
   </entry>
   
@@ -199,9 +199,39 @@
     
       <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
+      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
       <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
     
+  </entry>
+  
+  <entry>
+    <title>详解Python中的列表、元组和字典</title>
+    <link href="https://Erikten.github.io/posts/10c43bcf.html"/>
+    <id>https://Erikten.github.io/posts/10c43bcf.html</id>
+    <published>2021-02-18T08:55:16.227Z</published>
+    <updated>2021-02-18T10:12:56.017Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;列表：&quot;&gt;&lt;a href=&quot;#列表：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
+    
+    
+      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
       <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
     
   </entry>
   
@@ -231,39 +261,9 @@
     
       <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
       <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
     
-  </entry>
-  
-  <entry>
-    <title>详解Python中的列表、元组和字典</title>
-    <link href="https://Erikten.github.io/posts/10c43bcf.html"/>
-    <id>https://Erikten.github.io/posts/10c43bcf.html</id>
-    <published>2021-02-18T08:55:16.227Z</published>
-    <updated>2021-02-18T10:12:56.017Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;列表：&quot;&gt;&lt;a href=&quot;#列表：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
-    
-    
-      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
-      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -292,9 +292,9 @@
     
       <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
       <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
     
   </entry>
   
@@ -322,9 +322,9 @@
     
       <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
       <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
     
   </entry>
   
@@ -352,9 +352,9 @@
     
       <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
       <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
     
   </entry>
   
@@ -382,9 +382,9 @@
     
       <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
       <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
     
   </entry>
   
