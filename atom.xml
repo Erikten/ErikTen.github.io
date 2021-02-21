@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Erikten.github.io/"/>
-  <updated>2021-02-19T15:52:05.742Z</updated>
+  <updated>2021-02-21T13:32:15.692Z</updated>
   <id>https://Erikten.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小书匠测试</title>
+    <link href="https://Erikten.github.io/posts/93b6de2c.html"/>
+    <id>https://Erikten.github.io/posts/93b6de2c.html</id>
+    <published>2021-02-21T05:23:10.000Z</published>
+    <updated>2021-02-21T13:32:15.692Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;[toc!?theme=gray&amp;amp;depth=4]&lt;/p&gt;
+&lt;h1 id=&quot;常用语法&quot;&gt;&lt;a href=&quot;#常用语法&quot; class=&quot;headerlink&quot; title=&quot;常用语法&quot;&gt;&lt;/a&gt;常用语法&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;标题&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="小书匠测试篇" scheme="https://Erikten.github.io/categories/%E5%B0%8F%E4%B9%A6%E5%8C%A0%E6%B5%8B%E8%AF%95%E7%AF%87/"/>
+    
+    
+      <category term="测试" scheme="https://Erikten.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="模板" scheme="https://Erikten.github.io/tags/%E6%A8%A1%E6%9D%BF/"/>
+    
+      <category term="小书匠" scheme="https://Erikten.github.io/tags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>后台拿webshell的常用方法总结</title>
@@ -591,38 +623,6 @@ Windows
     <title>靶机渗透——BTRsys1</title>
     <link href="https://Erikten.github.io/posts/9c105788.html"/>
     <id>https://Erikten.github.io/posts/9c105788.html</id>
-    <published>2021-02-18T08:55:16.219Z</published>
-    <updated>2021-02-19T15:52:05.749Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;任务环境&quot;&gt;&lt;a href=&quot;#任务环境&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="渗透测试篇" scheme="https://Erikten.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%AF%87/"/>
-    
-    
-      <category term="渗透测试" scheme="https://Erikten.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="提权" scheme="https://Erikten.github.io/tags/%E6%8F%90%E6%9D%83/"/>
-    
-      <category term="内网渗透" scheme="https://Erikten.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
-    
-      <category term="靶机渗透" scheme="https://Erikten.github.io/tags/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>靶机渗透——Halice</title>
-    <link href="https://Erikten.github.io/posts/9bdda3fd.html"/>
-    <id>https://Erikten.github.io/posts/9bdda3fd.html</id>
     <published>2021-02-18T08:55:16.219Z</published>
     <updated>2021-02-19T15:52:05.749Z</updated>
     
