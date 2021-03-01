@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>从零开始内网渗透——环境搭建</title>
+      <link href="/posts/5ff123fb.html"/>
+      <url>/posts/5ff123fb.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul><li>Windows Server 2008</li><li>Windows Server 2003</li><li>Windows XP</li><li>Windows 7</li></ul><p>环境我都打包好了，有需要的小伙伴可以留言给我，我把环境发给你</p><h3 id="Windows-Server-2008配置（域控）"><a href="#Windows-Server-2008配置（域控）" class="headerlink" title="Windows Server 2008配置（域控）"></a>Windows Server 2008配置（域控）</h3><p>修改计算机名：<br><a href="https://imgtu.com/i/6F9uSH" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/02/6F9uSH.md.png" alt=""></a></p><p>配置固定ip:，注意DNS要写127.0.0.1 ：<br><a href="https://imgtu.com/i/6F9Kld" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/02/6F9Kld.png" alt=""></a></p><p>服务器管理器—-角色—-添加域服务：<br><a href="https://imgtu.com/i/6F9M6A" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/02/6F9M6A.png" alt=""></a></p><p>配置域服务: cmd下面输入<code>dcpromo</code>：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://static.sitestack.cn/projects/l3m0n-pentest_study/23410be3d32884a59cf84364f5506de4.jpeg" alt=""></p><p>设置林根域： 林就是在多域情况下形成的森林,根表示基础,其他在此根部衍生 具体见<a href="http://angerfire.blog.51cto.com/198455/144123/" target="_blank" rel="noopener">这里</a>：</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://static.sitestack.cn/projects/l3m0n-pentest_study/b1346eff4ad9cbaba6b47d4249103564.jpeg" alt=""></p><p>域数据存放的地址：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://static.sitestack.cn/projects/l3m0n-pentest_study/329a725ba58106fb5d9149837a675219.jpeg" alt="enter description here"></p><h3 id="其他系统配置（域成员）"><a href="#其他系统配置（域成员）" class="headerlink" title="其他系统配置（域成员）"></a>其他系统配置（域成员）</h3><p>剩下的系统配置都跟<strong>Windows Server 2008</strong>差不多，需要注意的是，配置IP地址的DNS地址<strong>必须是域控地址。</strong></p><p>Win7：<br><a href="https://imgtu.com/i/6F930P" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/02/6F930P.png" alt=""></a></p><p>加入域控：<br><a href="https://imgtu.com/i/6F98Tf" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/02/6F98Tf.md.png" alt=""></a></p><p>这里会要求你输入域控的账号密码：<br><a href="https://imgtu.com/i/6F9Jk8" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/02/6F9Jk8.png" alt=""></a></p><p>加入成功后重启一下就算是真的加入了：<br><a href="https://imgtu.com/i/6F9YtS" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/02/6F9YtS.png" alt=""></a></p><h3 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h3><p>域已经搭建完成，主域控会生成一个krbtgt账号 他是Windows活动目录中使用的客户/服务器认证协议，为通信双方提供双向认证：</p><p><a href="https://imgtu.com/i/6F9UpQ" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/02/6F9UpQ.png" alt=""></a></p><p>参考：<br><a href="http://www.it165.net/os/html/201306/5493.html" target="_blank" rel="noopener">AD域环境的搭建 基于Server 2008 R2</a><br><a href="http://blog.sina.com.cn/s/blog_6ce0f2c901014okt.html" target="_blank" rel="noopener">Acitve Directory 域环境的搭建</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 渗透测试 </tag>
+            
+            <tag> 内网渗透 </tag>
+            
+            <tag> 域渗透 </tag>
+            
+            <tag> 环境搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>金微手机商城v0.3.7 文件上传漏洞复现</title>
       <link href="/posts/3c771888.html"/>
       <url>/posts/3c771888.html</url>

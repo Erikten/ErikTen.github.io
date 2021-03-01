@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Erikten.github.io/"/>
-  <updated>2021-02-28T13:55:40.530Z</updated>
+  <updated>2021-03-01T21:58:03.127Z</updated>
   <id>https://Erikten.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零开始内网渗透——环境搭建</title>
+    <link href="https://Erikten.github.io/posts/5ff123fb.html"/>
+    <id>https://Erikten.github.io/posts/5ff123fb.html</id>
+    <published>2021-03-01T21:57:59.735Z</published>
+    <updated>2021-03-01T21:58:03.127Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Windows Server 2008&lt;/li&gt;
+&lt;li&gt;Windows Server
+        
+      
+    
+    </summary>
+    
+    
+      <category term="渗透测试" scheme="https://Erikten.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="内网渗透" scheme="https://Erikten.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="域渗透" scheme="https://Erikten.github.io/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="环境搭建" scheme="https://Erikten.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>金微手机商城v0.3.7 文件上传漏洞复现</title>
@@ -616,44 +648,6 @@
       <category term="内网渗透" scheme="https://Erikten.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
     
       <category term="靶机渗透" scheme="https://Erikten.github.io/tags/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>震网三代漏洞复现（CVE-2017-8464）</title>
-    <link href="https://Erikten.github.io/posts/d3a7d8d7.html"/>
-    <id>https://Erikten.github.io/posts/d3a7d8d7.html</id>
-    <published>2021-02-18T08:55:16.219Z</published>
-    <updated>2021-02-19T15:52:05.748Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;影响版本&quot;&gt;&lt;a href=&quot;#影响版本&quot; class=&quot;headerlink&quot; title=&quot;影响版本&quot;&gt;&lt;/a&gt;影响版本&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Windows 7
-
-Windows 8.1
-
-Windows RT 8.1
-
-Windows
-        
-      
-    
-    </summary>
-    
-      <category term="渗透测试篇" scheme="https://Erikten.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%AF%87/"/>
-    
-    
-      <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-      <category term="渗透测试" scheme="https://Erikten.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="提权" scheme="https://Erikten.github.io/tags/%E6%8F%90%E6%9D%83/"/>
-    
-      <category term="Windows" scheme="https://Erikten.github.io/tags/Windows/"/>
     
   </entry>
   
