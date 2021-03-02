@@ -904,7 +904,7 @@ $a = &#39;123&#39;">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        848
+                        904
                     </div>
                     
 
@@ -936,12 +936,12 @@ $a = &#39;123&#39;">
 <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token string">'admin'</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$array</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token delimiter">?&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h3><p>用到的是<strong>foreach()</strong>函数：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
@@ -949,15 +949,15 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$array</span> <span class="token keyword">as</span> <span class="token variable">$key</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token variable">$key</span><span class="token punctuation">.</span><span class="token string">'---'</span><span class="token punctuation">.</span><span class="token variable">$value</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$array</span> <span class="token keyword">as</span> <span class="token variable">$key</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$key</span><span class="token punctuation">.</span><span class="token string">'---'</span><span class="token punctuation">.</span><span class="token variable">$value</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201101214218588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="数组的增删改查"><a href="#数组的增删改查" class="headerlink" title="数组的增删改查"></a>数组的增删改查</h3><h5 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h5><p>在数组后跟一个[]，然后把要添加的数据赋值给它即可</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -966,18 +966,18 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 输出增加数据前的数组</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 增加数据</span>
 <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'ff'</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 输出增加数据后的数组</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
+<span class="token delimiter">?&gt;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201101214906917.png#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h5><p>这里用到unset()函数，格式就是unset($arrName[x])，x为数组中数据的下标：</p>
@@ -987,22 +987,22 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 输出增加数据前的数组</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 增加数据</span>
 <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'ff'</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 输出增加数据后的数组</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 删除数组arr中的第一个数据，并输出arr当前数据</span>
 <span class="token function">unset</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201101215705958.png#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h5><p>数据的修改也挺简单的，直接通过索引进行修改即可</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1011,27 +1011,27 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 输出增加数据前的数组</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 增加数据</span>
 <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'ff'</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 输出增加数据后的数组</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 删除数组arr中的第一个数据，并输出arr当前数据</span>
 <span class="token function">unset</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 通过索引修改数据</span>
 <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'www.niubi.com'</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 打印修改后的数据</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h5><p>上面每次print_r都是一次查询，跟上数据对应的下标，或者用foreach()函数来进行遍历输出即可。</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
@@ -1039,15 +1039,15 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$arr</span> <span class="token keyword">as</span> <span class="token variable">$key</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$arr</span> <span class="token keyword">as</span> <span class="token variable">$key</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    <span class="token keyword">echo</span> <span class="token variable">$key</span><span class="token punctuation">.</span><span class="token string">'-->'</span><span class="token punctuation">.</span><span class="token variable">$value</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token variable">$key</span><span class="token punctuation">.</span><span class="token string">'--&gt;'</span><span class="token punctuation">.</span><span class="token variable">$value</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token shell-comment comment"># 或者</span>
@@ -1055,7 +1055,7 @@ $a = &#39;123&#39;">
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token variable">$i</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token variable">$i</span><span class="token operator">&lt;</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
     <span class="token keyword">echo</span> <span class="token string">"$arr[$i]"</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token shell-comment comment"># 或者</span>
@@ -1063,9 +1063,9 @@ $a = &#39;123&#39;">
 <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token operator">=</span> <span class="token function">each</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
 <span class="token punctuation">{</span>
         <span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$k</span><span class="token punctuation">,</span><span class="token variable">$y</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"$k => $y &lt;br>"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"$k =&gt; $y &lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="关于数组的几个函数"><a href="#关于数组的几个函数" class="headerlink" title="关于数组的几个函数"></a>关于数组的几个函数</h3><h5 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h5><p>返回当前数组的长度：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
@@ -1073,15 +1073,15 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$len</span> <span class="token operator">=</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$array</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 输出3（数组array的长度为3）</span>
 <span class="token keyword">echo</span> <span class="token string">"$len"</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="array-key-exists"><a href="#array-key-exists" class="headerlink" title="array_key_exists()"></a>array_key_exists()</h5><p>判断键值是否存在，返回的是一个bool值：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
@@ -1089,14 +1089,14 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$len</span> <span class="token operator">=</span> <span class="token function">array_key_exists</span><span class="token punctuation">(</span><span class="token string">'key3'</span><span class="token punctuation">,</span> <span class="token variable">$array</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$len</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="in-array"><a href="#in-array" class="headerlink" title="in_array()"></a>in_array()</h5><p>判断值是否在里面，返回的也是bool类型的值：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
@@ -1104,14 +1104,14 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$len</span> <span class="token operator">=</span> <span class="token function">array_key_exists</span><span class="token punctuation">(</span><span class="token string">'key3'</span><span class="token punctuation">,</span> <span class="token variable">$array</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$len</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
+<span class="token delimiter">?&gt;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="array-keys"><a href="#array-keys" class="headerlink" title="array_keys()"></a>array_keys()</h5><p>把数组中的键值转为索引型数组：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1120,9 +1120,9 @@ $a = &#39;123&#39;">
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'niubi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
-    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'beijing'</span>
+    <span class="token string">'key1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'wuhan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'jinan'</span><span class="token punctuation">,</span>
+    <span class="token string">'key3'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'beijing'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token shell-comment comment"># array_keys()把数组的键值保存到一个索引型数组里，我这里把数组的值附给了$len</span>
@@ -1130,9 +1130,9 @@ $a = &#39;123&#39;">
 <span class="token shell-comment comment"># 循环遍历$len把他的值与数据分别赋值给$key，$vla，并打印len中的值</span>
 <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">,</span><span class="token variable">$vla</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">each</span><span class="token punctuation">(</span><span class="token variable">$len</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
 <span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token variable">$key</span><span class="token punctuation">.</span><span class="token string">'==>'</span><span class="token punctuation">.</span><span class="token variable">$vla</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token variable">$key</span><span class="token punctuation">.</span><span class="token string">'==&gt;'</span><span class="token punctuation">.</span><span class="token variable">$vla</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1963,7 +1963,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">97.9k</span> 字
+                <span class="white-color">99.6k</span> 字
             
 
             
@@ -2170,5 +2170,5 @@ $(function () {
   </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
