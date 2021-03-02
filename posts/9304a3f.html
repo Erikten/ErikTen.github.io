@@ -910,7 +910,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        6 分
+                        5 分
                     </div>
                     
                 
@@ -938,8 +938,8 @@
     url <span class="token operator">=</span> <span class="token string">'https://movie.douban.com/subject/30419644/photos?type=S'</span>
     req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
     html <span class="token operator">=</span> req<span class="token punctuation">.</span>text
-    page <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"https://movie\.douban\.com/photos/photo/(.*?)\"&gt;'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
-    pages <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"(.*?)\" &gt;\d&lt;/a&gt;'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"https://movie\.douban\.com/photos/photo/(.*?)\">'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+    pages <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"(.*?)\" >\d&lt;/a>'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># 这里过滤一下需要跳转的页面的url，传给turn_page()进行处理</span>
     <span class="token keyword">for</span> j <span class="token keyword">in</span> pages<span class="token punctuation">:</span>
         turn_page<span class="token punctuation">(</span>j<span class="token punctuation">)</span>
@@ -954,7 +954,7 @@
     url <span class="token operator">=</span> page
     req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
     html <span class="token operator">=</span> req<span class="token punctuation">.</span>text
-    pages <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"https://movie\.douban\.com/photos/photo/(.*?)\"&gt;'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+    pages <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"https://movie\.douban\.com/photos/photo/(.*?)\">'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
     <span class="token keyword">for</span> j <span class="token keyword">in</span> pages<span class="token punctuation">:</span>
         url2 <span class="token operator">=</span> host<span class="token operator">+</span>j
         get_img_url<span class="token punctuation">(</span>url2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -963,7 +963,7 @@
 <span class="token keyword">def</span> <span class="token function">get_img_url</span><span class="token punctuation">(</span>url2<span class="token punctuation">)</span><span class="token punctuation">:</span>
     req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url2<span class="token punctuation">,</span>headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
     html <span class="token operator">=</span> req<span class="token punctuation">.</span>text
-    url <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;img src=\"(.*?)\" width=\"686\" /&gt;'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+    url <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;img src=\"(.*?)\" width=\"686\" />'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
     down_img<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="第三步：批量下载图片"><a href="#第三步：批量下载图片" class="headerlink" title="第三步：批量下载图片"></a>第三步：批量下载图片</h3><p>这里经过最终的过滤后，获取到真正的图片.jpg，下载，收工！<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201014002826998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 最后把处理好的url，再进行一次清洗，得到真正的图片地址~</span>
@@ -1019,7 +1019,7 @@
 <span class="token keyword">def</span> <span class="token function">get_img_url</span><span class="token punctuation">(</span>url2<span class="token punctuation">)</span><span class="token punctuation">:</span>
     req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url2<span class="token punctuation">,</span>headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
     html <span class="token operator">=</span> req<span class="token punctuation">.</span>text
-    url <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;img src=\"(.*?)\" width=\"686\" /&gt;'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+    url <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;img src=\"(.*?)\" width=\"686\" />'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
     down_img<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true"># 这里获取翻页的url并进行二次处理</span>
@@ -1028,7 +1028,7 @@
     url <span class="token operator">=</span> page
     req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
     html <span class="token operator">=</span> req<span class="token punctuation">.</span>text
-    pages <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"https://movie\.douban\.com/photos/photo/(.*?)\"&gt;'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+    pages <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"https://movie\.douban\.com/photos/photo/(.*?)\">'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
     <span class="token keyword">for</span> j <span class="token keyword">in</span> pages<span class="token punctuation">:</span>
         url2 <span class="token operator">=</span> host<span class="token operator">+</span>j
         get_img_url<span class="token punctuation">(</span>url2<span class="token punctuation">)</span>
@@ -1038,8 +1038,8 @@
     url <span class="token operator">=</span> <span class="token string">'https://movie.douban.com/subject/30419644/photos?type=S'</span>
     req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
     html <span class="token operator">=</span> req<span class="token punctuation">.</span>text
-    page <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"https://movie\.douban\.com/photos/photo/(.*?)\"&gt;'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
-    pages <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"(.*?)\" &gt;\d&lt;/a&gt;'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"https://movie\.douban\.com/photos/photo/(.*?)\">'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+    pages <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt;a href=\"(.*?)\" >\d&lt;/a>'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># 这里过滤一下需要跳转的页面的url，传给turn_page()进行处理</span>
     <span class="token keyword">for</span> j <span class="token keyword">in</span> pages<span class="token punctuation">:</span>
         turn_page<span class="token punctuation">(</span>j<span class="token punctuation">)</span>
@@ -1901,7 +1901,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">99.6k</span> 字
+                <span class="white-color">100k</span> 字
             
 
             
@@ -2108,5 +2108,5 @@ $(function () {
   </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>
