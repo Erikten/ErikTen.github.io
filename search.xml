@@ -61,9 +61,9 @@
             
             <tag> 渗透测试 </tag>
             
-            <tag> 提权 </tag>
-            
             <tag> 内网渗透 </tag>
+            
+            <tag> 提权 </tag>
             
             <tag> 靶机渗透 </tag>
             
@@ -92,9 +92,9 @@
             
             <tag> 渗透测试 </tag>
             
-            <tag> 提权 </tag>
-            
             <tag> 内网渗透 </tag>
+            
+            <tag> 提权 </tag>
             
             <tag> 靶机渗透 </tag>
             
@@ -123,9 +123,9 @@
             
             <tag> 渗透测试 </tag>
             
-            <tag> 提权 </tag>
-            
             <tag> 内网渗透 </tag>
+            
+            <tag> 提权 </tag>
             
             <tag> 靶机渗透 </tag>
             
@@ -154,9 +154,9 @@
             
             <tag> 渗透测试 </tag>
             
-            <tag> 提权 </tag>
-            
             <tag> 内网渗透 </tag>
+            
+            <tag> 提权 </tag>
             
             <tag> 靶机渗透 </tag>
             
@@ -185,9 +185,9 @@
             
             <tag> 渗透测试 </tag>
             
-            <tag> 提权 </tag>
-            
             <tag> 内网渗透 </tag>
+            
+            <tag> 提权 </tag>
             
             <tag> 靶机渗透 </tag>
             
@@ -247,9 +247,9 @@
             
             <tag> 渗透测试 </tag>
             
-            <tag> 提权 </tag>
-            
             <tag> 内网渗透 </tag>
+            
+            <tag> 提权 </tag>
             
             <tag> 靶机渗透 </tag>
             
@@ -418,9 +418,9 @@
             
             <tag> 渗透测试 </tag>
             
-            <tag> 提权 </tag>
-            
             <tag> 内网渗透 </tag>
+            
+            <tag> 提权 </tag>
             
             <tag> Metasploit </tag>
             
@@ -981,13 +981,13 @@
             
             <tag> 渗透测试 </tag>
             
-            <tag> 提权 </tag>
-            
             <tag> 域渗透 </tag>
             
             <tag> 内网渗透 </tag>
             
             <tag> 环境搭建 </tag>
+            
+            <tag> 提权 </tag>
             
         </tags>
       
@@ -1470,41 +1470,6 @@
     
     
     <entry>
-      <title>Heybbs-2.0多处逻辑漏洞复现</title>
-      <link href="/posts/fa941309.html"/>
-      <url>/posts/fa941309.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote><p>这个漏洞的利用难度有些大，结合SQL注入漏洞，跑出数据库的用户跟密码后，需要有一个可以执行SQL语句的环境，我这里模拟受害者的网站开启了MySQL的远程登陆进行攻击。</p></blockquote><h3 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h3><p>测试这个漏洞之前我其实依然是想挖一下代码执行的，这个洞利用有一定难度，但确确实实存在，就算是创建不了数据库，也是可以创建一个管理员权限的账号。漏洞发生在/install/install.php中，代码没有加任何的判断，攻击者可以轻松访问这个安装页面，就算是demo站，也是可以的，要不是挂了WAF，这个站很快也会沦陷。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200413787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>这是它的代码，上来就接收参数，也不做一个判断<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200435593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>注意第23行，连接上数据库后会把数据库的配置信息写入/php/conn.php中</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200449942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然而这个conn.php的配置文件，会在index.php中被包含进去<br>index.php</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200502575.png" alt="在这里插入图片描述"></p><p>head.php<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200515986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>利用起来麻烦的原因就是数据库必须我们手动创建，他并不会判断有没有然后给我们创建，所以在前言中说需要一个可以执行SQL语句的环境</p><h3 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a>漏洞验证</h3><p>首先通过前面的注入跑出数据库用户的账号密码……</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200748764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>这里可以远程登陆，我们用Navicat连进去，得到一个SQL环境</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200802230.png" alt="在这里插入图片描述"></p><p>创建一个数据库，这里的数据库名字就讲究了，因为要写入到conn.php中，所以要去闭合语句。</p><p><strong>exp：xx”);eval($_REQUEST[‘a’]);#</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200832376.png" alt="在这里插入图片描述"><br>返回到install页面中，在数据库名称一栏中填写exp，数据库账号密码根据跑出来的填写，管理随便填即可</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200848778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>安装成功，语句也成功写入到conn.php中了<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200916275.png" alt="在这里插入图片描述"></p><p>访问index.php，连接成功！<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200927308.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>还有一个洞，危害相对于这个肯定是小了许多，不过俗话说的好，千里之堤，溃于蚁穴。当我们通过注入拿到数据库账号密码后，如果没有SQL执行环境创建数据库，那么我们依然可以创建一个admin权限的用户，同样是在安装页面。</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200940420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>点击立即安装后，会创建admin权限的用户test<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200958807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>来到数据库看一下权限，1代表admin权限：</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120201011657.png" alt="在这里插入图片描述"></p><h3 id="临时修复"><a href="#临时修复" class="headerlink" title="临时修复"></a>临时修复</h3><p>临时修复我采用的是安装完毕后在当前文件夹下创建install.lock文件，访问install先进行一个判断，如果有这个文件就跳转并exit，如果没有就进行安装。<br>index.html改为php文件</p><p>index.php关键代码：</p><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token string">'./install.lock'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                                                                                          <span class="token keyword">echo</span> <span class="token string">'&lt;script type="text/javascript">alert("系统已安装，如需要重新安装，请手工删除install目录下的install.lock文件！");&lt;/script>'</span><span class="token punctuation">;</span>       <span class="token keyword">echo</span> <span class="token string">'&lt;meta http-equiv="refresh" content="0;url=/">'</span><span class="token punctuation">;</span>                                                                         <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                                                                                                  <span class="token punctuation">}</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>install.php</p><pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$in</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">'./install.lock'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">fclose</span> <span class="token punctuation">(</span><span class="token variable">$in</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>来看一下加固效果，安装完成后成功生成install.lock文件</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120201423154.png" alt="在这里插入图片描述"></p><p>直接访问install弹窗并跳转到index.php</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120201435793.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 代码审计篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Exp </tag>
-            
-            <tag> PHP </tag>
-            
-            <tag> 0day </tag>
-            
-            <tag> 漏洞复现 </tag>
-            
-            <tag> 代码审计 </tag>
-            
-            <tag> 逻辑漏洞 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Heybbs-2.0存储型XSS漏洞复现</title>
       <link href="/posts/ebc7c5d9.html"/>
       <url>/posts/ebc7c5d9.html</url>
@@ -1532,6 +1497,41 @@
             <tag> 代码审计 </tag>
             
             <tag> XSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Heybbs-2.0多处逻辑漏洞复现</title>
+      <link href="/posts/fa941309.html"/>
+      <url>/posts/fa941309.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote><p>这个漏洞的利用难度有些大，结合SQL注入漏洞，跑出数据库的用户跟密码后，需要有一个可以执行SQL语句的环境，我这里模拟受害者的网站开启了MySQL的远程登陆进行攻击。</p></blockquote><h3 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h3><p>测试这个漏洞之前我其实依然是想挖一下代码执行的，这个洞利用有一定难度，但确确实实存在，就算是创建不了数据库，也是可以创建一个管理员权限的账号。漏洞发生在/install/install.php中，代码没有加任何的判断，攻击者可以轻松访问这个安装页面，就算是demo站，也是可以的，要不是挂了WAF，这个站很快也会沦陷。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200413787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>这是它的代码，上来就接收参数，也不做一个判断<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200435593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>注意第23行，连接上数据库后会把数据库的配置信息写入/php/conn.php中</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200449942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然而这个conn.php的配置文件，会在index.php中被包含进去<br>index.php</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200502575.png" alt="在这里插入图片描述"></p><p>head.php<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200515986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>利用起来麻烦的原因就是数据库必须我们手动创建，他并不会判断有没有然后给我们创建，所以在前言中说需要一个可以执行SQL语句的环境</p><h3 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a>漏洞验证</h3><p>首先通过前面的注入跑出数据库用户的账号密码……</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200748764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>这里可以远程登陆，我们用Navicat连进去，得到一个SQL环境</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200802230.png" alt="在这里插入图片描述"></p><p>创建一个数据库，这里的数据库名字就讲究了，因为要写入到conn.php中，所以要去闭合语句。</p><p><strong>exp：xx”);eval($_REQUEST[‘a’]);#</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200832376.png" alt="在这里插入图片描述"><br>返回到install页面中，在数据库名称一栏中填写exp，数据库账号密码根据跑出来的填写，管理随便填即可</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200848778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>安装成功，语句也成功写入到conn.php中了<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200916275.png" alt="在这里插入图片描述"></p><p>访问index.php，连接成功！<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200927308.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>还有一个洞，危害相对于这个肯定是小了许多，不过俗话说的好，千里之堤，溃于蚁穴。当我们通过注入拿到数据库账号密码后，如果没有SQL执行环境创建数据库，那么我们依然可以创建一个admin权限的用户，同样是在安装页面。</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200940420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>点击立即安装后，会创建admin权限的用户test<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120200958807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>来到数据库看一下权限，1代表admin权限：</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120201011657.png" alt="在这里插入图片描述"></p><h3 id="临时修复"><a href="#临时修复" class="headerlink" title="临时修复"></a>临时修复</h3><p>临时修复我采用的是安装完毕后在当前文件夹下创建install.lock文件，访问install先进行一个判断，如果有这个文件就跳转并exit，如果没有就进行安装。<br>index.html改为php文件</p><p>index.php关键代码：</p><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token string">'./install.lock'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                                                                                          <span class="token keyword">echo</span> <span class="token string">'&lt;script type="text/javascript">alert("系统已安装，如需要重新安装，请手工删除install目录下的install.lock文件！");&lt;/script>'</span><span class="token punctuation">;</span>       <span class="token keyword">echo</span> <span class="token string">'&lt;meta http-equiv="refresh" content="0;url=/">'</span><span class="token punctuation">;</span>                                                                         <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                                                                                                  <span class="token punctuation">}</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>install.php</p><pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$in</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">'./install.lock'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">fclose</span> <span class="token punctuation">(</span><span class="token variable">$in</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>来看一下加固效果，安装完成后成功生成install.lock文件</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120201423154.png" alt="在这里插入图片描述"></p><p>直接访问install弹窗并跳转到index.php</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210120201435793.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 代码审计篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Exp </tag>
+            
+            <tag> PHP </tag>
+            
+            <tag> 0day </tag>
+            
+            <tag> 漏洞复现 </tag>
+            
+            <tag> 代码审计 </tag>
+            
+            <tag> 逻辑漏洞 </tag>
             
         </tags>
       
