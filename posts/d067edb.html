@@ -911,7 +911,7 @@ $(function () {
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        774
+                        776
                     </div>
                     
 
@@ -947,7 +947,7 @@ $(function () {
             data<span class="token punctuation">:</span> <span class="token punctuation">{</span>filename<span class="token punctuation">:</span> fileName<span class="token punctuation">,</span> filecontent<span class="token punctuation">:</span> fileContent<span class="token punctuation">}</span><span class="token punctuation">,</span>
             success<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">,</span> status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 result <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">var</span> notice <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div class="alert m-5" role="alert">'</span> <span class="token operator">+</span> result<span class="token punctuation">[</span><span class="token string">"info"</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> notice <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div class="alert m-5" role="alert"&gt;'</span> <span class="token operator">+</span> result<span class="token punctuation">[</span><span class="token string">"info"</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'&lt;/div&gt;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token string">"state"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     notice<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">"alert-success"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span> <span class="token keyword">else</span>
@@ -1878,7 +1878,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">99.6k</span> 字
+                <span class="white-color">101.3k</span> 字
 	<br>
             
 

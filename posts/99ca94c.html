@@ -11,10 +11,10 @@
     <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
     <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
     <meta name="description" content="字符串单引号与双引号的区别单引号中的变量不会被解析且格式化字符串不会被转义，而双引号中的变量会被解析，格式化字符串也会被转义：
-&amp;lt;meta charset=&#34;utf-8&#34;&gt;
+&amp;lt;meta charset=&#34;utf-8&#34;&amp;gt;
 &amp;lt;?php
     $a = 15;
-    $b =">
+    $">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -904,7 +904,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        962
+                        995
                     </div>
                     
 
@@ -929,57 +929,57 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h5 id="单引号与双引号的区别"><a href="#单引号与双引号的区别" class="headerlink" title="单引号与双引号的区别"></a>单引号与双引号的区别</h5><p>单引号中的变量不会被解析且格式化字符串不会被转义，而双引号中的变量会被解析，格式化字符串也会被转义：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
     <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">echo</span> <span class="token string">"xxxx\nxxx$a"</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">'xx\nxxxxx$a'</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">echo</span> <span class="token string">"xxxx\nxxx$a"</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">'xx\nxxxxx$a'</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031153141755.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="字符串常用的函数"><a href="#字符串常用的函数" class="headerlink" title="字符串常用的函数"></a>字符串常用的函数</h3><h5 id="strlen"><a href="#strlen" class="headerlink" title="strlen()"></a>strlen()</h5><p>输出当前字符串的长度，汉字占3个字符，英文和数字占1个字符：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">"editor.csdn.com"</span><span class="token punctuation">;</span>
     <span class="token shell-comment comment"># 这里输出15</span>
     <span class="token keyword">echo</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="mb-strlen"><a href="#mb-strlen" class="headerlink" title="mb_strlen()"></a>mb_strlen()</h5><p>输出解码后字符串的长度：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">"editor.csdn.com"</span><span class="token punctuation">;</span>
     <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token string">'北京'</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token function">mb_strlen</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
     <span class="token shell-comment comment"># 北京经过utf-8解码后是2</span>
     <span class="token keyword">echo</span> <span class="token function">mb_strlen</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">,</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="strpos"><a href="#strpos" class="headerlink" title="strpos()"></a>strpos()</h5><p>这个函数用来返回字符串在其当前行数出现的位置：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">"editor.csdn.com"</span><span class="token punctuation">;</span>
     <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token string">'北京'</span><span class="token punctuation">;</span>
     <span class="token shell-comment comment"># 这里会输出7</span>
     <span class="token keyword">echo</span> <span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token string">'csdn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="stripos"><a href="#stripos" class="headerlink" title="stripos()"></a>stripos()</h5><p>它跟上面函数的区别就是区分大小写，它不区分，它上面的区分</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">"editor.csdn.com"</span><span class="token punctuation">;</span>
     <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token string">'北京'</span><span class="token punctuation">;</span>
 
     <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token string">'Csdn'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
     <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">stripos</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token string">'Csdn'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031155738413.png#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="str-replace"><a href="#str-replace" class="headerlink" title="str_replace()"></a>str_replace()</h5><p>这个函数在很多代码级的防护上都有出现，效果就是字符串替换，这个函数跟strpos()一样，区分大小写，而str_ireplace()不区分大小写：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">"editor.csdn.com"</span><span class="token punctuation">;</span>
@@ -987,51 +987,51 @@
     <span class="token comment" spellcheck="true">//将字符串a中的csdn替换成baidu并把结果赋值给c</span>
     <span class="token variable">$c</span> <span class="token operator">=</span> <span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token string">'csdn'</span><span class="token punctuation">,</span> <span class="token string">'baidu'</span><span class="token punctuation">,</span> <span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token string">"$a"</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token string">"$c"</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031203304750.png#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="strstr"><a href="#strstr" class="headerlink" title="strstr()"></a>strstr()</h5><p>这个函数的作用是查找字符串的首次出现 ：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 <span class="token variable">$email</span>   <span class="token operator">=</span>  <span class="token string">'username@example.com'</span> <span class="token punctuation">;</span>
 <span class="token variable">$domain</span>  <span class="token operator">=</span>  <span class="token function">strstr</span> <span class="token punctuation">(</span> <span class="token variable">$email</span> <span class="token punctuation">,</span>  <span class="token string">'@'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span>  <span class="token variable">$domain</span> <span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 打印 @example.com</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 从 PHP 5.3.0 起，参数true返回条件前的字符串，不包含条件，false返回条件后的字符串，包含条件</span>
 <span class="token variable">$user</span>  <span class="token operator">=</span>  <span class="token function">strstr</span> <span class="token punctuation">(</span> <span class="token variable">$email</span> <span class="token punctuation">,</span>  <span class="token string">'@'</span> <span class="token punctuation">,</span>  <span class="token boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>  
 <span class="token keyword">echo</span>  <span class="token variable">$user</span> <span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 打印 name</span>
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h5><p>这个函数的作用是截取字符串，比如我们要截取username这个字符串，他就是从0开始，长度为8的一个条件，我们按照这个条件来截取即可</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 <span class="token variable">$email</span>   <span class="token operator">=</span>  <span class="token string">'username@example.com'</span> <span class="token punctuation">;</span>
 
 <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$email</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token string">"$str"</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031204837867.png#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="explode"><a href="#explode" class="headerlink" title="explode()"></a>explode()</h5><p>这个函数类似于Python中的split()函数，按条件分割字符串并以数组的形式保存：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 <span class="token variable">$website</span> <span class="token operator">=</span> <span class="token string">'www.qq.com'</span> <span class="token punctuation">;</span>
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span><span class="token variable">$website</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$array</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031205950824.png#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="implode"><a href="#implode" class="headerlink" title="implode()"></a>implode()</h5><p>这个函数刚好与explode()对应，它的作用是把数组以某种条件拼接成一串字符串：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$array</span>  <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string">'lastname'</span> <span class="token punctuation">,</span>  <span class="token string">'email'</span> <span class="token punctuation">,</span>  <span class="token string">'phone'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$comma_separated</span>  <span class="token operator">=</span>  <span class="token function">implode</span> <span class="token punctuation">(</span> <span class="token string">","</span> <span class="token punctuation">,</span>  <span class="token variable">$array</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">echo</span>  <span class="token variable">$comma_separated</span> <span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// lastname,email,phone</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//使用空数组时为空字符串</span>
  <span class="token function">var_dump</span> <span class="token punctuation">(</span> <span class="token function">implode</span> <span class="token punctuation">(</span> <span class="token string">'hello'</span> <span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// string(0) ""</span>
 
- <span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token delimiter">?&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031210705797.png#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="trim"><a href="#trim" class="headerlink" title="trim()"></a>trim()</h5><p>这个函数对应Python中的strip()函数，用于去除字符串头尾的空格或其他你指定的字符：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1040,21 +1040,21 @@
 
 
 <span class="token keyword">echo</span> <span class="token string">"$test"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token string">"$newstr"</span><span class="token punctuation">;</span>
- <span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token delimiter">?&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031212138154.png#pic_center" alt="在这里插入图片描述"><br>如果想要去除空格的话是不需要加条件的，这个函数本身就是用来去除字符串首尾空格的，对应消除<strong>左边</strong>字符与<strong>右边</strong>字符的是<strong>rtrim()</strong>和<strong>ltrim()</strong></p>
 <h5 id="addslashes-和htmlspecialchars"><a href="#addslashes-和htmlspecialchars" class="headerlink" title="addslashes()和htmlspecialchars()"></a>addslashes()和htmlspecialchars()</h5><p>这两个函数放到一起写是因为他俩经常用于防注入和防XSS</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031213604817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>来一段代码感受一下：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$username</span> <span class="token operator">=</span> <span class="token string">"admin'"</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token function">addslashes</span><span class="token punctuation">(</span><span class="token variable">$username</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token delimiter">?&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里会把admin后面的单引号转义掉：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031213927775.png#pic_center" alt="在这里插入图片描述"><br>再看一下htmlspecialchars()函数<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031214355372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>主要看下面那5条，这是他的过滤规则，我们来一个代码测试一下：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token variable">$search</span> <span class="token operator">=</span> <span class="token string">"&lt;script>alert('xss')&lt;/script>"</span><span class="token punctuation">;</span>
+<span class="token variable">$search</span> <span class="token operator">=</span> <span class="token string">"&lt;script&gt;alert('xss')&lt;/script&gt;"</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token variable">$search</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token delimiter">?&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>看一下源代码就知道它怎么转义的了 ：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031214620446.png#pic_center" alt="在这里插入图片描述"><br>在后面的学习中我会更详细的补充这两个函数的</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1876,7 +1876,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">99.6k</span> 字
+                <span class="white-color">101.3k</span> 字
 	<br>
             
 

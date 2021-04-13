@@ -864,12 +864,12 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
                                 <span class="chip bg-color">PHP</span>
                             </a>
                         
-                            <a href="/tags/代码执行/" target="_blank">
-                                <span class="chip bg-color">代码执行</span>
-                            </a>
-                        
                             <a href="/tags/渗透测试/" target="_blank">
                                 <span class="chip bg-color">渗透测试</span>
+                            </a>
+                        
+                            <a href="/tags/代码执行/" target="_blank">
+                                <span class="chip bg-color">代码执行</span>
                             </a>
                         
                     </div>
@@ -906,7 +906,7 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        679
+                        682
                     </div>
                     
 
@@ -983,11 +983,11 @@ PHP代码执行漏洞可以将代码注入到应用中，最终到webserver去�
 <h4 id="第一个参数"><a href="#第一个参数" class="headerlink" title="第一个参数"></a>第一个参数</h4><p>先来举一个例子，preg_replace中/e模式会将过滤后的字符串当作php代码执行，假如它将我们输入的内容拼接到了正则表达式中，那么我们可以构造一个含有代码执行漏洞的正则表达式：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token keyword">echo</span> <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$Str</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'str'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token string">"/&lt;php>(.*?).$cmd"</span><span class="token punctuation">,</span><span class="token string">"\\1"</span><span class="token punctuation">,</span><span class="token string">"$Str"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token string">"/&lt;php&gt;(.*?).$cmd"</span><span class="token punctuation">,</span><span class="token string">"\\1"</span><span class="token punctuation">,</span><span class="token string">"$Str"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>根据正则构造payload：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token operator">?</span>cmd<span class="token operator">=</span><span class="token number">1</span><span class="token operator">/</span>e<span class="token operator">&amp;</span>str<span class="token operator">=</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>php</span><span class="token punctuation">></span></span></span><span class="token function">system</span><span class="token punctuation">(</span>whoami<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">--</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token operator">?</span>cmd<span class="token operator">=</span><span class="token number">1</span><span class="token operator">/</span>e<span class="token operator">&amp;</span>str<span class="token operator">=</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>php</span><span class="token punctuation">&gt;</span></span></span><span class="token function">system</span><span class="token punctuation">(</span>whoami<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">--</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201126173243230.png#pic_center" alt="在这里插入图片描述"></p>
 <h4 id="第二个参数"><a href="#第二个参数" class="headerlink" title="第二个参数"></a>第二个参数</h4><p>第二个参数是，替换的字符串，当正则匹配上之后，程序将匹配的内容替换为第二个参数中的内容，如果第二个参数用户可控，那么也有可能造成代码执行：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1834,7 +1834,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">99.6k</span> 字
+                <span class="white-color">101.3k</span> 字
 	<br>
             
 

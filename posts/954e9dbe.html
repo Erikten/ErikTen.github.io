@@ -913,7 +913,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        6 分
+                        7 分
                     </div>
                     
                 
@@ -941,20 +941,20 @@
     注释
     */</span>
     <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201030224042311.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="变量的写法"><a href="#变量的写法" class="headerlink" title="变量的写法"></a>变量的写法</h3><p>变量名：<strong>必须以$符开头</strong><br>变量名组成部分：a-z A-Z 0-9 下划线，<strong>但是不能以数字开头！</strong></p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>变量区分大小写</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
     <span class="token variable">$A</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
     <span class="token shell-comment comment"># 运行会输出10</span>
     <span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在学习变量类型前需要学习三个函数，为了方便我们了解变量类型。</p>
 <h3 id="输出变量类型的函数"><a href="#输出变量类型的函数" class="headerlink" title="输出变量类型的函数"></a>输出变量类型的函数</h3><h5 id="isset"><a href="#isset" class="headerlink" title="isset()"></a>isset()</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201030225419944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>现在我们来测试一下：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -962,7 +962,7 @@
     <span class="token variable">$A</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020103022572954.png#pic_center" alt="在这里插入图片描述"><br>这里可以看到，程序只输出了1，其实它返回了两个值，一个1，一个NULL，为了更好的观察它的返回值，我们在这里使用另一个函数var_dump</p>
 <h5 id="var-dump"><a href="#var-dump" class="headerlink" title="var_dump()"></a>var_dump()</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020103023024289.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>现在我们来看一下添加了var_dump()函数后的程序输出怎样的结果：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -974,7 +974,7 @@
     <span class="token keyword">echo</span> <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// echo isset($b);</span>
     <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201030232954733.png#pic_center" alt="在这里插入图片描述"></p>
 <p>最后来一个gettype()，查询变量的类型</p>
 <h5 id="gettype"><a href="#gettype" class="headerlink" title="gettype()"></a>gettype()</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201030233234328.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">用法：</p>
@@ -994,24 +994,24 @@
     <span class="token comment" spellcheck="true">// var_dump(isset($b))</span>
 
     <span class="token keyword">echo</span> <span class="token function">gettype</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token function">gettype</span><span class="token punctuation">(</span><span class="token variable">$A</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token function">gettype</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token function">gettype</span><span class="token punctuation">(</span><span class="token variable">$B</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token function">gettype</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020103023452596.png#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="PHP的五个基本数据类型"><a href="#PHP的五个基本数据类型" class="headerlink" title="PHP的五个基本数据类型"></a>PHP的五个基本数据类型</h3><h5 id="字符串（string）"><a href="#字符串（string）" class="headerlink" title="字符串（string）"></a>字符串（string）</h5><ul>
 <li>字符串要用<strong>双引号</strong>或者<strong>单引号</strong>括住，中间可以加html标签</li>
 </ul>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$number</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'xiaoming jin nian $number sui le ~&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'xiaoming jin nian $number sui le ~&lt;br&gt;'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token string">"xiaoming jin nian $number sui le ~"</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意：</p>
 <ol>
 <li>用<strong>单引号</strong>时，程序不会对字符串进行解析，如果包含变量，只会输出变量名，而不会输出变量值</li>
@@ -1031,7 +1031,7 @@
 <span class="token variable">$count</span> <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span>
 <span class="token variable">$null</span> <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$count</span><span class="token punctuation">,</span><span class="token variable">$login</span><span class="token punctuation">,</span><span class="token variable">$null</span><span class="token punctuation">,</span><span class="token variable">$number</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//打印当前变量类型</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201009114034554.png#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="PHP的运算符"><a href="#PHP的运算符" class="headerlink" title="PHP的运算符"></a>PHP的运算符</h3><h5 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201009114252736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这个敲一敲就行了，比较简单：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1041,17 +1041,17 @@
 
 <span class="token comment" spellcheck="true">//进行加减乘除运算并输出结果</span>
 <span class="token keyword">echo</span> <span class="token punctuation">(</span><span class="token variable">$x</span><span class="token operator">+</span><span class="token variable">$y</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">echo</span> <span class="token punctuation">(</span><span class="token variable">$x</span><span class="token operator">-</span><span class="token variable">$y</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">echo</span> <span class="token punctuation">(</span><span class="token variable">$x</span><span class="token operator">*</span><span class="token variable">$y</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">echo</span> <span class="token punctuation">(</span><span class="token variable">$x</span><span class="token operator">/</span><span class="token variable">$y</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="字符串运算"><a href="#字符串运算" class="headerlink" title="字符串运算"></a>字符串运算</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201009115339493.png#pic_center" alt="在这里插入图片描述"></p>
 <p>在PHP中字符串的拼接用.（点）来完成，例如：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1060,7 +1060,7 @@
 <span class="token variable">$y</span> <span class="token operator">=</span> <span class="token string">' world!'</span><span class="token punctuation">;</span>
 <span class="token variable">$z</span> <span class="token operator">=</span> <span class="token variable">$x</span><span class="token punctuation">.</span><span class="token variable">$y</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$z</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201009120233411.png#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h5><p>示例：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1073,15 +1073,15 @@
 
 <span class="token comment" spellcheck="true">//开始赋值运算</span>
 <span class="token keyword">echo</span> <span class="token variable">$x</span><span class="token operator">+</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$y</span><span class="token operator">-</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$z</span><span class="token operator">*</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token operator">/</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$b</span><span class="token operator">%</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="递增递减运算符"><a href="#递增递减运算符" class="headerlink" title="递增递减运算符"></a>递增递减运算符</h5><p>递增递减运算符只能作用于变量：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201010022732972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>例子：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
@@ -1089,9 +1089,9 @@
     <span class="token variable">$y</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
     <span class="token keyword">echo</span> <span class="token variable">$x</span><span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span> <span class="token operator">++</span><span class="token variable">$y</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里输出的结果一个为一一个为二，但其实都是2，之不过一个先输出再自加，一个先自加再输出而已，有点类似于二进制里边的压栈出栈的感觉，顺序不同而已。</p>
 <h5 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201010143249680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这里强调说一下等于（==）和全等于（ ===）的区别：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1107,61 +1107,61 @@
     <span class="token punctuation">{</span>
         <span class="token keyword">echo</span> <span class="token string">'$x quandengyu $y'</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201010144307962.png#pic_center" alt="在这里插入图片描述"></p>
 <p>可以看到，<strong>全等于不仅要求数值相同，数据结构也得一样</strong>，x是整型，y是字符串，所以不会输出结果</p>
 <ol start="6">
 <li>三元运算符</li>
 </ol>
 <p>这个比较特殊，用到的是?和:，我们来一段代码看一下：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//进行三元运算，a大于b吗？大于就输出大于，反之输出不大于</span>
-<span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token operator">></span><span class="token variable">$b</span><span class="token operator">?</span><span class="token string">'大于'</span><span class="token punctuation">:</span><span class="token string">'不大于'</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token operator">&gt;</span><span class="token variable">$b</span><span class="token operator">?</span><span class="token string">'大于'</span><span class="token punctuation">:</span><span class="token string">'不大于'</span>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>结果：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031135638369.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201010151738772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <p>来一段代码感受一下：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token variable">$b</span> <span class="token operator">=</span> False<span class="token punctuation">;</span>
 
     <span class="token keyword">echo</span><span class="token string">'是$a 与 $b的结果'</span><span class="token punctuation">.</span><span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span><span class="token string">'是$a 或 $b的结果'</span><span class="token punctuation">.</span><span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token operator">||</span> <span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span><span class="token string">'是$a 异或 $b的结果'</span><span class="token punctuation">.</span><span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token keyword">xor</span> <span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
     <span class="token keyword">echo</span><span class="token string">'是 非$b的结果'</span><span class="token punctuation">.</span><span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/202010311410281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="PHP中的控制结构"><a href="#PHP中的控制结构" class="headerlink" title="PHP中的控制结构"></a>PHP中的控制结构</h3><h5 id="选择结构（if、switch）"><a href="#选择结构（if、switch）" class="headerlink" title="选择结构（if、switch）"></a>选择结构（if、switch）</h5><p>这里的if-else跟其他编程语言的没啥区别，就是写法不同：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
     <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">></span><span class="token number">5</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">&gt;</span><span class="token number">5</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">'a>5'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">'a&gt;5'</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">"a>1"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"a&gt;1"</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">else</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">echo</span> <span class="token string">"不符合条件"</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>接着就是switch语句，switch后跟一个变量，case后跟条件，符合就break，不符合顺序执行下一条case，都不符合就执行default：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
@@ -1182,9 +1182,9 @@
             <span class="token keyword">echo</span> <span class="token string">"a = ???"</span><span class="token punctuation">;</span>
             <span class="token keyword">break</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="循环结构（while、for、do-while）"><a href="#循环结构（while、for、do-while）" class="headerlink" title="循环结构（while、for、do-while）"></a>循环结构（while、for、do-while）</h5><p>while后跟条件，中间是循环体，这是while在编程语言中的典型用法：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
@@ -1192,32 +1192,32 @@
 
     <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">&lt;</span><span class="token variable">$b</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">"a = $a,b = $b"</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"a = $a,b = $b"</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
         <span class="token variable">$a</span><span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031145233681.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>接着是for，这里的for循环跟C语言中的for循环有点相似，先定义一个初始变量i，跟上一个循环条件，最后做一个自变来防止死循环：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
         <span class="token shell-comment comment"># code...</span>
-        <span class="token keyword">echo</span> <span class="token string">"i = $i"</span><span class="token punctuation">.</span><span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"i = $i"</span><span class="token punctuation">.</span><span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031150021104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>最后是do-while，它跟while的区别就是，do-while是先执行语句，在判断循环，while则是先判断循环，在执行语句：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
 <span class="token delimiter">&lt;?php</span>
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
     <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
     <span class="token keyword">do</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">"a =$a"</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"a =$a"</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
         <span class="token variable">$a</span><span class="token operator">--</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token variable">$a</span><span class="token operator">></span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token variable">$a</span><span class="token operator">&gt;</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201031151223496.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="输出九九乘法表"><a href="#输出九九乘法表" class="headerlink" title="输出九九乘法表"></a>输出九九乘法表</h3><p>重点在于两个for循环的嵌套，i必须小于10，并且自加，j必须小于等于i，也进行自加，且它俩初始值都为0</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1226,9 +1226,9 @@
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$j</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$j</span> <span class="token operator">&lt;=</span><span class="token variable">$i</span> <span class="token punctuation">;</span> <span class="token variable">$j</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
         <span class="token keyword">echo</span> <span class="token string">"$i*$j="</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token variable">$i</span><span class="token operator">*</span><span class="token variable">$j</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">'&amp;nbsp'</span><span class="token punctuation">.</span><span class="token string">'&amp;nbsp'</span><span class="token punctuation">.</span><span class="token string">'&amp;nbsp'</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br/&gt;"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201101234526611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -2050,7 +2050,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">99.6k</span> 字
+                <span class="white-color">101.3k</span> 字
 	<br>
             
 

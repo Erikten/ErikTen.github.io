@@ -1075,7 +1075,7 @@ allow_url_include = on/off
 <li><p><code>php://input + [POST DATA]</code>执行php代码</p>
 <pre class="line-numbers language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//1.1.1.137:8001/protocol/file.php?file=php://input</span>
 <span class="token punctuation">[</span><span class="token constant">POST</span> <span class="token constant">DATA</span>部分<span class="token punctuation">]</span>
-<span class="token delimiter">&lt;?php</span> <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">&lt;?php</span> <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201209223746974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果有写入权限，也可以直接写一句话：</p>
 </li>
 </ol>
@@ -1096,7 +1096,7 @@ http://127.0.0.1/include.php?file=php://input
 <p>例子：</p>
 <ol>
 <li><p><code>data://text/plain,</code></p>
-<pre class="line-numbers language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//1.1.1.137:8001/protocol/file.php?file=data://text/plain,&lt;?php%20phpinfo();?></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//1.1.1.137:8001/protocol/file.php?file=data://text/plain,&lt;?php%20phpinfo();?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020120923045055.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 </li>
 <li><p><code>data://text/plain;base64,</code></p>
@@ -1933,7 +1933,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">99.6k</span> 字
+                <span class="white-color">101.3k</span> 字
 	<br>
             
 

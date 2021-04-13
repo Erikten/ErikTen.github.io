@@ -950,7 +950,7 @@ class Dog():
     <span class="token keyword">def</span> <span class="token function">attack</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>dog<span class="token punctuation">)</span><span class="token punctuation">:</span>
         dog<span class="token punctuation">.</span>reduce_blood<span class="token punctuation">(</span>self<span class="token punctuation">.</span>power<span class="token punctuation">)</span>
     <span class="token keyword">def</span> <span class="token function">reduce_blood</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>reduce_value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> reduce_value <span class="token operator">></span> self<span class="token punctuation">.</span>blood<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> reduce_value <span class="token operator">&gt;</span> self<span class="token punctuation">.</span>blood<span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>blood <span class="token operator">=</span> <span class="token number">0</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>blood <span class="token operator">=</span> self<span class="token punctuation">.</span>blood<span class="token operator">-</span>reduce_value
@@ -1004,7 +1004,7 @@ d1<span class="token punctuation">.</span>number_of_dogs <span class="token oper
     <span class="token keyword">def</span> <span class="token function">biggest</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span>
         max_height <span class="token operator">=</span> <span class="token number">0</span>
         <span class="token keyword">for</span> i <span class="token keyword">in</span> cls<span class="token punctuation">.</span>dogs<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> i<span class="token punctuation">.</span>height <span class="token operator">></span> max_height<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i<span class="token punctuation">.</span>height <span class="token operator">&gt;</span> max_height<span class="token punctuation">:</span>
                 max_height <span class="token operator">=</span> i<span class="token punctuation">.</span>height
         <span class="token keyword">return</span> max_height
 
@@ -1036,7 +1036,7 @@ d2 <span class="token operator">=</span> Dog<span class="token punctuation">(</s
     @classmethod
     <span class="token keyword">def</span> <span class="token function">num_of_big_dog</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">for</span> i <span class="token keyword">in</span> Dog<span class="token punctuation">.</span>dogs<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> i<span class="token punctuation">.</span>height <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i<span class="token punctuation">.</span>height <span class="token operator">&gt;</span> <span class="token number">50</span><span class="token punctuation">:</span>
                 Dog<span class="token punctuation">.</span>big_dogs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
         <span class="token keyword">print</span> <span class="token string">'身高大于50公分的狗有{}只'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>len<span class="token punctuation">(</span>Dog<span class="token punctuation">.</span>big_dogs<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -1505,7 +1505,7 @@ pet_dog <span class="token operator">=</span> dog<span class="token punctuation"
     <span class="token comment" spellcheck="true"># 定义attack方法执行攻击行为</span>
     <span class="token keyword">def</span> <span class="token function">attack</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>hero<span class="token punctuation">)</span><span class="token punctuation">:</span>
         hero<span class="token punctuation">.</span>blood <span class="token operator">=</span> hero<span class="token punctuation">.</span>blood <span class="token operator">-</span> self<span class="token punctuation">.</span>power
-        <span class="token keyword">if</span> hero<span class="token punctuation">.</span>blood <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> hero<span class="token punctuation">.</span>blood <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span> <span class="token string">'{}剩余血量为：{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>hero<span class="token punctuation">.</span>name<span class="token punctuation">,</span>hero<span class="token punctuation">.</span>blood<span class="token punctuation">)</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             hero<span class="token punctuation">.</span>blood <span class="token operator">=</span> <span class="token number">0</span>
@@ -2393,7 +2393,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">99.6k</span> 字
+                <span class="white-color">101.3k</span> 字
 	<br>
             
 

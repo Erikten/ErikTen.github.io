@@ -915,7 +915,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        823
+                        826
                     </div>
                     
 
@@ -963,8 +963,8 @@
 <h3 id="临时修复"><a href="#临时修复" class="headerlink" title="临时修复"></a>临时修复</h3><p>临时修复我采用的是安装完毕后在当前文件夹下创建install.lock文件，访问install先进行一个判断，如果有这个文件就跳转并exit，如果没有就进行安装。<br>index.html改为php文件</p>
 <p>index.php关键代码：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token string">'./install.lock'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                                                                                      
-    <span class="token keyword">echo</span> <span class="token string">'&lt;script type="text/javascript">alert("系统已安装，如需要重新安装，请手工删除install目录下的install.lock文件！");&lt;/script>'</span><span class="token punctuation">;</span>   
-    <span class="token keyword">echo</span> <span class="token string">'&lt;meta http-equiv="refresh" content="0;url=/">'</span><span class="token punctuation">;</span>                                                                     
+    <span class="token keyword">echo</span> <span class="token string">'&lt;script type="text/javascript"&gt;alert("系统已安装，如需要重新安装，请手工删除install目录下的install.lock文件！");&lt;/script&gt;'</span><span class="token punctuation">;</span>   
+    <span class="token keyword">echo</span> <span class="token string">'&lt;meta http-equiv="refresh" content="0;url=/"&gt;'</span><span class="token punctuation">;</span>                                                                     
     <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                                                                                                  
 <span class="token punctuation">}</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>install.php</p>
@@ -1818,7 +1818,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">99.6k</span> 字
+                <span class="white-color">101.3k</span> 字
 	<br>
             
 
