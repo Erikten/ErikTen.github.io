@@ -866,12 +866,12 @@
                                 <span class="chip bg-color">PHP</span>
                             </a>
                         
-                            <a href="/tags/命令执行/" target="_blank">
-                                <span class="chip bg-color">命令执行</span>
-                            </a>
-                        
                             <a href="/tags/渗透测试/" target="_blank">
                                 <span class="chip bg-color">渗透测试</span>
+                            </a>
+                        
+                            <a href="/tags/命令执行/" target="_blank">
+                                <span class="chip bg-color">命令执行</span>
                             </a>
                         
                     </div>
@@ -908,14 +908,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        763
+                        754
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        2 分
                     </div>
                     
                 
@@ -950,7 +950,7 @@
 <p>举个例子：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;hd&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;hd>'</span><span class="token punctuation">;</span>
 <span class="token function">system</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 或者</span>
 <span class="token function">passthru</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -962,24 +962,24 @@
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;pre &gt;"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;pre >"</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201127143007164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h4 id="shell-exec"><a href="#shell-exec" class="headerlink" title="shell_exec()"></a>shell_exec()</h4><p>它相对于exec来说体验更好，也是需要echo一下，不过它会全部回显：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;pre &gt;"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;pre >"</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//echo exec($cmd);</span>
 <span class="token keyword">echo</span> <span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201127143211310.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="过滤函数"><a href="#过滤函数" class="headerlink" title="过滤函数"></a>过滤函数</h3><h4 id="escapeshellcmd"><a href="#escapeshellcmd" class="headerlink" title="escapeshellcmd()"></a>escapeshellcmd()</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201127143929769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>举个例子：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token function">escapeshellcmd</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;pre &gt;"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;pre >"</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$cmd</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//echo exec($cmd);</span>
 <span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -987,12 +987,12 @@
 <span class="token comment" spellcheck="true">//escapeshellarg();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>它过滤了一些特殊字符，以至于命令无法执行：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020112714481253.png#pic_center" alt="在这里插入图片描述"></p>
 <h4 id="escapeshellarg"><a href="#escapeshellarg" class="headerlink" title="escapeshellarg()"></a>escapeshellarg()</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201127143958671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这个函数是将参数转化为字符串，也就是将我们的命令转化为字符串，起到一个保护作用：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token function">escapeshellarg</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;pre &gt;"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token variable">$cmd</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;pre >"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$cmd</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//echo exec($cmd);</span>
 <span class="token keyword">echo</span> <span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1843,7 +1843,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">101.3k</span> 字
+                <span class="white-color">100.9k</span> 字
 	<br>
             
 
@@ -2053,5 +2053,5 @@ $(function () {
   </script>
         
 
-    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>
