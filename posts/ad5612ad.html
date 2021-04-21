@@ -5,20 +5,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="PHP代码审计基础：会话认证漏洞, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
+    <meta name="keywords" content="Linux文件权限管理, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
     <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
-    <meta name="description" content="会话认证漏洞
-session固定攻击
-session劫持攻击
-
-挖掘思路
-遇到比较多的就是在cookie验证上，通常是没有使用session来认证，直接将用户信息保存在cookie中。
-
-session劫持攻击
-session劫持攻击是指黑">
+    <meta name="description" content="Linux文件权限管理一、文件存取访问身份Linux的优秀之处在于它的多用户多任务环境，为了方便文件的管理，有三种文件存取访问身份，分别是：用户、用户组、其他
+二、文件属性我们在用ls列举出当前工作目录下的文件时，显示的只是文件或目录名，要">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +20,7 @@ session劫持攻击是指黑">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="baidu-site-verification" content="wvlc3L96QK">
-    <title>PHP代码审计基础：会话认证漏洞 | Erikten</title>
+    <title>Linux文件权限管理 | Erikten</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -736,13 +729,13 @@ session劫持攻击是指黑">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/04.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        PHP代码审计基础：会话认证漏洞
+                        Linux文件权限管理
                     </div>
                 </div>
             </div>
@@ -862,20 +855,8 @@ session劫持攻击是指黑">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/代码审计/" target="_blank">
-                                <span class="chip bg-color">代码审计</span>
-                            </a>
-                        
-                            <a href="/tags/PHP/" target="_blank">
-                                <span class="chip bg-color">PHP</span>
-                            </a>
-                        
-                            <a href="/tags/渗透测试/" target="_blank">
-                                <span class="chip bg-color">渗透测试</span>
-                            </a>
-                        
-                            <a href="/tags/会话认证/" target="_blank">
-                                <span class="chip bg-color">会话认证</span>
+                            <a href="/tags/运维/" target="_blank">
+                                <span class="chip bg-color">运维</span>
                             </a>
                         
                     </div>
@@ -886,8 +867,8 @@ session劫持攻击是指黑">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                代码审计篇
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                网络运维篇
                             </a>
                         
                     </div>
@@ -898,7 +879,7 @@ session劫持攻击是指黑">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-13
+                    2021-04-21
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -912,14 +893,14 @@ session劫持攻击是指黑">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.1k
+                        4.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        19 分
                     </div>
                     
                 
@@ -936,122 +917,265 @@ session劫持攻击是指黑">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="会话认证漏洞"><a href="#会话认证漏洞" class="headerlink" title="会话认证漏洞"></a>会话认证漏洞</h3><ul>
-<li>session固定攻击</li>
-<li>session劫持攻击</li>
-</ul>
-<h3 id="挖掘思路"><a href="#挖掘思路" class="headerlink" title="挖掘思路"></a>挖掘思路</h3><blockquote>
-<p>遇到比较多的就是在<code>cookie验证</code>上，通常是没有使用session来认证，直接将用户信息保存在cookie中。</p>
-</blockquote>
-<h3 id="session劫持攻击"><a href="#session劫持攻击" class="headerlink" title="session劫持攻击"></a>session劫持攻击</h3><blockquote>
-<p>session劫持攻击是指黑客劫持目标用户的<code>session id</code>，来获取网站上未经许可的储存信息，特别是窃取目标用户的的cookie数据等，来取得网站的认可。</p>
-</blockquote>
-<h4 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h4><ol>
-<li>目标用户需要先登录站点；</li>
-<li>登录成功后，该用户会得到站点提供的一个会话标识SessionID；</li>
-<li><strong>攻击者通过某种攻击手段捕获Session ID；</strong></li>
-<li>攻击者通过捕获到的Session ID访问站点即可获得目标用户合法会话。</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/31d73b17e772ce03d00c3190e0873999.png#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4><p>我搭建一个简陋的“网上钱包”系统，模拟黑客的攻击流程。</p>
-<p>login.php:</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-<span class="token delimiter">&lt;?php</span>
-<span class="token function">session_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'login'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token variable">$username</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$password</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token string">"localhost"</span><span class="token punctuation">,</span><span class="token string">"root"</span><span class="token punctuation">,</span><span class="token string">"root"</span><span class="token punctuation">,</span><span class="token string">"admin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"SELECT * FROM user WHERE username='$username' AND password='$password'"</span><span class="token punctuation">;</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span><span class="token variable">$sql</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">"执行失败！"</span><span class="token punctuation">.</span><span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token operator">=</span> <span class="token function">mysqli_num_rows</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$username</span><span class="token punctuation">;</span>
-        <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$password</span><span class="token punctuation">;</span>
-        <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'book'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token function">header</span><span class="token punctuation">(</span>"location<span class="token punctuation">:</span>http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//127.0.0.1:8001/session_attack/member.php?user=".$username);</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">"登录失败！"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token delimiter">?></span>
+                <h1 id="Linux文件权限管理"><a href="#Linux文件权限管理" class="headerlink" title="Linux文件权限管理"></a>Linux文件权限管理</h1><h2 id="一、文件存取访问身份"><a href="#一、文件存取访问身份" class="headerlink" title="一、文件存取访问身份"></a><strong>一、文件存取访问身份</strong></h2><p>Linux的优秀之处在于它的多用户多任务环境，为了方便文件的管理，有三种文件存取访问身份，分别是：用户、用户组、其他</p>
+<h2 id="二、文件属性"><a href="#二、文件属性" class="headerlink" title="二、文件属性"></a><strong>二、文件属性</strong></h2><p>我们在用ls列举出当前工作目录下的文件时，显示的只是文件或目录名，要想显示属性，使用ls -l，要列举出隐藏文件，使用ls -al。</p>
+<p>第一列为10个字符，代表这个文件的类型和权限。</p>
+<p>第二列是一个数字，表示有多少文件名链接到此节点。（Linux的目录树是使用文件名来记录的）</p>
+<p>第三列表示这个文件的所有者账号。</p>
+<p>第四列表示这个文件的所属组账号。</p>
+<p>第五列的数字代表这个文件的大小，单位是Byte。</p>
+<p>第六列是这个文件的创建日期或者最近修改日期。</p>
+<p>最后列是文件名，如果文件名前多个‘.’，代表这个文件是隐藏文件。</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190505120449206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RpeWlkYXk=,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p><strong>文件种类以及其属性表示</strong></p>
+<pre><code>-：一般文件
 
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>login.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-    账号：<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span></span>
-    密码：<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>登录<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>login<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>member.php:</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-<span class="token delimiter">&lt;?php</span>
-<span class="token function">session_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"访客的session id是："</span><span class="token punctuation">.</span><span class="token function">session_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"访客昵称："</span><span class="token punctuation">.</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"账户余额："</span><span class="token punctuation">.</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'book'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>attack.php</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-<span class="token delimiter">&lt;?php</span>
-<span class="token function">session_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"访客的session id是："</span><span class="token punctuation">.</span><span class="token function">session_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"访客昵称："</span><span class="token punctuation">.</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"book的商品数量："</span><span class="token punctuation">.</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'book'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1000</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>db.sql</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SET</span> FOREIGN_KEY_CHECKS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+d：目录文件
 
-<span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> admin<span class="token punctuation">;</span>
-<span class="token keyword">USE</span> admin<span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">-- ----------------------------</span>
-<span class="token comment" spellcheck="true">-- Table structure for `user`</span>
-<span class="token comment" spellcheck="true">-- ----------------------------</span>
-<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span><span class="token punctuation">;</span>
-<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token punctuation">(</span>
-  <span class="token punctuation">`</span>ID<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>username<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>password<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>ID<span class="token punctuation">`</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span>MyISAM <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span>
+l：链接文件
 
-<span class="token comment" spellcheck="true">-- ----------------------------</span>
-<span class="token comment" spellcheck="true">-- Records of user</span>
-<span class="token comment" spellcheck="true">-- ----------------------------</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'admin'</span><span class="token punctuation">,</span> <span class="token string">'123456'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'root'</span><span class="token punctuation">,</span> <span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'3'</span><span class="token punctuation">,</span> <span class="token string">'guest'</span><span class="token punctuation">,</span> <span class="token string">'666666'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="开始攻击"><a href="#开始攻击" class="headerlink" title="开始攻击"></a>开始攻击</h4><ol>
-<li><p>首先用户登录网上钱包，网站会返回给你一个<code>session id</code>:<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201210164739593.png" alt="在这里插入图片描述"></p>
-</li>
-<li><p>此时黑客采取了某种手段，或取到了你的这一串<code>session id</code>，然后在他自己构造的attack.php页面上，导入你的<code>session id</code>，对你的账户进行了<code>会话劫持攻击</code>:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201210164222680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">保存session id后刷新页面，成功劫持会话，并且恶意修改了受害者的账户余额：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201210164702955.png" alt="在这里插入图片描述"></p>
-</li>
-<li><p>此时用户刷新个人信息界面，发现自己账户里的余额已经从100个w变成了0.000001个w了<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201210165118469.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-</ol>
-<h4 id="修复方案"><a href="#修复方案" class="headerlink" title="修复方案"></a>修复方案</h4><ul>
-<li>使用随机且长度够大的字符串来当作session id</li>
-<li>将网页传递的数据使用某种形式进行封装，特别是session id</li>
-<li>更改session名称</li>
-<li>注销后即销毁所有session数据</li>
-</ul>
-<h3 id="session固定攻击"><a href="#session固定攻击" class="headerlink" title="session固定攻击"></a>session固定攻击</h3><blockquote>
-<p>会话固定（Session fixation）是一种<code>诱骗</code>受害者使用攻击者指定的会话标识（SessionID）的攻击手段。这是攻击者获取合法会话标识的<code>最简单的方法</code>。<code>（让合法用户使用黑客预先设置的sessionID进行登录，从而是Web不再进行生成新的sessionID，从而导致黑客设置的sessionId变成了合法桥梁。）</code><br>会话固定也可以看成是会话劫持的一种类型，原因是会话固定的攻击的主要目的同样是获得目标用户的合法会话，不过会话固定还可以是强迫受害者使用攻击者设定的一个有效会话，以此来<code>获得用户的敏感信息</code>。</p>
+b：块设备文件，即一些存储数据以提供系统随机访问的接口设备，如硬盘、软盘等
+
+c：字符设备文件，即一些串行端口的接口设备，如鼠标、键盘等</code></pre><p><strong>linux系统约定不同类型文件默认的颜色：</strong></p>
+<pre><code>- 白色：表示普通文件
+- 蓝色：表示目录
+- 绿色：表示可执行文件
+- 红色：表示压缩文件
+- 浅蓝色：链接文件
+- 红色闪烁：表示链接的文件有问题
+- 黄色：表示设备文件
+- 灰色：表示其它文件</code></pre><h2 id="三、文件和目录权限"><a href="#三、文件和目录权限" class="headerlink" title="三、文件和目录权限"></a>三、文件和目录权限</h2><h3 id="3-1-文件的权限"><a href="#3-1-文件的权限" class="headerlink" title="3.1    文件的权限"></a>3.1    文件的权限</h3><pre><code>每个文件都有其所有者(u:user)、所属组(g:group)和其他人(o:other)对它的操作权限，a:all则同时代表这3者。
+
+权限包括读(r:read)、写(w:write)、执行(x:execute)。
+
+在不同类型的文件上读、写、执行权限的体现有所不同，所以目录权限和普通文件权限要区分开来。</code></pre><p><strong>在普通文件上：</strong></p>
+<pre><code>r：可读，可以使用类似cat等命令查看文件内容；读是文件的最基本权限，没有读权限，普通文件的一切操作行为都被限制。
+
+w：可写，可以编辑此文件；
+
+x：可执行，表示文件可由特定的解释器解释并运行。可以理解为windows中的可执行程序或批处理脚本，双击就能运行起来的文件。</code></pre><p><strong>在目录上：</strong></p>
+<pre><code>r：可以对目录执行ls以列出目录内的所有文件；读是文件的最基本权限，没有读权限，目录的一切操作行为都被限制。
+
+w：可以在此目录创建或删除文件/子目录；
+
+x：可进入此目录，可使用ls -l查看文件的详细信息。可以理解为windows中双击就进入目录的动作。</code></pre><p>如果目录没有x权限，其他人将无法查看目录内文件属性(只能查看到文件类型和文件名，至于为什么，见后文)，所以一般目录都要有x权限。而如果只有执行却没有读权限，则权限拒绝。</p>
+<pre><code>一般来说，普通文件的默认权限是644(没有执行权限)，目录的默认权限是755(必须有执行权限，否则进不去)，链接文件的权限是777。当然，默认文件的权限设置方法是可以通过umask值来改变的。</code></pre><h3 id="3-2-权限的表示方法"><a href="#3-2-权限的表示方法" class="headerlink" title="3.2    权限的表示方法"></a>3.2    权限的表示方法</h3><p>权限的模式有两种体现：数字体现方式和字符体现方式。</p>
+<p>权限的数字表示：”-“代表没有权限,用0表示。</p>
+<p>​        r—–4</p>
+<p>​        w—–2</p>
+<p>​        x—–1</p>
+<pre><code>例如：rwx rw- r--对应的数字权限是764，732代表的权限数值表示为rwx -wx -w-。</code></pre><h3 id="3-3-chmod修改权限"><a href="#3-3-chmod修改权限" class="headerlink" title="3.3    chmod修改权限"></a>3.3    chmod修改权限</h3><p>能够修改权限的人只有文件所有者和超级管理员。</p>
+<pre><code>chmod [OPTION]... MODE[,MODE]... FILE...
+chmod [OPTION]... num_mode FILE...
+chmod [OPTION]... --reference=RFILE FILE...
+
+选项说明：
+--reference=RFILE：引用某文件的权限作为权限值
+-R：递归修改，只对当前已存在的文件有效</code></pre><p>(1). 使用数值方式修改权限</p>
+<pre><code>shell&gt; chmod 755 /tmp/a.txt</code></pre><p>(2). 使用字符方式修改权限</p>
+<p>由于权限属性附在文件所有者、所属组和其它上，它们三者都有独立的权限位，所有者使用字母”u”表示，所属组使用”g”来表示，其他使用”o”来表示，而字母”a”同时表示它们三者。所以使用字符方式修改权限时，需要指定操作谁的权限。</p>
+<blockquote>
+<p>chmod   [ugoa]   [+ - =]   [权限字符] 文件/目录名</p>
+<p>“+”是加上权限，”-“是减去权限，”=”是直接设置权限</p>
 </blockquote>
-<h4 id="攻击流程-1"><a href="#攻击流程-1" class="headerlink" title="攻击流程"></a>攻击流程</h4><ol>
-<li>攻击者通过某种手段重置目标用户的SessionID，然后监听用户会话状态；</li>
-<li>目标用户携带攻击者设定的Session ID登录站点；</li>
-<li>攻击者通过Session ID获得合法会话。</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/7a5ec57d59abbf693655dc7543643853.png#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="修复方案-1"><a href="#修复方案-1" class="headerlink" title="修复方案"></a>修复方案</h4><ul>
-<li>不要从GET/POST变量中接收session id</li>
-<li>调用session_start()函数后，立即产生新的session id，删除旧的session</li>
-<li>将session id存放在cookie内</li>
-<li>注销后即销毁session的所有数据</li>
-<li>使用时间戳来记录session的使用时间，若两次session id相差时间太长，就销毁session的所有数据</li>
-<li>检查用户的ip地址，若ip地址发生变化就生成一个新的session id。并删除旧的session</li>
+<pre><code>[root@xuexi tmp]# chmod u-x,g-x,o-x test        # 将ugo都去掉x权限，等价于chmod -x test
+[root@xuexi tmp]# chmod a+x test                # 为ugo都加上x权限，等价于chmod +x test</code></pre><h3 id="3-4-chgrp"><a href="#3-4-chgrp" class="headerlink" title="3.4    chgrp"></a>3.4    chgrp</h3><p>更改文件和目录的所属组，要求组已经存在。</p>
+<p>注意，对于链接文件而言，修改组的作用对象是链接的源文件，而非链接文件本身。</p>
+<pre><code>chgrp [OPTION]... GROUP FILE...
+chgrp [OPTION]... --reference=RFILE FILE..
+
+选项说明：
+-R：递归修改
+--reference=dest_file  file_list：引用某文件的group作为文件列表的组,即将file文件列表的组改为dest_file的组</code></pre><h3 id="3-5-chown"><a href="#3-5-chown" class="headerlink" title="3.5     chown"></a>3.5     chown</h3><p>chown可以修改文件所有者和所属组。</p>
+<p>注意，对于链接文件而言，默认直接修改源文件，而非修改链接文件本身。</p>
+<pre><code>chown [OPTION]... [OWNER][:[GROUP]] FILE...
+chown [OPTION]... [OWNER][.[GROUP]] FILE...
+chown [OPTION]... --reference=RFILE FILE...
+
+选项说明：
+--from=CURRENT_OWNER:CURRENT_GROUP：只修改当前所有者或所属组为此处指定的值的文件
+--reference=RFILE：引用某文件的所有者和所属组的值作为新的所有者和所属组
+-R：递归修改。注意，当指定-R时，且同时指定下面某一个选项时对链接文件有不同的行为
+       -H：如果chown的文件参数是一个链接到目录的链接文件，则穿过此链接文件修改其源目录的所有者和所属组
+       -L：目录中遇到的所有链接文件都穿越过去，修改它们的源文件的所有者和所属组
+       -P：不进行任何穿越，只修改链接文件本身的所有者和所属组。(这是默认值)
+       这3项若同时指定多项时，则最后一项生效</code></pre><p>chown指定所有者和所属组的方式有两种，使用冒号和点。</p>
+<pre><code>shell&gt; chown root.root test
+shell&gt; chown root:root test
+shell&gt; chown root test     # 只修改所有者
+shell&gt; chown :root test    # 自修改组
+shell&gt; chown .root test</code></pre><h3 id="3-6-umask说明"><a href="#3-6-umask说明" class="headerlink" title="3.6    umask说明"></a>3.6    umask说明</h3><p>umask值用于设置用户在创建文件时的默认权限。</p>
+<pre><code>对于root用户(实际上是UID小于200的user)，系统默认的umask值是022；对于普通用户和系统用户，系统默认的umask值是002。</code></pre><p>默认它们的设置是写在/etc/profile和/etc/bashrc两个环境配置文件中。</p>
+<pre><code>shell&gt; grep -C 5 -R 'umask 002'  /etc | grep 'umask 022'  
+/etc/bashrc-       umask 022
+/etc/csh.cshrc-    umask 022
+/etc/profile-      umask 022</code></pre><p>相关设置项如下：</p>
+<pre><code>if [ $UID -gt 199 ] &amp;&amp; [ "`id -gn`" = "`id -un`" ]; then
+   umask 002
+else
+   umask 022
+fi</code></pre><p>执行umask命令可以查看当前用户的umask值。</p>
+<pre><code>[root@xuexi tmp]# umask
+0022
+[test@xuexi tmp]$ umask
+0002</code></pre><pre><code>执行umask num可以临时修改umask值为num，但这是临时的，要永久有效，需要写入到环境配置文件中，至于写入到/etc/profile、/etc/bashrc、~/.bashrc还是~/.bash_profile中，看你自己的需求了。不过一般来说，不会去永久修改umask值，只会在特殊条件下临时修改下umask值。</code></pre><p>umask是如何决定创建文件的默认权限的呢？</p>
+<p>如果创建的是目录，则使用777-umask值，如root的umask=022，则root创建目录时该目录的默认权限为777-022=755，而普通用户创建目录时，权限为777-002=775.</p>
+<p>如果创建的是普通文件，在Linux中，深入贯彻了一点：文件默认不应该有执行权限，否则是危险的。所以在计算时，可能会和想象中的结果不一样。如果umask的三位都为偶数，则直接使用666去减掉umask值，因为6减去一个偶数还是偶数，任何位都不可能会有执行权限。如root创建普通文件时默认权限为666-022=644，而普通用户创建普通文件时默认权限为666-002=664。</p>
+<p>如果umask值某一位为奇数，则666减去umask值后再在奇数位上加1。如umask=021时，创建文件时默认权限为666-021=645，在奇数位上加1，则为646。</p>
+<pre><code>[test@xuexi tmp]$ umask 021
+[test@xuexi tmp]$ touch b.txt
+[test@xuexi tmp]$ ls -l b.txt
+-rw-r--rw- 1 test test 0 Jun  7 12:02 b.txt</code></pre><p>总之计算出后默认都是没有执行权限的。</p>
+<h3 id="3-7-文件的扩展ACL权限"><a href="#3-7-文件的扩展ACL权限" class="headerlink" title="3.7    文件的扩展ACL权限"></a>3.7    文件的扩展ACL权限</h3><p>在计算机相关领域，所有的ACL(access control list)都表示访问控制列表。</p>
+<p>文件的owner/group/others的权限就是一种ACL，它们是基本的ACL。很多时候，只通过这3个权限位是无法完全合理设置权限问题的，例如如何仅设置某单个用户具有什么权限。这时候需要使用扩展ACL。</p>
+<pre><code>扩展ACL是一种特殊权限，它是文件系统上功能，用于解决所有者、所属组和其他这三个权限位无法合理设置单个用户权限的问题。所以，扩展ACL可以针对单一使用者，单一档案或目录里的默认权限进行r,w,x的权限规范。
+
+需要明确的是，扩展ACL是文件系统上的功能，且工作在内核，默认在ext4/xfs上都已开启。</code></pre><h4 id="3-7-1-查看文件系统是否开启ACL功能"><a href="#3-7-1-查看文件系统是否开启ACL功能" class="headerlink" title="3.7.1    查看文件系统是否开启ACL功能"></a>3.7.1    查看文件系统是否开启ACL功能</h4><p>对于ext家族的文件系统来说，要查看是否开启acl功能，使用dumpe2fs导出文件系统属性即可。</p>
+<pre><code>shell&gt; dumpe2fs -h /dev/sda2 | grep -i acl
+dumpe2fs 1.41.12 (17-May-2010)
+Default mount options:    user_xattr acl</code></pre><p>对于xfs文件系统，则没有直接的命令可以输出它的相关信息，需要使用dmesg来查看。其实无需关注它，因为默认xfs会开启acl功能。</p>
+<pre><code>shell&gt; dmesg | grep -i acl
+[    1.465903] systemd[1]: systemd 219 running in system mode. (+PAM +AUDIT +SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ -LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD +IDN)
+[    2.517705] SGI XFS with ACLs, security attributes, no debug enabled</code></pre><p>开启ACL功能后，不代表就使用ACL功能。是否使用该功能，不同文件系统控制方法不一样，对于ext家族来说，通过mount挂载选项来控制，而对于xfs文件系统，系统默认已经开启了ACL。</p>
+<p>启用：mount –o remount,acl /mnt/sdb1</p>
+<p>取消：mount –o remount,noacl /mnt/sdb1</p>
+<h4 id="3-7-2-设置和查看ACL"><a href="#3-7-2-设置和查看ACL" class="headerlink" title="3.7.2    设置和查看ACL"></a>3.7.2    设置和查看ACL</h4><p><strong>设置使用setfacl命令。</strong></p>
+<pre><code>setfacl [options] u:[用户列表]:[rwx] 目录/文件名    # 对用户设置使用u
+setfacl [options] g:[组列表]:[rwx]   目录/文件名    # 对组设置使用g
+
+选项说明：
+-m：设定ACL权限(modify)
+-x：删除指定的ACL权限，可以指定用户、组和文件来删除(remove)
+-b：删除所有的ACL权限
+-d：设定默认ACL权限，只对目录有效，设置后子目录(文件)继承默认ACL，只对未来文件 有效
+-k：删除默认ACL权限
+-R：递归设定ACL权限，只对目录有效，只对已有文件有效</code></pre><p><strong>查看使用getfacl命令</strong></p>
+<blockquote>
+<p>getfacl filename</p>
+</blockquote>
+<p><strong>案例：</strong></p>
+<p>假设现有目录/data/videos专门存放视频，其中有一个a.avi的介绍性视频。该目录的权限是750。现在有一个新用户加入，但要求该用户对该目录只有查看的权限，且只能看其中一部视频a.avi，另外还要求该用户在此目录下没有创建和删除文件的权限。</p>
+<p>1.准备相关环境。</p>
+<pre><code>shell&gt; mkdir -p /data/videos
+shell&gt; chmod 750 /data/videos
+shell&gt; touch /data/videos/{a,b}.avi
+shell&gt; echo "xxx" &gt;/data/videos/a.avi
+shell&gt; echo "xxx" &gt;/data/videos/b.avi
+shell&gt; chown -R root.root /data/videos</code></pre><p>2.首先设置用户test对/data/videos目录有读和执行权限。</p>
+<pre><code>shell&gt; setfacl -m u:test:rx /data/videos</code></pre><p>3.现在test对/data/videos目录下的所有文件都有读权限，因为默认文件的权限为644。要设置test只对a.avi有读权限，先设置所有文件的权限都为不可读。</p>
+<pre><code>shell&gt; chmod 640 /data/videos/*</code></pre><p>4.然后再单独设置a.avi的读权限。</p>
+<pre><code>shell&gt; setfacl -m u:test:r /data/videos/a.avi</code></pre><p>到此就设置完成了。查看/data/videos/和/data/videos/a.avi上的ACL信息。</p>
+<pre><code>shell&gt; getfacl /data/videos/
+getfacl: Removing leading '/' from absolute path names
+# file: data/videos/
+# owner: root
+# group: root
+user::rwx
+user:test:r-x         # 用户test在此文件上的权限是r-x
+group::r-x
+mask::r-x
+other::---
+shell&gt; getfacl /data/videos/a.avi
+getfacl: Removing leading '/' from absolute path names
+# file: data/videos/a.avi
+# owner: root
+# group: root
+user::rw-
+user:test:r--         # 用户test在此文件上的权限是r--
+group::r--
+mask::r--
+other::---</code></pre><h4 id="3-7-3-ACL-mask"><a href="#3-7-3-ACL-mask" class="headerlink" title="3.7.3    ACL:mask"></a>3.7.3    ACL:mask</h4><p>设置mask后会将mask权限与已有的acl权限进行与计算，计算后的结果会成为新的ACL权限。</p>
+<p>设定mask的方式为：</p>
+<pre><code>setfacl -m m:[rwx] 目录/文件名</code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://images2015.cnblogs.com/blog/733013/201706/733013-20170615004000853-1479223179.png" alt="img"></p>
+<p>注意：默认每次设置文件的acl都会重置mask为此次给定的用户的值。既然如此，要如何控制文件上的acl呢？如果一个文件上要设置多个用户的acl，重置mask后就会对已有用户的acl重新计算，而使得acl权限得不到有效的控制。使用setfacl的”-n”选项，它表示此次设置不会重置mask值。</p>
+<p>例如：</p>
+<p>当前的acl权限：</p>
+<pre><code>shell&gt; getfacl /data/videos                     
+getfacl: Removing leading '/' from absolute path names
+# file: data/videos
+# owner: root
+# group: root
+user::rwx
+user:longshuai:rwx
+group::r-x
+mask::rwx
+other::---</code></pre><p>设置mask值为rx。</p>
+<pre><code>shell&gt; setfacl -m m:rx /data/videos
+
+shell&gt; getfacl /data/videos       
+getfacl: Removing leading '/' from absolute path names
+# file: data/videos
+# owner: root
+# group: root
+user::rwx
+user:longshuai:rwx              #effective:r-x
+group::r-x
+mask::r-x
+other::---</code></pre><p>设置mask后，它提示有效权限是r-x。这是rwx和r-x做与运算之后的结果。</p>
+<p>再设置longshuai的acl为rwx，然后查看mask，会发现mask也被重置为rwx。</p>
+<pre><code>shell&gt; setfacl -m u:longshuai:rwx /data/videos
+
+shell&gt; getfacl  /data/videos
+getfacl: Removing leading '/' from absolute path names
+# file: data/videos
+# owner: root
+# group: root
+user::rwx
+user:longshuai:rwx
+group::r-x
+mask::rwx
+other::---</code></pre><p>所以，在设置文件的acl时，要使用-n选项来禁止重置mask。</p>
+<pre><code>shell&gt; setfacl -m m:rx /data/videos
+
+shell&gt; setfacl -n -m u:longshuai:rwx /data/videos
+
+shell&gt; getfacl  /data/videos
+getfacl: Removing leading '/' from absolute path names
+# file: data/videos
+# owner: root
+# group: root
+user::rwx
+user:longshuai:rwx              #effective:r-x
+group::r-x
+mask::r-x
+other::---</code></pre><h4 id="3-7-4-设置递归和默认ACL权限"><a href="#3-7-4-设置递归和默认ACL权限" class="headerlink" title="3.7.4     设置递归和默认ACL权限"></a>3.7.4     设置递归和默认ACL权限</h4><p>递归ACL权限只对目录里已有文件有效，默认权限只对未来目录里的文件有效。</p>
+<p>设置递归ACL权限：</p>
+<pre><code>setfacl -m u:username:[rwx] -R 目录名</code></pre><p>设置默认ACL权限：</p>
+<pre><code>setfacl -m d:u:username:[rwx] 目录名</code></pre><h4 id="3-7-5-删除ACL权限"><a href="#3-7-5-删除ACL权限" class="headerlink" title="3.7.5     删除ACL权限"></a>3.7.5     删除ACL权限</h4><pre><code>setfacl -x u:用户名 文件名       # 删除指定用户ACL
+setfacl -x g:组名 文件名         # 删除指定组名ACL
+setfacl -b 文件名                # 指定文件删除ACL，会删除所有ACL</code></pre><h3 id="3-8-文件隐藏属性"><a href="#3-8-文件隐藏属性" class="headerlink" title="3.8 文件隐藏属性"></a>3.8 文件隐藏属性</h3><p>chattr：change file attributes</p>
+<p>lsattr：list file attributes</p>
+<pre><code>chattr [+ - =] [ai] 文件或目录名</code></pre><p>常用的参数是a(append，追加)和i(immutable，不可更改)，其他参数略。</p>
+<p>设置了a参数时，文件中将只能增加内容，不能删除数据，且不能打开文件进行任何编辑，哪怕是追加内容也不可以，所以像sed等需要打开文件的再写入数据的工具也无法操作成功。文件也不能被删除。只有root才能设置。</p>
+<p>设置了i参数时，文件将被锁定，不能向其中增删改内容，也不能删除修改文件等各种动作。只有root才能设置。可以将其理解为设置了i后，文件将是永恒不变的了，谁都不能动它。</p>
+<p>例如，对/etc/shadow文件设置i属性，任何用户包括root将不能修改密码，而且也不能创建用户。</p>
+<pre><code>shell&gt; chattr +i /etc/shadow</code></pre><p>此时如果新建一个用户。</p>
+<pre><code>shell&gt; useradd newlongsuai
+shell&gt; useradd: cannot open /etc/shadow        # 提示文件不能打开，被锁定了</code></pre><p>lsattr查看文件设置的隐藏属性。</p>
+<pre><code>shell&gt; lsattr /etc/shadow
+----i--------e- /etc/shadow         # i属性说明被锁定了，e是另一种文件属性，忽略它</code></pre><p>删除隐藏属性：</p>
+<pre><code>shell&gt; chattr -i /etc/shadow
+shell&gt; lsattr /etc/shadow
+-------------e- /etc/shadow</code></pre><p>再来一例：</p>
+<pre><code>shell&gt; chattr +a test1.txt        # 对test1.txt设置a隐藏属性
+shell&gt; echo 1234&gt;&gt;test1.txt     # 追加内容是允许的行为
+shell&gt; cat /dev/null &gt;test1.txt    # 但是清空文件内容是不允许的
+-bash: test1.txt: Operation not permitted</code></pre><h3 id="3-9-suid-sgid-sbit"><a href="#3-9-suid-sgid-sbit" class="headerlink" title="3.9     suid/sgid/sbit"></a>3.9     suid/sgid/sbit</h3><h4 id="3-9-1-suid"><a href="#3-9-1-suid" class="headerlink" title="3.9.1     suid"></a>3.9.1     suid</h4><p>suid只针对可执行文件，即二进制文件。它的作用是对某个命令(可执行文件)授予所有者的权限，命令执行完成权限就消失。一般是提权为root权限。</p>
+<p>例如/etc/shadow文件所有人都没有权限(root除外)，其他用户连看都不允许。</p>
+<pre><code>shell&gt; ls -l /etc/shadow
+----------. 1 root root 752 Apr  8 12:42 /etc/shadow</code></pre><p>但是他们却能修改自己的密码，说明他们一定有一定的权限。这个权限就是suid控制的。</p>
+<pre><code>shell&gt; ls -l /usr/bin/passwd
+-rwsr-xr-x. 1 root root 30768 Feb 22  2012 /usr/bin/passwd</code></pre><p>其中的”s”权限就是suid，它出现在所有者位置上(是root)，其他用户执行passwd命令时，会暂时拥有所有者位的rwx权限，也就是root的权限，所以能向/etc/shadow写入数据。</p>
+<p>suid必须和x配合，如果没有x配合，则该suid是空suid，仍然没有执行命令的权限，所有者都没有了x权限，suid依赖于它所以更不可能有x权限。空的suid权限使用大写的”S”表示。</p>
+<p>数字4代表suid，如4755。</p>
+<h4 id="3-9-2-sgid"><a href="#3-9-2-sgid" class="headerlink" title="3.9.2     sgid"></a>3.9.2     sgid</h4><p>针对二进制文件和目录。</p>
+<ul>
+<li>针对二进制文件时，权限升级为命令的所属组权限。</li>
+<li>针对目录时，目录中所建立的文件或子目录的组将继承默认父目录组，其本质还是提升为目录所属组的权限。此时目录应该要有rx权限，普通用户才能进入目录，如果普通用户有w权限，新建的文件和目录则以父目录组为默认组。</li>
 </ul>
+<p>以2代表sgid，如2755，和suid组合如6755。</p>
+<h4 id="3-9-3-sbit"><a href="#3-9-3-sbit" class="headerlink" title="3.9.3     sbit"></a>3.9.3     sbit</h4><p>只对目录有效。对目录设置sbit，将使得目录里的文件只有所有者能删除，即使其他用户在此目录上有rwx权限，即使是root用户。</p>
+<p>以1代表sbit。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1220,7 +1344,7 @@ session劫持攻击是指黑">
                     </span>
                     <a href="https://Erikten.github.io" class="b-link-green">Erikten</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/posts/8cae4f4a.html" class="b-link-green">PHP代码审计基础：会话认证漏洞</a>
+                    <a href="/posts/ad5612ad.html" class="b-link-green">Linux文件权限管理</a>
                 </p>
             </div>
 
@@ -1572,66 +1696,49 @@ session劫持攻击是指黑">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/c8ed1bcb.html">
+                <a href="/posts/ad5612ad.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/01.jpg" class="responsive-img" alt="PHP代码审计基础：宽字节注入及二次注入漏洞">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/15.jpg" class="responsive-img" alt="Linux文件权限管理">
                         
-                        <span class="card-title">PHP代码审计基础：宽字节注入及二次注入漏洞</span>
+                        <span class="card-title">Linux文件权限管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代码审计的基础，赶紧来GET吧~
+                            Linux文件权限管理一、文件存取访问身份Linux的优秀之处在于它的多用户多任务环境，为了方便文件的管理，有三种文件存取访问身份，分别是：用户、用户组、其他
+二、文件属性我们在用ls列举出当前工作目录下的文件时，显示的只是文件或目录名，要
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                    代码审计篇
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                    网络运维篇
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
-                    </a>
-                    
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/SQL注入/" target="_blank">
-                        <span class="chip bg-color">SQL注入</span>
-                    </a>
-                    
-                    <a href="/tags/渗透测试/" target="_blank">
-                        <span class="chip bg-color">渗透测试</span>
-                    </a>
-                    
-                    <a href="/tags/宽字节注入/" target="_blank">
-                        <span class="chip bg-color">宽字节注入</span>
-                    </a>
-                    
-                    <a href="/tags/二次注入/" target="_blank">
-                        <span class="chip bg-color">二次注入</span>
+                    <a href="/tags/运维/" target="_blank">
+                        <span class="chip bg-color">运维</span>
                     </a>
                     
                 </div>
@@ -1645,31 +1752,35 @@ session劫持攻击是指黑">
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/8f83a13c.html">
+                <a href="/posts/627226e0.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/11.jpg" class="responsive-img" alt="PHP代码审计基础：反序列化漏洞">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/15.jpg" class="responsive-img" alt="vim的使用">
                         
-                        <span class="card-title">PHP代码审计基础：反序列化漏洞</span>
+                        <span class="card-title">vim的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代码审计的基础，赶紧来GET吧~
+                            命令模式用户刚刚启动 vi/vim，便进入了命令模式。
+此状态下敲击键盘动作会被Vim识别为命令，而非输入字符。比如我们此时按下i，并不会输入一个字符，i被当作了一个命令。
+以下是常用的几个命令：
+i 切换到输入模式，以输入字符。 
+x 删
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                    代码审计篇
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                    网络运维篇
                                 </a>
                             
                             
@@ -1679,20 +1790,8 @@ session劫持攻击是指黑">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
-                    </a>
-                    
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/渗透测试/" target="_blank">
-                        <span class="chip bg-color">渗透测试</span>
-                    </a>
-                    
-                    <a href="/tags/反序列化/" target="_blank">
-                        <span class="chip bg-color">反序列化</span>
+                    <a href="/tags/运维/" target="_blank">
+                        <span class="chip bg-color">运维</span>
                     </a>
                     
                 </div>
