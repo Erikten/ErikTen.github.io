@@ -5,16 +5,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="PHP代码审计基础：文件上传漏洞, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
+    <meta name="keywords" content="Linux归档与压缩, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
     <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
-    <meta name="description" content="漏洞原理
-文件上传漏洞一些web应用程序中允许上传图片，文本或者其他资源到指定的位置。 文件上传漏洞就是利用网页代码中的文件上传路径变量过滤不严将可执行的文件上传到一个到服务器中，再通过URL去访问以执行恶意代码。
-
-危害
-上传漏洞与SQL">
+    <meta name="description" content="归档与压缩归档，也称为打包，指的是一个文件或目录的集合，而这个集合被存储在一个文件中。归档文件没有经过压缩，因此，它占用的空间是其中所有文件和目录的总和。
+和归档文件类似，压缩文件也是一个文件和目录的集合，且这个集合也被存储在一个文件中，但">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +20,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="baidu-site-verification" content="wvlc3L96QK">
-    <title>PHP代码审计基础：文件上传漏洞 | Erikten</title>
+    <title>Linux归档与压缩 | Erikten</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -732,13 +729,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        PHP代码审计基础：文件上传漏洞
+                        Linux归档与压缩
                     </div>
                 </div>
             </div>
@@ -858,20 +855,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/代码审计/" target="_blank">
-                                <span class="chip bg-color">代码审计</span>
-                            </a>
-                        
-                            <a href="/tags/PHP/" target="_blank">
-                                <span class="chip bg-color">PHP</span>
-                            </a>
-                        
-                            <a href="/tags/渗透测试/" target="_blank">
-                                <span class="chip bg-color">渗透测试</span>
-                            </a>
-                        
-                            <a href="/tags/文件上传/" target="_blank">
-                                <span class="chip bg-color">文件上传</span>
+                            <a href="/tags/运维/" target="_blank">
+                                <span class="chip bg-color">运维</span>
                             </a>
                         
                     </div>
@@ -882,8 +867,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                代码审计篇
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                网络运维篇
                             </a>
                         
                     </div>
@@ -894,7 +879,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-18
+                    2021-04-21
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -908,14 +893,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        983
+                        1.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        8 分
                     </div>
                     
                 
@@ -932,91 +917,274 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><blockquote>
-<p>文件上传漏洞一些web应用程序中允许上传图片，文本或者其他资源到指定的位置。 文件上传漏洞就是利用网页代码中的文件上传路径变量过滤不严将可执行的文件上传到一个到服务器中，再通过URL去访问以执行恶意代码。</p>
-</blockquote>
-<h3 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h3><blockquote>
-<p>上传漏洞与SQL注入或 XSS相比 , 其风险更大 , 如果 Web应用程序存在上传漏洞 , 攻击者上传的文件是Web脚本语言，服务器的Web容器解释并执行了用户上传的脚本，导致代码执行。如果上传的文件是Flash的策略文件crossdomain.xml，黑客用以控制Flash在该域下的行为。如果上传的文件是病毒、木马文件，黑客用以诱骗用户或者管理员下载执行。如果上传的文件是钓鱼图片或为包含了脚本的图片，在某些版本的浏览器中会被作为脚本执行，被用于钓鱼和欺诈。甚至攻击者可以直接上传一个webshell到服务器上 完全控制系统或致使系统瘫痪。</p>
-</blockquote>
-<h3 id="漏洞条件"><a href="#漏洞条件" class="headerlink" title="漏洞条件"></a>漏洞条件</h3><ul>
-<li>文件可以上传</li>
-<li>能获取文件上传后的路径</li>
-<li>上传文件可以被访问</li>
-<li>上传文件可以被执行</li>
-</ul>
-<h3 id="文件上传的可控点"><a href="#文件上传的可控点" class="headerlink" title="文件上传的可控点"></a>文件上传的可控点</h3><ul>
-<li>Content-Length,即上传内容大小</li>
-<li>MAX_FILE_SIZE,即上传内容的最大长度</li>
-<li>filename,即上传文件名</li>
-<li>Content-Type,即上传文件类型</li>
-<li>请求包中的乱码字段，即是所上传文件的内容</li>
-<li>有可能存在请求包中的可控点还有上传路径，只是上面的示例中没有出现</li>
-</ul>
-<h3 id="挖掘思路"><a href="#挖掘思路" class="headerlink" title="挖掘思路"></a>挖掘思路</h3><ul>
-<li>上传点都调用同一个上传类</li>
-<li>黑盒寻找上传点，代码定位</li>
-</ul>
-<h3 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h3><p>这里搭建上传页面，一些函数就不再做过多介绍，之前博客里的这篇文章<a href="https://blog.csdn.net/qq_43573676/article/details/109463040" target="_blank" rel="noopener">详解PHP的文件操作</a>里面有详细介绍哦~</p>
-<p>upload.html:</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>文件上传<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>upload.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pic<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>上传<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+                <h1 id="归档与压缩"><a href="#归档与压缩" class="headerlink" title="归档与压缩"></a>归档与压缩</h1><p>归档，也称为打包，指的是一个文件或目录的集合，而这个集合被存储在一个文件中。归档文件没有经过压缩，因此，它占用的空间是其中所有文件和目录的总和。</p>
+<pre><code>和归档文件类似，压缩文件也是一个文件和目录的集合，且这个集合也被存储在一个文件中，但它们的不同之处在于，压缩文件采用了不同的存储方式，使其所占用的磁盘空间比集合中所有文件大小的总和要小。</code></pre><pre><code>压缩是指利用算法将文件进行处理，已达到保留最大文件信息，而让文件体积变小的目的。其基本原理为，通过查找文件内的重复字节，建立一个相同字节的词典文件，并用一个代码表示。</code></pre><h2 id="一、Linux系统常见压缩包格式"><a href="#一、Linux系统常见压缩包格式" class="headerlink" title="一、Linux系统常见压缩包格式"></a>一、Linux系统常见压缩包格式</h2><p>1、压缩包格式：</p>
+<table>
+<thead>
+<tr>
+<th>Windows：</th>
+<th>rar  zip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Linux：</td>
+<td>zip  tar  tar.gz  tar.bz2  tar.xz</td>
+</tr>
+</tbody></table>
+<p>2、<strong>压缩包的好处主要有：</strong></p>
+<p>1）节省磁盘空间占用率</p>
+<p>2）节省网络传输带宽消耗</p>
+<p>3）网络传输更加快捷</p>
+<p>3、<strong>Linux**</strong>系统常见的后缀名所对应的压缩工具：**</p>
+<table>
+<thead>
+<tr>
+<th>.gz</th>
+<th>gzip</th>
+<th>#压缩工具压缩的文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.bz2</td>
+<td>bzip2</td>
+<td># 压缩工具压缩的文件</td>
+</tr>
+<tr>
+<td>.tar</td>
+<td>tar</td>
+<td># tar没有压缩功能，只是把一个目录合并成一个文件</td>
+</tr>
+<tr>
+<td>.tar.gz</td>
+<td>tar、gzip</td>
+<td>#先使用tar打包，然后使用gzip压缩归档</td>
+</tr>
+<tr>
+<td>.tar.bz2</td>
+<td>tar、bzip</td>
+<td>#先使用tar打包，然后使用bzip压缩归档</td>
+</tr>
+<tr>
+<td>.tar.xz</td>
+<td>tar 、xz</td>
+<td>#先使用tar打包，然后使用xz压缩归档</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<p>1）Linux下常用压缩文件以.tar.gz结尾</p>
+<p>2）Linux下压缩文件必须带后缀</p>
+<h2 id="二、zip压缩工具："><a href="#二、zip压缩工具：" class="headerlink" title="二、zip压缩工具："></a>二、zip压缩工具：</h2><p>zip是压缩工具，unzip是解压工具</p>
+<p>-q：不显示指令执行过程；</p>
+<p>-r：递归处理，将指定目录下的所有文件和子目录一并处理；</p>
+<pre class="line-numbers language-shell"><code class="language-shell">[root@192 ~]# ls
+anaconda-ks.cfg       公共  视频  文档  音乐
+initial-setup-ks.cfg  模板  图片  下载  桌面
+[root@192 ~]# zip cfg.zip anaconda-ks.cfg initial-setup-ks.cfg 
+  adding: anaconda-ks.cfg (deflated 46%)
+  adding: initial-setup-ks.cfg (deflated 46%)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>[root@192 ~]# ls
+anaconda-ks.cfg       test  视频  下载
+cfg.zip               公共  图片  音乐
+initial-setup-ks.cfg  模板  文档  桌面
+[root@192 ~]# zip -r test.zip test/
+  adding: test/ (stored 0%)
+[root@192 ~]# ls
+anaconda-ks.cfg       test      模板  文档  桌面
+cfg.zip               test.zip  视频  下载
+initial-setup-ks.cfg  公共      图片  音乐</code></pre><pre><code>[root@192 ~]# unzip -d /mnt/ cfg.zip 
+Archive:  cfg.zip
+  inflating: /mnt/anaconda-ks.cfg    
+  inflating: /mnt/initial-setup-ks.cfg  
+[root@192 ~]# ls /mnt/
+anaconda-ks.cfg  initial-setup-ks.cfg
+</code></pre><h2 id="三、tar压缩工具"><a href="#三、tar压缩工具" class="headerlink" title="三、tar压缩工具"></a>三、tar压缩工具</h2><p>tar是Linux下最常用的压缩与解压缩工具，支持文件和目录的压缩（原始含义归档，不带压缩功能）。</p>
+<p>按照 tar 选项的行为，分为三类：</p>
+<p><a href="https://imgtu.com/i/cqZXNQ" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://z3.ax1x.com/2021/04/21/cqZXNQ.png" alt="cqZXNQ.png"></a></p>
+<p> 常用组合：</p>
+<p>tf #查看所有tar类压缩包内容（.tar/.tar.gz/.tar.bz2/.tar.xz）</p>
+<p>xf #解压缩所有tar类压缩包（.tar/.tar.gz/.tar.bz2/.tar.xz）</p>
+<h3 id="tar命令选项："><a href="#tar命令选项：" class="headerlink" title="tar命令选项："></a>tar命令选项：</h3><table>
+<thead>
+<tr>
+<th>-A或–catenate：</th>
+<th>新增文件到以存在的备份文件；</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c或–create：</td>
+<td>建立新的备份文件；</td>
+</tr>
+<tr>
+<td>-C &lt;目录&gt;：</td>
+<td>这个选项用在解压缩，若要在特定目录解压缩，可以使用这个选项。</td>
+</tr>
+<tr>
+<td>-X&lt;文件名列表&gt;：</td>
+<td>排除多个文件，写入需要排除的文件名名称</td>
+</tr>
+<tr>
+<td>-x或–extract或–get：</td>
+<td>从备份文件中还原文件；</td>
+</tr>
+<tr>
+<td>-t或–list：</td>
+<td>列出备份文件的内容；</td>
+</tr>
+<tr>
+<td>-z或–gzip或–ungzip：</td>
+<td>通过gzip指令处理备份文件；</td>
+</tr>
+<tr>
+<td>-Z或–compress或–uncompress</td>
+<td>通过compress指令处理备份文件；</td>
+</tr>
+<tr>
+<td>-f&lt;备份文件&gt;或–file=&lt;备份文件&gt;：</td>
+<td>指定备份文件；</td>
+</tr>
+<tr>
+<td>-v或–verbose：</td>
+<td>显示指令执行过程；</td>
+</tr>
+<tr>
+<td>-r：</td>
+<td>添加文件到已经压缩的文件；</td>
+</tr>
+<tr>
+<td>-u：</td>
+<td>添加改变了和现有的文件到已经存在的压缩文件；</td>
+</tr>
+<tr>
+<td>-j：</td>
+<td>支持bzip2解压文件；</td>
+</tr>
+<tr>
+<td>-v：</td>
+<td>显示操作过程或者列出详细信息；</td>
+</tr>
+<tr>
+<td>–exclude=&lt;范本样式&gt;：</td>
+<td>排除符合范本样式的文件或目录。</td>
+</tr>
+</tbody></table>
+<h3 id="tar命令示例："><a href="#tar命令示例：" class="headerlink" title="tar命令示例："></a>tar命令示例：</h3><h4 id="1、压缩文件或者目录："><a href="#1、压缩文件或者目录：" class="headerlink" title="1、压缩文件或者目录："></a>1、压缩文件或者目录：</h4><pre><code>[root@192 test]# ls
+1.txt  2.txt  3.txt  
+[root@192 test]# tar -cvf test.tar *.txt
+1.txt
+2.txt
+3.txt
+[root@192 test]# ls
+1.txt  2.txt  3.txt  test.tar</code></pre><pre><code>[root@192 test]# ls
+1.txt  2.txt  3.txt  test.tar
+[root@192 test]# tar -zcvf test.tar.gz *.txt
+1.txt
+2.txt
+3.txt
+[root@192 test]# ls
+1.txt  2.txt  3.txt  test.tar  test.tar.gz
+</code></pre><pre><code>[root@192 test]# ls
+1.txt  2.txt  3.txt  test.tar  test.tar.gz
+[root@192 test]# tar -jcvf test.tar.bz2 *.txt
+1.txt
+2.txt
+3.txt
+[root@192 test]# ls
+1.txt  2.txt  3.txt  test.tar  test.tar.bz2  test.tar.gz
+</code></pre><p><strong>–remove-files打包后删除原文件：</strong></p>
+<pre><code>[root@192 test]# ls
+1.txt  2.txt  3.txt
+[root@192 test]# tar -zcvf test.tar.gz *.txt --remove-files
+1.txt
+2.txt
+3.txt
+[root@192 test]# ls
+test.tar.gz
+</code></pre><p><strong>–exclude排除指定的单个文件进行压缩：</strong></p>
+<pre><code>[root@192 test]# ls
+1.txt  2.txt  3.txt  4.txt  5.txt
+[root@192 test]# tar -zcvf test.tar.gz *.txt --exclude 2.txt
+1.txt
+3.txt
+4.txt
+5.txt
+[root@192 test]# tar -tvf test.tar.gz 
+-rw-r--r-- root/root         0 2021-04-20 23:57 1.txt
+-rw-r--r-- root/root         0 2021-04-20 23:57 3.txt
+-rw-r--r-- root/root         0 2021-04-20 23:57 4.txt
+-rw-r--r-- root/root         0 2021-04-20 23:57 5.txt
+</code></pre><p><strong>-X 排除多个文件：</strong></p>
+<pre><code>[root@192 test]# echo -e "1.txt\n2.txt" &gt;ex.list
+[root@192 test]# cat ex.list 
+1.txt
+2.txt
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>upload.php:</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-<span class="token delimiter">&lt;?php</span>
-<span class="token shell-comment comment"># 如果传过来的文件的大小等于0</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"pic"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"size"</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># 弹出请上传文件并返回之前的页面</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;script>alert('请上传文件！');location.href='"</span><span class="token punctuation">.</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">"HTTP_REFERER"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">"';&lt;/script>"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># 定义常量PATH，常量的值为当前目录的上级目录</span>
-
-    <span class="token variable">$fullpath</span> <span class="token operator">=</span> <span class="token string">'C:\phpstudy_pro\WWW\A_testCode\upload\files'</span><span class="token punctuation">;</span>
-    <span class="token shell-comment comment"># 如果fullpath是一个文件</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_dir</span><span class="token punctuation">(</span><span class="token variable">$fullpath</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># 弹出上传成功并跳回上传页面</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;script>alert('上传成功！');location.href='"</span><span class="token punctuation">.</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">"HTTP_REFERER"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">"'&lt;/script>"</span><span class="token punctuation">;</span>
-        <span class="token shell-comment comment"># 否则生成以fullpath命名的文件夹</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token variable">$fullpath</span><span class="token punctuation">,</span> <span class="token number">0777</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token shell-comment comment"># 随机命名文件名</span>
-    <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">,</span><span class="token number">99999</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token shell-comment comment"># 用strrchr()函数获取上传文件的后缀名，赋值给filetype</span>
-    <span class="token variable">$filetype</span> <span class="token operator">=</span> <span class="token function">strrchr</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"pic"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token shell-comment comment"># 重新命名文件名为：随机数字+固定文件后缀</span>
-    <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token variable">$filename</span><span class="token punctuation">.</span><span class="token variable">$filetype</span><span class="token punctuation">;</span>
-    <span class="token shell-comment comment"># 将上传的文件上传到指定的文件夹中，并重新命名</span>
-    <span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"pic"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"tmp_name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token variable">$fullpath</span><span class="token punctuation">.</span><span class="token string">'/'</span><span class="token punctuation">.</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>抓包之后，你能看到的，全部都可以修改，主要是改一些检测的可控点进行绕过，或者利用Web容器的解析漏洞进行绕过等等：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201128165551323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>菜刀连接：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020112817010294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="修复方案"><a href="#修复方案" class="headerlink" title="修复方案"></a>修复方案</h3><ul>
-<li><p>检测文件上传内容</p>
-<p>  -黑白名单验证，检测文件扩展名是否合法<br>  -MIME验证，检测文件的MIME类型</p>
-</li>
-<li><p>限制文件大小</p>
-</li>
-<li><p>更改临时文件夹的路径</p>
-</li>
-<li><p>读取上传文件的绝对路径与文件名称</p>
-</li>
-<li><p>隐藏文件路径</p>
-</li>
-</ul>
-<script>
+[root@192 test]# ls
+1.txt  2.txt  3.txt  4.txt  5.txt  ex.list
+[root@192 test]# tar -zcvf test.tar.gz *.txt -X ex.list 
+3.txt
+4.txt
+5.txt
+[root@192 test]# tar -tf test.tar.gz 
+3.txt
+4.txt
+5.txt
+</code></pre><h4 id="2、查看压缩包里的内容："><a href="#2、查看压缩包里的内容：" class="headerlink" title="2、查看压缩包里的内容："></a>2、查看压缩包里的内容：</h4><pre><code>[root@192 test]# ls
+1.txt  2.txt  3.txt  4.txt  5.txt  ex.list  test.tar.gz
+[root@192 test]# tar -tf test.tar.gz 
+3.txt
+4.txt
+5.txt
+[root@192 test]# tar -tvf test.tar.gz 
+-rw-r--r-- root/root         0 2021-04-20 23:57 3.txt
+-rw-r--r-- root/root         0 2021-04-20 23:57 4.txt
+-rw-r--r-- root/root         0 2021-04-20 23:57 5.txt
+</code></pre><h4 id="3、解压压缩包里的内容："><a href="#3、解压压缩包里的内容：" class="headerlink" title="3、解压压缩包里的内容："></a>3、解压压缩包里的内容：</h4><pre><code>[root@192 test]# ls
+test.tar.gz
+[root@192 test]# tar -zxvf test.tar.gz 
+3.txt
+4.txt
+5.txt
+[root@192 test]# ls
+3.txt  4.txt  5.txt  test.tar.gz</code></pre><pre><code>[root@192 test]# ls
+test.tar.bz2
+[root@192 test]# tar -jxvf test.tar.bz2 
+1.txt
+2.txt
+3.txt
+4.txt
+5.txt
+[root@192 test]# ls
+1.txt  2.txt  3.txt  4.txt  5.txt  test.tar.bz2
+</code></pre><p>只将压缩包里的部分文件解压出来，可以先查看压缩包里的文件名，再根据需要解压文件：</p>
+<pre><code>[root@192 test]# ls
+test.tar.bz2
+[root@192 test]# tar -tf test.tar.bz2 
+1.txt
+2.txt
+3.txt
+4.txt
+5.txt
+[root@192 test]# tar -jxvf test.tar.bz2 2.txt 4.txt
+2.txt
+4.txt
+[root@192 test]# ls
+2.txt  4.txt  test.tar.bz2</code></pre><p><strong>-C 将压缩包里的文件解压到指定的目录下面：</strong></p>
+<pre><code>[root@192 test]# 
+[root@192 test]# ls
+test.tar.bz2
+[root@192 test]# ls /mnt/
+[root@192 test]# tar -jxvf test.tar.bz2 -C /mnt/
+1.txt
+2.txt
+3.txt
+4.txt
+5.txt
+[root@192 test]# ls
+test.tar.bz2
+[root@192 test]# ls /mnt/
+1.txt  2.txt  3.txt  4.txt  5.txt
+</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1184,7 +1352,7 @@
                     </span>
                     <a href="https://Erikten.github.io" class="b-link-green">Erikten</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/posts/7bd3dcf6.html" class="b-link-green">PHP代码审计基础：文件上传漏洞</a>
+                    <a href="/posts/1c094494.html" class="b-link-green">Linux归档与压缩</a>
                 </p>
             </div>
 
@@ -1536,54 +1704,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/19d2a4e6.html">
+                <a href="/posts/1c094494.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/03.jpg" class="responsive-img" alt="阿里云服务器部署Hexo博客">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/12.jpg" class="responsive-img" alt="Linux归档与压缩">
                         
-                        <span class="card-title">阿里云服务器部署Hexo博客</span>
+                        <span class="card-title">Linux归档与压缩</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            相信大部分人使用Hexo搭建个人博客都会部署到一些免费的代码托管平台上，但这些免费的平台总是差强人意，今天记录下如何在自己的云服务器上搭建Hexo博客。
+                            归档与压缩归档，也称为打包，指的是一个文件或目录的集合，而这个集合被存储在一个文件中。归档文件没有经过压缩，因此，它占用的空间是其中所有文件和目录的总和。
+和归档文件类似，压缩文件也是一个文件和目录的集合，且这个集合也被存储在一个文件中，但
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/博客篇/" class="post-category" target="_blank">
-                                    博客篇
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                    网络运维篇
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/博客/" target="_blank">
-                        <span class="chip bg-color">博客</span>
-                    </a>
-                    
-                    <a href="/tags/阿里云/" target="_blank">
-                        <span class="chip bg-color">阿里云</span>
+                    <a href="/tags/运维/" target="_blank">
+                        <span class="chip bg-color">运维</span>
                     </a>
                     
                 </div>
@@ -1597,31 +1760,32 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/4f41b883.html">
+                <a href="/posts/ad5612ad.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/14.jpg" class="responsive-img" alt="PHP代码审计基础：任意文件读取及删除漏洞">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/15.jpg" class="responsive-img" alt="Linux文件权限管理">
                         
-                        <span class="card-title">PHP代码审计基础：任意文件读取及删除漏洞</span>
+                        <span class="card-title">Linux文件权限管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代码审计的基础，赶紧来GET吧~
+                            Linux文件权限管理一、文件存取访问身份Linux的优秀之处在于它的多用户多任务环境，为了方便文件的管理，有三种文件存取访问身份，分别是：用户、用户组、其他
+二、文件属性我们在用ls列举出当前工作目录下的文件时，显示的只是文件或目录名，要
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                    代码审计篇
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                    网络运维篇
                                 </a>
                             
                             
@@ -1631,24 +1795,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
-                    </a>
-                    
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/渗透测试/" target="_blank">
-                        <span class="chip bg-color">渗透测试</span>
-                    </a>
-                    
-                    <a href="/tags/任意文件读取/" target="_blank">
-                        <span class="chip bg-color">任意文件读取</span>
-                    </a>
-                    
-                    <a href="/tags/任意文件删除/" target="_blank">
-                        <span class="chip bg-color">任意文件删除</span>
+                    <a href="/tags/运维/" target="_blank">
+                        <span class="chip bg-color">运维</span>
                     </a>
                     
                 </div>

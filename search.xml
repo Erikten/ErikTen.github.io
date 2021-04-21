@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux归档与压缩</title>
+      <link href="/posts/1c094494.html"/>
+      <url>/posts/1c094494.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="归档与压缩"><a href="#归档与压缩" class="headerlink" title="归档与压缩"></a>归档与压缩</h1><p>归档，也称为打包，指的是一个文件或目录的集合，而这个集合被存储在一个文件中。归档文件没有经过压缩，因此，它占用的空间是其中所有文件和目录的总和。</p><pre><code>和归档文件类似，压缩文件也是一个文件和目录的集合，且这个集合也被存储在一个文件中，但它们的不同之处在于，压缩文件采用了不同的存储方式，使其所占用的磁盘空间比集合中所有文件大小的总和要小。</code></pre><pre><code>压缩是指利用算法将文件进行处理，已达到保留最大文件信息，而让文件体积变小的目的。其基本原理为，通过查找文件内的重复字节，建立一个相同字节的词典文件，并用一个代码表示。</code></pre><h2 id="一、Linux系统常见压缩包格式"><a href="#一、Linux系统常见压缩包格式" class="headerlink" title="一、Linux系统常见压缩包格式"></a>一、Linux系统常见压缩包格式</h2><p>1、压缩包格式：</p><table><thead><tr><th>Windows：</th><th>rar  zip</th></tr></thead><tbody><tr><td>Linux：</td><td>zip  tar  tar.gz  tar.bz2  tar.xz</td></tr></tbody></table><p>2、<strong>压缩包的好处主要有：</strong></p><p>1）节省磁盘空间占用率</p><p>2）节省网络传输带宽消耗</p><p>3）网络传输更加快捷</p><p>3、<strong>Linux**</strong>系统常见的后缀名所对应的压缩工具：**</p><table><thead><tr><th>.gz</th><th>gzip</th><th>#压缩工具压缩的文件</th></tr></thead><tbody><tr><td>.bz2</td><td>bzip2</td><td># 压缩工具压缩的文件</td></tr><tr><td>.tar</td><td>tar</td><td># tar没有压缩功能，只是把一个目录合并成一个文件</td></tr><tr><td>.tar.gz</td><td>tar、gzip</td><td>#先使用tar打包，然后使用gzip压缩归档</td></tr><tr><td>.tar.bz2</td><td>tar、bzip</td><td>#先使用tar打包，然后使用bzip压缩归档</td></tr><tr><td>.tar.xz</td><td>tar 、xz</td><td>#先使用tar打包，然后使用xz压缩归档</td></tr></tbody></table><p>注意：</p><p>1）Linux下常用压缩文件以.tar.gz结尾</p><p>2）Linux下压缩文件必须带后缀</p><h2 id="二、zip压缩工具："><a href="#二、zip压缩工具：" class="headerlink" title="二、zip压缩工具："></a>二、zip压缩工具：</h2><p>zip是压缩工具，unzip是解压工具</p><p>-q：不显示指令执行过程；</p><p>-r：递归处理，将指定目录下的所有文件和子目录一并处理；</p><pre class="line-numbers language-shell"><code class="language-shell">[root@192 ~]# lsanaconda-ks.cfg       公共  视频  文档  音乐initial-setup-ks.cfg  模板  图片  下载  桌面[root@192 ~]# zip cfg.zip anaconda-ks.cfg initial-setup-ks.cfg   adding: anaconda-ks.cfg (deflated 46%)  adding: initial-setup-ks.cfg (deflated 46%)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre><code>[root@192 ~]# lsanaconda-ks.cfg       test  视频  下载cfg.zip               公共  图片  音乐initial-setup-ks.cfg  模板  文档  桌面[root@192 ~]# zip -r test.zip test/  adding: test/ (stored 0%)[root@192 ~]# lsanaconda-ks.cfg       test      模板  文档  桌面cfg.zip               test.zip  视频  下载initial-setup-ks.cfg  公共      图片  音乐</code></pre><pre><code>[root@192 ~]# unzip -d /mnt/ cfg.zip Archive:  cfg.zip  inflating: /mnt/anaconda-ks.cfg      inflating: /mnt/initial-setup-ks.cfg  [root@192 ~]# ls /mnt/anaconda-ks.cfg  initial-setup-ks.cfg</code></pre><h2 id="三、tar压缩工具"><a href="#三、tar压缩工具" class="headerlink" title="三、tar压缩工具"></a>三、tar压缩工具</h2><p>tar是Linux下最常用的压缩与解压缩工具，支持文件和目录的压缩（原始含义归档，不带压缩功能）。</p><p>按照 tar 选项的行为，分为三类：</p><p><a href="https://imgtu.com/i/cqZXNQ" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://z3.ax1x.com/2021/04/21/cqZXNQ.png" alt="cqZXNQ.png"></a></p><p> 常用组合：</p><p>tf #查看所有tar类压缩包内容（.tar/.tar.gz/.tar.bz2/.tar.xz）</p><p>xf #解压缩所有tar类压缩包（.tar/.tar.gz/.tar.bz2/.tar.xz）</p><h3 id="tar命令选项："><a href="#tar命令选项：" class="headerlink" title="tar命令选项："></a>tar命令选项：</h3><table><thead><tr><th>-A或–catenate：</th><th>新增文件到以存在的备份文件；</th></tr></thead><tbody><tr><td>-c或–create：</td><td>建立新的备份文件；</td></tr><tr><td>-C &lt;目录&gt;：</td><td>这个选项用在解压缩，若要在特定目录解压缩，可以使用这个选项。</td></tr><tr><td>-X&lt;文件名列表&gt;：</td><td>排除多个文件，写入需要排除的文件名名称</td></tr><tr><td>-x或–extract或–get：</td><td>从备份文件中还原文件；</td></tr><tr><td>-t或–list：</td><td>列出备份文件的内容；</td></tr><tr><td>-z或–gzip或–ungzip：</td><td>通过gzip指令处理备份文件；</td></tr><tr><td>-Z或–compress或–uncompress</td><td>通过compress指令处理备份文件；</td></tr><tr><td>-f&lt;备份文件&gt;或–file=&lt;备份文件&gt;：</td><td>指定备份文件；</td></tr><tr><td>-v或–verbose：</td><td>显示指令执行过程；</td></tr><tr><td>-r：</td><td>添加文件到已经压缩的文件；</td></tr><tr><td>-u：</td><td>添加改变了和现有的文件到已经存在的压缩文件；</td></tr><tr><td>-j：</td><td>支持bzip2解压文件；</td></tr><tr><td>-v：</td><td>显示操作过程或者列出详细信息；</td></tr><tr><td>–exclude=&lt;范本样式&gt;：</td><td>排除符合范本样式的文件或目录。</td></tr></tbody></table><h3 id="tar命令示例："><a href="#tar命令示例：" class="headerlink" title="tar命令示例："></a>tar命令示例：</h3><h4 id="1、压缩文件或者目录："><a href="#1、压缩文件或者目录：" class="headerlink" title="1、压缩文件或者目录："></a>1、压缩文件或者目录：</h4><pre><code>[root@192 test]# ls1.txt  2.txt  3.txt  [root@192 test]# tar -cvf test.tar *.txt1.txt2.txt3.txt[root@192 test]# ls1.txt  2.txt  3.txt  test.tar</code></pre><pre><code>[root@192 test]# ls1.txt  2.txt  3.txt  test.tar[root@192 test]# tar -zcvf test.tar.gz *.txt1.txt2.txt3.txt[root@192 test]# ls1.txt  2.txt  3.txt  test.tar  test.tar.gz</code></pre><pre><code>[root@192 test]# ls1.txt  2.txt  3.txt  test.tar  test.tar.gz[root@192 test]# tar -jcvf test.tar.bz2 *.txt1.txt2.txt3.txt[root@192 test]# ls1.txt  2.txt  3.txt  test.tar  test.tar.bz2  test.tar.gz</code></pre><p><strong>–remove-files打包后删除原文件：</strong></p><pre><code>[root@192 test]# ls1.txt  2.txt  3.txt[root@192 test]# tar -zcvf test.tar.gz *.txt --remove-files1.txt2.txt3.txt[root@192 test]# lstest.tar.gz</code></pre><p><strong>–exclude排除指定的单个文件进行压缩：</strong></p><pre><code>[root@192 test]# ls1.txt  2.txt  3.txt  4.txt  5.txt[root@192 test]# tar -zcvf test.tar.gz *.txt --exclude 2.txt1.txt3.txt4.txt5.txt[root@192 test]# tar -tvf test.tar.gz -rw-r--r-- root/root         0 2021-04-20 23:57 1.txt-rw-r--r-- root/root         0 2021-04-20 23:57 3.txt-rw-r--r-- root/root         0 2021-04-20 23:57 4.txt-rw-r--r-- root/root         0 2021-04-20 23:57 5.txt</code></pre><p><strong>-X 排除多个文件：</strong></p><pre><code>[root@192 test]# echo -e "1.txt\n2.txt" &gt;ex.list[root@192 test]# cat ex.list 1.txt2.txt[root@192 test]# ls1.txt  2.txt  3.txt  4.txt  5.txt  ex.list[root@192 test]# tar -zcvf test.tar.gz *.txt -X ex.list 3.txt4.txt5.txt[root@192 test]# tar -tf test.tar.gz 3.txt4.txt5.txt</code></pre><h4 id="2、查看压缩包里的内容："><a href="#2、查看压缩包里的内容：" class="headerlink" title="2、查看压缩包里的内容："></a>2、查看压缩包里的内容：</h4><pre><code>[root@192 test]# ls1.txt  2.txt  3.txt  4.txt  5.txt  ex.list  test.tar.gz[root@192 test]# tar -tf test.tar.gz 3.txt4.txt5.txt[root@192 test]# tar -tvf test.tar.gz -rw-r--r-- root/root         0 2021-04-20 23:57 3.txt-rw-r--r-- root/root         0 2021-04-20 23:57 4.txt-rw-r--r-- root/root         0 2021-04-20 23:57 5.txt</code></pre><h4 id="3、解压压缩包里的内容："><a href="#3、解压压缩包里的内容：" class="headerlink" title="3、解压压缩包里的内容："></a>3、解压压缩包里的内容：</h4><pre><code>[root@192 test]# lstest.tar.gz[root@192 test]# tar -zxvf test.tar.gz 3.txt4.txt5.txt[root@192 test]# ls3.txt  4.txt  5.txt  test.tar.gz</code></pre><pre><code>[root@192 test]# lstest.tar.bz2[root@192 test]# tar -jxvf test.tar.bz2 1.txt2.txt3.txt4.txt5.txt[root@192 test]# ls1.txt  2.txt  3.txt  4.txt  5.txt  test.tar.bz2</code></pre><p>只将压缩包里的部分文件解压出来，可以先查看压缩包里的文件名，再根据需要解压文件：</p><pre><code>[root@192 test]# lstest.tar.bz2[root@192 test]# tar -tf test.tar.bz2 1.txt2.txt3.txt4.txt5.txt[root@192 test]# tar -jxvf test.tar.bz2 2.txt 4.txt2.txt4.txt[root@192 test]# ls2.txt  4.txt  test.tar.bz2</code></pre><p><strong>-C 将压缩包里的文件解压到指定的目录下面：</strong></p><pre><code>[root@192 test]# [root@192 test]# lstest.tar.bz2[root@192 test]# ls /mnt/[root@192 test]# tar -jxvf test.tar.bz2 -C /mnt/1.txt2.txt3.txt4.txt5.txt[root@192 test]# lstest.tar.bz2[root@192 test]# ls /mnt/1.txt  2.txt  3.txt  4.txt  5.txt</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络运维篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux文件权限管理</title>
       <link href="/posts/ad5612ad.html"/>
       <url>/posts/ad5612ad.html</url>
@@ -528,11 +553,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -557,11 +582,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -586,11 +611,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -615,11 +640,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1153,11 +1178,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1182,11 +1207,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1211,11 +1236,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1240,11 +1265,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1269,11 +1294,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1298,11 +1323,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1327,11 +1352,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1356,11 +1381,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1385,11 +1410,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 编程 </tag>
             
             <tag> 安全开发 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
