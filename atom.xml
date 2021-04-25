@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Erikten.github.io/"/>
-  <updated>2021-04-21T12:44:30.644Z</updated>
+  <updated>2021-04-25T10:55:18.821Z</updated>
   <id>https://Erikten.github.io/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LAMP部署</title>
+    <link href="https://Erikten.github.io/posts/a8d3d305.html"/>
+    <id>https://Erikten.github.io/posts/a8d3d305.html</id>
+    <published>2021-04-25T10:54:43.222Z</published>
+    <updated>2021-04-25T10:55:18.821Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;LAMP部署&quot;&gt;&lt;a href=&quot;#LAMP部署&quot; class=&quot;headerlink&quot; title=&quot;LAMP部署&quot;&gt;&lt;/a&gt;LAMP部署&lt;/h1&gt;&lt;h2 id=&quot;一、LAMP介绍&quot;&gt;&lt;a href=&quot;#一、LAMP介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络运维篇" scheme="https://Erikten.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4%E7%AF%87/"/>
+    
+    
+      <category term="运维" scheme="https://Erikten.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL服务器配置</title>
+    <link href="https://Erikten.github.io/posts/ba9b8955.html"/>
+    <id>https://Erikten.github.io/posts/ba9b8955.html</id>
+    <published>2021-04-25T10:54:13.922Z</published>
+    <updated>2021-04-25T10:55:18.821Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;MySQL服务器配置&quot;&gt;&lt;a href=&quot;#MySQL服务器配置&quot; class=&quot;headerlink&quot; title=&quot;MySQL服务器配置&quot;&gt;&lt;/a&gt;MySQL服务器配置&lt;/h1&gt;&lt;h2 id=&quot;一、MySQL简介&quot;&gt;&lt;a href=&quot;#一、MySQL简介&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络运维篇" scheme="https://Erikten.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4%E7%AF%87/"/>
+    
+    
+      <category term="运维" scheme="https://Erikten.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache 服务器配置</title>
+    <link href="https://Erikten.github.io/posts/15fa9625.html"/>
+    <id>https://Erikten.github.io/posts/15fa9625.html</id>
+    <published>2021-04-25T10:53:35.280Z</published>
+    <updated>2021-04-25T10:55:18.820Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Apache-服务器配置&quot;&gt;&lt;a href=&quot;#Apache-服务器配置&quot; class=&quot;headerlink&quot; title=&quot;Apache 服务器配置&quot;&gt;&lt;/a&gt;Apache 服务器配置&lt;/h1&gt;&lt;h2 id=&quot;一、Apache简介&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="网络运维篇" scheme="https://Erikten.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4%E7%AF%87/"/>
+    
+    
+      <category term="运维" scheme="https://Erikten.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux归档与压缩</title>
@@ -120,11 +198,11 @@
     
       <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
+      <category term="SQL注入" scheme="https://Erikten.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
       <category term="exp" scheme="https://Erikten.github.io/tags/exp/"/>
     
       <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
-      <category term="SQL注入" scheme="https://Erikten.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     
       <category term="命令执行" scheme="https://Erikten.github.io/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
     
@@ -446,7 +524,7 @@ Windows
     <link href="https://Erikten.github.io/posts/407cb4d.html"/>
     <id>https://Erikten.github.io/posts/407cb4d.html</id>
     <published>2021-04-06T11:16:23.208Z</published>
-    <updated>2021-04-06T12:44:36.107Z</updated>
+    <updated>2021-04-22T01:21:53.879Z</updated>
     
     <summary type="html">
     
@@ -572,97 +650,6 @@ Windows
       <category term="提权" scheme="https://Erikten.github.io/tags/%E6%8F%90%E6%9D%83/"/>
     
       <category term="Windows" scheme="https://Erikten.github.io/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>详解Python中的面向对象（下）</title>
-    <link href="https://Erikten.github.io/posts/d4c5b05a.html"/>
-    <id>https://Erikten.github.io/posts/d4c5b05a.html</id>
-    <published>2021-04-06T11:16:23.202Z</published>
-    <updated>2021-02-18T16:11:46.789Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;类属性&quot;&gt;&lt;a href=&quot;#类属性&quot; class=&quot;headerlink&quot; title=&quot;类属性&quot;&gt;&lt;/a&gt;类属性&lt;/h3&gt;&lt;p&gt;类属性创建有点类似于在类中创建一个全局变量，这个变量类跟实例都可以调用它&lt;/p&gt;
-&lt;pre class=&quot;line-numbers
-        
-      
-    
-    </summary>
-    
-      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
-    
-    
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
-      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>详解Python中的面向对象（上）</title>
-    <link href="https://Erikten.github.io/posts/6c79d73f.html"/>
-    <id>https://Erikten.github.io/posts/6c79d73f.html</id>
-    <published>2021-04-06T11:16:23.201Z</published>
-    <updated>2021-02-18T16:11:25.642Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;定义一个类&quot;&gt;&lt;a href=&quot;#定义一个类&quot; class=&quot;headerlink&quot; title=&quot;定义一个类&quot;&gt;&lt;/a&gt;定义一个类&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
-    
-    
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
-      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>详解Python中的正则表达式</title>
-    <link href="https://Erikten.github.io/posts/c2789c50.html"/>
-    <id>https://Erikten.github.io/posts/c2789c50.html</id>
-    <published>2021-04-06T11:16:23.200Z</published>
-    <updated>2021-02-18T16:14:27.396Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Python正则表达式&quot;&gt;&lt;a href=&quot;#Python正则表达式&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Python安全开发篇" scheme="https://Erikten.github.io/categories/Python%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E7%AF%87/"/>
-    
-    
-      <category term="Python" scheme="https://Erikten.github.io/tags/Python/"/>
-    
-      <category term="编程" scheme="https://Erikten.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="安全开发" scheme="https://Erikten.github.io/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   

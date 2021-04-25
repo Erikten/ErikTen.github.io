@@ -1,0 +1,2620 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="Apache 服务器配置, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
+    <meta name="baidu-site-verification" content="fmlEuI34ir">
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
+    <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
+    <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
+    <meta name="description" content="Apache 服务器配置一、Apache简介​        Apache HTTP server（简称Apache）是Apache软件基金会的一个开放源代码的网页服务器软件，可以运行在绝大多数的UNIX、Linux、Windows平台上。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="wvlc3L96QK">
+    <title>Apache 服务器配置 | Erikten</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <style type="text/css">
+        
+            
+            code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+        
+    </style>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+
+    <body>
+
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Erikten</span>
+                </a>
+            </div>
+            
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-heartbeat"></i>
+            
+            <span>清单</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-user-circle"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-comments"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-archive"></i>
+            
+            <span>工具箱</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fas fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="" class="waves-effect waves-light">
+                
+                  <i class="fa fas fa-archive"></i>
+                
+                <span>归档</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                    <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/categories" >
+                    
+                    <span>分类</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="" class="waves-effect waves-light">
+                
+                  <i class="fa fas fa-heartbeat"></i>
+                
+                <span>清单</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/List/music" >
+                    
+                    <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/List/galleries" >
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/List/movies" >
+                    
+                    <span>视频</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/List" >
+                    
+                    <span>休闲</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/about" class="waves-effect waves-light">
+              
+                <i class="fa fas fa-user-circle"></i>
+              
+              <span>关于我</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fas fa-comments"></i>
+              
+              <span>留言板</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/friends" class="waves-effect waves-light">
+              
+                <i class="fa fas fa-address-book"></i>
+              
+              <span>友情链接</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="" class="waves-effect waves-light">
+                
+                  <i class="fa fas fa-archive"></i>
+                
+                <span>工具箱</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/yiqing" >
+                    
+                    <span>实时疫情</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tools" >
+                    
+                    <span>最强导航</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://txt.guoqiangti.ga" >
+                    
+                    <span>谷歌HACK</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://regex101.com" >
+                    
+                    <span>图形化正则</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://ip.jiangxianli.com" >
+                    
+                    <span>全球免费代理IP库</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Erikten</div>
+        <div class="logo-desc">
+            
+            东营职业学院 | 计算机网络技术 | 网络安全
+            
+        </div>
+    </div>
+
+    
+<!-- 支持一级菜单特性 -->
+<!--    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-heartbeat"></i>
+                
+                清单
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-user-circle"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-comments"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-archive"></i>
+                
+                工具箱
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Erikten/Erikten.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul> -->
+
+   
+   
+<!-- 支持二级菜单特性  -->
+ <ul class="menu-list mobile-menu-list">
+    
+        <li class="m-nav-item">
+                
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fas fa-home"></i>
+                        
+                        首页
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                            
+                            <i class="fa fa-fw fas fa-archive"></i>
+                            
+                            归档
+                            <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                <ul>
+                  
+                    <li> 
+                      <a href="/archives" >
+                           
+                       <span>时轴</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/categories" >
+                           
+                       <span>分类</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/tags" >
+                           
+                       <span>标签</span>
+                      </a>
+                    </li>
+                   
+                </ul>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                            
+                            <i class="fa fa-fw fas fa-heartbeat"></i>
+                            
+                            清单
+                            <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                <ul>
+                  
+                    <li> 
+                      <a href="/List/music" >
+                           
+                       <span>音乐</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/List/galleries" >
+                           
+                       <span>相册</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/List/movies" >
+                           
+                       <span>视频</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/List" >
+                           
+                       <span>休闲</span>
+                      </a>
+                    </li>
+                   
+                </ul>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/about" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fas fa-user-circle"></i>
+                        
+                        关于我
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/contact" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fas fa-comments"></i>
+                        
+                        留言板
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/friends" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fas fa-address-book"></i>
+                        
+                        友情链接
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                            
+                            <i class="fa fa-fw fas fa-archive"></i>
+                            
+                            工具箱
+                            <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                <ul>
+                  
+                    <li> 
+                      <a href="/yiqing" >
+                           
+                       <span>实时疫情</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/tools" >
+                           
+                       <span>最强导航</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="https://txt.guoqiangti.ga" >
+                           
+                       <span>谷歌HACK</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="https://regex101.com" >
+                           
+                       <span>图形化正则</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="https://ip.jiangxianli.com" >
+                           
+                       <span>全球免费代理IP库</span>
+                      </a>
+                    </li>
+                   
+                </ul>
+              
+            </li>
+        
+
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Erikten/Erikten.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul> 
+
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Erikten/Erikten.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/10.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Apache 服务器配置
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.1/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+        width: 345px;
+        background-color: rgb(255, 255, 255,0.7);
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        margin-bottom: 20px;
+    }
+    
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/运维/" target="_blank">
+                                <span class="chip bg-color">运维</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                网络运维篇
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-04-25
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        Erikten
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        8.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        35 分
+                    </div>
+                    
+                
+                
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Apache-服务器配置"><a href="#Apache-服务器配置" class="headerlink" title="Apache 服务器配置"></a>Apache 服务器配置</h1><h2 id="一、Apache简介"><a href="#一、Apache简介" class="headerlink" title="一、Apache简介"></a>一、Apache简介</h2><p>​        Apache HTTP server（简称Apache）是Apache软件基金会的一个开放源代码的网页服务器软件，可以运行在绝大多数的UNIX、Linux、Windows平台上。</p>
+<p>​        由于Apache具有跨平台性、安全性和可移植性等特点，因此它被广泛使用，是非常流行的Web服务器软件之一。</p>
+<pre><code>survey.netcraft.net此网站会有每月份的世界上网站使用的WEB服务器的使用率统计。</code></pre><p>[<a href="https://news.netcraft.com/archives/category/web-server-survey/]" target="_blank" rel="noopener">https://news.netcraft.com/archives/category/web-server-survey/]</a>: </p>
+<h2 id="二、Apache的安装与运行"><a href="#二、Apache的安装与运行" class="headerlink" title="二、Apache的安装与运行"></a>二、Apache的安装与运行</h2><h3 id="2-1-源码编译安装与运行"><a href="#2-1-源码编译安装与运行" class="headerlink" title="2.1    源码编译安装与运行"></a>2.1    源码编译安装与运行</h3><h4 id="1、安装依赖包"><a href="#1、安装依赖包" class="headerlink" title="1、安装依赖包"></a>1、安装依赖包</h4><p>​       在开始编译安装之前，需要安装编译时所需要的依赖包，这样才能顺利编译安装。</p>
+<pre><code>yum -y install gcc autoconf automake make zlib pcre pcre-devel openssl openssl-devel expat-devel</code></pre><h4 id="2、下载最新源码包"><a href="#2、下载最新源码包" class="headerlink" title="2、下载最新源码包"></a>2、下载最新源码包</h4><p>​    在解决以来环境之后，就需要通过官网获取最新的源码包。</p>
+<pre><code>wget    https://mirrors.bfsu.edu.cn/apache//httpd/httpd-2.4.46.tar.gz
+wget    https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-1.7.0.tar.gz
+wget    https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-util-1.6.1.tar.gz</code></pre><h4 id="3、编译安装apr库"><a href="#3、编译安装apr库" class="headerlink" title="3、编译安装apr库"></a>3、编译安装apr库</h4><p>由于Apache的运行依赖于apr库（Apache可移植运行库，该库包含了一些通用的开发组件），因此在开始编译Apache之前需要先编译安装apr库。</p>
+<pre><code>tar zxvf apr-1.7.0.tar.gz 
+cd apr-1.7.0/
+./configure &amp;&amp; make &amp;&amp; make install
+cd ..
+tar zxvf apr-util-1.6.1.tar.gz 
+cd apr-util-1.6.1/
+./configure --with-apr=/usr/local/apr
+make &amp;&amp; make install</code></pre><h4 id="4、编译安装Apache"><a href="#4、编译安装Apache" class="headerlink" title="4、编译安装Apache"></a>4、编译安装Apache</h4><pre><code>tar xvf httpd-2.4.46.tar.gz 
+cd httpd-2.4.46/
+./configure --prefix=/usr/local/apache2 --enable-so --enable-ssl --enable-rewrite --enable-cgi --with-suexec-bin --with-apr=/usr/local/apr --enable-modules=most --enable-mods-shared=most --enable-mpms-shared=all --with-mpm=worker --enable-deflate --enable-expires
+make &amp;&amp;make install</code></pre><h4 id="5、编译安装Apache后的目录结构"><a href="#5、编译安装Apache后的目录结构" class="headerlink" title="5、编译安装Apache后的目录结构"></a>5、编译安装Apache后的目录结构</h4><p>Apache编译安装完成后，安装目录是/usr/local/apache2，该目录下包含以下重要文件和目录。</p>
+<table>
+<thead>
+<tr>
+<th>目录名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bin</td>
+<td>Apache执行文件的目录</td>
+</tr>
+<tr>
+<td>cgi-bin</td>
+<td>默认CGI文件</td>
+</tr>
+<tr>
+<td>conf</td>
+<td>配置文件</td>
+</tr>
+<tr>
+<td>htdocs</td>
+<td>编译安装时默认的web文档根目录</td>
+</tr>
+<tr>
+<td>icons</td>
+<td>Apache使用的一些小图标</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>日志文件存放的位置，有两种日志：访问日志和错误日志</td>
+</tr>
+<tr>
+<td>manual</td>
+<td>Apache文档目录</td>
+</tr>
+<tr>
+<td>modules</td>
+<td>动态加载模块所在位置</td>
+</tr>
+</tbody></table>
+<p>为了方便管理Apache程序，我们把/usr/loacl/apache2/bin目录下的脚本文件链接到/usr/local/bin目录下，以后就可以在终端直接使用这些命令了。</p>
+<pre><code>ln -s /usr/local/apache2/bin/* /usr/bin/</code></pre><h4 id="6、配置Apache服务开机自启"><a href="#6、配置Apache服务开机自启" class="headerlink" title="6、配置Apache服务开机自启"></a>6、配置Apache服务开机自启</h4><p>为Apache服务编写脚本。</p>
+<pre><code>vim /usr/lib/systemd/system/httpd.service
+
+[Unit]
+Description=The Apache HTTP Server
+After=network.target remote-fs.target nss-lookup.target
+Documentation=man:httpd(8)
+Documentation=man:apachectl(8)
+
+[Service]
+Type=forking
+EnviromentFile=/etc/httpd/httpd.conf
+ExecStart=/usr/local/apache2/bin/apachectl -k start
+ExecRestart=/usr/local/apache2/bin/apachectl -k restart
+ExecStop=/usr/local/apache2/bin/apachectl -k stop
+KillSignal=SIGCONT
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>启动Apache服务，并加入开机自启。</p>
+<pre><code>systemctl  start  httpd
+systemctl  enable httpd</code></pre><h4 id="7、配置防火墙"><a href="#7、配置防火墙" class="headerlink" title="7、配置防火墙"></a>7、配置防火墙</h4><p>在Apache服务启动后，为了让用户能够访问服务器上的web服务，需要对防火墙添加一条规则来允许用户访问服务器的80端口。</p>
+<pre><code>firewall-cmd  --add-port=80/tcp --permanent 
+firewall-cmd  --reload</code></pre><p>在浏览器使用“http://&lt;服务器IP&gt;”进行访问。</p>
+<h3 id="2-2-使用YUM安装与运行"><a href="#2-2-使用YUM安装与运行" class="headerlink" title="2.2    使用YUM安装与运行"></a>2.2    使用YUM安装与运行</h3><h4 id="1、配置国内YUM源"><a href="#1、配置国内YUM源" class="headerlink" title="1、配置国内YUM源"></a>1、配置国内YUM源</h4><p>首先备份/etc/yum.repos.d/CentOS-Base.repo</p>
+<pre><code>mkdir  /etc/yum.repos.d/bak 
+mv     /etc/yum.repos.d/CentOS-*   /etc/yum.repos.d/bak</code></pre><p>下载新的YUM源配置文件</p>
+<pre><code>wget -P /etc/yum.repos.d/ http://mirrors.163.com/.help/CentOS7-Base-163.repo</code></pre><h4 id="2、使用YUM安装Apache"><a href="#2、使用YUM安装Apache" class="headerlink" title="2、使用YUM安装Apache"></a>2、使用YUM安装Apache</h4><p>使用YUM安装Apache</p>
+<pre><code>yum -y install httpd</code></pre><p>检查是否正确安装</p>
+<pre><code>[root@server1 ~]# rpm -qa |grep httpd
+httpd-tools-2.4.6-97.el7.centos.x86_64
+httpd-2.4.6-97.el7.centos.x86_64</code></pre><p>查看使用YUM安装Apache后生成的文件和目录。</p>
+<pre><code>rpm  -ql httpd</code></pre><h4 id="3、使用YUM安装Apache后的目录结构"><a href="#3、使用YUM安装Apache后的目录结构" class="headerlink" title="3、使用YUM安装Apache后的目录结构"></a>3、使用YUM安装Apache后的目录结构</h4><table>
+<thead>
+<tr>
+<th>目录名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/var/www/</td>
+<td>存放网站内容的目录</td>
+</tr>
+<tr>
+<td>/etc/httpd/conf/httpd.conf</td>
+<td>Apache主配置文件</td>
+</tr>
+<tr>
+<td>/var/www/html</td>
+<td>默认主服务器文档的根目录</td>
+</tr>
+<tr>
+<td>/var/www/cgi-bin</td>
+<td>默认CGI文件</td>
+</tr>
+<tr>
+<td>/var/log/httpd/</td>
+<td>日志文件存放位置</td>
+</tr>
+<tr>
+<td>/etc/httpd/modules</td>
+<td>动态加载模块所在位置</td>
+</tr>
+<tr>
+<td>/usr/sbin/httpd</td>
+<td>Apache执行程序</td>
+</tr>
+<tr>
+<td>/usr/share/doc/httpd-2.4.6</td>
+<td>配置文件的模板</td>
+</tr>
+</tbody></table>
+<h4 id="4、配置Apache服务开机自启"><a href="#4、配置Apache服务开机自启" class="headerlink" title="4、配置Apache服务开机自启"></a>4、配置Apache服务开机自启</h4><p>配置Apache开机自启</p>
+<pre><code>systemctl  enable   httpd</code></pre><p>启动Apache服务</p>
+<pre><code>systemctl  start  httpd</code></pre><h4 id="5、配置防火墙"><a href="#5、配置防火墙" class="headerlink" title="5、配置防火墙"></a>5、配置防火墙</h4><p>在Apache服务启动后，为了让用户能够访问服务器上的web服务，需要对防火墙添加一条规则来允许用户访问服务器的80端口。</p>
+<pre><code>firewall-cmd  --add-port=80/tcp --permanent 
+firewall-cmd  --reload</code></pre><p>在浏览器使用“http://&lt;服务器IP&gt;”进行访问。</p>
+<h2 id="三、Apache的配置与管理"><a href="#三、Apache的配置与管理" class="headerlink" title="三、Apache的配置与管理"></a>三、Apache的配置与管理</h2><h3 id="3-1-Apache主配置文件"><a href="#3-1-Apache主配置文件" class="headerlink" title="3.1    Apache主配置文件"></a>3.1    Apache主配置文件</h3><p>在使用YUM 安装Apache服务后，在/etc/httpd/conf目录下包含了主配置文件httpd.conf；在/etc/httpd/conf.d/目录下包含了一些独立出来的配置文件；在/usr/share/doc/httpd-2.4.6目录下包含了一些常用配置为模板。</p>
+<h4 id="1、全局配置部分"><a href="#1、全局配置部分" class="headerlink" title="1、全局配置部分"></a>1、全局配置部分</h4><pre><code>#Apache安装目录
+ServerRoot "/etc/httpd"
+
+#指定监听端口
+Listen 80
+
+#把conf.modules.d目录下的以“*.conf”结尾的配置文件合并到主配置文件
+Include conf.modules.d/*.conf
+
+#指定运行Apache程序的用户
+User apache
+Group apache
+</code></pre><h4 id="2、主服务配置部分"><a href="#2、主服务配置部分" class="headerlink" title="2、主服务配置部分"></a>2、主服务配置部分</h4><pre><code># 'Main' server configuration
+
+#网站管理员邮箱
+ServerAdmin root@localhost
+
+#配置主站点域名
+#ServerName www.example.com:80
+
+#配置全局目录默认规则，默认拒绝所有访问
+&lt;Directory /&gt;
+    AllowOverride none
+    Require all denied
+&lt;/Directory&gt;
+    #Directory一般用于对指定目录进行权限控制
+
+
+
+#指定网站主目录存放位置
+DocumentRoot "/var/www/html"
+
+#配置/var/www/目录的权限
+&lt;Directory "/var/www"&gt;
+    AllowOverride None
+    # Allow open access:
+    Require all granted
+&lt;/Directory&gt;
+
+#配置/var/www/html/目录的权限
+&lt;Directory "/var/www/html"&gt;
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+&lt;/Directory&gt;
+
+#IfModuole标签其作用是先检查当前模块是否已经加载，若已经加载，则标签中的配置有效，若没有加载，则标签中的配置无效。
+#默认索引页面是index.html
+&lt;IfModule dir_module&gt;
+    DirectoryIndex index.html
+&lt;/IfModule&gt;
+
+#&lt;Files&gt;指令提供了基于文件名的访问控制，类似于&lt;Directory&gt;和&lt;Location&gt;指令
+&lt;Files ".ht*"&gt;
+    Require all denied
+&lt;/Files&gt;
+
+#配置主站点错误日志位置
+ErrorLog "logs/error_log"
+
+#配置日志级别
+LogLevel warn
+
+#IfModuole标签其作用是先检查当前模块是否已经加载，若已经加载，则标签中的配置有效，若没有加载，则标签中的配置无效。
+&lt;IfModule log_config_module&gt;
+
+    LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "%h %l %u %t \"%r\" %&gt;s %b" common
+
+    &lt;IfModule logio_module&gt;
+      # You need to enable mod_logio.c to use %I and %O
+      LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    &lt;/IfModule&gt;
+
+
+    CustomLog "logs/access_log" combined
+&lt;/IfModule&gt;
+
+#把conf.d目录下以“.conf”结尾的配置文件合并到主配置文件。
+IncludeOptional conf.d/*.conf
+</code></pre><h3 id="3、关于配置文件一些重要的指令"><a href="#3、关于配置文件一些重要的指令" class="headerlink" title="3、关于配置文件一些重要的指令"></a>3、关于配置文件一些重要的指令</h3><h4 id="（1）Options"><a href="#（1）Options" class="headerlink" title="（1）Options"></a><strong>（1）Options</strong></h4><p>该指令用于控制特定目录中可用的服务器功能，选项可以设置为None，表示没有启用任何额外的功能，还可以设置以下一项或多项：</p>
+<pre><code>Options选项用于定义目录使用哪些特性，包括Indexes、MultiViews和ExecCGI等
+
+Indexes             允许目录浏览，Apache以超文本形式返回目录中的文件和子目录列表
+MultiViews          允许内容协商的多重视图MultiViews其实是Apache的一个智能特性。当客户访问目录 中一个不存在的对象时，如访问“http://192.168.16.177/icons/a”，则Apache会查找这个目录下所有a.*文件。由于 icons目录下存在a.gif文件，因此Apache会将a.gif文件返回给客户，而不是返回出错信息
+
+All               All包含了除MultiViews之外的所有特性，如果没有Options语句，默认为All
+
+ExecCGI           允许在该目录下执行CGI脚本
+
+FollowSymLinks    可以在该目录中使用符号连接（软连接）
+
+Includes          允许服务器端包含功能，准许SSI
+
+IncludesNoExec       允许服务器端包含功能，但禁用执行CGI脚本
+
+SymLinksIfOwnerMatch      在该目录中仅仅跟踪本站点内的链接</code></pre><h4 id="（2）require"><a href="#（2）require" class="headerlink" title="（2）require"></a>（2）require</h4><p>该指令为特定的目录设置目录访问控制权限。</p>
+<pre><code>    #AllowOverride 决定是否读取目录中的.htaccess文件
+        #All：表示可以读取.htaccess文件的内容，修改原来的访问权限。
+        #None：表示不读取.htaccess文件，权限由httpd.conf统一控制。
+    #Require all denied：表示禁止所有请求访问资源，此配置表示禁止访问web服务器的任何目录
+    #Require all granted：表示允许所有请求访问资源。Require是apache2.4版本的一个新特性
+    #Require ip IP地址：允许某个IP访问
+    #Require not ip IP地址：拒绝某个IP访问
+    #Require host 主机名：允许某个主机访问
+    #Require not host 主机名：拒绝某个主机访问</code></pre><p>（3）</p>
+<p>该指令用于指定 .htaccess文件中允许的指令类型。   .htaccess是一个纯文本文件，它里面存放着Apache服务器配置相关的指令。.</p>
+<p>htaccess主要的作用有：URL重写、自定义错误页面、MIME类型配置以及访问权限控制等。主要体现在伪静态的应用、图片防盗链、自定义404错误页面、阻止/允许特定IP/IP段、目录浏览与主页、禁止访问指定文件类型、文件密码保护等。</p>
+<p>.htaccess的用途范围主要针对当前目录。</p>
+<pre><code>
+AuthConfig
+允许使用与认证授权相关的指令(AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, AuthName, AuthType, AuthUserFile, Require, 等)。
+
+FileInfo
+允许使用控制文档类型的指令(DefaultType, ErrorDocument, ForceType, LanguagePriority, SetHandler, SetInputFilter, SetOutputFilter, mod_mime中的 Add* 和
+Remove* 指令等)、控制文档元数据的指令(Header, RequestHeader, SetEnvIf, SetEnvIfNoCase, BrowserMatch, CookieExpires, CookieDomain, CookieStyle,
+CookieTracking, CookieName)、mod_rewrite中的指令(RewriteEngine, RewriteOptions, RewriteBase, RewriteCond, RewriteRule)和mod_actions中的Action指令。
+
+Indexes
+允许使用控制目录索引的指令(AddDescription, AddIcon, AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, FancyIndexing, HeaderName,
+IndexIgnore, IndexOptions, ReadmeName, 等)。
+
+Limit
+允许使用控制主机访问的指令(Allow, Deny, Order)。
+
+Options[=Option,...]
+允许使用控制指定目录功能的指令(Options和XBitHack)。
+可以在等号后面附加一个逗号分隔的(无空格的)Options选项列表，用来控制允许Options指令使用哪些选项。</code></pre><h3 id="3-2-基本配置"><a href="#3-2-基本配置" class="headerlink" title="3.2    基本配置"></a>3.2    基本配置</h3><h4 id="1、删除默认欢迎页配置"><a href="#1、删除默认欢迎页配置" class="headerlink" title="1、删除默认欢迎页配置"></a>1、删除默认欢迎页配置</h4><pre><code>rm -rf /etc/httpd/conf.d/welcome.conf </code></pre><h4 id="2、新建主页文件"><a href="#2、新建主页文件" class="headerlink" title="2、新建主页文件"></a>2、新建主页文件</h4><pre><code>echo "My First Page" &gt;/var/www/html/index.html</code></pre><h4 id="3、优化配置"><a href="#3、优化配置" class="headerlink" title="3、优化配置"></a>3、优化配置</h4><p>通过修改配置文件可以优化Apache服务。在/usr/share/doc/httpd-2.4.6目录下有模板文件httpd-default.conf,我们可以拷贝模板文件到/etc/httpd/conf.d/目录下，进行修改：</p>
+<pre><code>[root@server1 ~]# cp /usr/share/doc/httpd-2.4.6/httpd-default.conf /etc/httpd/conf.d/
+[root@server1 ~]# vim /etc/httpd/conf.d/httpd-default.conf 
+
+Timeout 60
+#不论接受或发送，当持续连接等待超过60s时就会中断此连接。
+
+KeepAlive On
+#是否持续连接，设置为On表示一次连接允许多次数据传输。
+
+MaxKeepAliveRequests 100
+#限制最大传输速度，0代表不设置。
+
+KeepAliveTimeout 5
+#该连接在最后一次传输后等待延迟的秒数
+
+AccessFileName .htaccess
+#定义每个目录下访问控制文件名。默认为。htaccess
+
+
+ServerTokens Full
+#在出现错误提示页面的时候是否显示服务器操作系统名称，ServerTokens Prod为不显示，
+
+ServerSignature Off
+#在页面产生错误时是否显示服务器版本信息。
+
+HostnameLookups Off
+#开启此功能后，在日志中会记录主机名。该功能需要进行DNS反向解析，会增加服务器负载，不建议开启
+
+重启Apache服务使配置文效
+systemctl restart httpd</code></pre><h3 id="3-3-身份认证"><a href="#3-3-身份认证" class="headerlink" title="3.3    身份认证"></a>3.3    身份认证</h3><p>当网站设置了隐私内容时，或许网站不希望对所有人开放时，可以使用Apache提供的身份验证功能来指定允许浏览网站的用户。</p>
+<h4 id="1、创建需要保护的站点"><a href="#1、创建需要保护的站点" class="headerlink" title="1、创建需要保护的站点"></a>1、创建需要保护的站点</h4><pre><code>[root@server1 ~]# mkdir /var/www/html/secret
+[root@server1 ~]# echo "This is secret page" &gt; /var/www/html/secret/index.html</code></pre><h4 id="2、创建密码文件"><a href="#2、创建密码文件" class="headerlink" title="2、创建密码文件"></a>2、创建密码文件</h4><p>首先需要在服务器上创建一个密码文件，此文件应该放置在无法通过web访问的位置，以免密码泄露。</p>
+<pre><code>
+[root@server1 ~]# mkdir   /etc/httpd/passwd
+[root@server1 ~]# htpasswd -c /etc/httpd/passwd/passwords user1
+New password: 
+Re-type new password: 
+Adding password for user user1
+
+[root@server1 ~]# htpasswd  /etc/httpd/passwd/passwords user2
+New password: 
+Re-type new password: 
+Adding password for user user2
+</code></pre><h4 id="3、修改Apache配置文件以支持基本身份验证"><a href="#3、修改Apache配置文件以支持基本身份验证" class="headerlink" title="3、修改Apache配置文件以支持基本身份验证"></a>3、修改Apache配置文件以支持基本身份验证</h4><pre><code>[root@server1 ~]# vim /etc/httpd/conf.d/secret.conf
+
+&lt;Directory "/var/www/html/secret"&gt;
+AuthType Basic
+AuthName "please enter your name &amp; passwd"
+AuthBasicProvider file
+AuthUserFile /etc/httpd/passwd/passwords
+Require valid-user
+&lt;/Directory&gt;
+</code></pre><h4 id="4、验证配置"><a href="#4、验证配置" class="headerlink" title="4、验证配置"></a>4、验证配置</h4><p>重新启动Apache使配置生效</p>
+<pre><code>[root@server1 ~]# systemctl restart httpd</code></pre><p>在浏览器地址栏输入“http://&lt;服务器IP&gt;/secret/”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:%5CUsers%5CPing%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210423015931319.png" alt="image-20210423015931319"></p>
+<h3 id="3-4-虚拟主机"><a href="#3-4-虚拟主机" class="headerlink" title="3.4    虚拟主机"></a>3.4    虚拟主机</h3><p>通常为了节省资源，我们会在一台主机上部署多个站点，并且希望各个站点之间相互独立，互不影响，且对用户透明。这时可以通过配置“虚拟主机”来实现。虚拟主机可以实现在一台服务器上同时运行多个站点。</p>
+<p>虚拟主机的实现方式有以下3种：</p>
+<pre><code>基于IP地址的虚拟主机，即需要为每一个站点指定一个不同的IP地址。
+
+基于域名的虚拟主机，即每一个域名对应一个站点（IP地址相同，端口相同）
+
+基于端口的虚拟主机，即每一个端口对应一个站点（IP地址相同，域名相同）
+</code></pre><p>准备工作：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /etc/httpd/conf/httpd.conf</span>
+ <span class="token comment" spellcheck="true">#Listen 80         # 将这行注释掉</span>
+ <span class="token comment" spellcheck="true">#DocumentRoot "/var/www/html"        # 将这行注释掉</span>
+
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># setenforce 0                #关闭selinux</span>
+
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl stop firewalld    #关闭防火墙</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-Apache基于IP的虚拟主机配置"><a href="#1-Apache基于IP的虚拟主机配置" class="headerlink" title="1. Apache基于IP的虚拟主机配置"></a>1. Apache基于IP的虚拟主机配置</h4><p><strong>第一步：</strong>使用ifconfig设置3个虚拟ip</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig ens33:1 192.168.2.101/24</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig ens33:2 192.168.2.102/24</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig ens33:3 192.168.2.103/24</span>
+
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig </span>
+ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">></span>  mtu 1500
+        inet 192.168.2.9  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet6 fe80::717e:769b:111f:1c84  prefixlen 64  scopeid 0x20<span class="token operator">&lt;</span>link<span class="token operator">></span>
+        ether 00:0c:29:8a:f6:6c  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
+        RX packets 592725  bytes 874139447 <span class="token punctuation">(</span>833.6 MiB<span class="token punctuation">)</span>
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 64920  bytes 4476719 <span class="token punctuation">(</span>4.2 MiB<span class="token punctuation">)</span>
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens33:1: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">></span>  mtu 1500
+        inet 192.168.2.101  netmask 255.255.255.0  broadcast 192.168.2.255
+        ether 00:0c:29:8a:f6:6c  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
+
+ens33:2: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">></span>  mtu 1500
+        inet 192.168.2.102  netmask 255.255.255.0  broadcast 192.168.2.255
+        ether 00:0c:29:8a:f6:6c  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
+
+ens33:3: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">></span>  mtu 1500
+        inet 192.168.2.103  netmask 255.255.255.0  broadcast 192.168.2.255
+        ether 00:0c:29:8a:f6:6c  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>第二步：</strong>建立虚拟主机存放网页的根目录，并创建首页文件index.html</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mkdir /var/www/10{1..3}</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.101">/var/www/101/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.102">/var/www/102/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.103">/var/www/103/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>第三步：</strong>编辑虚拟主机配置文件</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /etc/httpd/conf.d/ip.conf</span>
+
+Listen 192.168.2.101:80
+Listen 192.168.2.102:80
+Listen 192.168.2.103:80
+
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.101:80<span class="token operator">></span>
+    DocumentRoot /var/www/101/
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/101/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+      <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.102:80<span class="token operator">></span>
+    DocumentRoot /var/www/102/
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/102/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.103:80<span class="token operator">></span>
+    DocumentRoot /var/www/103/
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/103/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>参数介绍：</p>
+<blockquote>
+<p>虚拟主机配置格式：<br>&lt;VirtualHost 主机ip:端口&gt;<br>配置内容<br></p>
+<p>指定虚拟主机使用的域名<br>ServerName 域名</p>
+<p>指定虚拟主机的主目录<br>DocumentRoot 目录</p>
+<p>虚拟目录的格式：<br>&lt;Directory 目录的路径&gt;<br>目录相关的配置参数和指令<br></p>
+<p>Options Indexes FollowSymLinks –找不到主页时，以目录的方式呈现，并允许链接到网站根目录以外</p>
+<p>是否允许.htaccess文件覆盖httpd.conf文件中关于虚拟主机目录的配置。<br>AllowOverride None # 不使用<br>AllowOverride all # 使用</p>
+<p>允许、拒绝所有访问指令<br>Require all granted # 允许<br>Require all denied # 拒绝</p>
+</blockquote>
+<p><strong>第六步：</strong>启动服务并测试</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl restart httpd</span>
+
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># curl 192.168.2.101</span>
+192.168.2.101
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># curl 192.168.2.102</span>
+192.168.2.102
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># curl 192.168.2.103</span>
+192.168.2.103<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-Apache基于端口的虚拟主机配置"><a href="#2-Apache基于端口的虚拟主机配置" class="headerlink" title="2. Apache基于端口的虚拟主机配置"></a>2. Apache基于端口的虚拟主机配置</h4><p><strong>第一步：</strong>使用ifconfig设置1个虚拟ip</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig ens33:0 192.168.2.100/24</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>第二步：</strong>建立虚拟主机存放网页的根目录，并创建首页文件index.html</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mkdir /var/www/800{1..3}</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8001" > /var/www/8001/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8002" > /var/www/8002/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8003" > /var/www/8003/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>第三步：</strong>创建基于端口的虚拟主机配置文件</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /usr/local/apache2/conf/httpd.conf      --文件末尾加入以下配置</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /etc/httpd/conf.d/port.conf</span>
+
+Listen 192.168.2.100:8001
+Listen 192.168.2.100:8002
+Listen 192.168.2.100:8003
+
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8001<span class="token operator">></span>
+    DocumentRoot <span class="token string">"/var/www/8001/"</span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8001/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8002<span class="token operator">></span>
+    DocumentRoot <span class="token string">"/var/www/8002/"</span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8002/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8003<span class="token operator">></span>
+    DocumentRoot <span class="token string">"/var/www/8003/"</span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8003/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>第五步：</strong>启动服务并测试</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl restart httpd</span>
+
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># curl 192.168.2.100:8001</span>
+port 8001
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># curl 192.168.2.100:8002</span>
+port 8002
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># curl 192.168.2.100:8003</span>
+port 8003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-Apache基于域名的虚拟主机配置"><a href="#3-Apache基于域名的虚拟主机配置" class="headerlink" title="3. Apache基于域名的虚拟主机配置"></a>3. Apache基于域名的虚拟主机配置</h4><p><strong>第一步：</strong>使用ifconfig设置1个虚拟ip</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig ens33:4 192.168.2.99/24</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>第二步：</strong>配置主机的hosts文件，便于测试</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.aa.com" >> /etc/hosts</span>
+<span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.bb.com" >> /etc/hosts</span>
+<span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.cc.com" >> /etc/hosts</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>第三步：</strong>建立虚拟主机存放网页的根目录，并创建首页文件index.html</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mkdir /var/www/{aa,bb,cc}</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.aa.com" > /var/www/aa/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.bb.com" > /var/www/bb/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.cc.com" > /var/www/cc/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>第四步：</strong>创建基于域名虚拟主机的配置文件</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /etc/httpd/conf.d/name.conf</span>
+Listen 192.168.2.99:80
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">></span>
+      ServerName www.aa.com
+    DocumentRoot <span class="token string">"/var/www/aa/"</span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/aa/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">></span>
+      ServerName www.bb.com
+    DocumentRoot <span class="token string">"/var/www/bb/"</span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/bb/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">></span>
+      ServerName www.cc.com
+    DocumentRoot <span class="token string">"/var/www/cc/"</span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/cc/"</span><span class="token operator">></span>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>第五步：</strong>启动服务并测试</p>
+<pre><code>[root@server1 ~]# systemctl restart httpd
+
+[root@server1 conf.d]# curl www.aa.com
+www.aa.com
+[root@server1 conf.d]# curl www.bb.com
+www.bb.com
+[root@server1 conf.d]# curl www.cc.com
+www.cc.com</code></pre><h3 id="3-5-配置支持PHP"><a href="#3-5-配置支持PHP" class="headerlink" title="3.5    配置支持PHP"></a>3.5    配置支持PHP</h3><p>​    静态站点能够展示的内容有限，且每个页面均需建立页面文件，修改更新难度高，已经无法满足我们的需求。现在网站基本上都是动态的，而且非常流行和成熟的动态网站编程语言就是PHP,下面我们配置Apache支持PHP。</p>
+<h4 id="1、安装额外YUM源"><a href="#1、安装额外YUM源" class="headerlink" title="1、安装额外YUM源"></a>1、安装额外YUM源</h4><p>​    由于CentOS7默认的YUM源提供的PHP版本较低（php5.4）,为了能够安装较新的PHP版本，我们需要安装额外的YUM源。</p>
+<pre><code>[root@server1 ~]# rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+[root@server1 ~]# rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</code></pre><h4 id="2、安装PHP5-6及其组件"><a href="#2、安装PHP5-6及其组件" class="headerlink" title="2、安装PHP5.6及其组件"></a>2、安装PHP5.6及其组件</h4><pre><code>[root@server1 ~]# yum list php56*     #列出可用组件
+[root@server1 ~]# yum -y install php56w php56w-cli php56w-common php56w-devel php56-wembedded php56w-gd php56w-mbstring php56w-pdo php56w-xml php56w-fpm php56w-mysqlnd  php56w-opcache</code></pre><h4 id="3、验证"><a href="#3、验证" class="headerlink" title="3、验证"></a>3、验证</h4><p>在安装完成后重新启动Apache，创建PHP测试页面进行验证。</p>
+<pre><code>[root@server1 ~]# systemctl restart httpd
+[root@server1 ~]# echo '&lt;?php phpinfo() ?&gt;' &gt; /var/www/html/index.php</code></pre><p>确保防火墙关闭，或者防火墙开启策略放行TCP协议的80端口。然后使用浏览器输入地址验证：http://&lt;服务器IP&gt;</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:%5CUsers%5CPing%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210423032628861.png" alt="image-20210423032628861"></p>
+<h3 id="3-6-配置ssl加密传输"><a href="#3-6-配置ssl加密传输" class="headerlink" title="3.6 配置ssl加密传输"></a>3.6 配置ssl加密传输</h3><p>​    SSL(Secure  Socket Layer，安全套接字层)及其后续版本TLS（Transport Layer Security,传输层安全协议）都是将正常数据封装在受保护的加密包中的web协议。利用这样的技术，服务器与客户端之间可以发送加密的数据，而不用担心消息被外部拦截和读取。</p>
+<p>HTTPS是在HTTP上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。现在它被广泛用于万维网上安全敏感的通讯，例如交易支付方面。</p>
+<p>HTTPS主要作用是：</p>
+<p>（1）对数据进行加密，并建立一个信息安全通道，来保证传输过程中的数据安全;</p>
+<p>（2）对网站服务器进行真实身份认证。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://segmentfault.com/img/remote/1460000018992159/view" alt="preview"></p>
+<h4 id="1、安装mod-ssl模块"><a href="#1、安装mod-ssl模块" class="headerlink" title="1、安装mod_ssl模块"></a>1、安装mod_ssl模块</h4><p>为了设置自签名证书，需要在服务器上安装mod_ssl模块（一个提供SSL加密支持的Apache模块）。</p>
+<pre><code>[root@server1 ~]# yum -y install mod_ssl</code></pre><p>该模块会在安装的过程中自动启用，并在/etc/httpd/conf.d/目录下生成ssl.conf的配置文件，在重新启动后Apache即可正常使用mod_ssl模块提供的功能。</p>
+<p>为Apache配置加密需要生成一个SSL证书，该证书会存储有关用户站点的一些信息，并附有一个密钥文件，允许服务器安全的处理加密的数据。</p>
+<p>2、创建密钥和自签名证书。</p>
+<p>使用openssl命令来创建SSL加密私钥和签名证书文件。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">[root@server1 ~]# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/pki/tls/private/server.key -out /etc/pki/tls/certs/server.crt
+
+openssl             创建和管理Openssl证书、密钥和其他文件的基本命令工具
+req -x509           指定使用X.509证书签名请求（CSR）进行管理。X.509是SSL和TLS用于密钥和证书管理的公钥基础标准
+-nodes                指定OpenSSL跳过使用密码保护证书的选项。
+-days  365            设置证书有效时间，举例为一年。
+-newkey   rsa  2048 指定需要同时生成一个新的证书和一个新的密钥。rsa 2048代表使用一个长度为2048位的rsa密钥。
+-keyout                指定私钥存放位置
+-out                指定证书存放位置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在执行该命令后，用户会得到一个提示，要求输入有关用户网站的基本信息。</p>
+<pre><code>-----
+Country Name (2 letter code) [XX]:
+State or Province Name (full name) []:
+Locality Name (eg, city) [Default City]:
+Organization Name (eg, company) [Default Company Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (eg, your name or your server's hostname) []:         #重点，输出站点绑定的域名或IP
+Email Address []:</code></pre><h4 id="3、修改Apache配置文件以支持SSL"><a href="#3、修改Apache配置文件以支持SSL" class="headerlink" title="3、修改Apache配置文件以支持SSL"></a>3、修改Apache配置文件以支持SSL</h4><p>通过上一步创建的密钥和证书分别被放在了/etc/pki/tls/private/和/etc/pki/tls/certs/目录下，我们需要在Apache配置文件中指定该位置。</p>
+<pre><code>[root@server1 ~]# vim /etc/httpd/conf.d/ssl.conf
+
+
+SSLCertificateFile /etc/pki/tls/certs/server.crt       #修改
+
+SSLCertificateKeyFile /etc/pki/tls/private/server.key  #修改
+</code></pre><p>修改完成后我们需要重启Apache服务使配置生效。</p>
+<pre><code>[root@server1 ~]# systemctl restart httpd</code></pre><h4 id="4、配置防火墙"><a href="#4、配置防火墙" class="headerlink" title="4、配置防火墙"></a>4、配置防火墙</h4><p>确认防火墙关闭状态，或者放行TCP协议的80端口和443端口。</p>
+<pre><code>关闭防火墙
+    [root@server1 ~]# setenforce 0                #关闭selinux
+    [root@server1 ~]# systemctl stop firewalld    #关闭防火墙
+
+或者，放行端口    
+    [root@server1 ~]# firewall-cmd --add-port=80/tcp --permanent 
+    [root@server1 ~]# firewall-cmd --add-port=443/tcp --permanent
+    [root@server1 ~]# firewall-cmd --reload
+</code></pre><p>在浏览器输入“https://&lt;服务器IP&gt;”即可使用https加密传输协议访问网站。</p>
+<h4 id="5、配置虚拟主机支持SSL"><a href="#5、配置虚拟主机支持SSL" class="headerlink" title="5、配置虚拟主机支持SSL"></a>5、配置虚拟主机支持SSL</h4><p>如果想要虚拟主机也使用SSL加密，需要在虚拟主机指令模块中添加SSL配置。</p>
+<pre><code>&lt;VirtualHost 192.168.2.101:80&gt;
+    SSLEngine on
+    SSLCertificateFile      /etc/pki/tls/certs/server.crt       #指定证书位置        
+    SSLCertificateKeyFile    /etc/pki/tls/private/server.key        #指定密钥位置
+    DocumentRoot /var/www/101/
+
+     &lt;Directory "/var/www/101/"&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    &lt;/Directory&gt;
+
+&lt;/VirtualHost&gt;
+
+</code></pre><p>6、配置https重定向</p>
+<p>配置完https后，为了保证更好的安全性建议停止所有通过http协议的访问请求，建议将所有通过http协议发起的请求自动转到加密的HTTPS。</p>
+<p>我们在/etc/httpd/conf.d/目录下新建一个配置文件non-ssl.conf。编写一个匹配服务器IP (192.168.2.9 ) 80端口的模块，然后使用Redirect指令将匹配所有请求并转发到SSL VirtualHost。</p>
+<pre><code>[root@server1 ~]# vim /etc/httpd/conf.d/non-ssl.conf
+
+&lt;VirtualHost 192.168.2.9:80&gt;
+        ServerName www.aa.com
+        Redirect "/" "https://192.168.2.9"
+&lt;/VirtualHost&gt;
+</code></pre><p>重启Apache使配置生效。</p>
+<pre><code>[root@server1 ~]# systemctl restart httpd</code></pre><p>现在在浏览器地址栏输入<a href="http://192.168.2.9" target="_blank" rel="noopener">http://192.168.2.9</a> 会自动跳转到<a href="https://192.168.2.9" target="_blank" rel="noopener">https://192.168.2.9</a></p>
+<h4 id="7、注意事项"><a href="#7、注意事项" class="headerlink" title="7、注意事项"></a>7、注意事项</h4><p>在测试的过程中，浏览器会警告该网站的证书不受信任。这是因为该网站的证书不是由浏览器受信任的证书颁发机构签名的，浏览器无法验证该网站的服务器身份。</p>
+<p>这种情况下我们所创建的是一个自签名证书，而不是一个受信任的证书颁发机构签署的证书，所以这种情况是正常的。</p>
+<h3 id="3-7-Apache日志详解"><a href="#3-7-Apache日志详解" class="headerlink" title="3.7    Apache日志详解"></a>3.7    Apache日志详解</h3><h4 id="1、关于日志的指令"><a href="#1、关于日志的指令" class="headerlink" title="1、关于日志的指令"></a>1、关于日志的指令</h4><p>LogFormat指令：定义格式并为格式指定一个名字，用于给CustomLog指令和ErrorLog指令直接引用格式的名字</p>
+<p>CustomLog指令：设置日志文件存放位置，并指明日志文件所用格式</p>
+<p>ErrorLog指令：设置错误日志存放位置，并指明日志文件所用格式</p>
+<p>LogLevel指令：设置日志文件记录信息级别，可以选择debug、info、notice、warn、error、critical、alert、emerg，默认为warn.</p>
+<h4 id="2、-access-log日志文件"><a href="#2、-access-log日志文件" class="headerlink" title="2、 access_log日志文件"></a>2、 access_log日志文件</h4><p>access_log日志文件主要是记录客户端访问服务器的所有请求信息。access_log日志文件所在位置由<a href="https://link.zhihu.com/?target=https%3A//www.docs4dev.com/docs/zh/apache/2.4/reference/mod-mod_log_config.html%23customlog" target="_blank" rel="noopener">customLog</a>指令设置，其指令语法如下：</p>
+<pre class="line-numbers language-apacheconf"><code class="language-apacheconf"><span class="token directive-inline property">CustomLog</span> <span class="token string">"logs/access_log"</span> common<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>设置access_log日志文件格式可以使用LogFormat指令，日志的格式设置参数如下：</p>
+<pre class="line-numbers language-text"><code class="language-text">LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%h %l %u %t \"%r\" %>s %b" common<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>日志格式设置有两种：common和combined。一般我们使用的是默认的common格式。</p>
+<p>上面是日志记录内容的格式定义，格式是由百分号和相关指令组成，每个指令都表示服务器的一条特定的日志信息，文字字符也以字符串复制到日志输出中，如果要表示引号字符必须使用反斜杠进行转义，以防止将其解释为格式字符串的结尾。</p>
+<p><strong>common格式的日志内容如下：</strong></p>
+<pre class="line-numbers language-text"><code class="language-text">192.168.40.134 - - [19/Oct/2019:16:23:19 +0800] "GET /ecshop3/images/201605/thumb_img/62_thumb_G_1462952557730.jpg HTTP/1.1" 200 2064
+192.168.40.134 - - [19/Oct/2019:16:23:19 +0800] "GET /ecshop3/data/afficheimg/1462958213922967180.jpg HTTP/1.1" 200 158999<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>日志内容各部分的含义如下：</p>
+<p>Ø 192.168.40.134（%h）</p>
+<p>表示向服务器发出请求的客户端（远程主机）的IP地址。如果将HostnameLookups指令设置为On，那么这个内容可能为主机名，而非IP地址。但是，不建议使用此配置，因为它会显著降低服务器的速度。相反，最好使用日志后处理器（如logresolve）来确定主机名。</p>
+<p>需要注意的是我们看到日志文件内容中的IP地址不一定是用户所在机器的地址。如果在用户和服务器之间存在代理服务器，则该地址将是代理的地址，而不是始发机器的IP地址。</p>
+<p>Ø - (%l)</p>
+<p>输出中出现的“－”字符，是连字符的意思，表示请求的信息不可用，这是由客户机的RFC 1413同身的一些特性标识的，这种信息是很不可靠的，但是如果将<a href="https://link.zhihu.com/?target=http%3A//httpd.apache.org/docs/2.4/mod/mod_ident.html%23identitycheck" target="_blank" rel="noopener">IdentityCheck</a>设置为On，那么apache服务器才会尝试去确定此信息。</p>
+<p>Ø - (%u)</p>
+<p>这是访问服务器的用户ID，这个ID是由HTTP身份验证来确定的，这个值一般是保存到远程用户环境变量中的CGI脚本中。如果服务器不信任此值，因为用户尚未通过身份验证。如果文档不受密码保护，则此部分将与前一部分一样为“-”。</p>
+<p>Ø [19/Oct/2019:16:23:19 +0800] (%t)</p>
+<p>表示访问服务器时，服务器的时间。+0800表示服务器所处时区位于UTC之后的8小时。</p>
+<p>Ø GET /ecshop3/images/201605/thumb_img/62_thumb_G_1462952557730.jpg HTTP/1.1("%r")</p>
+<p>表示访问服务器的资源的相关信息，包括请求方式、服务器资源位置、客户端向服务器发送请求时的协议和协议版本信息。</p>
+<p>Ø 200 (%&gt;s)</p>
+<p>这表示客户端请求服务器后返回的状态码，此信息非常有价值，它揭示了请求是否成功以及失败的。关于HTTP响应状态码的详细可以查看HTTP规范RFC2616第10节内容。</p>
+<p>Ø 2064(%b)</p>
+<p>表示服务器发送给客户端的字节数，但这个字节数，不包括响应头的信息，如果服务器没有向客户端发送任何内容，则该值为“-”，若记录为0则表示不记录任何内容。</p>
+<p><strong>Combined 格式的日志内容如下：</strong></p>
+<pre class="line-numbers language-text"><code class="language-text">127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326 "http://www.example.com/start.html" "Mozilla/4.08 [en] (Win98; I ;Nav)"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Combined 日志内容与common日志内容信息差不多，只是多出了以下两个字段：</p>
+<p>Ø “<a href="http://www.example.com/start.html&quot;(\&quot;%{Referer}i\&quot;)" target="_blank" rel="noopener">http://www.example.com/start.html"(\"%{Referer}i\")</a></p>
+<p>表示客户端所访问资源的引用站点。如实例中表示是所访问资源apache_pb.gif的链接或包含apache_pb.gif的页面。</p>
+<p>Ø “Mozilla/4.08 [en] (Win98; I ;Nav)”("%{User-agent}i")</p>
+<p>表示发送HTTP请求的客户端自身的标识信息。</p>
+<h4 id="3、-error-log日志文件"><a href="#3、-error-log日志文件" class="headerlink" title="3、 error_log日志文件"></a>3、 error_log日志文件</h4><p>error_log记录两类错误信息：一是文档类的错误信息；二是CGI编译类的错误信息；是最要的日志文件之一，错误日志命名和位置是由ErrorLog指令来设置，error_log日志文件会记录处理请求时遇到的任何错误相关信息，当启动服务器或服务器操作出现问题时，首先会分析error_log日志文件，分析错误的详细信息以及如何解决问题。</p>
+<p>error_log错误日志路径设置如下：</p>
+<p>ErrorLog “logs/error_log”</p>
+<p>错误日志的格式由ErrorLogFormat指令定义，您可以使用该指令自定义记录的值。如果不指定格式，则默认为“格式定义”。典型的日志消息如下：</p>
+<pre class="line-numbers language-text"><code class="language-text">[Fri Sep 09 10:42:29.902022 2011] [core:error] [pid 35708:tid 4328636416] [client 72.15.99.187] File does not exist: /usr/local/apache2/htdocs/favicon.ico<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>第一部分内容表示记录错误日志信息的日期和时间。
+
+第二部分内容表示引起错误信息的是模块，以及该错误信息的严重级别。
+
+第三部分内容表示产生错误信息的进程号和线程号。
+
+第四部分内容表示发送请求的客户端信息。
+
+第五部分内容表示错误的详细信息，这种情况表示找不到资源，所访问的资源不存在。</code></pre><p>在linux或unix操作系统下，如果需要动态查看日志信息变化情况可以使用以下命令：</p>
+<pre><code>tail -f error_log</code></pre><h4 id="4、Apache日志格式定制"><a href="#4、Apache日志格式定制" class="headerlink" title="4、Apache日志格式定制"></a>4、Apache日志格式定制</h4><p>参考默认日志格式</p>
+<pre><code>LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%h %l %u %t \"%r\" %&gt;s %b" common</code></pre><p>Apache文档已经给出了所有可用于格式串的变量及其含义，下面是其译文：</p>
+<pre><code>
+%...a: 远程IP地址
+%...A: 本地IP地址
+%...B: 已发送的字节数，不包含HTTP头
+%...b: CLF格式的已发送字节数量，不包含HTTP头。例如当没有发送数据时，写入‘-’而不是0。
+%...{FOOBAR}e: 环境变量FOOBAR的内容
+%...f: 文件名字
+%...h: 远程主机
+%...H 请求的协议
+%...{Foobar}i: Foobar的内容，发送给服务器的请求的标头行。
+%...l: 远程登录名字（来自identd，如提供的话）
+%...m 请求的方法
+%...{Foobar}n: 来自另外一个模块的注解“Foobar”的内容
+%...{Foobar}o: Foobar的内容，应答的标头行
+%...p: 服务器响应请求时使用的端口
+%...P: 响应请求的子进程ID。
+%...q 查询字符串（如果存在查询字符串，则包含“?”后面的部分；否则，它是一个空字符串。）
+%...r: 请求的第一行
+%...s: 状态。对于进行内部重定向的请求，这是指*原来*请求 的状态。如果用%...&gt;s，则是指后来的请求。
+%...t: 以公共日志时间格式表示的时间（或称为标准英文格式）
+%...{format}t: 以指定格式format表示的时间
+%...T: 为响应请求而耗费的时间，以秒计
+%...u: 远程用户（来自auth；如果返回状态（%s）是401则可能是伪造的）
+%...U: 用户所请求的URL路径
+%...v: 响应请求的服务器的ServerName
+%...V: 依照UseCanonicalName设置得到的服务器名字</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://Erikten.github.io" class="b-link-green">Erikten</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/posts/15fa9625.html" class="b-link-green">Apache 服务器配置</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+    /* valine 评论框增加背景图片 */
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("http://www.luckyzmj.cn/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments .vwrap {
+        box-sizing: border-box;
+        padding: 0 0 44px;
+        background-color: #F0FFF0;
+    }
+    #vcomments .vwrap .vheader{width: 80%;bottom:0;position: absolute;background: #F0FFF0;}
+
+    #vcomments .vinput{padding:10px 15px; text-align: center;}
+
+    #vcomments .vwrap .vheader .vinput{border-bottom:0px}
+
+    #vcomments .vwrap .vedit .vctrl{margin-top:-44px;right:0;position:absolute;margin-right:-3px;}
+
+    #vcomments  .vwrap .vrow{position:absolute;right:0;bottom:0;width:20%;padding-top:0px;}
+
+    #vcomments  .vrow {font-size: 0;padding: 0px 0;}
+
+    #vcomments  .vicon {margin-right: 15px;}
+
+    #vcomments  .vrow .vcol.vcol-30{display: none}
+
+    #vcomments  .vedit .vctrl span.vpreview-btn{display: none}
+
+    #vcomments  .vrow .vcol.vcol-70{width: 100%;}
+
+    #vcomments  .vsubmit.vbtn{border-radius: 0;padding: 0;color: #fff;line-height: 44px;width:100%;border: none;background:#00ecbc;}
+
+    #vcomments  .vcards .vcard .vh .vhead .vsys{background: #F0FFF0;}
+
+    #vcomments  .vcards .vcard .vh .vmeta .vat{font-size: 12px;display: block;margin-left: 15px;float: right;color: #fff;background-color: #00ecbc;line-height: 20px;padding: 0 6px;border-radius: 3px;}
+
+    @media screen and (max-width: 520px){
+    #vcomments  .vwrap .vheader .vinput{width: 33.33%;padding:10px 5px;}  
+    }
+
+    #vcomments input[type=text],
+
+    #vcomments input[type=email],
+
+    #vcomments input[type=url],
+
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+    #vcomments .vwrap p {
+        height: 20px;
+        width: 20px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    /* 修复评论第一行位置错位 */
+    .v .vlist .vcard {
+    padding-top: 2.5em !important ;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        admin_email: '16463223@qq.com',
+        appId: 'tyxQEN5TsSl1TYSAA1k8z6qv-gzGzoHsz',
+        appKey: 'xGHv2dWE2LzMfEAhGx2Nzjyn',
+        path: window.location.pathname,
+        comment_count: true,
+        notify: 'false' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go',
+
+    });
+    $(document).ready(function(){
+        $("#vcomments").on('click', 'span.vat',function(){
+            $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+            $('textarea#veditor').focus();
+        })
+    })
+</script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script type="text/javascript">
+    jinrishici.load(function(result) {
+        var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+        document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+    });
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/ba9b8955.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/09.jpg" class="responsive-img" alt="MySQL服务器配置">
+                        
+                        <span class="card-title">MySQL服务器配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            MySQL服务器配置一、MySQL简介​    MySQL是一个关系型数据库管理系统，由瑞典MySQL AB公司开发，目前属于Oracle公司旗下产品。由于MySQL性能高，成本低、可靠性好，已经成为目前非常流行的开源数据库，因此MySQL
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                    网络运维篇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/运维/" target="_blank">
+                        <span class="chip bg-color">运维</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/1c094494.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/12.jpg" class="responsive-img" alt="Linux归档与压缩">
+                        
+                        <span class="card-title">Linux归档与压缩</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            归档与压缩归档，也称为打包，指的是一个文件或目录的集合，而这个集合被存储在一个文件中。归档文件没有经过压缩，因此，它占用的空间是其中所有文件和目录的总和。
+和归档文件类似，压缩文件也是一个文件和目录的集合，且这个集合也被存储在一个文件中，但
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                    网络运维篇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/运维/" target="_blank">
+                        <span class="chip bg-color">运维</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Erikten<br />'
+            + '作者: Erikten<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.bootcss.com/tocbot/4.8.1/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+        <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">             
+            <span id="sitetime"></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+            <br>
+
+            
+
+            
+                    
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span>
+                    
+        
+                    
+                        <span id="busuanzi_container_site_uv" style='display:none'></span>
+                        人次&nbsp; | &nbsp;访客人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+                    
+    
+            
+
+            
+                &nbsp; | &nbsp;字数统计:&nbsp;
+                <span class="white-color">121.8k</span> 字
+	<br>
+            
+
+            
+
+             <a href="http://www.beian.miit.gov.cn/">Copyright&copy; 2021 erikten.cn</a>
+            <br>
+             <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=20002708"><img src="http://luckyzmj.cn/medias/icp.png" />鲁ICP备20002708号-1</a>             
+        </div>
+
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Erikten" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2889137036@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2889137036&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+
+        var t1 = Date.UTC(2021, 02, 18, 00, 00, 00); //北京时间2019-8-1 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒" ;
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+
+
+
+        <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+        <script src="https://cdn.bootcss.com/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.bootcss.com/masonry/4.0.0/masonry.pkgd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+        <script src="/js/matery.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+        
+            <script src="/libs/others/clicklove.js"></script>
+        
+
+        
+            <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+        
+
+        <script type="text/javascript">
+            var OriginTitile = document.title,
+                st;
+            document.addEventListener("visibilitychange", function () {
+                document.hidden ? (document.title = "看不见我🙈~看不见我🙈~", clearTimeout(st)) : (document.title =
+                    "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                        document.title = OriginTitile
+                    }, 3e3))
+            })
+        </script>
+
+        <!-- 鼠标点击烟花爆炸效果 -->
+        
+
+        <!-- 背景雪花飘落特效 -->
+        
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 鼠标点击文字特效 -->
+        
+        
+
+        <!-- 背景雪花飘落特效 -->
+        
+
+        <!-- 在线聊天工具  -->
+        
+
+        <!-- 背景 canvas-nest -->
+        
+
+        <!-- 背景静止彩带  -->
+        
+
+        <!-- 背景动态彩带 -->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" src="/libs/background/ribbon-dynamic.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 天气接口控件   -->
+        
+            <script type="text/javascript">
+            WIDGET = {FID: 'zLkJSQpqsh'}
+            </script>
+        <!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
+
+        <script type="text/javascript">
+          var windowWidth = $(window).width();
+          if (windowWidth > 768) {
+              document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+          }
+        </script>
+        
+        
+          <script>
+            (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/410f202e.js","daovoice")
+  daovoice('init', {
+      app_id: "XXXXX"
+    });
+  daovoice('update');
+  </script>
+        
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+</html>

