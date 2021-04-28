@@ -1091,7 +1091,7 @@ d2<span class="token punctuation">.</span>bark<span class="token punctuation">(<
     <span class="token comment" spellcheck="true"># 再添加一个attack()方法来执行攻击这个行为</span>
     <span class="token keyword">def</span> <span class="token function">attack</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>dog<span class="token punctuation">)</span><span class="token punctuation">:</span>
         dog<span class="token punctuation">.</span>blood <span class="token operator">=</span> dog<span class="token punctuation">.</span>blood<span class="token operator">-</span>self<span class="token punctuation">.</span>power
-        <span class="token keyword">if</span> dog<span class="token punctuation">.</span>blood <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> dog<span class="token punctuation">.</span>blood <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span> <span class="token string">'{}的剩余血量为：{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>dog<span class="token punctuation">.</span>name<span class="token punctuation">,</span>dog<span class="token punctuation">.</span>blood<span class="token punctuation">)</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span> <span class="token string">'{}击杀了{}！'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span>dog<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
@@ -1128,13 +1128,13 @@ d1<span class="token punctuation">.</span>attack<span class="token punctuation">
     <span class="token comment" spellcheck="true"># 修改attack方法，在attack中调用reduce_blood方法</span>
     <span class="token keyword">def</span> <span class="token function">attack</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>dog<span class="token punctuation">)</span><span class="token punctuation">:</span>
         dog<span class="token punctuation">.</span>reduce_blood <span class="token operator">=</span> dog<span class="token punctuation">.</span>reduce_blood<span class="token punctuation">(</span>self<span class="token punctuation">.</span>power<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> dog<span class="token punctuation">.</span>blood <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> dog<span class="token punctuation">.</span>blood <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span> <span class="token string">'{}的剩余血量为：{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>dog<span class="token punctuation">.</span>name<span class="token punctuation">,</span>dog<span class="token punctuation">.</span>blood<span class="token punctuation">)</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span> <span class="token string">'{}击杀了{}！'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span>dog<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># 构造一个可以修改实例属性值的方法reduce_blood</span>
     <span class="token keyword">def</span> <span class="token function">reduce_blood</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>reduce_value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> reduce_value <span class="token operator">&gt;</span> self<span class="token punctuation">.</span>blood<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> reduce_value <span class="token operator">></span> self<span class="token punctuation">.</span>blood<span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>blood <span class="token operator">=</span> <span class="token number">0</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>blood <span class="token operator">=</span> self<span class="token punctuation">.</span>blood <span class="token operator">-</span> reduce_value
@@ -1275,7 +1275,7 @@ pig2<span class="token punctuation">.</span>run<span class="token punctuation">(
 
     <span class="token comment" spellcheck="true"># 构造reduce_people方法，每次调用车内人数减一</span>
     <span class="token keyword">def</span> <span class="token function">reduce_people</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> self<span class="token punctuation">.</span>number_of_people<span class="token number">-1</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>number_of_people<span class="token number">-1</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>number_of_people <span class="token operator">=</span> self<span class="token punctuation">.</span>number_of_people<span class="token number">-1</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span> <span class="token string">'车里已经没人了！'</span>
@@ -1792,8 +1792,8 @@ car<span class="token punctuation">.</span>run<span class="token punctuation">(<
     new Valine({
         el: '#vcomments',
         admin_email: '16463223@qq.com',
-        appId: 'tyxQEN5TsSl1TYSAA1k8z6qv-gzGzoHsz',
-        appKey: 'xGHv2dWE2LzMfEAhGx2Nzjyn',
+        appId: 'NM36DMN5wc4uvpP0xg493feo-gzGzoHsz',
+        appKey: 'na6Ct2BodpJeCtdKkqUymsOp',
         path: window.location.pathname,
         comment_count: true,
         notify: 'false' === 'true',
@@ -2126,7 +2126,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">145.6k</span> 字
+                <span class="white-color">143.8k</span> 字
 	<br>
             
 

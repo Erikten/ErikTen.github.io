@@ -857,6 +857,10 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/代码审计/" target="_blank">
+                                <span class="chip bg-color">代码审计</span>
+                            </a>
+                        
                             <a href="/tags/Exp/" target="_blank">
                                 <span class="chip bg-color">Exp</span>
                             </a>
@@ -871,10 +875,6 @@
                         
                             <a href="/tags/漏洞复现/" target="_blank">
                                 <span class="chip bg-color">漏洞复现</span>
-                            </a>
-                        
-                            <a href="/tags/代码审计/" target="_blank">
-                                <span class="chip bg-color">代码审计</span>
                             </a>
                         
                             <a href="/tags/逻辑漏洞/" target="_blank">
@@ -915,7 +915,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        826
+                        823
                     </div>
                     
 
@@ -963,8 +963,8 @@
 <h3 id="临时修复"><a href="#临时修复" class="headerlink" title="临时修复"></a>临时修复</h3><p>临时修复我采用的是安装完毕后在当前文件夹下创建install.lock文件，访问install先进行一个判断，如果有这个文件就跳转并exit，如果没有就进行安装。<br>index.html改为php文件</p>
 <p>index.php关键代码：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token string">'./install.lock'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                                                                                      
-    <span class="token keyword">echo</span> <span class="token string">'&lt;script type="text/javascript"&gt;alert("系统已安装，如需要重新安装，请手工删除install目录下的install.lock文件！");&lt;/script&gt;'</span><span class="token punctuation">;</span>   
-    <span class="token keyword">echo</span> <span class="token string">'&lt;meta http-equiv="refresh" content="0;url=/"&gt;'</span><span class="token punctuation">;</span>                                                                     
+    <span class="token keyword">echo</span> <span class="token string">'&lt;script type="text/javascript">alert("系统已安装，如需要重新安装，请手工删除install目录下的install.lock文件！");&lt;/script>'</span><span class="token punctuation">;</span>   
+    <span class="token keyword">echo</span> <span class="token string">'&lt;meta http-equiv="refresh" content="0;url=/">'</span><span class="token punctuation">;</span>                                                                     
     <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                                                                                                  
 <span class="token punctuation">}</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>install.php</p>
@@ -1460,8 +1460,8 @@
     new Valine({
         el: '#vcomments',
         admin_email: '16463223@qq.com',
-        appId: 'tyxQEN5TsSl1TYSAA1k8z6qv-gzGzoHsz',
-        appKey: 'xGHv2dWE2LzMfEAhGx2Nzjyn',
+        appId: 'NM36DMN5wc4uvpP0xg493feo-gzGzoHsz',
+        appKey: 'na6Ct2BodpJeCtdKkqUymsOp',
         path: window.location.pathname,
         comment_count: true,
         notify: 'false' === 'true',
@@ -1498,6 +1498,75 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/posts/6f086fab.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/09.jpg" class="responsive-img" alt="Heybbs-2.0前台SQL注入漏洞复现">
+                        
+                        <span class="card-title">Heybbs-2.0前台SQL注入漏洞复现</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            没错，挖一个通用型的0day就这么简单~
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-01-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
+                                    代码审计篇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/代码审计/" target="_blank">
+                        <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
+                    <a href="/tags/Exp/" target="_blank">
+                        <span class="chip bg-color">Exp</span>
+                    </a>
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/0day/" target="_blank">
+                        <span class="chip bg-color">0day</span>
+                    </a>
+                    
+                    <a href="/tags/漏洞复现/" target="_blank">
+                        <span class="chip bg-color">漏洞复现</span>
+                    </a>
+                    
+                    <a href="/tags/SQL注入/" target="_blank">
+                        <span class="chip bg-color">SQL注入</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/posts/ebc7c5d9.html">
                     <div class="card-image">
                         
@@ -1514,77 +1583,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-01-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
-                                    代码审计篇
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Exp/" target="_blank">
-                        <span class="chip bg-color">Exp</span>
-                    </a>
-                    
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/0day/" target="_blank">
-                        <span class="chip bg-color">0day</span>
-                    </a>
-                    
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
-                    </a>
-                    
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
-                    </a>
-                    
-                    <a href="/tags/XSS/" target="_blank">
-                        <span class="chip bg-color">XSS</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/e178bb2.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/13.jpg" class="responsive-img" alt="BeesCMS4.0多处漏洞复现">
-                        
-                        <span class="card-title">BeesCMS4.0多处漏洞复现</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            BeesCMS4.0多处漏洞复现，很经典的案例分析！
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-01-05
                             </span>
                         <span class="publish-author">
                             
@@ -1601,6 +1601,10 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/代码审计/" target="_blank">
+                        <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
                     <a href="/tags/Exp/" target="_blank">
                         <span class="chip bg-color">Exp</span>
                     </a>
@@ -1617,8 +1621,8 @@
                         <span class="chip bg-color">漏洞复现</span>
                     </a>
                     
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
+                    <a href="/tags/XSS/" target="_blank">
+                        <span class="chip bg-color">XSS</span>
                     </a>
                     
                 </div>
@@ -1814,7 +1818,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">145.6k</span> 字
+                <span class="white-color">143.8k</span> 字
 	<br>
             
 

@@ -916,7 +916,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        11 分
+                        10 分
                     </div>
                     
                 
@@ -994,8 +994,8 @@
 <span class="token italic"><span class="token punctuation">*</span>这是文字斜体格式<span class="token punctuation">*</span></span>
 
 <span class="token italic"><span class="token punctuation">_</span>这是文字斜体格式<span class="token punctuation">_</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">&gt;</span> 第一行引用文字
-<span class="token blockquote punctuation">&gt;</span> 第二行引用文字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">></span> 第一行引用文字
+<span class="token blockquote punctuation">></span> 第二行引用文字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h2><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token hr punctuation">***</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <hr>
 <h1 id="GFM扩展语法"><a href="#GFM扩展语法" class="headerlink" title="GFM扩展语法"></a>GFM扩展语法</h1><hr>
@@ -1019,7 +1019,7 @@ var b = "good luck";
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="自动转换成超链接"><a href="#自动转换成超链接" class="headerlink" title="自动转换成超链接"></a>自动转换成超链接</h2><p>系统将自动根据内容，将地址转换成超链接格式</p>
 <pre class="line-numbers language-markdown"><code class="language-markdown">http://markdown.xiaoshujiang.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hey<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Hello world<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hey<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello world<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><a href="https://github.com/github/markup/tree/master#html-sanitization" target="_blank" rel="noopener">支持的html标签</a></p>
 <h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><pre class="line-numbers language-markdown"><code class="language-markdown">~~在文字上添加删除线~~<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <hr>
@@ -1054,33 +1054,33 @@ is maintained by the W3C.
 $$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.$$
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="流程图-语法"><a href="#流程图-语法" class="headerlink" title="流程图 (语法)"></a>流程图 (<a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">语法</a>)</h3><pre class="line-numbers language-markdown"><code class="language-markdown">```flow
-st=&gt;start: 开始
-e=&gt;end: 结束
-op=&gt;operation: 操作步骤
-cond=&gt;condition: 是 或者 否?
+st=>start: 开始
+e=>end: 结束
+op=>operation: 操作步骤
+cond=>condition: 是 或者 否?
 
-st-&gt;op-&gt;cond
-cond(yes)-&gt;e
-cond(no)-&gt;op
+st->op->cond
+cond(yes)->e
+cond(no)->op
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="序列图-语法"><a href="#序列图-语法" class="headerlink" title="序列图 (语法)"></a>序列图 (<a href="https://github.com/bramp/js-sequence-diagrams/blob/master/src/grammar.jison" target="_blank" rel="noopener">语法</a>)</h3><pre class="line-numbers language-markdown"><code class="language-markdown">```sequence
-小明-&gt;小李: 你好 小李, 最近怎么样?
+小明->小李: 你好 小李, 最近怎么样?
 Note right of 小李: 小李想了想
-小李--&gt;小明: 还是老样子
+小李-->小明: 还是老样子
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h1 id="小书匠编辑器扩展语法"><a href="#小书匠编辑器扩展语法" class="headerlink" title="小书匠编辑器扩展语法"></a>小书匠编辑器扩展语法</h1><hr>
 <h2 id="块代码内文字格式"><a href="#块代码内文字格式" class="headerlink" title="块代码内文字格式"></a>块代码内文字格式</h2><h3 id="块代码高亮标记"><a href="#块代码高亮标记" class="headerlink" title="块代码高亮标记"></a>块代码高亮标记</h3><pre class="line-numbers language-markdown"><code class="language-markdown">```javascript
-var &gt;&gt;==hello==&lt;&lt; = 'hello world'
+var >>==hello==&lt;&lt; = 'hello world'
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="块代码删除线"><a href="#块代码删除线" class="headerlink" title="块代码删除线"></a>块代码删除线</h3><pre class="line-numbers language-markdown"><code class="language-markdown">```javascript
-var &gt;&gt;~~hello~~&lt;&lt; = 'hello world'
+var >>~~hello~~&lt;&lt; = 'hello world'
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="块代码加粗"><a href="#块代码加粗" class="headerlink" title="块代码加粗"></a>块代码加粗</h3><pre class="line-numbers language-markdown"><code class="language-markdown">```javascript
-var &gt;&gt;<span class="token bold"><span class="token punctuation">**</span>hello<span class="token punctuation">**</span></span>&lt;&lt; = 'hello world'
+var >><span class="token bold"><span class="token punctuation">**</span>hello<span class="token punctuation">**</span></span>&lt;&lt; = 'hello world'
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="块代码下横线"><a href="#块代码下横线" class="headerlink" title="块代码下横线"></a>块代码下横线</h3><pre class="line-numbers language-markdown"><code class="language-markdown">```javascript
-var &gt;&gt;++hello++&lt;&lt; = 'hello world'
+var >>++hello++&lt;&lt; = 'hello world'
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>小书匠编辑器提供了附件管理功能，用户可通过<code>./</code>对附件的引用，比如图片<code>./jiangzhu.jpg</code>。附件的上传需通过工具栏的插入图片<code>ctrl+g</code>，插入视频<code>ctrl+shift+v</code>，插入音频<code>ctrl+shift+a</code>，插入附件<code>ctrl+shift+t</code>功能键进行操作。</p>
 <h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><pre class="line-numbers language-markdown"><code class="language-markdown">%<span class="token url">[名称](链接地址)</span>
@@ -1100,10 +1100,10 @@ title: 小书匠语法使用手册
 <span class="token punctuation">---</span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="mermaid流程图，序列图，甘特图（mermaid语法）"><a href="#mermaid流程图，序列图，甘特图（mermaid语法）" class="headerlink" title="mermaid流程图，序列图，甘特图（mermaid语法）"></a>mermaid流程图，序列图，甘特图（<a href="http://knsv.github.io/mermaid/index.html" target="_blank" rel="noopener">mermaid语法</a>）</h2><pre class="line-numbers language-markdown"><code class="language-markdown">```mermaid!
 graph TD;
-A--&gt;B;
-A--&gt;C;
-B--&gt;D;
-C--&gt;D;
+A-->B;
+A-->C;
+B-->D;
+C-->D;
 ```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="统计图-（统计图语法）"><a href="#统计图-（统计图语法）" class="headerlink" title="统计图 （统计图语法）"></a>统计图 （<a href="https://github.com/flot/flot/blob/master/API.md" target="_blank" rel="noopener">统计图语法</a>）</h2><p>数据格式为：<code>{"data": [], "options":{}}</code><br>系统使用<a href="http://api.jquery.com/jquery.parsejson/" target="_blank" rel="noopener">jquery.parseJSON()</a>函数进行解析，因此代码必须符合该函数的要求才能正常解析。</p>
 <pre class="line-numbers language-markdown"><code class="language-markdown">```plot!
@@ -1118,11 +1118,11 @@ C--&gt;D;
 <h2 id="cjk注音标示"><a href="#cjk注音标示" class="headerlink" title="cjk注音标示"></a>cjk注音标示</h2><pre class="line-numbers language-markdown"><code class="language-markdown">{需要被注音标示的内容}(注音标示)
 {需要被注音标示的内容}[编号]
 <span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">编号</span><span class="token punctuation">]</span><span class="token punctuation">:</span> 注音标示</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="居中显示文字"><a href="#居中显示文字" class="headerlink" title="居中显示文字"></a>居中显示文字</h2><pre class="line-numbers language-markdown"><code class="language-markdown">-&gt;居中显示的文字&lt;-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="对齐显示文字"><a href="#对齐显示文字" class="headerlink" title="对齐显示文字"></a>对齐显示文字</h2><pre class="line-numbers language-markdown"><code class="language-markdown">:&gt;居左显示的文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-</span>
-<span class="token attr-name">-</span><span class="token punctuation">&gt;</span></span>居右显示的文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>:</span>
-<span class="token attr-name">:</span><span class="token punctuation">&gt;</span></span>两端对齐显示的文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>:</span>
-<span class="token attr-name">-</span><span class="token punctuation">&gt;</span></span>居中显示的文字&lt;-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="居中显示文字"><a href="#居中显示文字" class="headerlink" title="居中显示文字"></a>居中显示文字</h2><pre class="line-numbers language-markdown"><code class="language-markdown">->居中显示的文字&lt;-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="对齐显示文字"><a href="#对齐显示文字" class="headerlink" title="对齐显示文字"></a>对齐显示文字</h2><pre class="line-numbers language-markdown"><code class="language-markdown">:>居左显示的文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-</span>
+<span class="token attr-name">-</span><span class="token punctuation">></span></span>居右显示的文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>:</span>
+<span class="token attr-name">:</span><span class="token punctuation">></span></span>两端对齐显示的文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>:</span>
+<span class="token attr-name">-</span><span class="token punctuation">></span></span>居中显示的文字&lt;-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注： 该语法与center语法冲突，两种语法同时开启时，align语法将覆盖center语法。</p>
 <hr>
 <hr>
@@ -1143,17 +1143,17 @@ C--&gt;D;
 <h3 id="印刷字替换-1"><a href="#印刷字替换-1" class="headerlink" title="印刷字替换"></a>印刷字替换</h3><p>(c) (C) (r) (R) (tm) (TM) (p) (P) +-</p>
 <h3 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h3><div>html代码</div>
 
-<h3 id="流程图-语法-1"><a href="#流程图-语法-1" class="headerlink" title="流程图 (语法)"></a>流程图 (<a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">语法</a>)</h3><pre class="line-numbers language-flow"><code class="language-flow">st=&gt;start: 开始
-e=&gt;end: 结束
-op=&gt;operation: 操作步骤
-cond=&gt;condition: 是 或者 否?
+<h3 id="流程图-语法-1"><a href="#流程图-语法-1" class="headerlink" title="流程图 (语法)"></a>流程图 (<a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">语法</a>)</h3><pre class="line-numbers language-flow"><code class="language-flow">st=>start: 开始
+e=>end: 结束
+op=>operation: 操作步骤
+cond=>condition: 是 或者 否?
 
-st-&gt;op-&gt;cond
-cond(yes)-&gt;e
-cond(no)-&gt;op<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="序列图-语法-1"><a href="#序列图-语法-1" class="headerlink" title="序列图 (语法)"></a>序列图 (<a href="https://github.com/bramp/js-sequence-diagrams/blob/master/src/grammar.jison" target="_blank" rel="noopener">语法</a>)</h3><pre class="line-numbers language-sequence"><code class="language-sequence">小明-&gt;小李: 你好 小李, 最近怎么样?
+st->op->cond
+cond(yes)->e
+cond(no)->op<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="序列图-语法-1"><a href="#序列图-语法-1" class="headerlink" title="序列图 (语法)"></a>序列图 (<a href="https://github.com/bramp/js-sequence-diagrams/blob/master/src/grammar.jison" target="_blank" rel="noopener">语法</a>)</h3><pre class="line-numbers language-sequence"><code class="language-sequence">小明->小李: 你好 小李, 最近怎么样?
 Note right of 小李: 小李想了想
-小李--&gt;小明: 还是老样子<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+小李-->小明: 还是老样子<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="脚注-1x"><a href="#脚注-1x" class="headerlink" title="脚注^1x"></a>脚注<a href="脚注的用法">^1x</a></h3><h3 id="表格Tables"><a href="#表格Tables" class="headerlink" title="表格Tables"></a>表格Tables</h3><table>
 <thead>
 <tr>
@@ -1212,31 +1212,31 @@ Note right of 小李: 小李想了想
 <h3 id="水平线-1"><a href="#水平线-1" class="headerlink" title="水平线"></a>水平线</h3><hr>
 <h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><h4 id="行内代码-1"><a href="#行内代码-1" class="headerlink" title="行内代码"></a>行内代码</h4><p><code>var x = "hello world"</code></p>
 <h4 id="块代码-1"><a href="#块代码-1" class="headerlink" title="块代码"></a>块代码</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * @author John Smith &lt;john.smith@example.com&gt;
+ * @author John Smith &lt;john.smith@example.com>
  * @version 1.0
 */</span>
 <span class="token keyword">package</span> l2f<span class="token punctuation">.</span>gameserver<span class="token punctuation">.</span>model<span class="token punctuation">;</span>
 
-<span class="token keyword">import</span> <span class="token operator">&gt;&gt;</span><span class="token operator">++</span>java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token operator">++</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">>></span><span class="token operator">++</span>java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token operator">++</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">;</span>
 
-<span class="token operator">&gt;&gt;</span><span class="token operator">~</span><span class="token operator">~</span><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">L2Character</span> <span class="token punctuation">{</span><span class="token operator">~</span><span class="token operator">~</span><span class="token operator">&lt;&lt;</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">++</span><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">L2Character</span> <span class="token keyword">extends</span> <span class="token class-name">L2Object</span> <span class="token punctuation">{</span><span class="token operator">++</span><span class="token operator">&lt;&lt;</span>
+<span class="token operator">>></span><span class="token operator">~</span><span class="token operator">~</span><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">L2Character</span> <span class="token punctuation">{</span><span class="token operator">~</span><span class="token operator">~</span><span class="token operator">&lt;&lt;</span>
+<span class="token operator">>></span><span class="token operator">++</span><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">L2Character</span> <span class="token keyword">extends</span> <span class="token class-name">L2Object</span> <span class="token punctuation">{</span><span class="token operator">++</span><span class="token operator">&lt;&lt;</span>
   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Short ABNORMAL_EFFECT_BLEEDING <span class="token operator">=</span> 0x0_0_0_1<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// not sure</span>
 
   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token keyword">int</span> z<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _ai <span class="token operator">=</span> null<span class="token punctuation">;</span>
     _log<span class="token punctuation">.</span><span class="token function">warning</span><span class="token punctuation">(</span><span class="token string">"Should not be called"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">return</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 
   <span class="token comment" spellcheck="true">/** Task of AI notification */</span>
   <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span> <span class="token punctuation">{</span> <span class="token string">"nls"</span><span class="token punctuation">,</span> <span class="token string">"unqualified-field-access"</span><span class="token punctuation">,</span> <span class="token string">"boxing"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token operator">&gt;&gt;=</span><span class="token operator">=</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NotifyAITask</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+  <span class="token operator">>>=</span><span class="token operator">=</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NotifyAITask</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">final</span> CtrlEvent _evt<span class="token punctuation">;</span>
 
-    List<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> mList<span class="token operator">==</span><span class="token operator">&lt;&lt;</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    List<span class="token operator">&lt;</span>String<span class="token operator">></span> mList<span class="token operator">==</span><span class="token operator">&lt;&lt;</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">try</span> <span class="token punctuation">{</span>
@@ -1247,10 +1247,10 @@ Note right of 小李: 小李想了想
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="块代码内文字格式-1"><a href="#块代码内文字格式-1" class="headerlink" title="块代码内文字格式"></a>块代码内文字格式</h2><h3 id="块代码高亮标记-1"><a href="#块代码高亮标记-1" class="headerlink" title="块代码高亮标记"></a>块代码高亮标记</h3><pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> <span class="token operator">&gt;</span><span class="token operator">&gt;=</span><span class="token operator">=</span>hello<span class="token operator">==</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token string">'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="块代码删除线-1"><a href="#块代码删除线-1" class="headerlink" title="块代码删除线"></a>块代码删除线</h3><pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> <span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token operator">~</span><span class="token operator">~</span>hello<span class="token operator">~</span><span class="token operator">~</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token string">'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="块代码加粗-1"><a href="#块代码加粗-1" class="headerlink" title="块代码加粗"></a>块代码加粗</h3><pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> <span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token operator">**</span>hello<span class="token operator">**</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token string">'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="块代码下横线-1"><a href="#块代码下横线-1" class="headerlink" title="块代码下横线"></a>块代码下横线</h3><pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> <span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token operator">++</span>hello<span class="token operator">++</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token string">'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="块代码内文字格式-1"><a href="#块代码内文字格式-1" class="headerlink" title="块代码内文字格式"></a>块代码内文字格式</h2><h3 id="块代码高亮标记-1"><a href="#块代码高亮标记-1" class="headerlink" title="块代码高亮标记"></a>块代码高亮标记</h3><pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> <span class="token operator">></span><span class="token operator">>=</span><span class="token operator">=</span>hello<span class="token operator">==</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token string">'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="块代码删除线-1"><a href="#块代码删除线-1" class="headerlink" title="块代码删除线"></a>块代码删除线</h3><pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> <span class="token operator">></span><span class="token operator">></span><span class="token operator">~</span><span class="token operator">~</span>hello<span class="token operator">~</span><span class="token operator">~</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token string">'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="块代码加粗-1"><a href="#块代码加粗-1" class="headerlink" title="块代码加粗"></a>块代码加粗</h3><pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> <span class="token operator">></span><span class="token operator">></span><span class="token operator">**</span>hello<span class="token operator">**</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token string">'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="块代码下横线-1"><a href="#块代码下横线-1" class="headerlink" title="块代码下横线"></a>块代码下横线</h3><pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> <span class="token operator">></span><span class="token operator">></span><span class="token operator">++</span>hello<span class="token operator">++</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token string">'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="显示行号"><a href="#显示行号" class="headerlink" title="显示行号"></a>显示行号</h3><pre class="line-numbers language-javascript?linenums"><code class="language-javascript?linenums">var x = 1;
 var z = 'str';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="高亮指定行"><a href="#高亮指定行" class="headerlink" title="高亮指定行"></a>高亮指定行</h3><pre class="line-numbers language-javascript?linenums&amp;fancy=1,3,5"><code class="language-javascript?linenums&amp;fancy=1,3,5">var x = 1;
@@ -1273,16 +1273,16 @@ var a = 6;<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 "options": { "yaxis": { "max": 1 } }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="mermaid流程图，序列图，甘特图"><a href="#mermaid流程图，序列图，甘特图" class="headerlink" title="mermaid流程图，序列图，甘特图"></a>mermaid流程图，序列图，甘特图</h3><h4 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h4><pre class="line-numbers language-mermaid!"><code class="language-mermaid!">graph TD;
-    A--&gt;B;
-    A--&gt;C;
-    B--&gt;D;
-    C--&gt;D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="序列图"><a href="#序列图" class="headerlink" title="序列图"></a>序列图</h4><pre class="line-numbers language-mermaid!"><code class="language-mermaid!">sequenceDiagram
-A-&gt;&gt; B: Query
-B-&gt;&gt; C: Forward query
+A->> B: Query
+B->> C: Forward query
 Note right of C: Thinking...
-C-&gt;&gt; B: Response
-B-&gt;&gt; A: Forward response<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+C->> B: Response
+B->> A: Forward response<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h4><pre class="line-numbers language-mermaid!"><code class="language-mermaid!">gantt
         dateFormat  YYYY-MM-DD
         title Adding GANTT diagram functionality to mermaid
@@ -1810,8 +1810,8 @@ B-&gt;&gt; A: Forward response<span aria-hidden="true" class="line-numbers-rows"
     new Valine({
         el: '#vcomments',
         admin_email: '16463223@qq.com',
-        appId: 'tyxQEN5TsSl1TYSAA1k8z6qv-gzGzoHsz',
-        appKey: 'xGHv2dWE2LzMfEAhGx2Nzjyn',
+        appId: 'NM36DMN5wc4uvpP0xg493feo-gzGzoHsz',
+        appKey: 'na6Ct2BodpJeCtdKkqUymsOp',
         path: window.location.pathname,
         comment_count: true,
         notify: 'false' === 'true',
@@ -1882,6 +1882,10 @@ B-&gt;&gt; A: Forward response<span aria-hidden="true" class="line-numbers-rows"
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/代码审计/" target="_blank">
+                        <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
                     <a href="/tags/Exp/" target="_blank">
                         <span class="chip bg-color">Exp</span>
                     </a>
@@ -1896,10 +1900,6 @@ B-&gt;&gt; A: Forward response<span aria-hidden="true" class="line-numbers-rows"
                     
                     <a href="/tags/漏洞复现/" target="_blank">
                         <span class="chip bg-color">漏洞复现</span>
-                    </a>
-                    
-                    <a href="/tags/代码审计/" target="_blank">
-                        <span class="chip bg-color">代码审计</span>
                     </a>
                     
                     <a href="/tags/漏洞挖掘/" target="_blank">
@@ -2164,7 +2164,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">145.6k</span> 字
+                <span class="white-color">143.8k</span> 字
 	<br>
             
 

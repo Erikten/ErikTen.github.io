@@ -869,12 +869,12 @@ var_">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/PHP/" target="_blank">
-                                <span class="chip bg-color">PHP</span>
-                            </a>
-                        
                             <a href="/tags/代码审计/" target="_blank">
                                 <span class="chip bg-color">代码审计</span>
+                            </a>
+                        
+                            <a href="/tags/PHP/" target="_blank">
+                                <span class="chip bg-color">PHP</span>
                             </a>
                         
                             <a href="/tags/渗透测试/" target="_blank">
@@ -982,12 +982,12 @@ var_">
 <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token variable">$c</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
 
-<span class="token keyword">echo</span> <span class="token string">'&lt;h2&gt;empty&lt;/h2&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;h2>empty&lt;/h2>'</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">echo</span> <span class="token string">'&lt;h2&gt;isset&lt;/h2&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;h2>isset&lt;/h2>'</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -997,9 +997,9 @@ var_">
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$arr1</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'test1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$arr2</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'test2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;h1&gt;数组绕过md5函数&lt;/h1&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;h1>数组绕过md5函数&lt;/h1>'</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$arr2</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$arr1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;h1&gt;科学计数法绕过md5函数&lt;/h1&gt;/'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;h1>科学计数法绕过md5函数&lt;/h1>/'</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token constant">QNKCDZO</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token function">md5</span><span class="token punctuation">(</span>s155964671a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201209162017111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h4 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp()"></a>strcmp()</h4><p>这个函数也是常用作一个判断，如果返回的值为0则程序继续运行，不为0则终止<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201209163055125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -1027,40 +1027,40 @@ success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
     <span class="token keyword">private</span> <span class="token variable">$whitelist</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">file</span> <span class="token operator">=</span> <span class="token variable">$file</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">whitelist</span><span class="token operator">=</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span> <span class="token operator">=</span> <span class="token variable">$file</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">whitelist</span><span class="token operator">=</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// TODO: Implement __destruct() method.</span>
             <span class="token comment" spellcheck="true">//这里要特别注意！！！</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">file</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">whitelist</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">whitelist</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             <span class="token function">move_uploaded_file</span><span class="token punctuation">(</span>
-                <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">file</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                self<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">UPLOAD_DIRECTORY</span><span class="token punctuation">.</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">file</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>
+                <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                self<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">UPLOAD_DIRECTORY</span><span class="token punctuation">.</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>
             <span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token variable">$challenge</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Challenge</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'solution'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>加注释下的哪一行是关键，程序将文件名取出来与白名单进行对比，符合1~24就上传成功，不符合就上传失败，这里就运用到了前面的字符串与数字进行比较，所以payload就出来了：</p>
 <pre class="line-numbers language-php"><code class="language-php">Filename<span class="token punctuation">:</span>1shell<span class="token punctuation">.</span>php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>CTF实例</strong></p>
 <p>index.php</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
 <span class="token delimiter">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">include</span> <span class="token string">'config.php'</span><span class="token punctuation">;</span>
 <span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">mysqli</span><span class="token punctuation">(</span><span class="token variable">$servername</span><span class="token punctuation">,</span><span class="token variable">$username</span><span class="token punctuation">,</span><span class="token variable">$password</span><span class="token punctuation">,</span><span class="token variable">$dbname</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">connect_error</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">connect_error</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">"连接失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token variable">$sql</span><span class="token operator">=</span><span class="token string">"SELECT  COUNT(*) FROM users"</span><span class="token punctuation">;</span>
 <span class="token variable">$whitelist</span> <span class="token operator">=</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$result</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">num_rows</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$result</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">fetch_assoc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$result</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">num_rows</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$result</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">fetch_assoc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token variable">$whitelist</span> <span class="token operator">=</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">'COUNT(*)'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token function">stop_hack</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1070,20 +1070,20 @@ success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
     <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">"id $id is not in whitelist."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$result</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">num_rows</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$result</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">fetch_assoc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;center&gt;&lt;table border='1'&gt;"</span><span class="token punctuation">;</span>
-    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token keyword">as</span> <span class="token variable">$key</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;tr&gt;&lt;td&gt;&lt;center&gt;$key&lt;/center&gt;&lt;/td&gt;&lt;br&gt;"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;td&gt;&lt;center&gt;$value&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;"</span><span class="token punctuation">;</span>
+<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$result</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">num_rows</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$result</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">fetch_assoc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;center>&lt;table border='1'>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token keyword">as</span> <span class="token variable">$key</span><span class="token operator">=</span><span class="token operator">></span><span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"&lt;tr>&lt;td>&lt;center>$key&lt;/center>&lt;/td>&lt;br>"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"&lt;td>&lt;center>$value&lt;/center>&lt;/td>&lt;/tr>&lt;br>"</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">echo</span> <span class="token string">"&lt;/table&gt;&lt;/center&gt;"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;/table>&lt;/center>"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">else</span><span class="token punctuation">{</span>
-    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">error</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">error</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>config.php</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$servername</span> <span class="token operator">=</span> <span class="token string">"localhost"</span><span class="token punctuation">;</span>
@@ -1104,7 +1104,7 @@ success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token variable">$value</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>db.sql</p>
 <pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">database</span> weaktype<span class="token punctuation">;</span>
 <span class="token keyword">use</span> weaktype<span class="token punctuation">;</span>
@@ -1156,7 +1156,7 @@ success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
     <span class="token keyword">echo</span> <span class="token string">'Please input array test'</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token delimiter">?&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>传入test[]=0，那么test就是一个数值型的数组，即 Array ( [0] =&gt; 0 ) ，array_search()  在test数值型数组中查找 “admin” 这个字符串的时候，首先会把字符串转换为数字，转换规则具体看本文第二个示例，所以 “admin” 变成了0，array_search()如果查找成功就会返回其键名，test数组中0的键名是0，而0===0，所以输出flag。</p>
 <p>payload</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token operator">?</span>test<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1165,10 +1165,10 @@ success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">case</span> <span class="token variable">$a</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token variable">$a</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">:</span>
         <span class="token keyword">echo</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> <span class="token variable">$a</span> <span class="token operator">&gt;=</span> <span class="token number">10</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token variable">$a</span> <span class="token operator">>=</span> <span class="token number">10</span><span class="token punctuation">:</span>
         <span class="token keyword">echo</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">break</span><span class="token punctuation">;</span>
     <span class="token keyword">default</span><span class="token punctuation">:</span>
@@ -1665,8 +1665,8 @@ success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
     new Valine({
         el: '#vcomments',
         admin_email: '16463223@qq.com',
-        appId: 'tyxQEN5TsSl1TYSAA1k8z6qv-gzGzoHsz',
-        appKey: 'xGHv2dWE2LzMfEAhGx2Nzjyn',
+        appId: 'NM36DMN5wc4uvpP0xg493feo-gzGzoHsz',
+        appKey: 'na6Ct2BodpJeCtdKkqUymsOp',
         path: window.location.pathname,
         comment_count: true,
         notify: 'false' === 'true',
@@ -1737,12 +1737,12 @@ success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
                     <a href="/tags/代码审计/" target="_blank">
                         <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
                     </a>
                     
                     <a href="/tags/渗透测试/" target="_blank">
@@ -1798,12 +1798,12 @@ success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
                     <a href="/tags/代码审计/" target="_blank">
                         <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
                     </a>
                     
                     <a href="/tags/渗透测试/" target="_blank">
@@ -2007,7 +2007,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">145.6k</span> 字
+                <span class="white-color">143.8k</span> 字
 	<br>
             
 

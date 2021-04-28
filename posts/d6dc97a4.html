@@ -858,12 +858,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/PHP/" target="_blank">
-                                <span class="chip bg-color">PHP</span>
-                            </a>
-                        
                             <a href="/tags/代码审计/" target="_blank">
                                 <span class="chip bg-color">代码审计</span>
+                            </a>
+                        
+                            <a href="/tags/PHP/" target="_blank">
+                                <span class="chip bg-color">PHP</span>
                             </a>
                         
                             <a href="/tags/命令执行/" target="_blank">
@@ -908,14 +908,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        763
+                        754
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        2 分
                     </div>
                     
                 
@@ -950,7 +950,7 @@
 <p>举个例子：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;hd&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;hd>'</span><span class="token punctuation">;</span>
 <span class="token function">system</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token shell-comment comment"># 或者</span>
 <span class="token function">passthru</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -962,24 +962,24 @@
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;pre &gt;"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;pre >"</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201127143007164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h4 id="shell-exec"><a href="#shell-exec" class="headerlink" title="shell_exec()"></a>shell_exec()</h4><p>它相对于exec来说体验更好，也是需要echo一下，不过它会全部回显：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;pre &gt;"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;pre >"</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//echo exec($cmd);</span>
 <span class="token keyword">echo</span> <span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201127143211310.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h3 id="过滤函数"><a href="#过滤函数" class="headerlink" title="过滤函数"></a>过滤函数</h3><h4 id="escapeshellcmd"><a href="#escapeshellcmd" class="headerlink" title="escapeshellcmd()"></a>escapeshellcmd()</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201127143929769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>举个例子：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token function">escapeshellcmd</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;pre &gt;"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;pre >"</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$cmd</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//echo exec($cmd);</span>
 <span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -987,12 +987,12 @@
 <span class="token comment" spellcheck="true">//escapeshellarg();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>它过滤了一些特殊字符，以至于命令无法执行：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020112714481253.png#pic_center" alt="在这里插入图片描述"></p>
 <h4 id="escapeshellarg"><a href="#escapeshellarg" class="headerlink" title="escapeshellarg()"></a>escapeshellarg()</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201127143958671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这个函数是将参数转化为字符串，也就是将我们的命令转化为字符串，起到一个保护作用：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GBK<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
 <span class="token delimiter">&lt;?php</span>
 
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token function">escapeshellarg</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"&lt;pre &gt;"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token variable">$cmd</span><span class="token punctuation">.</span><span class="token string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;pre >"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$cmd</span><span class="token punctuation">.</span><span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//echo exec($cmd);</span>
 <span class="token keyword">echo</span> <span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1493,8 +1493,8 @@
     new Valine({
         el: '#vcomments',
         admin_email: '16463223@qq.com',
-        appId: 'tyxQEN5TsSl1TYSAA1k8z6qv-gzGzoHsz',
-        appKey: 'xGHv2dWE2LzMfEAhGx2Nzjyn',
+        appId: 'NM36DMN5wc4uvpP0xg493feo-gzGzoHsz',
+        appKey: 'na6Ct2BodpJeCtdKkqUymsOp',
         path: window.location.pathname,
         comment_count: true,
         notify: 'false' === 'true',
@@ -1565,12 +1565,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
                     <a href="/tags/代码审计/" target="_blank">
                         <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
                     </a>
                     
                     <a href="/tags/渗透测试/" target="_blank">
@@ -1626,12 +1626,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
                     <a href="/tags/代码审计/" target="_blank">
                         <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
                     </a>
                     
                     <a href="/tags/SQL注入/" target="_blank">
@@ -1843,7 +1843,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">145.6k</span> 字
+                <span class="white-color">143.8k</span> 字
 	<br>
             
 
