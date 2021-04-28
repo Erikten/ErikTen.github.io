@@ -892,14 +892,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        8.3k
+                        8.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        35 分
+                        36 分
                     </div>
                     
                 
@@ -1260,32 +1260,32 @@ Require valid-user
 <span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig ens33:3 192.168.2.103/24</span>
 
 <span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig </span>
-ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">></span>  mtu 1500
+ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
         inet 192.168.2.9  netmask 255.255.255.0  broadcast 192.168.2.255
-        inet6 fe80::717e:769b:111f:1c84  prefixlen 64  scopeid 0x20<span class="token operator">&lt;</span>link<span class="token operator">></span>
+        inet6 fe80::717e:769b:111f:1c84  prefixlen 64  scopeid 0x20<span class="token operator">&lt;</span>link<span class="token operator">&gt;</span>
         ether 00:0c:29:8a:f6:6c  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
         RX packets 592725  bytes 874139447 <span class="token punctuation">(</span>833.6 MiB<span class="token punctuation">)</span>
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 64920  bytes 4476719 <span class="token punctuation">(</span>4.2 MiB<span class="token punctuation">)</span>
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-ens33:1: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">></span>  mtu 1500
+ens33:1: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
         inet 192.168.2.101  netmask 255.255.255.0  broadcast 192.168.2.255
         ether 00:0c:29:8a:f6:6c  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
 
-ens33:2: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">></span>  mtu 1500
+ens33:2: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
         inet 192.168.2.102  netmask 255.255.255.0  broadcast 192.168.2.255
         ether 00:0c:29:8a:f6:6c  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
 
-ens33:3: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">></span>  mtu 1500
+ens33:3: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
         inet 192.168.2.103  netmask 255.255.255.0  broadcast 192.168.2.255
         ether 00:0c:29:8a:f6:6c  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>第二步：</strong>建立虚拟主机存放网页的根目录，并创建首页文件index.html</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mkdir /var/www/10{1..3}</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.101">/var/www/101/index.html</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.102">/var/www/102/index.html</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.103">/var/www/103/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.101"&gt;/var/www/101/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.102"&gt;/var/www/102/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.103"&gt;/var/www/103/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>第三步：</strong>编辑虚拟主机配置文件</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /etc/httpd/conf.d/ip.conf</span>
 
@@ -1293,32 +1293,32 @@ Listen 192.168.2.101:80
 Listen 192.168.2.102:80
 Listen 192.168.2.103:80
 
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.101:80<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.101:80<span class="token operator">&gt;</span>
     DocumentRoot /var/www/101/
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/101/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/101/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-      <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+      <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.102:80<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.102:80<span class="token operator">&gt;</span>
     DocumentRoot /var/www/102/
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/102/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/102/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.103:80<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.103:80<span class="token operator">&gt;</span>
     DocumentRoot /var/www/103/
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/103/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/103/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>参数介绍：</p>
 <blockquote>
 <p>虚拟主机配置格式：<br>&lt;VirtualHost 主机ip:端口&gt;<br>配置内容<br></p>
@@ -1342,9 +1342,9 @@ Listen 192.168.2.103:80
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig ens33:0 192.168.2.100/24</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>第二步：</strong>建立虚拟主机存放网页的根目录，并创建首页文件index.html</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mkdir /var/www/800{1..3}</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8001" > /var/www/8001/index.html</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8002" > /var/www/8002/index.html</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8003" > /var/www/8003/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8001" &gt; /var/www/8001/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8002" &gt; /var/www/8002/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "port 8003" &gt; /var/www/8003/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>第三步：</strong>创建基于端口的虚拟主机配置文件</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /usr/local/apache2/conf/httpd.conf      --文件末尾加入以下配置</span>
 <span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /etc/httpd/conf.d/port.conf</span>
@@ -1353,32 +1353,32 @@ Listen 192.168.2.100:8001
 Listen 192.168.2.100:8002
 Listen 192.168.2.100:8003
 
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8001<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8001<span class="token operator">&gt;</span>
     DocumentRoot <span class="token string">"/var/www/8001/"</span>
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8001/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8001/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8002<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8002<span class="token operator">&gt;</span>
     DocumentRoot <span class="token string">"/var/www/8002/"</span>
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8002/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8002/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8003<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.100:8003<span class="token operator">&gt;</span>
     DocumentRoot <span class="token string">"/var/www/8003/"</span>
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8003/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/8003/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>第五步：</strong>启动服务并测试</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl restart httpd</span>
 
@@ -1391,46 +1391,46 @@ port 8003<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <h4 id="3-Apache基于域名的虚拟主机配置"><a href="#3-Apache基于域名的虚拟主机配置" class="headerlink" title="3. Apache基于域名的虚拟主机配置"></a>3. Apache基于域名的虚拟主机配置</h4><p><strong>第一步：</strong>使用ifconfig设置1个虚拟ip</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ifconfig ens33:4 192.168.2.99/24</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>第二步：</strong>配置主机的hosts文件，便于测试</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.aa.com" >> /etc/hosts</span>
-<span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.bb.com" >> /etc/hosts</span>
-<span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.cc.com" >> /etc/hosts</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.aa.com" &gt;&gt; /etc/hosts</span>
+<span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.bb.com" &gt;&gt; /etc/hosts</span>
+<span class="token punctuation">[</span>root@Apache ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "192.168.2.99  www.cc.com" &gt;&gt; /etc/hosts</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>第三步：</strong>建立虚拟主机存放网页的根目录，并创建首页文件index.html</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mkdir /var/www/{aa,bb,cc}</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.aa.com" > /var/www/aa/index.html</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.bb.com" > /var/www/bb/index.html</span>
-<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.cc.com" > /var/www/cc/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.aa.com" &gt; /var/www/aa/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.bb.com" &gt; /var/www/bb/index.html</span>
+<span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "www.cc.com" &gt; /var/www/cc/index.html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>第四步：</strong>创建基于域名虚拟主机的配置文件</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim /etc/httpd/conf.d/name.conf</span>
 Listen 192.168.2.99:80
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">&gt;</span>
       ServerName www.aa.com
     DocumentRoot <span class="token string">"/var/www/aa/"</span>
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/aa/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/aa/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">&gt;</span>
       ServerName www.bb.com
     DocumentRoot <span class="token string">"/var/www/bb/"</span>
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/bb/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/bb/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">></span>
+<span class="token operator">&lt;</span>VirtualHost 192.168.2.99:80<span class="token operator">&gt;</span>
       ServerName www.cc.com
     DocumentRoot <span class="token string">"/var/www/cc/"</span>
-      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/cc/"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Directory <span class="token string">"/var/www/cc/"</span><span class="token operator">&gt;</span>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
-    <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
-<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/Directory<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>第五步：</strong>启动服务并测试</p>
 <pre><code>[root@server1 ~]# systemctl restart httpd
@@ -1529,8 +1529,8 @@ SSLCertificateKeyFile /etc/pki/tls/private/server.key  #修改
 <h4 id="2、-access-log日志文件"><a href="#2、-access-log日志文件" class="headerlink" title="2、 access_log日志文件"></a>2、 access_log日志文件</h4><p>access_log日志文件主要是记录客户端访问服务器的所有请求信息。access_log日志文件所在位置由<a href="https://link.zhihu.com/?target=https%3A//www.docs4dev.com/docs/zh/apache/2.4/reference/mod-mod_log_config.html%23customlog" target="_blank" rel="noopener">customLog</a>指令设置，其指令语法如下：</p>
 <pre class="line-numbers language-apacheconf"><code class="language-apacheconf"><span class="token directive-inline property">CustomLog</span> <span class="token string">"logs/access_log"</span> common<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>设置access_log日志文件格式可以使用LogFormat指令，日志的格式设置参数如下：</p>
-<pre class="line-numbers language-text"><code class="language-text">LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-LogFormat "%h %l %u %t \"%r\" %>s %b" common<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-text"><code class="language-text">LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%h %l %u %t \"%r\" %&gt;s %b" common<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>日志格式设置有两种：common和combined。一般我们使用的是默认的common格式。</p>
 <p>上面是日志记录内容的格式定义，格式是由百分号和相关指令组成，每个指令都表示服务器的一条特定的日志信息，文字字符也以字符串复制到日志输出中，如果要表示引号字符必须使用反斜杠进行转义，以防止将其解释为格式字符串的结尾。</p>
 <p><strong>common格式的日志内容如下：</strong></p>
@@ -2406,7 +2406,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">121.8k</span> 字
+                <span class="white-color">145.6k</span> 字
 	<br>
             
 
@@ -2613,8 +2613,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

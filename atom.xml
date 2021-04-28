@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Erikten.github.io/"/>
-  <updated>2021-04-25T10:55:18.821Z</updated>
+  <updated>2021-04-28T12:05:13.267Z</updated>
   <id>https://Erikten.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux Server安全配置基线(等保)</title>
+    <link href="https://Erikten.github.io/posts/f25da8ca.html"/>
+    <id>https://Erikten.github.io/posts/f25da8ca.html</id>
+    <published>2021-04-28T11:58:02.945Z</published>
+    <updated>2021-04-28T12:05:13.267Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第1章-概述&quot;&gt;&lt;a href=&quot;#第1章-概述&quot; class=&quot;headerlink&quot; title=&quot;第1章 概述&quot;&gt;&lt;/a&gt;&lt;strong&gt;第1章 概述&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&quot;1-1-目的&quot;&gt;&lt;a href=&quot;#1-1-目的&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络运维篇" scheme="https://Erikten.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4%E7%AF%87/"/>
+    
+    
+      <category term="运维" scheme="https://Erikten.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统管理</title>
+    <link href="https://Erikten.github.io/posts/6c72ecbc.html"/>
+    <id>https://Erikten.github.io/posts/6c72ecbc.html</id>
+    <published>2021-04-28T11:52:22.062Z</published>
+    <updated>2021-04-28T11:53:21.122Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、进程管理&quot;&gt;&lt;a href=&quot;#一、进程管理&quot; class=&quot;headerlink&quot; title=&quot;一、进程管理&quot;&gt;&lt;/a&gt;一、进程管理&lt;/h2&gt;&lt;p&gt;无论是 Linux
+        
+      
+    
+    </summary>
+    
+      <category term="网络运维篇" scheme="https://Erikten.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4%E7%AF%87/"/>
+    
+    
+      <category term="运维" scheme="https://Erikten.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>LAMP部署</title>
@@ -465,8 +517,6 @@ Windows
       <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
     
     
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
       <category term="Exp" scheme="https://Erikten.github.io/tags/Exp/"/>
     
       <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
@@ -474,6 +524,8 @@ Windows
       <category term="0day" scheme="https://Erikten.github.io/tags/0day/"/>
     
       <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
       <category term="漏洞挖掘" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
     
@@ -503,8 +555,6 @@ Windows
       <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
     
     
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
       <category term="Exp" scheme="https://Erikten.github.io/tags/Exp/"/>
     
       <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
@@ -512,6 +562,8 @@ Windows
       <category term="0day" scheme="https://Erikten.github.io/tags/0day/"/>
     
       <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
       <category term="漏洞挖掘" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
     
@@ -541,8 +593,6 @@ Windows
       <category term="代码审计篇" scheme="https://Erikten.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%AF%87/"/>
     
     
-      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
       <category term="Exp" scheme="https://Erikten.github.io/tags/Exp/"/>
     
       <category term="PHP" scheme="https://Erikten.github.io/tags/PHP/"/>
@@ -550,6 +600,8 @@ Windows
       <category term="0day" scheme="https://Erikten.github.io/tags/0day/"/>
     
       <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="代码审计" scheme="https://Erikten.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
       <category term="SQL注入" scheme="https://Erikten.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     
@@ -584,72 +636,6 @@ Windows
       <category term="内网渗透" scheme="https://Erikten.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
     
       <category term="端口转发" scheme="https://Erikten.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>详解新手如何利用ms17-010配合mimikatz获取目标主机账户密码</title>
-    <link href="https://Erikten.github.io/posts/def80e39.html"/>
-    <id>https://Erikten.github.io/posts/def80e39.html</id>
-    <published>2021-04-06T11:16:23.205Z</published>
-    <updated>2021-02-19T15:52:05.747Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;第一步：使用Nmap扫描目标主机开放端口&lt;/strong&gt;&lt;br&gt;  要知道ms17010是对445端口进行攻击的，所以我们要先对目标机进行端口扫描&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nmap
-        
-      
-    
-    </summary>
-    
-      <category term="渗透测试篇" scheme="https://Erikten.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%AF%87/"/>
-    
-    
-      <category term="渗透测试" scheme="https://Erikten.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="内网渗透" scheme="https://Erikten.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
-    
-      <category term="提权" scheme="https://Erikten.github.io/tags/%E6%8F%90%E6%9D%83/"/>
-    
-      <category term="Metasploit" scheme="https://Erikten.github.io/tags/Metasploit/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>详解新手如何使用metasploit对win2003进行蓝屏攻击</title>
-    <link href="https://Erikten.github.io/posts/c752b67c.html"/>
-    <id>https://Erikten.github.io/posts/c752b67c.html</id>
-    <published>2021-04-06T11:16:23.203Z</published>
-    <updated>2021-02-19T15:52:05.745Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;在攻击之前首先需要几个必须条件：&lt;/strong&gt;&lt;br&gt;1、目标机开放3389端口&lt;br&gt;2、目标机版本为windows2003（IIS6.0）&lt;br&gt;3、确保目标机与攻击机可以相互ping通&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;攻击流程：&lt;/strong&gt;&lt;b
-        
-      
-    
-    </summary>
-    
-      <category term="渗透测试篇" scheme="https://Erikten.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%AF%87/"/>
-    
-    
-      <category term="漏洞复现" scheme="https://Erikten.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-      <category term="渗透测试" scheme="https://Erikten.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="提权" scheme="https://Erikten.github.io/tags/%E6%8F%90%E6%9D%83/"/>
-    
-      <category term="Windows" scheme="https://Erikten.github.io/tags/Windows/"/>
     
   </entry>
   

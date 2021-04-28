@@ -1,0 +1,3563 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="Linux系统管理, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
+    <meta name="baidu-site-verification" content="fmlEuI34ir">
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
+    <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
+    <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
+    <meta name="description" content="一、进程管理无论是 Linux 系统管理员还是普通用户，监视系统进程的运行情况并适时终止一些失控的进程，是每天的例行事务。和 Linux 系统相比，进程管理在 Windows 中更加直观，它主要是使用”任务管理器”来进行进程管理的。
+通常，">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="wvlc3L96QK">
+    <title>Linux系统管理 | Erikten</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <style type="text/css">
+        
+            
+            code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+        
+    </style>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+
+    <body>
+
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Erikten</span>
+                </a>
+            </div>
+            
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-heartbeat"></i>
+            
+            <span>清单</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-user-circle"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-comments"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="" class="waves-effect waves-light">
+            
+            <i class="fa fas fa-archive"></i>
+            
+            <span>工具箱</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fas fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="" class="waves-effect waves-light">
+                
+                  <i class="fa fas fa-archive"></i>
+                
+                <span>归档</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                    <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/categories" >
+                    
+                    <span>分类</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="" class="waves-effect waves-light">
+                
+                  <i class="fa fas fa-heartbeat"></i>
+                
+                <span>清单</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/List/music" >
+                    
+                    <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/List/galleries" >
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/List/movies" >
+                    
+                    <span>视频</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/List" >
+                    
+                    <span>休闲</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/about" class="waves-effect waves-light">
+              
+                <i class="fa fas fa-user-circle"></i>
+              
+              <span>关于我</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fas fa-comments"></i>
+              
+              <span>留言板</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/friends" class="waves-effect waves-light">
+              
+                <i class="fa fas fa-address-book"></i>
+              
+              <span>友情链接</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="" class="waves-effect waves-light">
+                
+                  <i class="fa fas fa-archive"></i>
+                
+                <span>工具箱</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/yiqing" >
+                    
+                    <span>实时疫情</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tools" >
+                    
+                    <span>最强导航</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://txt.guoqiangti.ga" >
+                    
+                    <span>谷歌HACK</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://regex101.com" >
+                    
+                    <span>图形化正则</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://ip.jiangxianli.com" >
+                    
+                    <span>全球免费代理IP库</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Erikten</div>
+        <div class="logo-desc">
+            
+            东营职业学院 | 计算机网络技术 | 网络安全
+            
+        </div>
+    </div>
+
+    
+<!-- 支持一级菜单特性 -->
+<!--    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-heartbeat"></i>
+                
+                清单
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-user-circle"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-comments"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fas fa-archive"></i>
+                
+                工具箱
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Erikten/Erikten.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul> -->
+
+   
+   
+<!-- 支持二级菜单特性  -->
+ <ul class="menu-list mobile-menu-list">
+    
+        <li class="m-nav-item">
+                
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fas fa-home"></i>
+                        
+                        首页
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                            
+                            <i class="fa fa-fw fas fa-archive"></i>
+                            
+                            归档
+                            <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                <ul>
+                  
+                    <li> 
+                      <a href="/archives" >
+                           
+                       <span>时轴</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/categories" >
+                           
+                       <span>分类</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/tags" >
+                           
+                       <span>标签</span>
+                      </a>
+                    </li>
+                   
+                </ul>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                            
+                            <i class="fa fa-fw fas fa-heartbeat"></i>
+                            
+                            清单
+                            <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                <ul>
+                  
+                    <li> 
+                      <a href="/List/music" >
+                           
+                       <span>音乐</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/List/galleries" >
+                           
+                       <span>相册</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/List/movies" >
+                           
+                       <span>视频</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/List" >
+                           
+                       <span>休闲</span>
+                      </a>
+                    </li>
+                   
+                </ul>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/about" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fas fa-user-circle"></i>
+                        
+                        关于我
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/contact" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fas fa-comments"></i>
+                        
+                        留言板
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/friends" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fas fa-address-book"></i>
+                        
+                        友情链接
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                            
+                            <i class="fa fa-fw fas fa-archive"></i>
+                            
+                            工具箱
+                            <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                <ul>
+                  
+                    <li> 
+                      <a href="/yiqing" >
+                           
+                       <span>实时疫情</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/tools" >
+                           
+                       <span>最强导航</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="https://txt.guoqiangti.ga" >
+                           
+                       <span>谷歌HACK</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="https://regex101.com" >
+                           
+                       <span>图形化正则</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="https://ip.jiangxianli.com" >
+                           
+                       <span>全球免费代理IP库</span>
+                      </a>
+                    </li>
+                   
+                </ul>
+              
+            </li>
+        
+
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Erikten/Erikten.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul> 
+
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Erikten/Erikten.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/12.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Linux系统管理
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.1/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+        width: 345px;
+        background-color: rgb(255, 255, 255,0.7);
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        margin-bottom: 20px;
+    }
+    
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/运维/" target="_blank">
+                                <span class="chip bg-color">运维</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                网络运维篇
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-04-28
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        Erikten
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        21k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        83 分
+                    </div>
+                    
+                
+                
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、进程管理"><a href="#一、进程管理" class="headerlink" title="一、进程管理"></a>一、进程管理</h2><p>无论是 Linux 系统管理员还是普通用户，监视系统进程的运行情况并适时终止一些失控的进程，是每天的例行事务。和 Linux 系统相比，进程管理在 Windows 中更加直观，它主要是使用”任务管理器”来进行进程管理的。</p>
+<pre><code>通常，使用"任务管理器"主要有 3 个目的：
+
+1. 利用"应用程序"和"进程"标签来査看系统中到底运行了哪些程序和进程；
+2. 利用"性能"和"用户"标签来判断服务器的健康状态；
+3. 在"应用程序"和"进程"标签中强制中止任务和进程；</code></pre><p>Linux 中虽然使用命令进行进程管理，但是进程管理的主要目的是一样的，即查看系统中运行的程序和进程、判断服务器的健康状态和强制中止不需要的进程。</p>
+<h3 id="1-1-什么是进程和程序"><a href="#1-1-什么是进程和程序" class="headerlink" title="1.1    什么是进程和程序"></a>1.1    什么是进程和程序</h3><p>进程是正在执行的一个程序或命令，每个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源。</p>
+<p>程序是人使用计算机语言编写的可以实现特定目标或解决特定问题的代码集合。</p>
+<pre><code>程序是二进制文件，是静态存放在磁盘上的，不会占用系统运行资源(cpu/内存)。
+
+进程是用户执行程序或者触发程序的结果，可以认为进程是程序的一个运行实例。进程是动态的，会申请和使用系统资源，并与操作系统内核进行交互。</code></pre><p>这么讲很难理解，那我们换一种说法。程序是人使用计算机语言编写的，可以实现一定功能，并且可以执行的代码集合。而进程是正在执行中的程序。</p>
+<p>当程序被执行时，执行人的权限和属性，以及程序的代码都会被加载入内存，操作系统给这个进程分配一个 ID，称为 PID（进程 ID）。</p>
+<pre><code>也就是说，在操作系统中，所有可以执行的程序与命令都会产生进程。只是有些程序和命令非常简单，如 ls 命令、touch 命令等，它们在执行完后就会结束，相应的进程也就会终结，所以我们很难捕捉到这些进程。但是还有一些程和命令，比如 httpd 进程，启动之后就会一直驻留在系统当中，我们把这样的进程称作常驻内存进程。</code></pre><p>某些进程会产生一些新的进程，我们把这些进程称作子进程，而把这个进程本身称作父进程。比如，我们必须正常登录到 Shell 环境中才能执行系统命令，而 Linux 的标准 Shell 是 bash。我们在 bash 当中执行了 ls 命令，那么 bash 就是父进程，而 ls 命令是在 bash 进程中产生的进程，所以 ls 进程是 bash 进程的子进程。也就是说，子进程是依赖父进程而产生的，如果父进程不存在，那么子进程也不存在了。</p>
+<h3 id="1-2-进程管理的作用"><a href="#1-2-进程管理的作用" class="headerlink" title="1.2    进程管理的作用"></a>1.2    进程管理的作用</h3><p>在使用 Windows 系统的过程中，使用任务管理器，很大程度上是为了强制关闭“未反应”的软件，也就是杀死进程。的确，这是很多使用进程管理工具或进程管理命令的人最常见的使用方法。不过，杀死进程（强制中止进程）只是进程管理工作中最不常用的手段，因为每个进程都有自己正确的结束方法，而杀死进程是在正常方法已经失效的情况下的后备手段。</p>
+<p>那么，进程管理到底应该是做什么的呢？我以为，进程管理主要有以下 3 个作用。</p>
+<pre><code> 1) 判断服务器的健康状态
+
+进程管理最主要的工作就是判断服务器当前运行是否健康，是否需要人为干预。如果服务器的 CPU 占用率、内存占用率过高，就需要人为介入解决问题了。这又出现了一个问题，我们发现服务器的 CPU 或内存占用率很高，该如何介入呢？是直接终止高负载的进程吗？
+
+当然不是，应该判断这个进程是否是正常进程，如果是正常进程，则说明你的服务器已经不能满足应用需求，你需要更好的硬件或搭建集群了；如果是非法进程占用了系统资源，则更不能直接中止进程，而要判断非法进程的来源、作用和所在位置，从而把它彻底清除。
+
+ 2) 查看系统中所有的进程
+
+我们需要查看看系统中所有正在运行的进程，通过这些进程可以判断系统中运行了哪些服务、是否有非法服务在运行。
+
+ 3) 杀死进程
+
+这是进程管理中最不常用的手段。当需要停止服务时，会通过正确关闭命令来停止服务（如 apache 服务可以通过 service httpd stop 命令来关闭）。只有在正确终止进程的手段失效的情况下，才会考虑使用 kill 命令杀死进程。</code></pre><h3 id="1-3-进程启动的方式"><a href="#1-3-进程启动的方式" class="headerlink" title="1.3    进程启动的方式"></a>1.3    进程启动的方式</h3><p>在 Linux 系统中，每个进程都有一个唯一的进程号（PID），方便系统识别和调度进程。通过简单地输出运行程序的程序名，就可以运行该程序，其实也就是启动了一个进程。</p>
+<p>总体来说，启动一个进程主要有 2 种途径，分别是通过手工启动和通过调度启动（事先进行设置，根据用户要求，进程可以自行启动）</p>
+<h4 id="1）Linux手工启动进程"><a href="#1）Linux手工启动进程" class="headerlink" title="1）Linux手工启动进程"></a>1）Linux手工启动进程</h4><p>手工启动进程指的是由用户输入命令直接启动一个进程，根据所启动的进程类型和性质的不同，其又可以细分为前台启动和后台启动 2 种方式。</p>
+<p><strong>前台启动进程</strong></p>
+<p>这是手工启动进程最常用的方式，因为当用户输入一个命令并运行，就已经启动了一个进程，而且是一个前台的进程</p>
+<p><strong>后台启动进程</strong></p>
+<p>进程直接从后台运行，用的相对较少，除非该进程非常耗时，且用户也不急着需要其运行结果的时候，例如，用户需要启动一个需要长时间运行的格式化文本文件的进程，为了不使整个 Shell 在格式化过程中都处于“被占用”状态，从后台启动这个进程是比较明智的选择。</p>
+<p>从后台启动进程，其实就是在命令结尾处添加一个 “ &amp;” 符号（注意，&amp; 前面有空格）。输入命令并运行之后，Shell 会提供给我们一个数字，此数字就是该进程的进程号。然后直接就会出现提示符，用户就可以继续完成其他工作，例如：</p>
+<pre><code>[root@localhost ~]# find / -name install.log &amp;
+[1] 1920
+#[1]是工作号，1920是进程号</code></pre><p>以上手工启动的 2 种方式，实际上它们有个共同的特点，就是新进程都是由当前 Shell 这个进程产生的，换句话说，是 Shell 创建了新进程，于是称这种关系为进程间的父子关系，其中 Shell 是父进程，新进程是子进程。</p>
+<pre><code>值得一提的是，一个父进程可以有多个子进程，通常子进程结束后才能继续父进程；当然，如果是从后台启动，父进程就不用等待子进程了。</code></pre><h4 id="2）Linux调度启动进程"><a href="#2）Linux调度启动进程" class="headerlink" title="2）Linux调度启动进程"></a>2）Linux调度启动进程</h4><p>在 Linux 系统中，任务可以被配置在指定的时间、日期或者系统平均负载量低于指定值时自动启动。</p>
+<p>例如，Linux 预配置了重要系统任务的运行，以便可以使系统能够实时被更新，系统管理员也可以使用自动化的任务来定期对重要数据进行备份。</p>
+<pre><code>实现调度启动进程的方法有很多，例如通过 crontab、at 等命令</code></pre><h3 id="1-4-查看进程"><a href="#1-4-查看进程" class="headerlink" title="1.4    查看进程"></a>1.4    查看进程</h3><h4 id="1-4-1-ps命令：查看正在运行的进程"><a href="#1-4-1-ps命令：查看正在运行的进程" class="headerlink" title="1.4.1    ps命令：查看正在运行的进程"></a>1.4.1    ps命令：查看正在运行的进程</h4><p>ps 命令是最常用的监控进程的命令，通过此命令可以查看系统中所有运行进程的详细信息。</p>
+<p>ps 命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]# ps aux
+\#查看系统中所有的进程，使用 BS 操作系统格式
+[root@localhost ~]# ps -le
+\#查看系统中所有的进程，使用 Linux 标准命令格式</code></pre><p>选项：</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>a</th>
+<th>显示一个终端的所有进程，除会话引线外；</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u</td>
+<td>显示进程的归属用户及内存的使用情况；</td>
+</tr>
+<tr>
+<td>x</td>
+<td>显示没有控制终端的进程；</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>长格式显示更加详细的信息；</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>显示所有进程；</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>可以看到，ps 命令有些与众不同，它的部分选项不能加入”-“，比如命令”ps aux”，其中”aux”是选项，但是前面不能带“-”。</p>
+<ul>
+<li>“ps aux” 可以查看系统中所有的进程；</li>
+<li>“ps -le” 可以查看系统中所有的进程，而且还能看到进程的父进程的 PID 和进程优先级；</li>
+<li>“ps -l” 只能看到当前 Shell 产生的进程；</li>
+</ul>
+<p>有这三个命令就足够了，下面分别来查看。</p>
+<p>【例 1】</p>
+<pre><code>[root@localhost ~]# ps aux
+#查看系统中所有的进程
+USER PID %CPU %MEM  VSZ  RSS   TTY STAT START TIME COMMAND
+root   1  0.0  0.2 2872 1416   ?   Ss   Jun04 0:02 /sbin/init
+root   2  0.0  0.0    0    0   ?    S   Jun04 0:00 [kthreadd]
+root   3  0.0  0.0    0    0   ?    S   Jun04 0:00 [migration/0]
+root   4  0.0  0.0    0    0   ?    S   Jun04 0:00 [ksoftirqd/0]
+…省略部分输出…</code></pre><p>表 1 中罗列出了以上输出信息中各列的具体含义。</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>USER</td>
+<td>该进程是由哪个用户产生的。</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>进程的 ID。</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>该进程占用 CPU 资源的百分比，占用的百分比越高，进程越耗费资源。</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>该进程占用物理内存的百分比，占用的百分比越高，进程越耗费资源。</td>
+</tr>
+<tr>
+<td>VSZ</td>
+<td>该进程占用虚拟内存的大小，单位为 KB。</td>
+</tr>
+<tr>
+<td>RSS</td>
+<td>该进程占用实际物理内存的大小，单位为 KB。</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>该进程是在哪个终端运行的。</td>
+</tr>
+<tr>
+<td>STAT</td>
+<td>进程状态。常见的状态有以下几种：-D：不可被唤醒的睡眠状态，通常用于 I/O 情况。-R：该进程正在运行。-S：该进程处于睡眠状态，可被唤醒。-T：停止状态，可能是在后台暂停或进程处于除错状态。-W：内存交互状态（从 2.6 内核开始无效）。-X：死掉的进程（应该不会出现）。-Z：僵尸进程。进程已经中止，但是部分程序还在内存当中。-&lt;：高优先级（以下状态在 BSD 格式中出现）。-N：低优先级。-L：被锁入内存。-s：包含子进程。-l：多线程（小写 L）。-+：位于后台。</td>
+</tr>
+<tr>
+<td>START</td>
+<td>该进程的启动时间。</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>该进程占用 CPU 的运算时间，注意不是系统时间。</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>产生此进程的命令名。</td>
+</tr>
+</tbody></table>
+<p>【例 2】”ps aux”命令可以看到系统中所有的进程，”ps -le”命令也能看到系统中所有的进程。由于 “-l” 选项的作用，所以 “ps -le” 命令能够看到更加详细的信息，比如父进程的 PID、优先级等。但是这两个命令的基本作用是一致的，掌握其中一个就足够了。</p>
+<pre><code>[root@localhost ~]# ps -le
+F S UID PID PPID C  PRI Nl ADDR  SZ WCHAN TTY      TIME  CMD
+4 S   0   1    0 0  80   0 -    718 -     ?    00:00:02  init
+1 S   0   2    0 0  80   0 -      0 -     ?    00:00:00  kthreadd
+1 S   0   3    2 0 -40   - -      0 -     ?    00:00:00  migration/0
+1 S   0   4    2 0  80   0 -      0 -     ?    00:00:00  ksoflirqd/0
+1 S   0   5    2 0 -40   - -      0 -     ?    00:00:00  migration/0
+…省略部分输出…</code></pre><p>表 2 罗列出以上输出信息中各列的含义。</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F</td>
+<td>进程标志，说明进程的权限，常见的标志有两个: 1：进程可以被复制，但是不能被执行；4：进程使用超级用户权限；</td>
+</tr>
+<tr>
+<td>S</td>
+<td>进程状态。具体的状态和”psaux”命令中的 STAT 状态一致；</td>
+</tr>
+<tr>
+<td>UID</td>
+<td>运行此进程的用户的 ID；</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>进程的 ID；</td>
+</tr>
+<tr>
+<td>PPID</td>
+<td>父进程的 ID；</td>
+</tr>
+<tr>
+<td>C</td>
+<td>该进程的 CPU 使用率，单位是百分比；</td>
+</tr>
+<tr>
+<td>PRI</td>
+<td>进程的优先级，数值越小，该进程的优先级越高，越早被 CPU 执行；</td>
+</tr>
+<tr>
+<td>NI</td>
+<td>进程的优先级，数值越小，该进程越早被执行；</td>
+</tr>
+<tr>
+<td>ADDR</td>
+<td>该进程在内存的哪个位置；</td>
+</tr>
+<tr>
+<td>SZ</td>
+<td>该进程占用多大内存；</td>
+</tr>
+<tr>
+<td>WCHAN</td>
+<td>该进程是否运行。”-“代表正在运行；</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>该进程由哪个终端产生；</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>该进程占用 CPU 的运算时间，注意不是系统时间；</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>产生此进程的命令名；</td>
+</tr>
+</tbody></table>
+<p>【例 3】如果不想看到所有的进程，只想查看一下当前登录产生了哪些进程，那只需使用 “ps -l” 命令就足够了：</p>
+<pre><code>[root@localhost ~]# ps -l
+#查看当前登录产生的进程
+F S UID   PID  PPID C PRI NI ADDR SZ WCHAN TTY       TIME CMD
+4 S 0   18618 18614 0  80  0 - 1681  -     pts/1 00:00:00 bash
+4 R 0   18683 18618 4  80  0 - 1619  -     pts/1 00:00:00 ps</code></pre><p>可以看到，这次从 pts/1 虚拟终端登录，只产生了两个进程：一个是登录之后生成的 Shell，也就是 bash；另一个是正在执行的 ps 命令。</p>
+<h4 id="1-4-2-top命令：持续监听进程运行状态"><a href="#1-4-2-top命令：持续监听进程运行状态" class="headerlink" title="1.4.2    top命令：持续监听进程运行状态"></a>1.4.2    top命令：持续监听进程运行状态</h4><p>ps 命令可以一次性给出当前系统中进程状态，但使用此方式得到的信息缺乏时效性，并且，如果管理员需要实时监控进程运行情况，就必须不停地执行 ps 命令，这显然是缺乏效率的。</p>
+<p>为此，Linux 提供了 top 命令。top 命令可以动态地持续监听进程地运行状态，与此同时，该命令还提供了一个交互界面，用户可以根据需要，人性化地定制自己的输出，进而更清楚地了进程的运行状态。</p>
+<p>top 命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]#top [选项]</code></pre><p>选项：</p>
+<ul>
+<li>-d 秒数：指定 top 命令每隔几秒更新。默认是 3 秒；</li>
+<li>-b：使用批处理模式输出。一般和”-n”选项合用，用于把 top 命令重定向到文件中；</li>
+<li>-n 次数：指定 top 命令执行的次数。</li>
+<li>-p 进程PID：仅查看指定 ID 的进程；</li>
+<li>-s：使 top 命令在安全模式中运行，避免在交互模式中出现错误；</li>
+<li>-u 用户名：只监听某个用户的进程；</li>
+</ul>
+<p>在 top 命令的显示窗口中，还可以使用如下按键，进行一下交互操作：</p>
+<ul>
+<li>? 或 h：显示交互模式的帮助；</li>
+<li>P：按照 CPU 的使用率排序，默认就是此选项；</li>
+<li>M：按照内存的使用率排序；</li>
+<li>N：按照 PID 排序；</li>
+<li>T：按照 CPU 的累积运算时间排序，也就是按照 TIME+ 项排序；</li>
+<li>k：按照 PID 给予某个进程一个信号。一般用于中止某个进程，信号 9 是强制中止的信号；</li>
+<li>r：按照 PID 给某个进程重设优先级（Nice）值；</li>
+<li>q：退出 top 命令；</li>
+</ul>
+<p>我们看看 top 命令的执行结果，如下：</p>
+<pre><code>[root@localhost ~]# top
+top - 12:26:46 up 1 day, 13:32, 2 users, load average: 0.00, 0.00, 0.00
+Tasks: 95 total, 1 running, 94 sleeping, 0 stopped, 0 zombie
+Cpu(s): 0.1%us, 0.1%sy, 0.0%ni, 99.7%id, 0.1%wa, 0.0%hi, 0.1%si, 0.0%st
+Mem: 625344k total, 571504k used, 53840k free, 65800k buffers
+Swap: 524280k total, 0k used, 524280k free, 409280k cached
+PID   USER PR NI VIRT  RES  SHR S %CPU %MEM   TIME+ COMMAND
+19002 root 20  0 2656 1068  856 R  0.3  0.2 0:01.87 top
+1     root 20  0 2872 1416 1200 S  0.0  0.2 0:02.55 init
+2     root 20  0    0    0    0 S  0.0  0.0 0:00.03 kthreadd
+3     root RT  0    0    0    0 S  0.0  0.0 0:00.00 migration/0
+4     root 20  0    0    0    0 S  0.0  0.0 0:00.15 ksoftirqd/0
+5     root RT  0    0    0    0 S  0.0  0.0 0:00.00 migration/0
+6     root RT  0    0    0    0 S  0.0  0.0 0:10.01 watchdog/0
+7     root 20  0    0    0    0 S  0.0  0.0 0:05.01 events/0
+8     root 20  0    0    0    0 S  0.0  0.0 0:00.00 cgroup
+9     root 20  0    0    0    0 S  0.0  0.0 0:00.00 khelper
+10    root 20  0    0    0    0 S  0.0  0.0 0:00.00 netns
+11    root 20  0    0    0    0 S  0.0  0.0 0:00.00 async/mgr
+12    root 20  0    0    0    0 S  0.0  0.0 0:00.00 pm
+13    root 20  0    0    0    0 S  0.0  0.0 0:01.70 sync_supers
+14    root 20  0    0    0    0 S  0.0  0.0 0:00.63 bdi-default
+15    root 20  0    0    0    0 S  0.0  0.0 0:00.00 kintegrityd/0
+16    root 20  0    0    0    0 S  0.0  0.0 0:02.52 kblockd/0
+17    root 20  0    0    0    0 S  0.0  0.0 0:00.00 kacpid
+18    root 20  0    0    0    0 S  0.0  0.0 0:00.00 kacpi_notify</code></pre><p>我们解释一下命令的输出。top 命令的输出内容是动态的，默认每隔 3 秒刷新一次。命令的输出主要分为两部分：</p>
+<ol>
+<li><pre><code>1. 第一部分是前五行，显示的是整个系统的资源使用状况，我们就是通过这些输出来判断服务器的资源使用状态的；
+2. 第二部分从第六行开始，显示的是系统中进程的信息；</code></pre></li>
+</ol>
+<p>我们先来说明第一部分的作用。</p>
+<ul>
+<li><p>第一行为任务队列信息，具体内容如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>内 容</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12:26:46</td>
+<td>系统当前时间</td>
+</tr>
+<tr>
+<td>up 1 day, 13:32</td>
+<td>系统的运行时间.本机己经运行 1 天 13 小时 32 分钟</td>
+</tr>
+<tr>
+<td>2 users</td>
+<td>当前登录了两个用户</td>
+</tr>
+<tr>
+<td>load average: 0.00,0.00，0.00</td>
+<td>系统在之前 1 分钟、5 分钟、15 分钟的平均负载。如果 CPU 是单核的，则这个数值超过 1 就是高负载：如果 CPU 是四核的，则这个数值超过 4 就是高负载 （这个平均负载完全是依据个人经验来进行判断的，一般认为不应该超过服务器 CPU 的核数）</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ul>
+<li><p>第二行为进程信息，具体内容如表 2 所示。</p>
+<table>
+<thead>
+<tr>
+<th>内 容</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tasks: 95 total</td>
+<td>系统中的进程总数</td>
+</tr>
+<tr>
+<td>1 running</td>
+<td>正在运行的进程数</td>
+</tr>
+<tr>
+<td>94 sleeping</td>
+<td>睡眠的进程数</td>
+</tr>
+<tr>
+<td>0 stopped</td>
+<td>正在停止的进程数</td>
+</tr>
+<tr>
+<td>0 zombie</td>
+<td>僵尸进程数。如果不是 0，则需要手工检查僵尸进程</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ul>
+<li><p>第三行为 CPU 信息，具体内容如表 3 所示。</p>
+<table>
+<thead>
+<tr>
+<th>内 容</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cpu(s): 0.1 %us</td>
+<td>用户模式占用的 CPU 百分比</td>
+</tr>
+<tr>
+<td>0.1%sy</td>
+<td>系统模式占用的 CPU 百分比</td>
+</tr>
+<tr>
+<td>0.0%ni</td>
+<td>改变过优先级的用户进程占用的 CPU 百分比</td>
+</tr>
+<tr>
+<td>99.7%id</td>
+<td>空闲 CPU 占用的 CPU 百分比</td>
+</tr>
+<tr>
+<td>0.1%wa</td>
+<td>等待输入/输出的进程占用的 CPU 百分比</td>
+</tr>
+<tr>
+<td>0.0%hi</td>
+<td>硬中断请求服务占用的 CPU 百分比</td>
+</tr>
+<tr>
+<td>0.1%si</td>
+<td>软中断请求服务占用的 CPU 百分比</td>
+</tr>
+<tr>
+<td>0.0%st</td>
+<td>st（steal time）意为虚拟时间百分比，就是当有虚拟机时，虚拟 CPU 等待实际 CPU 的时间百分比</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ul>
+<li><p>第四行为物理内存信息，具体内容如表 4 所示。</p>
+<table>
+<thead>
+<tr>
+<th>内 容</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mem: 625344k total</td>
+<td>物理内存的总量，单位为KB</td>
+</tr>
+<tr>
+<td>571504k used</td>
+<td>己经使用的物理内存数量</td>
+</tr>
+<tr>
+<td>53840k&amp;ee</td>
+<td>空闲的物理内存数量。我们使用的是虚拟机，共分配了 628MB内存，所以只有53MB的空闲内存</td>
+</tr>
+<tr>
+<td>65800k buffers</td>
+<td>作为缓冲的内存数量</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ul>
+<li><p>第五行为交换分区（swap）信息，如表 5 所示。</p>
+<table>
+<thead>
+<tr>
+<th>内 容</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Swap: 524280k total</td>
+<td>交换分区（虚拟内存）的总大小</td>
+</tr>
+<tr>
+<td>Ok used</td>
+<td>已经使用的交换分区的大小</td>
+</tr>
+<tr>
+<td>524280k free</td>
+<td>空闲交换分区的大小</td>
+</tr>
+<tr>
+<td>409280k cached</td>
+<td>作为缓存的交换分区的大小</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>我们通过 top 命令的第一部分就可以判断服务器的健康状态。如果 1 分钟、5 分钟、15 分钟的平均负载高于 1，则证明系统压力较大。如果 CPU 的使用率过高或空闲率过低，则证明系统压力较大。如果物理内存的空闲内存过小，则也证明系统压力较大。</p>
+<p>这时，我们就应该判断是什么进程占用了系统资源。如果是不必要的进程，就应该结束这些进程；如果是必需进程，那么我们该増加服务器资源（比如増加虚拟机内存），或者建立集群服务器。</p>
+<p>我们还要解释一下缓冲（buffer）和缓存（cache）的区别：</p>
+<ul>
+<li><pre><code>- 缓存（cache）是在读取硬盘中的数据时，把最常用的数据保存在内存的缓存区中，再次读取该数据时，就不去硬盘中读取了，而在缓存中读取。
+- 缓冲（buffer）是在向硬盘写入数据时，先把数据放入缓冲区,然后再一起向硬盘写入，把分散的写操作集中进行，减少磁盘碎片和硬盘的反复寻道，从而提高系统性能。</code></pre></li>
+</ul>
+<p>简单来说，缓存（cache）是用来加速数据从硬盘中”读取”的，而缓冲（buffer）是用来加速数据”写入”硬盘的。</p>
+<p>再来看 top 命令的第二部分输出，主要是系统进程信息，各个字段的含义如下：</p>
+<ul>
+<li><pre><code>- PID：进程的 ID。
+- USER：该进程所属的用户。
+- PR：优先级，数值越小优先级越高。
+- NI：优先级，数值越小、优先级越高。
+- VIRT：该进程使用的虚拟内存的大小，单位为 KB。
+- RES：该进程使用的物理内存的大小，单位为 KB。
+- SHR：共享内存大小，单位为 KB。
+- S：进程状态。
+- %CPU：该进程占用 CPU 的百分比。
+- %MEM：该进程占用内存的百分比。
+- TIME+：该进程共占用的 CPU 时间。
+- COMMAND：进程的命令名。
+
+PRI 代表 Priority，NI 代表 Nice。这两个值都表示优先级，数值越小代表该进程越优先被 CPU 处理。不过，PRI值是由内核动态调整的，用户不能直接修改。所以我们只能通过修改 NI 值来影响 PRI 值，间接地调整进程优先级。</code></pre></li>
+</ul>
+<p>这部分和 ps 命令的输出比较类似，只是如果在终端执行 top 命令，则不能看到所有的进程，而只能看到占比靠前的进程。接下来我们举几个 top 命令常用的实例。</p>
+<p>【例 1】如果只想让 top 命令查看某个进程，就可以使用 “-p 选项”。命令如下：</p>
+<pre><code>[root@localhost ~]# top -p 15273
+#只查看 PID为 15273的apache进程
+top - 14:28:47 up 1 day, 15:34, 3 users, load average: 0.00,0.00,0.00
+Tasks: 1 total, 0 running, 1 sleeping, 0 stopped, 0 zombie
+Cpu(s): 0.0%us, 0.0%sy, 0.0%ni,100.0%id, 0.0%wa, 0.0%hi, 0.0%si, 0.0%st
+Mem: 625344k total, 574124k used, 51220k free, 67024k buffers
+Swap: 524280k total, Ok used, 524280k free, 409344k cached
+PID     USER PR NI VIRT  RES SHR S %CPU %MEM  TIME+  COMMAND
+15273 daemon 20 0  4520 1192 580 S  0.0  0.2 0:00.00   httpd</code></pre><p>【例 2】top 命令如果不正确退出，则会持续运行。在 top 命令的交互界面中按 “q” 键会退出 top 命令；也可以按 “?” 或 “h” 键得到 top 命令交互界面的帮助信息；还可以按键中止某个进程。比如：</p>
+<pre><code>[root@localhost ~]# top
+top - 14:10:15 up 1 day, 15:15， 3 users, load average: 0.00，0.00, 0.00
+Tasks: 97 total, 1 running, 96 sleeping, 0 stopped, 0 zombie
+Cpu(s): 0.0%us, 0.0%sy, 0.0%ni,100.0%id, 0.0%wa, 0.0%hi, 0.0%si, 0.0%st
+Mem: 625344k total, 574248k used, 51096k free, 66840k buffers
+Swap: 524280k total, Ok used, 524280k free, 409324k cached
+PID to kill:15273
+#按"k"键，会提示输入要杀死进程的PID
+PID     USER PR NI VIRT  RES SHR S %CPU %MEM   TIME+ COMMAND
+15273 daemon 20  0 4520 1192 580 S  0.0 0.2  0:00.00 httpd
+..省略部分输出...</code></pre><p>【例 3】输入要中止进程的 PID，比如要中止 15273 这个 apache 进程，命令如下：</p>
+<pre><code>top - 14:11:42 up 1 day, 15:17， 3 users, load average: 0.00，0.00, 0.00
+Tasks: 97 total, 1 running, 96 sleeping, 0 stopped, 0 zombie
+Cpu(s): 0.0%us, 0.3%sy, 0.0%ni, 99.7%id, 0.0%wa, 0.0%hi, 0.0%si, 0.0%st
+Mem: 625344k total, 574248k used, 51096k free, 66856k buffers
+Swap: 524280k total, 0k used, 524280k free, 409324k cached
+Kill PID 15273 with signal [15]:9
+#提示输入信号，信号9代表强制中止
+PID     USER PR NI VIRT  RES SHR S %CPU %MEM   TIME+ COMMAND
+15273 daemon 20  0 4520 1192 580 S 0.0   0.2 0:00.00 httpd
+…省略部分输出…</code></pre><p>接下来 top 命令提示我们输入信号，信号 9 代表强制中止，这时就能够强制中止 15273 进程了。</p>
+<p>【例 4】如果要改变某个进程的优先级，就要利用 “r” 交互命令。需要注意的是，我们能够修改的只有 Nice 的优先级，而不能修改 Priority 的优先级。具体修改命令如下：</p>
+<pre><code>[root@localhost ~]# top -p 18977
+top - 14:17:09 up 1 day, 15:22, 3 users, load average: 0.00，0.00, 0.00
+Tasks: 97 total, 1 running, 96 sleeping, 0 stopped, 0 zombie
+Cpu(s): 0.3%us, 0.0%sy, 0.0%ni, 99.7%id, 0.0%wa, 0.0%hi, 0.0%si, 0.0%st
+Mem: 625344k total, 574124k used, 51220k free, 66896k buffers
+Swap: 524280k total, 0k used, 524280k free, 409324k cached
+PID to renice:
+#输入"r"交互命令之后，提示输入要修改优先级的进程的PID
+PID   USER PR NI  VIRT  RES SHR  S %CPU %MEM   TIME+ COMMAND
+18977 root 20 0  11592 3304 2572 S  0.0 0.5  0:04.37 sshd</code></pre><p>输入 “r” 交互命令，会提示输入需要修改优先级的进程的 PID。例如，我们想要修改 18977 这个 sshd 远程连接进程的优先级，就输入该进程的 PID。命令如下：</p>
+<pre><code>Renice PID 18977 to value: 10
+#输入PID后，需要输入Nice的优先级号
+#我们把18977进程的优先级调整为10,回车后就能看到
+PID   USER PR NI  VIRT  RES SHR  S %CPU %MEM   TIME+ COMMAND
+18977 root 30 10 11592 3304 2572 R  0.0 0.5  0:04.38 sshd
+#18977进程的优先级已经被修改了</code></pre><p>【例 5】如果在操作终端执行 top 命令，则并不能看到系统中所有的进程，默认看到的只是 CPU 占比靠前的进程。如果我们想要看到所有的进程，则可以把 top 命令的执行结果重定向到文件中。不过 top 命令是持续运行的，这时就需要使用 “-b” 和 “-n” 选项了。具体命令如下：</p>
+<p>[root@localhost ~]# top -b -n 1 &gt; /root/top.log<br>#让top命令只执行一次，然后把执行结果保存到top.log文件中，这样就能看到所有的进程了</p>
+<h4 id="1-4-3-pstree命令：查看进程树"><a href="#1-4-3-pstree命令：查看进程树" class="headerlink" title="1.4.3    pstree命令：查看进程树"></a>1.4.3    pstree命令：查看进程树</h4><p>pstree 命令是以树形结构显示程序和进程之间的关系，此命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]# pstree [选项] [PID或用户名]</code></pre><p>如果系统提示“-bash: pstree: command not found”，使用“yum -y install psmisc”命令安装pstree命令。</p>
+<p>表 1 罗列出了 pstree 命令常用选项以及各自的含义。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>显示启动每个进程对应的完整指令，包括启动进程的路径、参数等。</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>不使用精简法显示进程信息，即显示的进程中包含子进程和父进程。</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>根据进程 PID 号来排序输出，默认是以程序名排序输出的。</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示进程的 PID。</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>显示进程对应的用户名称。</td>
+</tr>
+</tbody></table>
+<p>需要注意的是，在使用 pstree 命令时，如果不指定进程的 PID 号，也不指定用户名称，则会以 init 进程为根进程，显示系统中所有程序和进程的信息；反之，若指定 PID 号或用户名，则将以 PID 或指定命令为根进程，显示 PID 或用户对应的所有程序和进程。</p>
+<p>init 进程是系统启动的第一个进程，进程的 PID 是 1，也是系统中所有进程的父进程。</p>
+<p>【例 1】</p>
+<pre><code>[root@1ocalhost ~]# pstree
+init──┬──abrc-dump-oopa
+├──abrtd
+├──acpid
+...省略部分输出...
+├──rayslogd───3*[{rsyslogrd}]
+\#有3个rsyslogd进程存在
+├──sshd───sshd───bash───pstree
+\#Pstree命令进程是在远程连接中被执行的
+├──udevd───2*[udevd]
+└──xinecd</code></pre><p>【例 2】如果想知道某个用户都启动了哪些进程，使用 pstree 命令可以很容易实现，以 mysql 用户为例：</p>
+<p>[root@1ocalhost ~]# pstree mysql<br>mysqid—6*[{mysqid}]</p>
+<p>此输出结果显示了 mysql 用户对应的进程为 mysqid，并且 mysqid 进程拥有 5 个子进程（外加 1 个父进程，共计 6 个进程）。</p>
+<h4 id="1-4-4-lsof命令：列出进程调用或打开的文件信息"><a href="#1-4-4-lsof命令：列出进程调用或打开的文件信息" class="headerlink" title="1.4.4    lsof命令：列出进程调用或打开的文件信息"></a>1.4.4    lsof命令：列出进程调用或打开的文件信息</h4><p>通过 ps 命令可以查询到系统中所有的进程，那么，是否可以进一步知道这个进程到底在调用哪些文件吗？当然可以，使用 lsof 命令即可。</p>
+<p>lsof 命令，“list opened files”的缩写，直译过来，就是列举系统中已经被打开的文件。通过 lsof 命令，我们就可以根据文件找到对应的进程信息，也可以根据进程信息找到进程打开的文件。</p>
+<p>lsof 命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]# lsof [选项]</code></pre><p>此命令常用的选项及功能，如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c 字符串</td>
+<td>只列出以字符串开头的进程打开的文件。</td>
+</tr>
+<tr>
+<td>+d 目录名</td>
+<td>列出某个目录中所有被进程调用的文件。</td>
+</tr>
+<tr>
+<td>-u 用户名</td>
+<td>只列出某个用户的进程打开的文件。</td>
+</tr>
+<tr>
+<td>-p pid</td>
+<td>列出某个 PID 进程打开的文件。</td>
+</tr>
+</tbody></table>
+<p>【例 1】</p>
+<pre><code>[root@localhost ~]# lsof | more
+\#查询系统中所有进程调用的文件
+COMMAND PID USER FD  TYPE DEVICE SIZE/OFF NODE NAME
+init        1   root  cwd DIR  8，3    4096    2      /
+init        1   root  rtd  DIR  8，3    4096    2      /
+init        1   root  txt   REG  8，3    145180  130874 /sbin/init
+init        1   root  mem REG  8，3    142472  665291 /lib/ld-2.12.so
+init        1   root  mem REG  8，3    58704   655087 /lib/libnss_files-2.12.so
+…省略部分输出…</code></pre><p>这个命令的输出非常多。它会按照 PID，从 1 号进程开始列出系统中所有的进程正在调用的文件名。</p>
+<p>【例 2】lsof 命令也可以反过来查询某个文件被哪个进程调用。这个例子就查询到 /sbin/init 文件是被 init 进程调用的。</p>
+<pre><code>[root@localhost ~]# lsof /sbin/init
+\#查询某个文件被哪个进程调用
+COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE  NAME
+init        1   root  txt REG  8，3   145180   130874  /sbin/init</code></pre><p>【例 3】使用“+d”选项可以搜索某个目录下所有的文件，查看到底哪个文件被哪个进程调用了。</p>
+<pre><code>[root@localhost ~]# lsof +d /usr/lib
+\#查询某个目录下所有的文件是被哪些进程调用的
+COMMAND PID  USER  FD   TYPE DEVICE SIZE/OFF  NODE  NAME
+rpc.idmap   1196 root   mem REG 8，3    26400    279930  /usr/lib/libnfsidmap.so.0.3.0
+rpc.idmap   1196 root   mem REG 8，3    108948   276696  /usr/lib/libevent-1.4.so.2.1.3
+avahi-dae   1240 avahi  mem REG 8，3    49124    271310  /usr/lib/libavahi-common.so.3.5.1
+avahi-dae   1240 avahi  mem REG 8，3    23904    283188  /usr/lib/libdaemon.so.0.5.0
+avahi-dae   1240 avahi  mem REG 8，3    227212   268396  /usr/lib/libavahi-core.so.6.0.1
+avahi-dae   1241 avahi  mem REG 8，3    49124    271310  /usr/lib/libavahi-common.so.3.5.1
+avahi-dae   1241 avahi  mem REG 8，3    23904    283188  /usr/lib/libdaemon.so.0.5.0
+avahi-dae   1241 avahi  mem REG 8，3    227212   268396  /usr/lib/libavahi-core.so.6.0.1
+cupsd      1251 root   mem REG 8，3    69564    270210  /usr/lib/libtasn1.so.3.1.6
+
+</code></pre><p>【例 4】使用“-c”选项可以查询以某个字符串开头的进程调用的所有文件，比如执行“lsof-c httpd”命令就会查询出以 httpd 开头的进程调用的所有文件。</p>
+<pre><code>[root@localhost ~]# lsof -c httpd
+\#查看以httpd开头的进程调用了哪些文件
+COMMAND PID  USER  FD  TYPE  DEVICE SIZE/OFF NODE  NAME
+httpd      4689 root   cwd DIR   8，3    4096    2      /
+httpd      4689 root   rtd  DIR   8，3    4096    2      /
+httpd      4689 root   txt   REG  8，3    1797559 2855   /usr/local/apache2/bin/httpd
+httpd      4689 root   mem REG  8，3    302300  665303 /lib/libfreebl3.so
+httpd      4689 root   mem REG  8，3    58704   655087 /lib/libnss_files-2.12.s
+httpd      4689 root   mem REG  8，3    142472  665291 /lib/ld-2.12.so
+httpd      4689 root   mem REG  8，3    1889704 665292 /lib/libc-2.12.so
+…省略部分输出…</code></pre><p>【例 5】当然，我们也可以按照 PID 查询进程调用的文件，比如执行“lsof -p 1”命令就可以查看 PID 为 1 的进程调用的所有文件。</p>
+<pre><code>[root@localhost ~]# lsof -p 1
+\#查询PID是1的进程调用的文件
+COMMAND PID USER FD  TYPE DEVICE SIZE/OFF NODE NAME
+init        1   root cwd DIR  8，3   4096    2      /
+init        1   root rtd   DIR  8，3   4096    2      /
+init        1   root txt   REG  8，3   145180  130874 /sbin/init
+init        1   root mem REG  8，3   142472  665291 /lib/ld-2.12.so
+init        1   root mem REG  8，3   58704   655087 /lib/libnss_files-2.12.so</code></pre><p>【例 6】我们还可以查看某个用户的进程调用了哪些文件。</p>
+<pre><code>[root@localhost ~]# lsof -u root
+\#按照用户名查询某个用户的进程调用的文件
+COMMAND PID USER FD   TYPE  DEVICE  SIZE/OFF  NODE NAME
+init        1   root  cwd  DIR   8，3    4096     2      /
+init        1   root  rtd   DIR   8，3    4096     2      /
+init        1   root  txt   REG   8，3    145180   130874 /sbin/init
+init        1   root  mem REG   8，3    142472   665291 /lib/ld-2.12.so
+init        1   root  mem REG   8，3    58704    655087 /lib/libnss_files-2.12.s
+init        1   root  mem REG   8，3    38768    655310 /lib/libnih-dbus.so.1.0.
+…省略部分输出…</code></pre><h4 id="1-4-5-kill命令：终止进程"><a href="#1-4-5-kill命令：终止进程" class="headerlink" title="1.4.5    kill命令：终止进程"></a>1.4.5    kill命令：终止进程</h4><p>kill 从字面来看，就是用来杀死进程的命令，但事实上，这个或多或少带有一定的误导性。从本质上讲，kill 命令只是用来向进程发送一个信号，至于这个信号是什么，是用户指定的。</p>
+<p>也就是说，kill 命令的执行原理是这样的，kill 命令会向操作系统内核发送一个信号（多是终止信号）和目标进程的 PID，然后系统内核根据收到的信号类型，对指定进程进行相应的操作。</p>
+<p>kill 命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]# kill [信号] PID</code></pre><p>kill 命令是按照 PID 来确定进程的，所以 kill 命令只能识别 PID，而不能识别进程名。Linux 定义了几十种不同类型的信号，读者可以使用 kill -l 命令查看所有信号及其编号，这里仅列出几个常用的信号，如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>信号编号</th>
+<th>信号名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>EXIT</td>
+<td>程序退出时收到该信息。</td>
+</tr>
+<tr>
+<td>1</td>
+<td>HUP</td>
+<td>挂掉电话线或终端连接的挂起信号，这个信号也会造成某些进程在没有终止的情况下重新初始化。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>INT</td>
+<td>表示结束进程，但并不是强制性的，常用的 “Ctrl+C” 组合键发出就是一个 kill -2 的信号。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>QUIT</td>
+<td>退出。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>KILL</td>
+<td>杀死进程，即强制结束进程。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>SEGV</td>
+<td>段错误。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>TERM</td>
+<td>正常结束进程，是 kill 命令的默认信号。</td>
+</tr>
+</tbody></table>
+<p>需要注意的是，表中省略了各个信号名称的前缀 SIG，也就是说，SIGTERM 和 TERM 这两种写法都对，kill 命令都可以理解。</p>
+<p>下面，我们举几个例子来说明一下 kill 命令。</p>
+<p>【例 1】 标准 kill 命令。</p>
+<pre><code>[root@localhost ~】# service httpd start
+\#启动RPM包默认安装的apache服务
+[root@localhost ~]# pstree -p 丨 grep httpd | grep -v "grep"
+\#查看 httpd 的进程树及 PID。grep 命令査看 httpd 也会生成包含"httpd"关键字的进程，所以使用“-v”反向选择包含“grep”关键字的进程，这里使用 pstree 命令来查询进程，当然也可以使用 ps 和 top 命令
+|-httpd(2246)-+-httpd(2247)
+|  |-httpd(2248)
+|  |-httpd(2249)
+|  |-httpd(2250)
+|  |-httpd(2251)
+[root@localhost ~]# kill 2248
+\#杀死PID是2248的httpd进程，默认信号是15，正常停止
+\#如果默认信号15不能杀死进程，则可以尝试-9信号，强制杀死进程
+[root@localhost ~]# pstree -p | grep httpd | grep -v "grep"
+|-httpd(2246&gt;-+-httpd(2247)
+|  |-httpd(2249)
+|  |-httpd(2250)
+|  |-httpd(2251)
+\#PID是2248的httpd进程消失了</code></pre><p>【例 2】使用“-1”信号，让进程重启。</p>
+<pre><code>[root@localhost ~]# kill -1 2246
+使用“-1 (数字1)”信号，让httpd的主进程重新启动
+[root@localhost ~]# pstree -p | grep httpd | grep -v "grep"
+|-httpd(2246)-+-httpd(2270)
+|  |-httpd(2271)
+|  |-httpd(2272)
+|  |-httpd(2273)
+|  |-httpd(2274)
+\#子httpd进程的PID都更换了，说明httpd进程已经重启了一次</code></pre><h4 id="1-4-6-killall命令：终止特定的一类进程"><a href="#1-4-6-killall命令：终止特定的一类进程" class="headerlink" title="1.4.6    killall命令：终止特定的一类进程"></a>1.4.6    killall命令：终止特定的一类进程</h4><p>killall 也是用于关闭进程的一个命令，但和 kill 不同的是，killall 命令不再依靠 PID 来杀死单个进程，而是通过程序的进程名来杀死一类进程，也正是由于这一点，该命令常与 ps、pstree 等命令配合使用。</p>
+<p>killall 命令的基本格式如下：</p>
+<p>[root@localhost ~]# killall [选项] [信号] 进程名</p>
+<p>注意，此命令的信号类型同 kill 命令一样，因此这里不再赘述，此命令常用的选项有如下 2 个：</p>
+<ul>
+<li>-i：交互式，询问是否要杀死某个进程；</li>
+<li>-I：忽略进程名的大小写；</li>
+</ul>
+<p>接下来，给大家举几个例子。</p>
+<p>【例 1】杀死 httpd 进程。</p>
+<pre><code>[root@localhost ~]# service httpd start
+\#启动RPM包默认安装的apache服务
+[root@localhost ~]# ps aux | grep "httpd" | grep -v "grep"
+root 1600 0.0 0.2 4520 1696? Ss 19:42 0:00 /usr/local/apache2/bin/httpd -k start
+daemon 1601 0.0 0.1 4520 1188? S 19:42 0:00 /usr/local/apache2/bin/httpd -k start
+daemon 1602 0.0 0.1 4520 1188? S 19:42 0:00 /usr/local/apache2/bin/httpd -k start
+daemon 1603 0.0 0.1 4520 1188? S 19:42 0:00 /usr/local/apache2/bin/httpd -k start
+daemon 1604 0.0 0.1 4520 1188? S 19:42 0:00 /usr/local/apache2/bin/httpd -k start
+daemon 1605 0.0 0.1 4520 1188? S 19:42 0:00 /usr/local/apache2/bin/httpd -k start
+\#查看httpd进程
+[root@localhost ~]# killall httpd
+\#杀死所有进程名是httpd的进程
+[root@localhost ~]# ps aux | grep "httpd" | grep -v "grep"
+\#查询发现所有的httpd进程都消失了
+
+</code></pre><p>【例 2】交互式杀死 sshd 进程。</p>
+<pre><code>[root@localhost ~]# ps aux | grep "sshd" | grep -v "grep"
+root 1733 0.0 0.1 8508 1008? Ss 19:47 0:00/usr/sbin/sshd
+root 1735 0.1 0.5 11452 3296? Ss 19:47 0:00 sshd: root@pts/0
+root 1758 0.1 0.5 11452 3296? Ss 19:47 0:00 sshd: root@pts/1
+\#查询系统中有3个sshd进程。1733是sshd服务的进程，1735和1758是两个远程连接的进程
+[root@localhost ~]# killall -i sshd
+\#交互式杀死sshd进程
+杀死sshd(1733)?(y/N)n
+\#这个进程是sshd的服务进程，如果杀死，那么所有的sshd连接都不能登陆
+杀死 sshd(1735)?(y/N)n
+\#这是当前登录终端，不能杀死我自己吧
+杀死 sshd(1758)?(y/N)y
+\#杀死另一个sshd登陆终端</code></pre><h4 id="1-4-7-pkill命令：终止进程，按终端号踢出用户"><a href="#1-4-7-pkill命令：终止进程，按终端号踢出用户" class="headerlink" title="1.4.7    pkill命令：终止进程，按终端号踢出用户"></a>1.4.7    pkill命令：终止进程，按终端号踢出用户</h4><p>当作于管理进程时，pkill 命令和 killall 命令的用法相同，都是通过进程名杀死一类进程，该命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]# pkill [信号] 进程名</code></pre><p>表 1 罗列了此命令常用的信号及其含义。</p>
+<table>
+<thead>
+<tr>
+<th>信号编号</th>
+<th>信号名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>EXIT</td>
+<td>程序退出时收到该信息。</td>
+</tr>
+<tr>
+<td>1</td>
+<td>HUP</td>
+<td>挂掉电话线或终端连接的挂起信号，这个信号也会造成某些进程在没有终止的情况下重新初始化。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>INT</td>
+<td>表示结束进程，但并不是强制性的，常用的 “Ctrl+C” 组合键发出就是一个 kill -2 的信号。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>QUIT</td>
+<td>退出。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>KILL</td>
+<td>杀死进程，即强制结束进程。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>SEGV</td>
+<td>段错误。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>TERM</td>
+<td>正常结束进程，是 kill 命令的默认信号。</td>
+</tr>
+</tbody></table>
+<p>【例 1】</p>
+<pre><code>[root@localhost ~]# pkill -9 httpd  &lt;--按名称强制杀死 httpd 进程
+[root@localhost ~]# pstree -p | grep httpd  &lt;-- 查看 apache 进程，发现没有了
+[root@localhost ~]# service httpd start   &lt;--重新启动 apache 进程
+Starting httpd: httpd: Could not reliably determine the server’s fully qualified domain me, using 127.0.0.1 for ServerName
+[OK]
+[root@localhost ~]# pstree -p | grep httpd &lt;-- 再次查看，apache 进程重新启动
+    \- httpd (11157) -+-httpd(11159)
+    |              |-httpd(11160)
+    |              |-httpd(11161)
+    |              |-httpd(11162)
+    |              |-httpd(11163)
+    |              |-httpd(11164)
+    |              |-httpd(11165)
+    |              |-httpd(11166)</code></pre><p><strong>pkill命令踢出登陆用户</strong></p>
+<p>除此之外，pkill 还有一个更重要的功能，即按照终端号来踢出用户登录，此时的 pkill 命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]# pkill [-t 终端号] 进程名
+
+[-t 终端号] 选项用于按照终端号踢出用户；</code></pre><p>学习 killall 命令时，不知道大家发现没有，通过 killall 命令杀死 sshd 进程的方式来踢出用户，非常容易误杀死进程，要么会把 sshd 服务杀死，要么会把自己的登录终端杀死。</p>
+<p>所以，不管是使用 kill 命令按照 PID 杀死登录进程，还是使用 killall 命令按照进程名杀死登录进程，都是非常容易误杀死进程的，而使用 pkill 命令则不会，举个例子：</p>
+<pre><code>[root@localhost ~]# w
+#使用w命令查询本机已经登录的用户
+20:06:34 up 28 min, 3 users, load average: 0.00, 0.00, 0.00
+USER  TTY           FROM LOGIN@  IDLE  JCPU  PCPU WHAT
+root ttyl              -  19:47 18:52 0.01s 0.01s -bash
+root pts/0 192.168.0.100  19:47 0.00s 0.09s 0.04s w
+root pts/1 192.168.0.100  19:51 14:56 0.02s 0.02s -bash
+#当前主机已经登录了三个root用户，一个是本地终端ttyl登录，另外两个是从192.168.0.100登陆的远程登录
+[root@localhost ~]# pkill -9 -t pts/1
+#强制杀死从pts/1虚拟终端登陆的进程
+[root@localhost ~]# w
+20:09:09 up 30 min, 2 users, load average: 0.00, 0.00,0.00
+USER   TTY          FROM LOGIN@  IDLE  JCPU  PCPU WHAT
+root  ttyl             -  19:47 21:27 0.01s 0.01s -bash
+root pts/0 192.168.0.100  19:47 0.00s 0.06s 0.00s w
+#虚拟终端pts/1的登录进程已经被杀死了</code></pre><h2 id="二、工作管理"><a href="#二、工作管理" class="headerlink" title="二、工作管理"></a>二、工作管理</h2><p><strong>工作管理指的是在单个登录终端（也就是登录的 Shell 界面）同时管理多个工作的行为。</strong>也就是说，我们登陆了一个终端，已经在执行一个操作，那么是否可以在不关闭当前操作的情况下执行其他操作呢？</p>
+<p>当然可以，我们可以再启动一个终端，然后执行其他的操作。不过，是否可以在一个终端执行不同的操作呢？这就需要通过工作管理来实现了。</p>
+<p>例如，我在当前终端正在 vi 一个文件，在不停止 vi 的情况下，如果我想在同一个终端执行其他的命令，就应该把 vi 命令放入后台，然后再执行其他命令。把命令放入后台，然后把命令恢复到前台，或者让命令恢复到后台执行，这些管理操作就是工作管理。</p>
+<pre><code>后台管理有几个事项需要大家注意：
+
+1. 前台是指当前可以操控和执行命令的这个操作环境；后台是指工作可以自行运行，但是不能直接用 Ctrl+C 快捷键来中止它，只能使用 fg/bg 来调用工作。
+2. 当前的登录终端只能管理当前终端的工作，而不能管理其他登录终端的工作。比如 tty1 登录的终端是不能管理 tty2 终端中的工作的。
+3. 放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和操作它。
+4. 放入后台执行的命令不能和前台用户有交互或需要前台输入，否则只能放入后台暂停，而不能执行。比如 vi 命令只能放入后台暂停，而不能执行，因为 vi 命令需要前台输入信息；top 命令也不能放入后台执行，而只能放入后台暂停，因为 top 命令需要和前台交互。</code></pre><h3 id="2-1-命令放入后台"><a href="#2-1-命令放入后台" class="headerlink" title="2.1    命令放入后台"></a>2.1    命令放入后台</h3><p>Linux 命令放入后台的方法有两种，分别介绍如下。</p>
+<h4 id="2-1-1-“命令-amp-”，把命令放入后台执行"><a href="#2-1-1-“命令-amp-”，把命令放入后台执行" class="headerlink" title="2.1.1    “命令 &amp;”，把命令放入后台执行"></a>2.1.1    “命令 &amp;”，把命令放入后台执行</h4><p>第一种把命令放入后台的方法是在命令后面加入 <code>空格 &amp;</code>。使用这种方法放入后台的命令，在后台处于执行状态。</p>
+<p>注意，放入后台执行的命令不能与前台有交互，否则这个命令是不能在后台执行的。例如：</p>
+<pre><code>[root@localhost ~]#find / -name install.log &amp;
+[1] 1920
+\#[工作号] 进程号
+\#把find命令放入后台执行，每个后台命令会被分配一个工作号。命令既然可以执行，就会有进程产生，所以也会有进程号</code></pre><p>这样，虽然 find 命令在执行，但在当前终端仍然可以执行其他操作。如果在终端上出现如下信息：</p>
+<pre><code>[1]+ Done find / -name install.log</code></pre><p>则证明后台的这个命令已经完成了。当然，命令如果有执行结果，则也会显示到操作终端上。其中，[1] 是这个命令的工作号，”+”代表这个命令是最近一个被放入后台的。</p>
+<h4 id="2-1-2-命令执行过程中按-Ctrl-Z-快捷键，命令在后台处于暂停状态"><a href="#2-1-2-命令执行过程中按-Ctrl-Z-快捷键，命令在后台处于暂停状态" class="headerlink" title="2.1.2    命令执行过程中按 Ctrl+Z 快捷键，命令在后台处于暂停状态"></a>2.1.2    命令执行过程中按 Ctrl+Z 快捷键，命令在后台处于暂停状态</h4><p>使用这种方法放入后台的命令，就算不和前台有交互，能在后台执行，也处于暂停状态，因为 Ctrl+Z 快捷键就是暂停的快捷键。</p>
+<p>【例 1】</p>
+<pre><code>[root@localhost ~]#top
+\#在top命令执行的过程中，按下Ctrl+Z快捷键
+[1]+ Stopped top
+\#top命令被放入后台，工作号是1，状态是暂停。而且，虽然top命令没有结束，但也能取得控制台权限</code></pre><p>【例 2】</p>
+<pre><code>[root@localhost ~]# tar -zcf etc.tar.gz /etc
+\#压缩一下/etc/目录
+tar:从成员名中删除开头的"/"
+tar:从硬链接目标中删除开头的"/"
+^Z
+\#在执行过程中，按下Ctrl+Z快捷键
+[2]+ Stopped tar-zcf etc.tar.gz/etc
+\#tar命令被放入后台，工作号是2，状态是暂停</code></pre><p>每个被放入后台的命令都会被分配一个工作号。第一个被放入后台的命令，工作号是 1；第二个被放入后台的命令，工作号是 2，以此类推。</p>
+<h3 id="2-2-jobs命令：查看当前终端放入后台的工作"><a href="#2-2-jobs命令：查看当前终端放入后台的工作" class="headerlink" title="2.2    jobs命令：查看当前终端放入后台的工作"></a>2.2    jobs命令：查看当前终端放入后台的工作</h3><p>jobs 命令可以用来查看当前终端放入后台的工作，工作管理的名字也来源于 jobs 命令。</p>
+<p>jobs 命令的基本格式如下：</p>
+<p>[root@localhost ~]#jobs [选项]</p>
+<p>表 1 罗列了 jobs 命令常用的选项及含义。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l（L 的小写）</td>
+<td>列出进程的 PID 号。</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>只列出上次发出通知后改变了状态的进程。</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>只列出进程的 PID 号。</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>只列出运行中的进程。</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>只列出已停止的进程。</td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<pre><code>[root@localhost ~]#jobs -l
+[1]- 2023 Stopped top
+[2]+ 2034 Stopped tar -zcf etc.tar.gz /etc
+
+可以看到，当前终端有两个后台工作：一个</code></pre><p>是 top 命令，工作号为 1，状态是暂停，标志是”-“；另一个是 tar 命令，工作号为 2，状态是暂停，标志是”+”。”+”号代表最近一个放入后台的工作，也是工作恢复时默认恢复的工作。”-“号代表倒数第二个放入后台的工作，而第三个以后的工作就没有”+-“标志了。</p>
+<p>一旦当前的默认工作处理完成，则带减号的工作就会自动成为新的默认工作，换句话说，不管此时有多少正在运行的工作，任何时间都会有且仅有一个带加号的工作和一个带减号的工作。</p>
+<h3 id="2-3-fg命令：把后台命令恢复在前台执行"><a href="#2-3-fg命令：把后台命令恢复在前台执行" class="headerlink" title="2.3     fg命令：把后台命令恢复在前台执行"></a>2.3     fg命令：把后台命令恢复在前台执行</h3><p>fg 命令用于把后台工作恢复到前台执行，该命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]#fg %工作号</code></pre><p>注意，在使用此命令时，％ 可以省略，但若将<code>% 工作号</code>全部省略，则此命令会将带有 + 号的工作恢复到前台。另外，使用此命令的过程中， % 可有可无。</p>
+<p>例如：</p>
+<pre><code>[root@localhost ~]#jobs
+[1]- Stopped top
+[2]+ Stopped tar-zcf etc.tar.gz/etc
+[root@localhost ~]# fg
+\#恢复“+”标志的工作，也就是tar命令
+[root@localhost ~]# fg ％1
+\#恢复1号工作，也就是top命令</code></pre><p>top 命令是不能在后台执行的，所以，如果要想中止 top 命令，要么把 top 命令恢复到前台，然后正常退出；要么找到 top 命令的 PID，使用 kill 命令杀死这个进程。</p>
+<h3 id="2-4-bg命令：把后台暂停的工作恢复到后台执行"><a href="#2-4-bg命令：把后台暂停的工作恢复到后台执行" class="headerlink" title="2.4    bg命令：把后台暂停的工作恢复到后台执行"></a>2.4    bg命令：把后台暂停的工作恢复到后台执行</h3><p>使用 <code>Ctrl+Z</code> 快捷键的方式，可以将前台工作放入后台，但是会处于暂停状态，那么，有没有办法可以让后台工作继续在后台执行呢？答案是肯定的，这就需要用到 bg 命令。</p>
+<p>bg 命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]# bg ％工作号</code></pre><p>和 fg 命令类似，这里的 % 可以省略。</p>
+<p>举个例子，读者可以试着把前面章节中放入后台的两个工作恢复运行，命令如下：</p>
+<pre><code>[root@localhost ~]# bg ％1  &lt;--- 等同于 bg 1
+[root@localhost ~]# bg ％2  &lt;--- 等同于 bg 2
+\#把两个命令恢复到后台执行
+[root@localhost @]# jobs
+[1]+ Stopped top
+[2]- Running tar -zcf etc.tar.gz /etc &amp;
+\#tar命令的状态变为了Running，但是top命令的状态还是Stopped</code></pre><p>可以看到，tar 命令确实已经在后台执行了，但是 top 命令怎么还处于暂停状态呢？原因很简单，top 命令是需要和前台交互的，所以不能在后台执行。换句话说，top 命令就是给前台用户显示系统性能的命令，如果 top 命令在后台恢复运行了，那么给谁去看结果呢？</p>
+<h3 id="2-5-nohup命令：后台命令脱离终端运行"><a href="#2-5-nohup命令：后台命令脱离终端运行" class="headerlink" title="2.5    nohup命令：后台命令脱离终端运行"></a>2.5    nohup命令：后台命令脱离终端运行</h3><p>进程可以放到后台运行，这里的后台，其实指的是当前登陆终端的后台。这种情况下，当我们以远程管理服务器的方式，在远程终端执行后台命令，如果在命令尚未执行完毕时就退出登陆，那么这个后台命令还会继续执行吗？</p>
+<p>当然不会，此命令的执行会被中断。这就引出一个问题，如果我们确实需要在远程终端执行某些后台命令，该如何执行呢？</p>
+<pre><code>有以下 3 种方法：
+
+1. 把需要在后台执行的命令加入 /etc/rc.local 文件，让系统在启动时执行这个后台程序。这种方法的问题是，服务器是不能随便重启的，如果有临时后台任务，就不能执行了。
+2. 使用系统定时任务，让系统在指定的时间执行某个后台命令。这样放入后台的命令与终端无关，是不依赖登录终端的。
+3. 使用 nohup 命令。</code></pre><p>本节重点讲解 nohup 命令的用法。nohup 命令的作用就是让后台工作在离开操作终端时，也能够正确地在后台执行。此命令的基本格式如下：</p>
+<pre><code>[root@localhost ~]# nohup [命令] &amp;</code></pre><p>注意，这里的‘&amp;’表示此命令会在终端后台工作；反之，如果没有‘&amp;’，则表示此命令会在终端前台工作。</p>
+<p>例如：</p>
+<pre><code>[root@localhost ~]# nohup find / -print &gt; /root/file.log &amp;
+[3] 2349
+\#使用find命令，打印/下的所有文件。放入后台执行
+[root@localhost ~]# nohup：忽略输入并把输出追加到"nohup.out"
+[root@localhost ~]# nohup：忽略输入并把输出追加到"nohup.out"
+\#有提示信息</code></pre><p>接下来的操作要迅速，否则 find 命令就会执行结束。然后我们可以退出登录，重新登录之后，执行“ps aux”命令，会发现 find 命令还在运行。</p>
+<p>如果 find 命令执行太快，我们就可以写一个循环脚本，然后使用 nohup 命令执行。例如：</p>
+<pre><code>[root@localhost ~]# vi for.sh
+\#！/bin/bash
+for ((i=0;i&lt;=1000;i=i+1))
+\#循环1000次
+do
+echo 11 &gt;&gt; /root/for.log
+\#在for.log文件中写入11
+sleep 10s
+\#每次循环睡眠10秒
+done
+[root@localhost ~]# chmod 755 for.sh
+[root@localhost ~]# nohup /root/for.sh &amp;
+[1] 2478
+[root@localhost ~]# nohup：忽略输入并把输出追加到"nohup.out"
+\#执行脚本</code></pre><p>接下来退出登录，重新登录之后，这个脚本仍然可以通过“ps aux”命令看到。</p>
+<h2 id="三、定时任务"><a href="#三、定时任务" class="headerlink" title="三、定时任务"></a>三、定时任务</h2><h3 id="3-1-at命令：定时执行任务"><a href="#3-1-at命令：定时执行任务" class="headerlink" title="3.1    at命令：定时执行任务"></a>3.1    at命令：定时执行任务</h3><p>要想使用 at 命令，读者需提前安装好 at 软件包，并开启 atd 服务。因此，首先来看看如何安装 at 软件包。</p>
+<p>在 Linux 系统中，查看 at 软件包是否已安装，可以使用 rpm -q 命令，如下所示：</p>
+<pre><code>[root@localhost ~]# rpm -q at
+at-3.1.13-20.el7x86_64</code></pre><p>可以看到，当前系统已经安装 at 软件包，若读者所用系统未安装，可使用如下命令进行安装：</p>
+<pre><code>[root@localhost ~]# yum -y install at
+\#省略输出信息，最终出现 Complete!，证明安装成功。</code></pre><p>除此之外，at 命令要想正确执行，还需要 atd 服务的支持。atd 服务是独立的服务，启动的命令如下：</p>
+<pre><code>[root@localhost ~]# systemctl  start  atd</code></pre><p>如果想让 atd 服务开机时自启动，则可以使用如下命令：</p>
+<pre><code>[root@localhost ~]# systemctl enable atd</code></pre><p>安装好 at 软件包并开启 atd 服务之后，at 命令才可以正常使用，不过在此之前，我们还要学习一下 at 命令的访问控制。</p>
+<p>访问控制指的是允许哪些用户使用 at 命令设定定时任务，或者不允许哪些用户使用 at 命令。大家可以将其想象成设定黑名单或白名单，这样更容易理解。</p>
+<p>at 命令的访问控制是依靠 /etc/at.allow（白名单）和 /etc/at.deny（黑名单）这两个文件来实现的，具体规则如下：</p>
+<ul>
+<li><pre><code>- 如果系统中有 /etc/at.allow 文件，那么只有写入 /etc/at.allow 文件（白名单）中的用户可以使用 at 命令，其他用户不能使用 at 命令（注意，/etc/at.allow 文件的优先级更高，也就是说，如果同一个用户既写入 /etc/at.allow 文件，又写入 /etc/at.deny 文件，那么这个用户是可以使用 at 命令的）。
+
+- 如果系统中没有 /etc/at.allow 文件，只有 /etc/at.deny 文件，那么写入 /etc/at.deny 文件（黑名单）中的用户不能使用 at 命令，其他用户可以使用 at 命令。不过这个文件对 root 用户不生效。
+
+- 如果系统中这两个文件都不存在，那么只有 root 用户可以使用 at 命令。</code></pre></li>
+</ul>
+<p>系统中默认只有 /etc/at.deny 文件，而且这个文件是空的，因此，系统中所有的用户都可以使用 at 命令。不过，如果我们打算控制用户的 at 命令权限，那么只需把用户写入 /etc/at.deny 文件即可。</p>
+<p>对于 /etc/at.allow 和 /etc/at.deny 文件的优先级，我们做一个实验来验证一下，命令如下：</p>
+<pre><code>[root@localhost ~]# ls -l /etc/at*
+-rw-r--r--.1 root root 1 1月 30 2012 /etc/at.deny
+\#系统中默认只有at.deny文件
+[root@localhost ~]# echo user1 &gt;&gt; /etc/at.deny
+[root@localhost ~]# cat /etc/at.deny
+user1
+\#把user1用户写入/etc/at.deny文件
+[root@localhost ~]# su - user1
+[user1@localhost ~]$ at 02：00
+You do not have permission to use at.
+\#没有权限使用at命令，切换成user1用户，这个用户已经不能执行at命令了</code></pre><pre><code>[user1@localhost ~]$ exit
+logout
+\#返回root身份
+[root@localhost ~]# echo user1 &gt;&gt; /etc/at.allow
+[root@localhost ~]# cat /etc/at.allow
+user1
+\#建立/etc/at.allow文件，并在文件中写入user1用户
+[root@localhost ~]# su - user1
+[user1@localhost ~]$ at 02：00
+at&gt;
+\#切换成user1用户，user1用户可以执行at命令。这时user1用户既在/etc/at.deny文件中，又在/etc/at.allow文件中，但是/etc/at.allow文件的优先级更高
+[user1@localhost ~]$ exit
+logout
+\#返回root身份
+[root@localhost ~]# at 02：00
+at&gt;
+\#root用户虽然不在/etc/at.allow文件中，但是也能执行at命令，
+\#说明root用户不受这两个文件的控制</code></pre><p>这个实验说明了 /etc/at.allow 文件的优先级更高，如果 /etc/at.allow 文件存在，则 /etc/at.deny 文件失效。/etc/at.allow 文件的管理更加严格，因为只有写入这个文件的用户才能使用 at 命令，如果需要禁用 at 命令的用户较多，则可以把少数用户写入这个文件。/etc/at.deny 文件的管理较为松散，如果允许使用 at 命令的用户较多，则可以把禁用的用户写入这个文件。不过这两个文件都不能对 root 用户生效。</p>
+<p>接下来正式介绍 at 命令。at 命令的格式非常简单，基本格式如下：</p>
+<pre><code>[root@localhost ~] # at [选项] [时间]</code></pre><p>有关此命令常用的几个选项及各自含义如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-m</td>
+<td>当 at 工作完成后，无论命令是否输出，都用 E-mail 通知执行 at 命令的用户。</td>
+</tr>
+<tr>
+<td>-c 工作标识号</td>
+<td>显示该 at 工作的实际内容。</td>
+</tr>
+<tr>
+<td>-t 时间</td>
+<td>在指定时间提交工作并执行，时间格式为 [[CC]YY]MMDDhhmm。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>删除某个工作，需要提供相应的工作标识号（ID），同 atrm 命令的作用相同。</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>列出当前所有等待运行的工作，和 atq 命令具有相同的额作用。</td>
+</tr>
+<tr>
+<td>-f 脚本文件</td>
+<td>指定所要提交的脚本文件。</td>
+</tr>
+</tbody></table>
+<p>另外，表 2 罗列了此命令中关于时间参数可用的以下格式。</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HH:MM</td>
+<td>比如 04:00 AM。如果时间已过，则它会在第二天的同一时间执行。</td>
+</tr>
+<tr>
+<td>Midnight（midnight）</td>
+<td>代表 12:00 AM（也就是 00:00）。</td>
+</tr>
+<tr>
+<td>Noon（noon）</td>
+<td>代表 12:00 PM（相当于 12:00）。</td>
+</tr>
+<tr>
+<td>Teatime（teatime）</td>
+<td>代表 4:00 PM（相当于 16:00）。</td>
+</tr>
+<tr>
+<td>英文月名 日期 年份</td>
+<td>比如 January 15 2018 表示 2018 年 1 月 15 号，年份可有可无。</td>
+</tr>
+<tr>
+<td>MMDDYY、MM/DD/YY、MM.DD.YY</td>
+<td>比如 011518 表示 2018 年 1 月 15 号。</td>
+</tr>
+<tr>
+<td>now+时间</td>
+<td>以 minutes、hours、days 或 weeks 为单位，例如 now+5 days 表示命令在 5 天之后的此时此刻执行。</td>
+</tr>
+</tbody></table>
+<p>at 命令只要指定正确的时间，就可以输入需要在指定时间执行的命令。这个命令可以是系统命令，也可以是 Shell 脚本。举几个例子。</p>
+<p>【例 1】</p>
+<pre><code>[coot@localhost ~]# cat /root/hello.sh
+\#!/bin/bash
+echo "hello world!!"
+\#该脚本会打印"hello world!!"
+[root@localhost ~]# at now +2 minutes
+at&gt; /root/hello.sh &gt;&gt; /root/hello.log
+\#执行hello.sh脚本，并把输出写入/root/hello.log文件
+at&gt; &lt;EOT&gt;
+\#使用Ctrl+D快捷键保存at任务
+job 8 at 2013-07-25 20:54 #这是第8个at任务,会在2013年7月25日20:54执行
+[root@localhost ~]# at -c 8
+\#查询第8个at任务的内容
+...省略部分内容...
+\#主要定义系统的环境变量
+/root/hello.sh &gt;&gt; /root/hello.log
+\#可以看到at执行的任务
+
+</code></pre><p>【例 2】</p>
+<pre><code>[root@localhost ~J# at 02:00 2013-07-26
+at&gt; /bin/sync
+at&gt; /sbin/shutdown -h now
+at&gt; &lt;EOT&gt;
+job 9 at 2013-07-26 02:00
+\#在指定的时间关机。在一个at任务中是可以执行多个系统命令的</code></pre><p>在使用系统定时任务时，不论执行的是系统命令还是 Shell 脚本，最好使用绝对路径来写命令，这样不容易报错。at 任务一旦使用 <code>Ctrl+D</code> 快捷键保存，实际上写入了 /var/spool/at/ 这个目录，这个目录内的文件可以直接被 atd 服务调用和执行。</p>
+<p>【例 3】atq 命令的用法。</p>
+<pre><code>[root@localhost ~]# atq
+9 2013-07-26 02：00 a root
+\#说明root用户有一个at任务在2013年7月26日02：00执行，工作号是9
+[root@localhost ~]# atrm [工作号]
+\#删除指定的at任务</code></pre><p>【例 4】atrm 命令的用法。</p>
+<pre><code>[root@localhost ~]# atrm 9
+[root@localhost ~]# atq
+\#删除9号at任务，再查询就没有at任务存在了</code></pre><h3 id="3-2-crontab命令：循环执行定时任务"><a href="#3-2-crontab命令：循环执行定时任务" class="headerlink" title="3.2    crontab命令：循环执行定时任务"></a>3.2    crontab命令：循环执行定时任务</h3><p>at 命令只是在指定的时间仅能执行一次任务，但在实际工作中，系统的定时任务一般是需要重复执行的。而 at 命令显然无法满足需求，这是就需要使用 crontab 命令来执行循环定时任务。</p>
+<h4 id="3-2-1-crond-服务"><a href="#3-2-1-crond-服务" class="headerlink" title="3.2.1    crond 服务"></a>3.2.1    crond 服务</h4><p>crontab 命令需要 crond 服务支持。crond 是 Linux 下用来周期地执行某种任务或等待处理某些事件的一个守护进程，和 Windows 中的计划任务有些类似。</p>
+<p>在安装完成操作系统后，默认会安装 crond 服务工具，且 crond 服务默认就是自启动的。crond 进程每分钟会定期检查是否有要执行的任务，如果有，则会自动执行该任务。</p>
+<h4 id="3-2-2-crontab-命令"><a href="#3-2-2-crontab-命令" class="headerlink" title="3.2.2        crontab 命令"></a>3.2.2        crontab 命令</h4><p> crontab 命令和 at 命令类似，也是通过 /etc/cron.allow 和 /etc/cron.deny 文件来限制某些用户是否可以使用 crontab 命令的。而且原则也非常相似：</p>
+<pre><code>- 当系统中有 /etc/cron.allow 文件时，只有写入此文件的用户可以使用 crontab 命令，没有写入的用户不能使用 crontab 命令。同样，如果有此文件，/etc/cron.deny 文件会被忽略，因为 /etc/cron.allow 文件的优先级更高。
+- 当系统中只有 /etc/cron.deny 文件时，写入此文件的用户不能使用 crontab 命令，没有写入文件的用户可以使用 crontab 命令。
+- 这个规则基本和 at 命令的规则一致，同样是 /etc/cron.allow 文件比 /etc/cron.deny 文件的优先级高，Linux 系统中默认只有 /etc/cron.deny 文件。</code></pre><p>每个用户都可以实现自己的 crontab 定时任务，只需使用这个用户身份执行“crontab -e”命令即可。当然，这个用户不能写入 /etc/cron.deny 文件。</p>
+<p><strong>crontab 命令的基本格式如下：</strong></p>
+<pre><code>[root@localhost ~]# crontab [选项] [file]
+
+注意，这里的 file 指的是命令文件的名字，表示将 file 作为 crontab 的任务列表文件并载入 crontab，若在命令行中未指定文件名，则此命令将接受标准输入（键盘）上键入的命令，并将它们键入 crontab。</code></pre><p><strong>选项功能</strong></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-u user</td>
+<td>用来设定某个用户的 crontab 服务，例如 “-u demo” 表示设备 demo 用户的 crontab 服务，此选项一般有 root 用户来运行。</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>编辑某个用户的 crontab 文件内容。如果不指定用户，则表示编辑当前用户的 crontab 文件。</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>显示某用户的 crontab 文件内容，如果不指定用户，则表示显示当前用户的 crontab 文件内容。</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>从 /var/spool/cron 删除某用户的 crontab 文件，如果不指定用户，则默认删除当前用户的 crontab 文件。</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>在删除用户的 crontab 文件时，给确认提示。</td>
+</tr>
+</tbody></table>
+<p>其实 crontab 定时任务非常简单，只需执行“crontab -e”命令，然后输入想要定时执行的任务即可。不过，当我们执行“crontab -e”命令时，打开的是一个空文件，而且操作方法和 Vim 是一致的。那么，这个文件的格式才是我们真正需要学习的内容。文件格式如下：</p>
+<p>[root@localhost ！]# crontab -e<br>#进入 crontab 编辑界面。会打开Vim编辑你的任务<br>* * * * * 执行的任务</p>
+<p>这个文件中是通过 5 个“<em>”来确定命令或任务的执行时间的，这 5 个“</em>”的具体含义如表 2 所示。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一个”*”</td>
+<td>一小时当中的第几分钟（minute）</td>
+<td>0~59</td>
+</tr>
+<tr>
+<td>第二个”*”</td>
+<td>一天当中的第几小时（hour）</td>
+<td>0~23</td>
+</tr>
+<tr>
+<td>第三个”*”</td>
+<td>一个月当中的第几天（day）</td>
+<td>1~31</td>
+</tr>
+<tr>
+<td>第四个”*”</td>
+<td>一年当中的第几个月（month）</td>
+<td>1~12</td>
+</tr>
+<tr>
+<td>第五个”*”</td>
+<td>一周当中的星期几（week）</td>
+<td>0~7（0和7都代表星期日）</td>
+</tr>
+</tbody></table>
+<p>在时间表示中，还有一些特殊符号需要学习，如表 3 所示。</p>
+<table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*（星号）</td>
+<td>代表任何时间。比如第一个”*”就代表一小时种每分钟都执行一次的意思。</td>
+</tr>
+<tr>
+<td>,（逗号）</td>
+<td>代表不连续的时间。比如”0 8，12，16***命令”就代表在每天的 8 点 0 分、12 点 0 分、16 点 0 分都执行一次命令。</td>
+</tr>
+<tr>
+<td>-（中杠）</td>
+<td>代表连续的时间范围。比如”0 5 ** 1-6命令”，代表在周一到周六的凌晨 5 点 0 分执行命令。</td>
+</tr>
+<tr>
+<td>/（正斜线）</td>
+<td>代表每隔多久执行一次。比如”<em>/10***</em>命令”，代表每隔 10 分钟就执行一次命令。</td>
+</tr>
+</tbody></table>
+<p>当“crontab -e”编辑完成之后，一旦保存退出，那么这个定时任务实际就会写入 /var/spool/cron/ 目录中，每个用户的定时任务用自己的用户名进行区分。而且 crontab 命令只要保存就会生效，只要 crond 服务是启动的。知道了这 5 个时间字段的含义，我们多举几个时间的例子来熟悉一下时间字段，如表 4 所示。</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>45 22 ***命令</td>
+<td>在 22 点 45 分执行命令</td>
+</tr>
+<tr>
+<td>0 17 ** 1命令</td>
+<td>在每周一的 17 点 0 分执行命令</td>
+</tr>
+<tr>
+<td>0 5 1，15**命令</td>
+<td>在每月 1 日和 15 日的凌晨 5 点 0 分执行命令</td>
+</tr>
+<tr>
+<td>40 4 ** 1-5命令</td>
+<td>在每周一到周五的凌晨 4 点 40 分执行命令</td>
+</tr>
+<tr>
+<td><em>/10 4 **</em>命令</td>
+<td>在每天的凌晨 4 点，每隔 10 分钟执行一次命令</td>
+</tr>
+<tr>
+<td>0 0 1，15 * 1命令</td>
+<td>在每月 1 日和 15 日，每周一个 0 点 0 分都会执行命令，注意：星期几和几日最好不要同时出现，因为它们定义的都是天，非常容易让管理员混淆</td>
+</tr>
+</tbody></table>
+<p>现在我们已经对这 5 个时间字段非常熟悉了，可是在“执行的任务”字段中都可以写什么呢？既可以定时执行系统命令，也可以定时执行某个 Shell 脚本，这里举几个实际的例子。</p>
+<p>【例 1】让系统每隔 5 分钟就向 /tmp/test 文件中写入一行“11”，验证一下系统定时任务是否会执行。</p>
+<pre><code>[root@localhost ~]# crontab -e
+\#进入编辑界面
+*/5 * * * * /bin/echo "11" &gt;&gt; /tmp/test</code></pre><p>这个任务在时间工作中没有任何意义，但是可以很简单地验证我们的定时任务是否可以正常执行。如果觉得每隔 5 分钟太长，那就换成“*”，让它每分钟执行一次。而且和 at 命令一样，如果我们定时执行的是系统命令，那么最好使用绝对路径。</p>
+<p>【例 2】让系统在每周二的凌晨 5 点 05 分重启一次。</p>
+<pre><code>[root@localhost ~]# crontab -e
+5 5 * * 2 /sbin/shutdown -r now</code></pre><p>如果服务器的负载压力比较大，则建议每周重启一次，让系统状态归零。比如绝大多数游戏服务器每周维护一次，维护时最主要的工作就是重启，让系统状态归零。这时可以让我们的服务器自动来定时执行。</p>
+<p>【例 3】在每月 1 日、10 日、15 日的凌晨 3 点 30 分都定时执行日志备份脚本 autobak.sh。</p>
+<pre><code>[root@localhost ~]# crontab -e
+30.3 1，10，15 * * /root/sh/autobak.sh
+
+这些定时任务保存之后，就可以在指定的时间执行了。我们可以使用命令来查看和删除定时任务，命令如下：
+
+[root@localhost ~]# crontab -l
+\#查看root用户的crontab任务
+*/5 * * * * /bin/echo "11" &gt;&gt; /tmp/test
+5.5 * * 2 /sbin/shutdown -r now
+30.3 1，10，15 * * /root/sh/autobak.sh
+[root@localhost ~]# crontab -r
+\#删除root用户所有的定时任务。如果只想删除某个定时任务，则可以执行“crontab -e”命令进入
+\#编辑模式手工删除
+[root@localhost ~]# crontab -l
+no crontab for root
+\#删除后，再查询就没有root用户的定时任务了</code></pre><p>在书写 crontab 定时任务时，需要注意以下几个事项：</p>
+<ul>
+<li><pre><code>- 6 个选项都不能为空，必须填写。如果不确定，则使用“*”代表任意时间。
+- crontab 定时任务的最小有效时间是分钟，最大有效时间是月。像 2018 年某时执行、3 点 30 分 30 秒这样的时间都不能被识别。
+- 在定义时间时，日期和星期最好不要在一条定时任务中出现，因为它们都以天为单位，非常容易让管理员混淆。
+- 在定时任务中，不管是直接写命令，还是在脚本中写命令，最好都使用绝对路径。有时使用相对路径的命令会报错。</code></pre></li>
+</ul>
+<h2 id="四、日志管理"><a href="#四、日志管理" class="headerlink" title="四、日志管理"></a>四、日志管理</h2><h3 id="1、日志文件的作用"><a href="#1、日志文件的作用" class="headerlink" title="1、日志文件的作用"></a>1、日志文件的作用</h3><p>​        日志文件用于记录linux系统的各种运行信息的文件，不同的日志文件记载了不同类型的信息,如Linux内核消息、用户登录事件、程序错误等。 </p>
+<p>​        日志文件对于诊断和解决问题很有帮助，因为linux运行的程序通常把系统的消息和错误写入对应的日志文件，这样系统可以有据可查， 此外,日志还记录了用户绝大多数的操作，当主机遭受攻击时,日志文件还可以帮助寻找攻击者留下的痕迹。</p>
+<h3 id="2、日志文件的分类"><a href="#2、日志文件的分类" class="headerlink" title="2、日志文件的分类"></a>2、日志文件的分类</h3><pre><code>1）内核及系统日志: 内核及系统日志:这种日志数据由系统服务rsyslog同-管理,根据其主配置文件/etc/rsyslog.conf中的设置决定将内核消息及各种系统程序消息记录到什么位置。系统中大部分的程序会把自己的日志文件交由rsyslog管理,因而这些应用程序使用的日志记录格式都很相似。
+
+**2）用户日志:** 用于记录Linux系统用户登录及退出系统的相关信息,包括用户名、登录的终端、登录时间、来源主机、正在使用的进程操作等。 
+
+**3）程序旧志** :有些应用程序会选择独立管理一份日志文件 ,而不是交给rsyslog服务管理,用于记录本程序运行过程中的各种事件信息。于这些程序只负责管理自己的日志文件,因此不同程序所使用的日志记录格式也会存在较大的差异。</code></pre><h3 id="3、日志文件的位置"><a href="#3、日志文件的位置" class="headerlink" title="3、日志文件的位置"></a>3、日志文件的位置</h3><p><strong>Linux系统本身和大部分服务器程序的日志文件默认放在/var/log/下。</strong> </p>
+<pre><code>部分程序共用一个日志文件,一部分程序使用单个日志文件。 
+
+而有些大型服务器程序日志由于日志文件不止一个,所以会在/var/log/目录中建立相应的子绿来存放日志文件,这样既保证了日志文件目录的结构清晰,又可以快速定位日志文件。
+
+有一部分日志文件只有root用户才有权限读取,这保证了相关日志信息的安全性。</code></pre><h3 id="4、Linux系统中重要的日志文件"><a href="#4、Linux系统中重要的日志文件" class="headerlink" title="4、Linux系统中重要的日志文件"></a>4、Linux系统中重要的日志文件</h3><table>
+<thead>
+<tr>
+<th>日志文件</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/var/log/cron</td>
+<td>记录与系统定时任务相关的曰志</td>
+</tr>
+<tr>
+<td>/var/log/dmesg</td>
+<td>记录了系统在开机时内核自检的信总。也可以使用dmesg命令直接查看内核自检信息</td>
+</tr>
+<tr>
+<td>/var/log/btmp</td>
+<td>记录错误登陆的日志。这个文件是二进制文件，不能直接用Vi查看，而要使用lastb命令查看。命令如下： [root@localhost log]#lastb root tty1 Tue Jun 4 22:38 - 22:38 (00:00) #有人在6月4 日 22:38便用root用户在本地终端 1 登陆错误</td>
+</tr>
+<tr>
+<td>/var/log/lastlog</td>
+<td>记录系统中所有用户最后一次的登录时间的曰志。这个文件也是二进制文件.不能直接用Vi 查看。而要使用lastlog命令查看</td>
+</tr>
+<tr>
+<td>/var/Iog/mailog</td>
+<td>记录邮件信息的曰志</td>
+</tr>
+<tr>
+<td>/var/log/messages</td>
+<td>它是核心系统日志文件，其中包含了系统启动时的引导信息，以及系统运行时的其他状态消息。I/O 错误、网络错误和其他系统错误都会记录到此文件中。其他信息，比如某个人的身份切换为 root，已经用户自定义安装软件的日志，也会在这里列出。</td>
+</tr>
+<tr>
+<td>/var/log/secure</td>
+<td>记录验证和授权方面的倍息，只要涉及账户和密码的程序都会记录，比如系统的登录、ssh的登录、su切换用户，sudo授权，甚至添加用户和修改用户密码都会记录在这个日志文件中</td>
+</tr>
+<tr>
+<td>/var/log/wtmp</td>
+<td>永久记录所有用户的登陆、注销信息，同时记录系统的后动、重启、关机事件。同样，这个文件也是二进制文件.不能直接用Vi查看，而要使用last命令查看</td>
+</tr>
+<tr>
+<td>/var/tun/ulmp</td>
+<td>记录当前已经登录的用户的信息。这个文件会随着用户的登录和注销而不断变化，只记录当前登录用户的信息。同样，这个文件不能直接用Vi查看，而要使用w、who、users等命令查看</td>
+</tr>
+</tbody></table>
+<h3 id="5、rsyslogd服务介绍"><a href="#5、rsyslogd服务介绍" class="headerlink" title="5、rsyslogd服务介绍"></a>5、rsyslogd服务介绍</h3><p>系统中的绝大多数日志文件是由 rsyslogd 服务来统一管理的，只要各个进程将信息给予这个服务，它就会自动地把日志按照特定的格式记录到不同的日志文件中。也就是说，采用 rsyslogd 服务管理的日志文件，它们的格式应该是统一的。</p>
+<p>在 Linux 系统中有一部分日志不是由 rsyslogd 服务来管理的，比如 apache 服务，它的日志是由 Apache 软件自己产生并记录的，并没有调用 rsyslogd 服务。但是为了便于读取，apache 日志文件的格式和系统默认日志的格式是一致的。</p>
+<h4 id="1）rsyslog-conf配置文件内容"><a href="#1）rsyslog-conf配置文件内容" class="headerlink" title="1）rsyslog.conf配置文件内容"></a>1）rsyslog.conf配置文件内容</h4><p><code>rsyslog.conf</code>配置文件的位置在<code>/etc/</code>目录下</p>
+<p><code>rsyslog.conf</code>配置文件说明</p>
+<pre class="line-numbers language-shell"><code class="language-shell"># 查看/etc/rsyslog.conf配置文件的内容。
+[root@localhost ~]# vim /etc/rsyslog.conf
+
+# rsyslog v5 configuration file
+
+# For more information see /usr/share/doc/rsyslog-*/rsyslog_conf.html
+# If you experience problems, see http://www.rsyslog.com/doc/troubleshoot.html
+
+# 加载模块。是`rsyslogd`服务必备的模块。
+#### MODULES ####
+
+# 加载imuxsock模块，为本地系统登录提供支持。
+$ModLoad imuxsock # provides support for local system logging (e.g. via logger command)
+# 加载imklog模块，为内核登录提供支持。
+$ModLoad imklog   # provides kernel logging support (previously done by rklogd)
+# 加载immark模块，提供标记信息的能力。
+#$ModLoad immark  # provides --MARK-- message capability
+
+
+# 如果你需要把日志发送给其他的服务器，
+# 你就需要开启下面的UPD或者TCP协议的网络服务。
+# 加载UPD模块，允许使用UDP的514端口，接收采用UDP协议转发的日志。
+# Provides UDP syslog reception
+#$ModLoad imudp
+#$UDPServerRun 514
+
+# 加载TCP模块，允许使用TCP的514端口，接收采用TCP协议转发的日志。
+# Provides TCP syslog reception
+#$ModLoad imtcp
+#$InputTCPServerRun 514
+
+
+# 定义全局设置。
+#### GLOBAL DIRECTIVES ####
+
+# 定义日志的时间，使用默认的时间戳格式。
+# Use default timestamp format
+$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+
+# 文件同步功能。默认没有开启，是注释的。
+# File syncing capability is disabled by default. This feature is usually not required,
+# not useful and an extreme performance hit
+#$ActionFileEnableSync on
+
+# 包含/etc/rsyslog.d/目录中所有的“.conf"子配置文件。
+# 也就是说这个目录中的所有子配置文件也同时生效。
+# Include all config files in /etc/rsyslog.d/
+$IncludeConfig /etc/rsyslog.d/*.conf
+
+
+# 日志文件保存规则。
+#### RULES ####
+
+# kern服务.所有日志级别保存在/dev/console。
+# 这个日志默认没有开启，如果需要，则取消注释。
+# Log all kernel messages to the console.
+# Logging much else clutters up the screen.
+#kern.*                                                 /dev/console
+
+# *.info;mail.none;authpriv.none;cron.none意思是：
+# 所有服务.info以上级别的日志，保存在/var/log/messages日志中。
+# 除了mail，authpriv，cron的日志不记录在/var/log/messages日志文件中，因为它们都有自己的日志文件。
+# 所以/var/log/messages日志，是最重要的系统日志文件，需要经常查看！
+# Log anything (except mail) of level info or higher.
+# Don't log private authentication messages!
+*.info;mail.none;authpriv.none;cron.none                /var/log/messages
+
+
+# 用户认证服务所有级别的日志，保存在/var/log/secure日志中。
+# The authpriv file has restricted access.
+authpriv.*                                              /var/log/secure
+
+# mail服务的所有级别的日志保存在/var/log/maillog日志中。
+# “-”号的含义是日志先在内存之中保存，当日志够多之后，再向文件中保存。
+# Log all the mail messages in one place.
+mail.*                                                  -/var/log/maillog
+
+# 计划任务的所有日志保存在/var/log/cron日志中。
+# Log cron stuff
+cron.*                                                  /var/log/cron
+
+# 所有日志服务的疼痛等级日志对所有在线用户广播。
+# Everybody gets emergency messages
+*.emerg                                                 *
+
+# uucp和news日志服务的crit以上的日志保存在/var/log/sppoler 日志文件中。
+# Save news errors of level crit and higher in a special file.
+uucp,news.crit                                          /var/log/spooler
+
+# loac17日志服务的所有日志写入/var/log/boot.log日志中。
+# 会把开机时的检测信息在显示到屏幕的同时，写入/var/log/boot.log日志中
+# Save boot messages also to boot.log
+local7.*                                                /var/log/boot.log
+
+
+# 定义转发规则
+# ### begin forwarding rule ###
+# The statement between the begin ... end define a SINGLE forwarding
+# rule. They belong together, do NOT split them. If you create multiple
+# forwarding rules, duplicate the whole block!
+# Remote Logging (we use TCP for reliable delivery)
+#
+# An on-disk queue is created for this action. If the remote host is
+# down, messages are spooled to disk and sent when it is up again.
+#$WorkDirectory /var/lib/rsyslog # where to place spool files
+#$ActionQueueFileName fwdRule1 # unique name prefix for spool files
+#$ActionQueueMaxDiskSpace 1g   # 1gb space limit (use as much as possible)
+#$ActionQueueSaveOnShutdown on # save messages to disk on shutdown
+#$ActionQueueType LinkedList   # run asynchronously
+#$ActionResumeRetryCount -1    # infinite retries if host is down
+# remote host is: name/ip:port, e.g. 192.168.0.1:514, port optional
+#*.* @@remote-host:514
+# ### end of the forwarding rule ###<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2）rsyslog-conf配置文件内容说明"><a href="#2）rsyslog-conf配置文件内容说明" class="headerlink" title="2）rsyslog.conf配置文件内容说明"></a>2）rsyslog.conf配置文件内容说明</h4><h5 id="etc-rsyslog-conf配置文件格式"><a href="#etc-rsyslog-conf配置文件格式" class="headerlink" title="/etc/rsyslog.conf配置文件格式"></a>/etc/rsyslog.conf配置文件格式</h5><pre class="line-numbers language-shell"><code class="language-shell">格式：
+#服务名称[连接符号]日志等级           日志记录位置
+authpriv.*                      /var/log/secure
+
+说明：
+认证相关服务．所有日志等级           记录在/var/log/secure日志中。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="服务名称"><a href="#服务名称" class="headerlink" title="服务名称"></a>服务名称</h5><p><code>rsyslogd</code>服务可以识别以下服务的日志，也可以理解为，以下这些服务委托了<code>rsyslogd</code>服务来代为管理日志。</p>
+<table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth (LOG_AUTH)</td>
+<td>安全和认证相关消息（不推荐使用authpriv替代）。</td>
+</tr>
+<tr>
+<td>authpriv (LOG_AUTHPRIV)</td>
+<td>安全和认证相关消息（私有的）。</td>
+</tr>
+<tr>
+<td>cron (LOG_CRON)</td>
+<td>系统定时任务cront和at产生的日志。</td>
+</tr>
+<tr>
+<td>daemon (LOG_DAEMON)</td>
+<td>和各个守护进程相关的日志。</td>
+</tr>
+<tr>
+<td>ftp (LOG_FTP)</td>
+<td>ftp守护进程产生的日志。</td>
+</tr>
+<tr>
+<td>kern (LOG_KERN)</td>
+<td>内核产生的日志（不是用户进程产生的）。</td>
+</tr>
+<tr>
+<td>local0-local7 (LOG_LOCAL0-7)</td>
+<td>为本地使用预留的服务。</td>
+</tr>
+<tr>
+<td>lpr (LOG_LPR)</td>
+<td>打印产生的日志。</td>
+</tr>
+<tr>
+<td>mail (LOG_MAIL)</td>
+<td>邮件收发信息。</td>
+</tr>
+<tr>
+<td>news (LOG_NEWS)</td>
+<td>与新闻服务器相关的日志。</td>
+</tr>
+<tr>
+<td>syslog (LOG_SYSLOG)</td>
+<td>有syslogd服务产生的日志信息<br>（虽然服务名称已经改为rsyslogd，但是很多配置都还是沿用了syslogd的，这里并没有修改服务名）。</td>
+</tr>
+<tr>
+<td>user (LOG_USER)</td>
+<td>用户等级类别的日志信息。</td>
+</tr>
+<tr>
+<td>uucp (LOG_UUCP)</td>
+<td>uucp子系统的日志信息，uucр是早Linux系统进行数据传递的协议，后来也常用在新闻组服务中。</td>
+</tr>
+</tbody></table>
+<h5 id="连接符号"><a href="#连接符号" class="headerlink" title="连接符号"></a>连接符号</h5><p>日志服务连接日志等级的格式是：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">日志服务[连接符号]日志等级      日志记录位置<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在这里连接符号可以识别为：</p>
+<ul>
+<li><pre><code>`.`代表只要比后面的等级高的（包含该等级）日志都记录下来。
+
+  比如：`cron.info`代表`cron`服务产生的日志，只要日志等级大于等于`info`级别，就记录。
+
+`.=`代表只记录所需等级的日志，其他等级的都不记录。
+
+  比如：`*.=emerg`代表任何日志服务产生的日志信息，只要等级是`emerg`等级就记录。（这种方式用的很少）
+
+`.!`代表不等于，也就是除了该等级的日志外，其他等级的日志都记录。</code></pre></li>
+</ul>
+<h5 id="日志等级"><a href="#日志等级" class="headerlink" title="日志等级"></a>日志等级</h5><table>
+<thead>
+<tr>
+<th>等级名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>debug (LOG_DEBUG)</td>
+<td>一般的调试信息说明。</td>
+</tr>
+<tr>
+<td>info (LOG_INFO)</td>
+<td>基本的通知信息。</td>
+</tr>
+<tr>
+<td>notice (LOG_NOTICE)</td>
+<td>普通信息，但是有一定的重要性。</td>
+</tr>
+<tr>
+<td>warning (LOG_WARNING)</td>
+<td>警告信息，但是还不会影响到服务或系统的运行。</td>
+</tr>
+<tr>
+<td>err (LOG_ERR)</td>
+<td>错误信息，一般达到err等级的信息，已经可以影响到服务或系统的运行了。</td>
+</tr>
+<tr>
+<td>crit (LOG_CRIT)</td>
+<td>临界状况信息，比err等级还要严重。</td>
+</tr>
+<tr>
+<td>alert (LOG_ALERT)</td>
+<td>警告状态信息，比crit还要严重。必须立即采取行动。</td>
+</tr>
+<tr>
+<td>emerg (LOG_EMERG)</td>
+<td>疼痛等级的日志信息，系统已经无法使用了。</td>
+</tr>
+<tr>
+<td>*</td>
+<td>代表所有日志等级，比如：”authpriv.*”代表authpriv认证信息服务产生的日志，所有的日志等级都记录。</td>
+</tr>
+</tbody></table>
+<p><code>debug</code>日志等级最低， <code>emerg</code>日志等级最高。日志等级低，他记录的日志信息可能就会多些。</p>
+<h5 id="日志记录位置"><a href="#日志记录位置" class="headerlink" title="日志记录位置"></a>日志记录位置</h5><p>日志记录位置就是当前日志输出到哪个日志文件中保存，当然也可以把日志输出到打印机打印，或者输出到远程日志服务器上（当然日志服务器要允许接收才行）。日志的记录位置也是固定的，我们来学习下：</p>
+<ul>
+<li><pre><code>- 日志文件的绝对路径。这是最常见的日志保存方法，如`/var/log/secure`就是保存系统验证和授权信息日志的。
+
+- 系统设备文件。如`/dev/lp0`代表第一台打印机，如果日志保存位置是打印机设备的话，当有日志时就会在打印机打印（现在基本上没有这种情况了，请放弃）。
+
+- 转发给远程主机。因为可以选择使用TCP协议和UDP协议传输日志信息，所以有两种发送格式。
+
+  如果使用`@192.168.0.210：514`，就会把日志内容使用UDP协议发送到`192.168.0.210的UDP 514端口上`，
+
+  如果使用`@@192.168.0.210：514`就会把日志内容使用TCP协议发送到`192.168.0.210的TCP 514端口上`。
+
+  其中514是日志服务默认端口。（知道有这个功能即可）
+
+  当然只要`192.168.0.210`服务器同意接收此日志，就可以把日志内容保存在日志服务器上。
+
+- 用户名。如"root"，就会把日志发送给root用户，当然root要在在线，否则就收不到日志信息了。
+
+  发送日志给用户时，可以使用`*`代表发送给所有在线用户，如`mail.emerg *`就会把mail服务产生的所有级别的日志发送给所有在线用户。
+
+  如果需要把日志发送给多个在线用户，用户名之间用`，`分隔。
+
+- `~`：忽略或丢弃日志。如果接受日志的对象是`~`，代表这个日志不会记录，而被直接丢弃。
+
+  例如`local3.* ~`代表忽略local3服务类型所有的日志都不记录。
+
+</code></pre></li>
+</ul>
+<pre><code>
+
+
+### 6、rsyslogd日志集中管理
+
+Linux上通常可以通过rsyslog来实现系统日志的集中管理，这种情况下通常会有一个日志服务器，然后每个机器配置自己日志通过rsyslog来写到远程的日志服务器上。
+
+ **任务实战**
+
+假定有两台服务器，一台作为系统日志的服务器（比如机器名logmaster），另一台作为日志的客户端（比如机器名logclient）
+</code></pre><p>logmaster日志服务器配置</p>
+<p>首先修改log master机器上的/etc/rsyslog.conf文件，将其中下面四行的注释取消</p>
+<p>$ModLoad imudp<br>$UDPServerRun 514<br>$ModLoad imtcp<br>$InputTCPServerRun 514</p>
+<p>然后重新启动rsyslogd服务</p>
+<p>systemctl restart rsyslog.service</p>
+<pre><code></code></pre><p>logclient日志客户端配置</p>
+<p>修改/etc/rsyslog.conf文件,在最后加上如下行，目的是让Linux写日志的同时写一份到远端的log mater机器上,@@是tcp，@是UDP </p>
+<p><em>.</em>     @logmaster</p>
+<p>重新启动rsyslogd服务<br>systemctl restart rsyslog.service</p>
+<pre><code></code></pre><p>测试</p>
+<p>在Linxu上可以使用logger命令来写入一条系统日志，比如</p>
+<p>$ logger ‘hello world’</p>
+<p>然后查看log master机器上的/var/log/messages文件，可以看到类似下面的内容</p>
+<p>Jun 28 14:58:16 logclient root: hello world</p>
+<p>其中包括了日期，日志来源（机器名称），进程名和日志内容。</p>
+<pre><code></code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://Erikten.github.io" class="b-link-green">Erikten</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/posts/6c72ecbc.html" class="b-link-green">Linux系统管理</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+    /* valine 评论框增加背景图片 */
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("http://www.luckyzmj.cn/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments .vwrap {
+        box-sizing: border-box;
+        padding: 0 0 44px;
+        background-color: #F0FFF0;
+    }
+    #vcomments .vwrap .vheader{width: 80%;bottom:0;position: absolute;background: #F0FFF0;}
+
+    #vcomments .vinput{padding:10px 15px; text-align: center;}
+
+    #vcomments .vwrap .vheader .vinput{border-bottom:0px}
+
+    #vcomments .vwrap .vedit .vctrl{margin-top:-44px;right:0;position:absolute;margin-right:-3px;}
+
+    #vcomments  .vwrap .vrow{position:absolute;right:0;bottom:0;width:20%;padding-top:0px;}
+
+    #vcomments  .vrow {font-size: 0;padding: 0px 0;}
+
+    #vcomments  .vicon {margin-right: 15px;}
+
+    #vcomments  .vrow .vcol.vcol-30{display: none}
+
+    #vcomments  .vedit .vctrl span.vpreview-btn{display: none}
+
+    #vcomments  .vrow .vcol.vcol-70{width: 100%;}
+
+    #vcomments  .vsubmit.vbtn{border-radius: 0;padding: 0;color: #fff;line-height: 44px;width:100%;border: none;background:#00ecbc;}
+
+    #vcomments  .vcards .vcard .vh .vhead .vsys{background: #F0FFF0;}
+
+    #vcomments  .vcards .vcard .vh .vmeta .vat{font-size: 12px;display: block;margin-left: 15px;float: right;color: #fff;background-color: #00ecbc;line-height: 20px;padding: 0 6px;border-radius: 3px;}
+
+    @media screen and (max-width: 520px){
+    #vcomments  .vwrap .vheader .vinput{width: 33.33%;padding:10px 5px;}  
+    }
+
+    #vcomments input[type=text],
+
+    #vcomments input[type=email],
+
+    #vcomments input[type=url],
+
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+    #vcomments .vwrap p {
+        height: 20px;
+        width: 20px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    /* 修复评论第一行位置错位 */
+    .v .vlist .vcard {
+    padding-top: 2.5em !important ;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        admin_email: '16463223@qq.com',
+        appId: 'tyxQEN5TsSl1TYSAA1k8z6qv-gzGzoHsz',
+        appKey: 'xGHv2dWE2LzMfEAhGx2Nzjyn',
+        path: window.location.pathname,
+        comment_count: true,
+        notify: 'false' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go',
+
+    });
+    $(document).ready(function(){
+        $("#vcomments").on('click', 'span.vat',function(){
+            $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+            $('textarea#veditor').focus();
+        })
+    })
+</script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script type="text/javascript">
+    jinrishici.load(function(result) {
+        var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+        document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+    });
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/f25da8ca.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/14.jpg" class="responsive-img" alt="Linux Server安全配置基线(等保)">
+                        
+                        <span class="card-title">Linux Server安全配置基线(等保)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            第1章 概述1.1 目的本文档规定了所有维护管理的Linux操作系统的主机应当遵循的操作系统安全性设置标准，本文档旨在指导系统管理人员进行Linux操作系统的安全合规性检查和配置。
+1.2 适用范围本配置标准的使用者包括：服务器管理员、应用
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                    网络运维篇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/运维/" target="_blank">
+                        <span class="chip bg-color">运维</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/a8d3d305.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/13.jpg" class="responsive-img" alt="LAMP部署">
+                        
+                        <span class="card-title">LAMP部署</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            LAMP部署一、LAMP介绍1、LAMP简介LAMP网站框架是目前国际上流行的Web服务架构，该框架包括GNU / Linux 操作系统，Apache HTTP服务器，MySQL 类关系型数据库（RDBMS）以及PHP编程语言。所有组成产品
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络运维篇/" class="post-category" target="_blank">
+                                    网络运维篇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/运维/" target="_blank">
+                        <span class="chip bg-color">运维</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Erikten<br />'
+            + '作者: Erikten<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.bootcss.com/tocbot/4.8.1/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+        <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">             
+            <span id="sitetime"></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+            <br>
+
+            
+
+            
+                    
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span>
+                    
+        
+                    
+                        <span id="busuanzi_container_site_uv" style='display:none'></span>
+                        人次&nbsp; | &nbsp;访客人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+                    
+    
+            
+
+            
+                &nbsp; | &nbsp;字数统计:&nbsp;
+                <span class="white-color">145.6k</span> 字
+	<br>
+            
+
+            
+
+             <a href="http://www.beian.miit.gov.cn/">Copyright&copy; 2021 erikten.cn</a>
+            <br>
+             <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=20002708"><img src="http://luckyzmj.cn/medias/icp.png" />鲁ICP备20002708号-1</a>             
+        </div>
+
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Erikten" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2889137036@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2889137036&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+
+        var t1 = Date.UTC(2021, 02, 18, 00, 00, 00); //北京时间2019-8-1 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒" ;
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+
+
+
+        <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+        <script src="https://cdn.bootcss.com/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.bootcss.com/masonry/4.0.0/masonry.pkgd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+        <script src="/js/matery.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+        
+            <script src="/libs/others/clicklove.js"></script>
+        
+
+        
+            <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+        
+
+        <script type="text/javascript">
+            var OriginTitile = document.title,
+                st;
+            document.addEventListener("visibilitychange", function () {
+                document.hidden ? (document.title = "看不见我🙈~看不见我🙈~", clearTimeout(st)) : (document.title =
+                    "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                        document.title = OriginTitile
+                    }, 3e3))
+            })
+        </script>
+
+        <!-- 鼠标点击烟花爆炸效果 -->
+        
+
+        <!-- 背景雪花飘落特效 -->
+        
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 鼠标点击文字特效 -->
+        
+        
+
+        <!-- 背景雪花飘落特效 -->
+        
+
+        <!-- 在线聊天工具  -->
+        
+
+        <!-- 背景 canvas-nest -->
+        
+
+        <!-- 背景静止彩带  -->
+        
+
+        <!-- 背景动态彩带 -->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" src="/libs/background/ribbon-dynamic.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 天气接口控件   -->
+        
+            <script type="text/javascript">
+            WIDGET = {FID: 'zLkJSQpqsh'}
+            </script>
+        <!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
+
+        <script type="text/javascript">
+          var windowWidth = $(window).width();
+          if (windowWidth > 768) {
+              document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+          }
+        </script>
+        
+        
+          <script>
+            (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/410f202e.js","daovoice")
+  daovoice('init', {
+      app_id: "XXXXX"
+    });
+  daovoice('update');
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+        
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+</html>
