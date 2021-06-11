@@ -918,11 +918,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="一、进程管理"><a href="#一、进程管理" class="headerlink" title="一、进程管理"></a>一、进程管理</h2><p>无论是 Linux 系统管理员还是普通用户，监视系统进程的运行情况并适时终止一些失控的进程，是每天的例行事务。和 Linux 系统相比，进程管理在 Windows 中更加直观，它主要是使用”任务管理器”来进行进程管理的。</p>
-<pre><code>通常，使用"任务管理器"主要有 3 个目的：
+<pre><code>通常，使用&quot;任务管理器&quot;主要有 3 个目的：
 
-1. 利用"应用程序"和"进程"标签来査看系统中到底运行了哪些程序和进程；
-2. 利用"性能"和"用户"标签来判断服务器的健康状态；
-3. 在"应用程序"和"进程"标签中强制中止任务和进程；</code></pre><p>Linux 中虽然使用命令进行进程管理，但是进程管理的主要目的是一样的，即查看系统中运行的程序和进程、判断服务器的健康状态和强制中止不需要的进程。</p>
+1. 利用&quot;应用程序&quot;和&quot;进程&quot;标签来査看系统中到底运行了哪些程序和进程；
+2. 利用&quot;性能&quot;和&quot;用户&quot;标签来判断服务器的健康状态；
+3. 在&quot;应用程序&quot;和&quot;进程&quot;标签中强制中止任务和进程；</code></pre><p>Linux 中虽然使用命令进行进程管理，但是进程管理的主要目的是一样的，即查看系统中运行的程序和进程、判断服务器的健康状态和强制中止不需要的进程。</p>
 <h3 id="1-1-什么是进程和程序"><a href="#1-1-什么是进程和程序" class="headerlink" title="1.1    什么是进程和程序"></a>1.1    什么是进程和程序</h3><p>进程是正在执行的一个程序或命令，每个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源。</p>
 <p>程序是人使用计算机语言编写的可以实现特定目标或解决特定问题的代码集合。</p>
 <pre><code>程序是二进制文件，是静态存放在磁盘上的，不会占用系统运行资源(cpu/内存)。
@@ -1395,7 +1395,7 @@ Cpu(s): 0.0%us, 0.0%sy, 0.0%ni,100.0%id, 0.0%wa, 0.0%hi, 0.0%si, 0.0%st
 Mem: 625344k total, 574248k used, 51096k free, 66840k buffers
 Swap: 524280k total, Ok used, 524280k free, 409324k cached
 PID to kill:15273
-#按"k"键，会提示输入要杀死进程的PID
+#按&quot;k&quot;键，会提示输入要杀死进程的PID
 PID     USER PR NI VIRT  RES SHR S %CPU %MEM   TIME+ COMMAND
 15273 daemon 20  0 4520 1192 580 S  0.0 0.2  0:00.00 httpd
 ..省略部分输出...</code></pre><p>【例 3】输入要中止进程的 PID，比如要中止 15273 这个 apache 进程，命令如下：</p>
@@ -1417,7 +1417,7 @@ Cpu(s): 0.3%us, 0.0%sy, 0.0%ni, 99.7%id, 0.0%wa, 0.0%hi, 0.0%si, 0.0%st
 Mem: 625344k total, 574124k used, 51220k free, 66896k buffers
 Swap: 524280k total, 0k used, 524280k free, 409324k cached
 PID to renice:
-#输入"r"交互命令之后，提示输入要修改优先级的进程的PID
+#输入&quot;r&quot;交互命令之后，提示输入要修改优先级的进程的PID
 PID   USER PR NI  VIRT  RES SHR  S %CPU %MEM   TIME+ COMMAND
 18977 root 20 0  11592 3304 2572 S  0.0 0.5  0:04.37 sshd</code></pre><p>输入 “r” 交互命令，会提示输入需要修改优先级的进程的 PID。例如，我们想要修改 18977 这个 sshd 远程连接进程的优先级，就输入该进程的 PID。命令如下：</p>
 <pre><code>Renice PID 18977 to value: 10
@@ -1612,8 +1612,8 @@ init        1   root  mem REG   8，3    38768    655310 /lib/libnih-dbus.so.1.0
 <p>【例 1】 标准 kill 命令。</p>
 <pre><code>[root@localhost ~】# service httpd start
 \#启动RPM包默认安装的apache服务
-[root@localhost ~]# pstree -p 丨 grep httpd | grep -v "grep"
-\#查看 httpd 的进程树及 PID。grep 命令査看 httpd 也会生成包含"httpd"关键字的进程，所以使用“-v”反向选择包含“grep”关键字的进程，这里使用 pstree 命令来查询进程，当然也可以使用 ps 和 top 命令
+[root@localhost ~]# pstree -p 丨 grep httpd | grep -v &quot;grep&quot;
+\#查看 httpd 的进程树及 PID。grep 命令査看 httpd 也会生成包含&quot;httpd&quot;关键字的进程，所以使用“-v”反向选择包含“grep”关键字的进程，这里使用 pstree 命令来查询进程，当然也可以使用 ps 和 top 命令
 |-httpd(2246)-+-httpd(2247)
 |  |-httpd(2248)
 |  |-httpd(2249)
@@ -1622,7 +1622,7 @@ init        1   root  mem REG   8，3    38768    655310 /lib/libnih-dbus.so.1.0
 [root@localhost ~]# kill 2248
 \#杀死PID是2248的httpd进程，默认信号是15，正常停止
 \#如果默认信号15不能杀死进程，则可以尝试-9信号，强制杀死进程
-[root@localhost ~]# pstree -p | grep httpd | grep -v "grep"
+[root@localhost ~]# pstree -p | grep httpd | grep -v &quot;grep&quot;
 |-httpd(2246&gt;-+-httpd(2247)
 |  |-httpd(2249)
 |  |-httpd(2250)
@@ -1630,7 +1630,7 @@ init        1   root  mem REG   8，3    38768    655310 /lib/libnih-dbus.so.1.0
 \#PID是2248的httpd进程消失了</code></pre><p>【例 2】使用“-1”信号，让进程重启。</p>
 <pre><code>[root@localhost ~]# kill -1 2246
 使用“-1 (数字1)”信号，让httpd的主进程重新启动
-[root@localhost ~]# pstree -p | grep httpd | grep -v "grep"
+[root@localhost ~]# pstree -p | grep httpd | grep -v &quot;grep&quot;
 |-httpd(2246)-+-httpd(2270)
 |  |-httpd(2271)
 |  |-httpd(2272)
@@ -1648,7 +1648,7 @@ init        1   root  mem REG   8，3    38768    655310 /lib/libnih-dbus.so.1.0
 <p>【例 1】杀死 httpd 进程。</p>
 <pre><code>[root@localhost ~]# service httpd start
 \#启动RPM包默认安装的apache服务
-[root@localhost ~]# ps aux | grep "httpd" | grep -v "grep"
+[root@localhost ~]# ps aux | grep &quot;httpd&quot; | grep -v &quot;grep&quot;
 root 1600 0.0 0.2 4520 1696? Ss 19:42 0:00 /usr/local/apache2/bin/httpd -k start
 daemon 1601 0.0 0.1 4520 1188? S 19:42 0:00 /usr/local/apache2/bin/httpd -k start
 daemon 1602 0.0 0.1 4520 1188? S 19:42 0:00 /usr/local/apache2/bin/httpd -k start
@@ -1658,11 +1658,11 @@ daemon 1605 0.0 0.1 4520 1188? S 19:42 0:00 /usr/local/apache2/bin/httpd -k star
 \#查看httpd进程
 [root@localhost ~]# killall httpd
 \#杀死所有进程名是httpd的进程
-[root@localhost ~]# ps aux | grep "httpd" | grep -v "grep"
+[root@localhost ~]# ps aux | grep &quot;httpd&quot; | grep -v &quot;grep&quot;
 \#查询发现所有的httpd进程都消失了
 
 </code></pre><p>【例 2】交互式杀死 sshd 进程。</p>
-<pre><code>[root@localhost ~]# ps aux | grep "sshd" | grep -v "grep"
+<pre><code>[root@localhost ~]# ps aux | grep &quot;sshd&quot; | grep -v &quot;grep&quot;
 root 1733 0.0 0.1 8508 1008? Ss 19:47 0:00/usr/sbin/sshd
 root 1735 0.1 0.5 11452 3296? Ss 19:47 0:00 sshd: root@pts/0
 root 1758 0.1 0.5 11452 3296? Ss 19:47 0:00 sshd: root@pts/1
@@ -1779,8 +1779,8 @@ root pts/0 192.168.0.100  19:47 0.00s 0.06s 0.00s w
 \#top命令被放入后台，工作号是1，状态是暂停。而且，虽然top命令没有结束，但也能取得控制台权限</code></pre><p>【例 2】</p>
 <pre><code>[root@localhost ~]# tar -zcf etc.tar.gz /etc
 \#压缩一下/etc/目录
-tar:从成员名中删除开头的"/"
-tar:从硬链接目标中删除开头的"/"
+tar:从成员名中删除开头的&quot;/&quot;
+tar:从硬链接目标中删除开头的&quot;/&quot;
 ^Z
 \#在执行过程中，按下Ctrl+Z快捷键
 [2]+ Stopped tar-zcf etc.tar.gz/etc
@@ -1857,8 +1857,8 @@ tar:从硬链接目标中删除开头的"/"
 <pre><code>[root@localhost ~]# nohup find / -print &gt; /root/file.log &amp;
 [3] 2349
 \#使用find命令，打印/下的所有文件。放入后台执行
-[root@localhost ~]# nohup：忽略输入并把输出追加到"nohup.out"
-[root@localhost ~]# nohup：忽略输入并把输出追加到"nohup.out"
+[root@localhost ~]# nohup：忽略输入并把输出追加到&quot;nohup.out&quot;
+[root@localhost ~]# nohup：忽略输入并把输出追加到&quot;nohup.out&quot;
 \#有提示信息</code></pre><p>接下来的操作要迅速，否则 find 命令就会执行结束。然后我们可以退出登录，重新登录之后，执行“ps aux”命令，会发现 find 命令还在运行。</p>
 <p>如果 find 命令执行太快，我们就可以写一个循环脚本，然后使用 nohup 命令执行。例如：</p>
 <pre><code>[root@localhost ~]# vi for.sh
@@ -1874,7 +1874,7 @@ done
 [root@localhost ~]# chmod 755 for.sh
 [root@localhost ~]# nohup /root/for.sh &amp;
 [1] 2478
-[root@localhost ~]# nohup：忽略输入并把输出追加到"nohup.out"
+[root@localhost ~]# nohup：忽略输入并把输出追加到&quot;nohup.out&quot;
 \#执行脚本</code></pre><p>接下来退出登录，重新登录之后，这个脚本仍然可以通过“ps aux”命令看到。</p>
 <h2 id="三、定时任务"><a href="#三、定时任务" class="headerlink" title="三、定时任务"></a>三、定时任务</h2><h3 id="3-1-at命令：定时执行任务"><a href="#3-1-at命令：定时执行任务" class="headerlink" title="3.1    at命令：定时执行任务"></a>3.1    at命令：定时执行任务</h3><p>要想使用 at 命令，读者需提前安装好 at 软件包，并开启 atd 服务。因此，首先来看看如何安装 at 软件包。</p>
 <p>在 Linux 系统中，查看 at 软件包是否已安装，可以使用 rpm -q 命令，如下所示：</p>
@@ -1998,8 +1998,8 @@ at&gt;
 <p>【例 1】</p>
 <pre><code>[coot@localhost ~]# cat /root/hello.sh
 \#!/bin/bash
-echo "hello world!!"
-\#该脚本会打印"hello world!!"
+echo &quot;hello world!!&quot;
+\#该脚本会打印&quot;hello world!!&quot;
 [root@localhost ~]# at now +2 minutes
 at&gt; /root/hello.sh &gt;&gt; /root/hello.log
 \#执行hello.sh脚本，并把输出写入/root/hello.log文件
@@ -2166,7 +2166,7 @@ job 9 at 2013-07-26 02:00
 <p>【例 1】让系统每隔 5 分钟就向 /tmp/test 文件中写入一行“11”，验证一下系统定时任务是否会执行。</p>
 <pre><code>[root@localhost ~]# crontab -e
 \#进入编辑界面
-*/5 * * * * /bin/echo "11" &gt;&gt; /tmp/test</code></pre><p>这个任务在时间工作中没有任何意义，但是可以很简单地验证我们的定时任务是否可以正常执行。如果觉得每隔 5 分钟太长，那就换成“*”，让它每分钟执行一次。而且和 at 命令一样，如果我们定时执行的是系统命令，那么最好使用绝对路径。</p>
+*/5 * * * * /bin/echo &quot;11&quot; &gt;&gt; /tmp/test</code></pre><p>这个任务在时间工作中没有任何意义，但是可以很简单地验证我们的定时任务是否可以正常执行。如果觉得每隔 5 分钟太长，那就换成“*”，让它每分钟执行一次。而且和 at 命令一样，如果我们定时执行的是系统命令，那么最好使用绝对路径。</p>
 <p>【例 2】让系统在每周二的凌晨 5 点 05 分重启一次。</p>
 <pre><code>[root@localhost ~]# crontab -e
 5 5 * * 2 /sbin/shutdown -r now</code></pre><p>如果服务器的负载压力比较大，则建议每周重启一次，让系统状态归零。比如绝大多数游戏服务器每周维护一次，维护时最主要的工作就是重启，让系统状态归零。这时可以让我们的服务器自动来定时执行。</p>
@@ -2178,7 +2178,7 @@ job 9 at 2013-07-26 02:00
 
 [root@localhost ~]# crontab -l
 \#查看root用户的crontab任务
-*/5 * * * * /bin/echo "11" &gt;&gt; /tmp/test
+*/5 * * * * /bin/echo &quot;11&quot; &gt;&gt; /tmp/test
 5.5 * * 2 /sbin/shutdown -r now
 30.3 1，10，15 * * /root/sh/autobak.sh
 [root@localhost ~]# crontab -r
@@ -2507,7 +2507,7 @@ authpriv.*                      /var/log/secure
 
   当然只要`192.168.0.210`服务器同意接收此日志，就可以把日志内容保存在日志服务器上。
 
-- 用户名。如"root"，就会把日志发送给root用户，当然root要在在线，否则就收不到日志信息了。
+- 用户名。如&quot;root&quot;，就会把日志发送给root用户，当然root要在在线，否则就收不到日志信息了。
 
   发送日志给用户时，可以使用`*`代表发送给所有在线用户，如`mail.emerg *`就会把mail服务产生的所有级别的日志发送给所有在线用户。
 
@@ -2544,25 +2544,7 @@ Linux上通常可以通过rsyslog来实现系统日志的集中管理，这种�
 <p>然后查看log master机器上的/var/log/messages文件，可以看到类似下面的内容</p>
 <p>Jun 28 14:58:16 logclient root: hello world</p>
 <p>其中包括了日期，日志来源（机器名称），进程名和日志内容。</p>
-<pre><code></code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<pre><code></code></pre>
             </div>
             <hr/>
 
@@ -3349,7 +3331,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -3556,8 +3538,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

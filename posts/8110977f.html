@@ -911,7 +911,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        3 分
                     </div>
                     
                 
@@ -930,25 +930,7 @@
             <div id="articleContent">
                 <p>随着网络安全逐渐被大家所重视，现在存在注入漏洞的网站越来越少（此处指asp+access或mssql），大多数网站使用了通用防注入程序，有的网站虽然没有直接使用通用防注入，但是其关键代码也是相差无几。<br>         那么我们是不是就不能对这样的网站进行注入了呢？不！其实针对很多网站我们都可以使用cookie中转进行注入，刚好今天渗透了一个可以进行Cookie中转注入的网站，于是就把渗透心得分享给大家，小白操作，大牛勿喷    …<br>         首先我在参数后加上单引号判断是否可以注入，页面返回不正常，于是我加上AnD 1=1进行进一步的判断，结果有只狗拦住了我<br>         <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190314005036279.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>    本人平生最痛恨这条狗，正面刚肯定是不行的了，就想办法找别的突破点，随后发现这个网站可以进行中转注入，如何进行中转注入，大致分为以下几个步骤：</p>
 <p><strong>步骤1：判断是否可以进行中转注入</strong><br>我个人判断是否可以进行中转注入的方式有两种<br>①：用BurpSuite抓包，看一下http respond中的Cookie是否包含参数，这里发现包含参数传递，原理上只要在参数后加上单引号看一下页面的返回情况就可以判断是否可以进行中转注入，可是这里不好判断到底那个是参数，于是我们用第二种方法，但作者在这里还是推荐大家使用第一种，学着看一下http respond，这样判断会更准确，也更直白<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2019031402001345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>②：删除?后的参数，如果页面返回不正常，说明可能存在中转注入，很明显这里返回不正常<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190314011837278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><strong>步骤二：使用注入中转生成器生成可中转注入页面</strong><br>这时候我们拿出一款古老的武器，是由 寂寞的刺猬 写的一款中转注入软件，虽然是07年的软件，但放到现在依然非常好用，佩服！<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190314012237372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">我们选中cookie注入以后就要开始填写左面的选项了，首先我们把要进行注入的链接粘贴进“注入URL地址”和“来源页”中。<br>然后把URL中的参数名称填入上面的“注入键名”。<br>“post提交值”中将00改为URL中参数的值。<br>最后把URL中的“？”以及后面的参数部分去掉。<br>填写好后如下图所示：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190314012546165.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><strong>注意：工具里“正常的Cookie值”不需要修改！</strong><br>然后点击“生成asp”就可以在程序的根目录下生成一个用来中转的asp文件<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190314020515129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们需要把这个asp文件上传到一个支持asp的网络空间中去，这里我用一个webshell将这个asp文件传了上去，我们访问这个刚刚上传上去的asp文件。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190314013407589.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>现在我们可以看到，我访问的这个地址虽然是肉鸡网站的地址，但是我们看到的却是刚才检测注入的页面。<br>大家现在可能已经发现了，这样没有参数的链接是无法进行注入的。那么我们现在把刚才在中转生成器中填写的“post提交值”一栏中的内容添加到现在的URL的后面（不要忘了中间的“？”），那么现在的URL就变成了：<a href="http://www.XXXX.com.tw/admin/news_photo/62/jmCook.asp?jmdcw=16509" target="_blank" rel="noopener">http://www.XXXX.com.tw/admin/news_photo/62/jmCook.asp?jmdcw=16509</a><br>我们访问这个地址，发现了什么？是不是可以进行注入了？<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190314014018455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><strong>步骤三：使用sqlmap对中转页面进行注入攻击</strong><br>这里就不多啰嗦了，把URL放sqlmap里跑一下看看结果就知道了，使用sqlmap对asp+access数据库进行注入攻击在前面的文章有详细的讲解，欢迎大家一起交流讨论哦(<a href="https://blog.csdn.net/qq_43573676/article/details/88253529" target="_blank" rel="noopener">https://blog.csdn.net/qq_43573676/article/details/88253529</a>)<br>现在我们就利用Cookie中转成功的绕过了那只狗，可以进行下一步的操作了<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20190314015314401.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><strong>注：本文仅供参考学习，请勿在网上搞破坏，触犯法律者应承担相应的法律责任！</strong></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1759,7 +1741,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -1966,8 +1948,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

@@ -1006,11 +1006,11 @@ shell&gt; chown root test     # 只修改所有者
 shell&gt; chown :root test    # 自修改组
 shell&gt; chown .root test</code></pre><h3 id="3-6-umask说明"><a href="#3-6-umask说明" class="headerlink" title="3.6    umask说明"></a>3.6    umask说明</h3><p>umask值用于设置用户在创建文件时的默认权限。</p>
 <pre><code>对于root用户(实际上是UID小于200的user)，系统默认的umask值是022；对于普通用户和系统用户，系统默认的umask值是002。</code></pre><p>默认它们的设置是写在/etc/profile和/etc/bashrc两个环境配置文件中。</p>
-<pre><code>shell&gt; grep -C 5 -R 'umask 002'  /etc | grep 'umask 022'  
+<pre><code>shell&gt; grep -C 5 -R &#39;umask 002&#39;  /etc | grep &#39;umask 022&#39;  
 /etc/bashrc-       umask 022
 /etc/csh.cshrc-    umask 022
 /etc/profile-      umask 022</code></pre><p>相关设置项如下：</p>
-<pre><code>if [ $UID -gt 199 ] &amp;&amp; [ "`id -gn`" = "`id -un`" ]; then
+<pre><code>if [ $UID -gt 199 ] &amp;&amp; [ &quot;`id -gn`&quot; = &quot;`id -un`&quot; ]; then
    umask 002
 else
    umask 022
@@ -1059,14 +1059,14 @@ setfacl [options] g:[组列表]:[rwx]   目录/文件名    # 对组设置使用
 <pre><code>shell&gt; mkdir -p /data/videos
 shell&gt; chmod 750 /data/videos
 shell&gt; touch /data/videos/{a,b}.avi
-shell&gt; echo "xxx" &gt;/data/videos/a.avi
-shell&gt; echo "xxx" &gt;/data/videos/b.avi
+shell&gt; echo &quot;xxx&quot; &gt;/data/videos/a.avi
+shell&gt; echo &quot;xxx&quot; &gt;/data/videos/b.avi
 shell&gt; chown -R root.root /data/videos</code></pre><p>2.首先设置用户test对/data/videos目录有读和执行权限。</p>
 <pre><code>shell&gt; setfacl -m u:test:rx /data/videos</code></pre><p>3.现在test对/data/videos目录下的所有文件都有读权限，因为默认文件的权限为644。要设置test只对a.avi有读权限，先设置所有文件的权限都为不可读。</p>
 <pre><code>shell&gt; chmod 640 /data/videos/*</code></pre><p>4.然后再单独设置a.avi的读权限。</p>
 <pre><code>shell&gt; setfacl -m u:test:r /data/videos/a.avi</code></pre><p>到此就设置完成了。查看/data/videos/和/data/videos/a.avi上的ACL信息。</p>
 <pre><code>shell&gt; getfacl /data/videos/
-getfacl: Removing leading '/' from absolute path names
+getfacl: Removing leading &#39;/&#39; from absolute path names
 # file: data/videos/
 # owner: root
 # group: root
@@ -1076,7 +1076,7 @@ group::r-x
 mask::r-x
 other::---
 shell&gt; getfacl /data/videos/a.avi
-getfacl: Removing leading '/' from absolute path names
+getfacl: Removing leading &#39;/&#39; from absolute path names
 # file: data/videos/a.avi
 # owner: root
 # group: root
@@ -1091,7 +1091,7 @@ other::---</code></pre><h4 id="3-7-3-ACL-mask"><a href="#3-7-3-ACL-mask" class="
 <p>例如：</p>
 <p>当前的acl权限：</p>
 <pre><code>shell&gt; getfacl /data/videos                     
-getfacl: Removing leading '/' from absolute path names
+getfacl: Removing leading &#39;/&#39; from absolute path names
 # file: data/videos
 # owner: root
 # group: root
@@ -1103,7 +1103,7 @@ other::---</code></pre><p>设置mask值为rx。</p>
 <pre><code>shell&gt; setfacl -m m:rx /data/videos
 
 shell&gt; getfacl /data/videos       
-getfacl: Removing leading '/' from absolute path names
+getfacl: Removing leading &#39;/&#39; from absolute path names
 # file: data/videos
 # owner: root
 # group: root
@@ -1116,7 +1116,7 @@ other::---</code></pre><p>设置mask后，它提示有效权限是r-x。这是rw
 <pre><code>shell&gt; setfacl -m u:longshuai:rwx /data/videos
 
 shell&gt; getfacl  /data/videos
-getfacl: Removing leading '/' from absolute path names
+getfacl: Removing leading &#39;/&#39; from absolute path names
 # file: data/videos
 # owner: root
 # group: root
@@ -1130,7 +1130,7 @@ other::---</code></pre><p>所以，在设置文件的acl时，要使用-n选项�
 shell&gt; setfacl -n -m u:longshuai:rwx /data/videos
 
 shell&gt; getfacl  /data/videos
-getfacl: Removing leading '/' from absolute path names
+getfacl: Removing leading &#39;/&#39; from absolute path names
 # file: data/videos
 # owner: root
 # group: root
@@ -1176,25 +1176,7 @@ shell&gt; cat /dev/null &gt;test1.txt    # 但是清空文件内容是不允许�
 <p>以2代表sgid，如2755，和suid组合如6755。</p>
 <h4 id="3-9-3-sbit"><a href="#3-9-3-sbit" class="headerlink" title="3.9.3     sbit"></a>3.9.3     sbit</h4><p>只对目录有效。对目录设置sbit，将使得目录里的文件只有所有者能删除，即使其他用户在此目录上有rwx权限，即使是root用户。</p>
 <p>以1代表sbit。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1985,7 +1967,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2192,8 +2174,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

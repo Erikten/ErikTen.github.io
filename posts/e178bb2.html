@@ -865,6 +865,10 @@ Beescms v4.0由于后台登录设计缺陷以及代码防护缺陷导致存在by
                                 <span class="chip bg-color">代码审计</span>
                             </a>
                         
+                            <a href="/tags/Exp/" target="_blank">
+                                <span class="chip bg-color">Exp</span>
+                            </a>
+                        
                             <a href="/tags/PHP/" target="_blank">
                                 <span class="chip bg-color">PHP</span>
                             </a>
@@ -875,10 +879,6 @@ Beescms v4.0由于后台登录设计缺陷以及代码防护缺陷导致存在by
                         
                             <a href="/tags/漏洞复现/" target="_blank">
                                 <span class="chip bg-color">漏洞复现</span>
-                            </a>
-                        
-                            <a href="/tags/Exp/" target="_blank">
-                                <span class="chip bg-color">Exp</span>
                             </a>
                         
                     </div>
@@ -987,25 +987,7 @@ Beescms v4.0由于后台登录设计缺陷以及代码防护缺陷导致存在by
 <h5 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h5><p>这里在测试的时候出现了问题！虽然我修改了Content-Type，但是上传依然没有成功，我发现无论是.jpg还是.php，它的Content-Type都是multipart/form-data，于是我试了试先传一个图片，然后在修改后缀名，改为.php，结果竟然成功了！</p>
 <p>先传一个图片马：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200420194803769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>上传成功后修改后缀名突破上传：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200420194933834.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>而且我发现，上传的木马跟图片的名字是一样的，也就是说你只需要更改上传图片的后缀名即可，这个系统对上传的文件名进行了更改处理，这样一来也不需要去分析上传的时间了！<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020042019503215.png" alt="在这里插入图片描述"><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/2020042019503811.png" alt="在这里插入图片描述"><br>蚁剑连接：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200420195053984.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>注：本文仅供参考学习，请勿在网上搞破坏，触犯法律者应承担相应的法律责任！</strong></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1511,19 +1493,19 @@ Beescms v4.0由于后台登录设计缺陷以及代码防护缺陷导致存在by
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/ebc7c5d9.html">
+                <a href="/posts/fa941309.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/02.jpg" class="responsive-img" alt="Heybbs-2.0存储型XSS漏洞复现">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/09.jpg" class="responsive-img" alt="Heybbs-2.0多处逻辑漏洞复现">
                         
-                        <span class="card-title">Heybbs-2.0存储型XSS漏洞复现</span>
+                        <span class="card-title">Heybbs-2.0多处逻辑漏洞复现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            不久之前挖到的一个存储型XSS，一起来康康是怎么回事儿吧~
+                            原来这就是逻辑漏洞！长知识了~
                         
                     </div>
                     <div class="publish-info">
@@ -1549,6 +1531,10 @@ Beescms v4.0由于后台登录设计缺陷以及代码防护缺陷导致存在by
                         <span class="chip bg-color">代码审计</span>
                     </a>
                     
+                    <a href="/tags/Exp/" target="_blank">
+                        <span class="chip bg-color">Exp</span>
+                    </a>
+                    
                     <a href="/tags/PHP/" target="_blank">
                         <span class="chip bg-color">PHP</span>
                     </a>
@@ -1561,12 +1547,8 @@ Beescms v4.0由于后台登录设计缺陷以及代码防护缺陷导致存在by
                         <span class="chip bg-color">漏洞复现</span>
                     </a>
                     
-                    <a href="/tags/Exp/" target="_blank">
-                        <span class="chip bg-color">Exp</span>
-                    </a>
-                    
-                    <a href="/tags/XSS/" target="_blank">
-                        <span class="chip bg-color">XSS</span>
+                    <a href="/tags/逻辑漏洞/" target="_blank">
+                        <span class="chip bg-color">逻辑漏洞</span>
                     </a>
                     
                 </div>
@@ -1815,7 +1797,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2022,8 +2004,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

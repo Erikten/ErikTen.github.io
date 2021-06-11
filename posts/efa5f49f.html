@@ -949,7 +949,7 @@ nm<span class="token operator">=</span>nmap<span class="token punctuation">.</sp
 <li>python-nmap中的函数</li>
 </ol>
 <p>首先看一下PortScanner类，这个类中包含了如下几个函数。<br>scan()函数：这个函数的完整形式为scan(self,hosts=’127.0.0.1’,ports=None,arguments=’-sV’,sudo=False),用来对指定目标进行扫描。</p>
-<p>这里面的参数hosts的值为字符串类型，表示要扫描的主机，形式可以是IP地址，例如”192.168.1.1”，也可以是一个域名，例如”<a href="http://www.nmap.org&quot;" target="_blank" rel="noopener">www.nmap.org"</a></p>
+<p>这里面的参数hosts的值为字符串类型，表示要扫描的主机，形式可以是IP地址，例如”192.168.1.1”，也可以是一个域名，例如”<a href="http://www.nmap.org&quot;" target="_blank" rel="noopener">www.nmap.org&quot;</a></p>
 <p>参数ports的值也是字符串类型，表示要扫描的端口。如果要扫描的是单一端口，形式可以为”80”。如果为多个端口，可以用逗号分开，例如”80,443,3389”。如果要扫描的是连续的端口范围，可以用横线，例如“1-5000” 。</p>
 <p>参数arguments的值也是字符串类型，这个参数实际上就是Nmap扫描所用的参数。<br>|参数| 作用 |<br>|–|–|<br>| -O | 系统扫描 |<br>| -V，-v，-D，-d，-p | debug信息 |<br>| –fuzzy | 推测操作系统检测结果 |<br>|-sT  | TCP端口扫描（完整三次握手） |<br>| -sU | UDP端口扫描（不回应可能打开，回应则关闭） |<br>| -sL | DNS反向解析 |<br>| -sS |隐藏扫描（半开SYN）  |<br>| -sP | 发现存活主机（直连arp，非直连TCP80，ICMP） |<br>| -sO |确定主机协议扫描  |<br>| -sW | 对滑动窗口的扫描 |<br>| -sA | TCP ACK扫描 |<br>| -sN | 关闭主机扫描（不管是否存活直接扫描） |<br>| -sF | fin扫描 |<br>| -sX | Xmas扫描（fin psh urg为置位） |<br>| -sI | 完全隐藏（以一个跳板为主机（无流量）扫描另一台主机） |<br>| -sV | 服务器版本 |<br>| -sC | 跟安全有关的脚本 |<br>| -PN | 扫描自己 |<br>以上就是我常用的指令==参数，还有很多很多，就不一一列举了。</p>
 <p>如果要对192.168.1.101的1~500端口进行一次TCP扫描，可以使用以下命令。</p>
@@ -999,25 +999,7 @@ hosts_list <span class="token operator">=</span> <span class="token punctuation"
 <li>运行结果</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200126020428539.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1523,19 +1505,19 @@ hosts_list <span class="token operator">=</span> <span class="token punctuation"
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/32246a84.html">
+                <a href="/posts/a98e407b.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/03.jpg" class="responsive-img" alt="详解Python中的scapy模块">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/14.jpg" class="responsive-img" alt="详解Python中的socket模块">
                         
-                        <span class="card-title">详解Python中的scapy模块</span>
+                        <span class="card-title">详解Python中的socket模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            scapy模块是一个由Python编写的强大工具，目前很多优秀的网络扫描攻击工具都使用了这个模块。
+                            Socket模块的主要目的是帮助在网络上的两|个程序之间建立信息通道。今天用Python实现一个小型聊天室~
                         
                     </div>
                     <div class="publish-info">
@@ -1580,19 +1562,19 @@ hosts_list <span class="token operator">=</span> <span class="token punctuation"
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/121d4fdc.html">
+                <a href="/posts/32246a84.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/09.jpg" class="responsive-img" alt="php操作Mysql详解（实现丐版phpMyadmin）">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/03.jpg" class="responsive-img" alt="详解Python中的scapy模块">
                         
-                        <span class="card-title">php操作Mysql详解（实现丐版phpMyadmin）</span>
+                        <span class="card-title">详解Python中的scapy模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            丐版phpMyadmin就是这么简单
+                            scapy模块是一个由Python编写的强大工具，目前很多优秀的网络扫描攻击工具都使用了这个模块。
                         
                     </div>
                     <div class="publish-info">
@@ -1603,8 +1585,8 @@ hosts_list <span class="token operator">=</span> <span class="token punctuation"
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/PHP开发基础篇/" class="post-category" target="_blank">
-                                    PHP开发基础篇
+                            <a href="/categories/Python安全开发篇/" class="post-category" target="_blank">
+                                    Python安全开发篇
                                 </a>
                             
                             
@@ -1614,16 +1596,16 @@ hosts_list <span class="token operator">=</span> <span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/" target="_blank">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
                     <a href="/tags/编程/" target="_blank">
                         <span class="chip bg-color">编程</span>
                     </a>
                     
                     <a href="/tags/安全开发/" target="_blank">
                         <span class="chip bg-color">安全开发</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -1819,7 +1801,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2026,8 +2008,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

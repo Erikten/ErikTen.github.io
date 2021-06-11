@@ -1543,7 +1543,7 @@ passwd<span class="token punctuation">[</span><span class="token punctuation">]<
 <h5 id="Xpath报错注入"><a href="#Xpath报错注入" class="headerlink" title="Xpath报错注入"></a>Xpath报错注入</h5><p>这里利用 <strong>updatexml()</strong> 函数报错注入</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201115213010331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <blockquote>
-<p>先来看一下updatexml()函数<br><code>UPDATEXML (XML_document, XPath_string, new_value);</code><br>第一个参数：<strong>XML_document</strong>是String格式，为XML文档对象的名称，文中为Doc<br>第二个参数：<strong>XPath_string</strong> (Xpath格式的字符串) ，如果不了解Xpath语法，可以在网上查找教程。<br>第三个参数：<strong>new_value</strong>，String格式，替换查找到的符合条件的数据<br>作用：<strong>改变文档中符合条件的节点的值</strong><br>改变XML_document中符合XPATH_string的值<br>而我们的注入语句为：<br><code>updatexml(1,concat(0x7e,(SELECT @@version),0x7e),1)</code><br>其中的 concat() 函数是将其连成一个字符串，因此不会符合XPATH_string的格式，从而出现格式错误，爆出<br><code>ERROR 1105 (HY000): XPATH syntax error: ':root@localhost'</code></p>
+<p>先来看一下updatexml()函数<br><code>UPDATEXML (XML_document, XPath_string, new_value);</code><br>第一个参数：<strong>XML_document</strong>是String格式，为XML文档对象的名称，文中为Doc<br>第二个参数：<strong>XPath_string</strong> (Xpath格式的字符串) ，如果不了解Xpath语法，可以在网上查找教程。<br>第三个参数：<strong>new_value</strong>，String格式，替换查找到的符合条件的数据<br>作用：<strong>改变文档中符合条件的节点的值</strong><br>改变XML_document中符合XPATH_string的值<br>而我们的注入语句为：<br><code>updatexml(1,concat(0x7e,(SELECT @@version),0x7e),1)</code><br>其中的 concat() 函数是将其连成一个字符串，因此不会符合XPATH_string的格式，从而出现格式错误，爆出<br><code>ERROR 1105 (HY000): XPATH syntax error: &#39;:root@localhost&#39;</code></p>
 </blockquote>
 <h5 id="继续Python编写exp"><a href="#继续Python编写exp" class="headerlink" title="继续Python编写exp"></a>继续Python编写exp</h5><p>更新一下脚本就行了：</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python</span>
@@ -1824,25 +1824,7 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
 <p>登录后台拿到flag：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201116174014181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><strong>flag： flag{sql_iNJEct_comMon3600!}</strong> </p>
 <h3 id="孙xx的博客"><a href="#孙xx的博客" class="headerlink" title="孙xx的博客"></a>孙xx的博客</h3><p>这题不用看了，phpmyadmin没了，那就是突破点</p>
 <h3 id="Trim的日记本"><a href="#Trim的日记本" class="headerlink" title="Trim的日记本"></a>Trim的日记本</h3><h5 id="目录扫描-3"><a href="#目录扫描-3" class="headerlink" title="目录扫描"></a>目录扫描</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201116182457297.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>成功拿到flag：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20201116182546985.png#pic_center" alt="在这里插入图片描述"><br><strong>flag：flag1:{0/m9o9PDtcSyu7Tt}</strong></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -2640,7 +2622,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2847,8 +2829,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

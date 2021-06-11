@@ -859,6 +859,10 @@
                                 <span class="chip bg-color">代码审计</span>
                             </a>
                         
+                            <a href="/tags/Exp/" target="_blank">
+                                <span class="chip bg-color">Exp</span>
+                            </a>
+                        
                             <a href="/tags/PHP/" target="_blank">
                                 <span class="chip bg-color">PHP</span>
                             </a>
@@ -867,16 +871,12 @@
                                 <span class="chip bg-color">0day</span>
                             </a>
                         
-                            <a href="/tags/漏洞挖掘/" target="_blank">
-                                <span class="chip bg-color">漏洞挖掘</span>
-                            </a>
-                        
                             <a href="/tags/漏洞复现/" target="_blank">
                                 <span class="chip bg-color">漏洞复现</span>
                             </a>
                         
-                            <a href="/tags/Exp/" target="_blank">
-                                <span class="chip bg-color">Exp</span>
+                            <a href="/tags/漏洞挖掘/" target="_blank">
+                                <span class="chip bg-color">漏洞挖掘</span>
                             </a>
                         
                             <a href="/tags/文件上传/" target="_blank">
@@ -917,7 +917,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        702
+                        650
                     </div>
                     
 
@@ -941,18 +941,18 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这个漏洞的前提就是要有他的后台账号密码，结合之前审计的SQL注入漏洞，就能把它的威力发挥到最大。<br><a href="https://imgtu.com/i/6CRx54" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6CRx54.md.png" alt=""></a></p>
-<h3 id="漏洞挖掘"><a href="#漏洞挖掘" class="headerlink" title="漏洞挖掘"></a>漏洞挖掘</h3><p>这里还是用的我本地的站点（主要他的站上了WAF，实在是能力有限），先跑一下之前写好的exp，拿到后台账号admin，密码Admin888<br><a href="https://imgtu.com/i/6CfLAU" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6CfLAU.png" alt=""></a></p>
-<p>登陆后台后来到 商品管理–&gt; 文件管理–&gt; 上传文件<br><a href="https://imgtu.com/i/6ChCB6" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6ChCB6.png" alt=""></a></p>
-<p>这里先上传一个图片马<br><a href="https://imgtu.com/i/6ChA4e" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6ChA4e.png" alt=""></a></p>
-<p>将后缀名改为.php，然后访问文件，成功解析<br><a href="https://imgtu.com/i/6ChZ3d" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6ChZ3d.png" alt=""></a></p>
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这个漏洞的前提就是要有他的后台账号密码，结合之前审计的SQL注入漏洞，就能把它的威力发挥到最大。<br><a href="https://imgtu.com/i/6CRx54" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6CRx54.md.png" alt></a></p>
+<h3 id="漏洞挖掘"><a href="#漏洞挖掘" class="headerlink" title="漏洞挖掘"></a>漏洞挖掘</h3><p>这里还是用的我本地的站点（主要他的站上了WAF，实在是能力有限），先跑一下之前写好的exp，拿到后台账号admin，密码Admin888<br><a href="https://imgtu.com/i/6CfLAU" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6CfLAU.png" alt></a></p>
+<p>登陆后台后来到 商品管理–&gt; 文件管理–&gt; 上传文件<br><a href="https://imgtu.com/i/6ChCB6" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6ChCB6.png" alt></a></p>
+<p>这里先上传一个图片马<br><a href="https://imgtu.com/i/6ChA4e" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6ChA4e.png" alt></a></p>
+<p>将后缀名改为.php，然后访问文件，成功解析<br><a href="https://imgtu.com/i/6ChZ3d" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6ChZ3d.png" alt></a></p>
 <p>等等！当我准备连接的时候！我发现一个问题！我大意了啊，我发现应用程序将我上传后的图片进行了二次渲染，也就是只取出渲染后图片的那一部分内容，重新命名xxx.jpg，于是，我又反过头去看了一下源码，才明白其中的奥妙</p>
-<h3 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h3><p>如图，重点就在这里，imagecreatefromgif()这个函数对图片进行了二次渲染<br><a href="https://imgtu.com/i/6ChaD0" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6ChaD0.png" alt=""></a></p>
+<h3 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h3><p>如图，重点就在这里，imagecreatefromgif()这个函数对图片进行了二次渲染<br><a href="https://imgtu.com/i/6ChaD0" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6ChaD0.png" alt></a></p>
 <p>那么接下来就是去绕过这个函数的渲染，详(tong)细(ku)的过程就不一一做笔记了，主要分以下几步：</p>
 <p>1、先上传一张xxx.gif的动态图，经过二次渲染会变成xxx.jpg<br>2、把xxx.jpg下载下来，再次制作图片马，假如名字为a.jpg，我们再次上传<br>3、把渲染过的a.jpg下载下来，这里改名为b.jpg<br>4、用C32Asm进行对比，将图片a与图片b中内容一致的内容，修改成php一句话木马<br>5、上传，改后缀名即可</p>
-<p>原图a.jpg：<br><a href="https://imgtu.com/i/6C48Z6" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C48Z6.png" alt=""></a></p>
-<p>成功上传后的图b.jpg：<br><a href="https://imgtu.com/i/6C4azd" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4azd.png" alt=""></a></p>
-<h3 id="Getshell"><a href="#Getshell" class="headerlink" title="Getshell"></a>Getshell</h3><p>直接连接一下就行了，这次审计没白忙活啊！又学会了新的上传绕过姿势，美汁儿汁儿~<br><a href="https://imgtu.com/i/6C4BLt" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4BLt.png" alt=""></a></p>
+<p>原图a.jpg：<br><a href="https://imgtu.com/i/6C48Z6" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C48Z6.png" alt></a></p>
+<p>成功上传后的图b.jpg：<br><a href="https://imgtu.com/i/6C4azd" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4azd.png" alt></a></p>
+<h3 id="Getshell"><a href="#Getshell" class="headerlink" title="Getshell"></a>Getshell</h3><p>直接连接一下就行了，这次审计没白忙活啊！又学会了新的上传绕过姿势，美汁儿汁儿~<br><a href="https://imgtu.com/i/6C4BLt" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4BLt.png" alt></a></p>
 <h3 id="临时修复"><a href="#临时修复" class="headerlink" title="临时修复"></a>临时修复</h3><p>可以看到，这个文件上传的根本原因出现在<strong>改名</strong>这个操作上，是因为开发者太信任用户的操作，这是不对的，所以这里我对它的改名做了一个微调，用户只要想修改文件名，没问题，但是改完后的文件我会强制定义为 <strong>.jpg</strong>格式</p>
 <p>部分代码：</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">case</span> <span class="token string">"sfe"</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">//文件改名                                                 </span>
@@ -965,29 +965,11 @@
 <span class="token function">rename</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">.</span><span class="token variable">$c</span><span class="token punctuation">,</span><span class="token variable">$a</span><span class="token punctuation">.</span><span class="token variable">$b</span><span class="token punctuation">.</span><span class="token string">'.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       
 <span class="token keyword">echo</span> <span class="token string">'{"msg":"ok"}'</span><span class="token punctuation">;</span>                                               
 <span class="token keyword">break</span><span class="token punctuation">;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>来看一下修改后的效果，先上传一个图片马<br><a href="https://imgtu.com/i/6C42WQ" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C42WQ.png" alt=""></a></p>
-<p>尝试改名为sb.php<br><a href="https://imgtu.com/i/6C4Ie0" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4Ie0.png" alt=""></a></p>
-<p>成功拦截<br><a href="https://imgtu.com/i/6C4bYF" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4bYF.png" alt=""></a></p>
-<p>到服务器看一下，结果是一样的<br><a href="https://imgtu.com/i/6C4OSJ" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4OSJ.png" alt=""></a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<p>来看一下修改后的效果，先上传一个图片马<br><a href="https://imgtu.com/i/6C42WQ" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C42WQ.png" alt></a></p>
+<p>尝试改名为sb.php<br><a href="https://imgtu.com/i/6C4Ie0" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4Ie0.png" alt></a></p>
+<p>成功拦截<br><a href="https://imgtu.com/i/6C4bYF" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4bYF.png" alt></a></p>
+<p>到服务器看一下，结果是一样的<br><a href="https://imgtu.com/i/6C4OSJ" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s3.ax1x.com/2021/02/28/6C4OSJ.png" alt></a></p>
+
             </div>
             <hr/>
 
@@ -1531,6 +1513,10 @@
                         <span class="chip bg-color">代码审计</span>
                     </a>
                     
+                    <a href="/tags/Exp/" target="_blank">
+                        <span class="chip bg-color">Exp</span>
+                    </a>
+                    
                     <a href="/tags/PHP/" target="_blank">
                         <span class="chip bg-color">PHP</span>
                     </a>
@@ -1539,16 +1525,12 @@
                         <span class="chip bg-color">0day</span>
                     </a>
                     
-                    <a href="/tags/漏洞挖掘/" target="_blank">
-                        <span class="chip bg-color">漏洞挖掘</span>
-                    </a>
-                    
                     <a href="/tags/漏洞复现/" target="_blank">
                         <span class="chip bg-color">漏洞复现</span>
                     </a>
                     
-                    <a href="/tags/Exp/" target="_blank">
-                        <span class="chip bg-color">Exp</span>
+                    <a href="/tags/漏洞挖掘/" target="_blank">
+                        <span class="chip bg-color">漏洞挖掘</span>
                     </a>
                     
                     <a href="/tags/任意文件删除/" target="_blank">
@@ -1604,6 +1586,10 @@
                         <span class="chip bg-color">代码审计</span>
                     </a>
                     
+                    <a href="/tags/Exp/" target="_blank">
+                        <span class="chip bg-color">Exp</span>
+                    </a>
+                    
                     <a href="/tags/PHP/" target="_blank">
                         <span class="chip bg-color">PHP</span>
                     </a>
@@ -1612,20 +1598,16 @@
                         <span class="chip bg-color">0day</span>
                     </a>
                     
+                    <a href="/tags/漏洞复现/" target="_blank">
+                        <span class="chip bg-color">漏洞复现</span>
+                    </a>
+                    
                     <a href="/tags/SQL注入/" target="_blank">
                         <span class="chip bg-color">SQL注入</span>
                     </a>
                     
                     <a href="/tags/漏洞挖掘/" target="_blank">
                         <span class="chip bg-color">漏洞挖掘</span>
-                    </a>
-                    
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
-                    </a>
-                    
-                    <a href="/tags/Exp/" target="_blank">
-                        <span class="chip bg-color">Exp</span>
                     </a>
                     
                 </div>
@@ -1821,7 +1803,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2028,8 +2010,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

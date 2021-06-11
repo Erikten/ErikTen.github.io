@@ -957,7 +957,7 @@ bak  CentOS7-Base-163.repo  mysql-community.repo  mysql-community-source.repo</c
 4月 24 14:08:11 192.168.2.15 systemd[1]: Started MySQL Server.
 </code></pre><h3 id="5、登录MySQL"><a href="#5、登录MySQL" class="headerlink" title="5、登录MySQL"></a>5、登录MySQL</h3><p>由于MySQL5.7安装了密码安全检查插件validate_password，默认密码检查策略要求密码必须包含大写字母、小写字母、数字和特殊符号，并且长度不能少于8位。在安装完并启动成功后，会生成一个临时密码（用于登录），登录后要求必须重设密码。</p>
 <p>临时密码在MySQL日志中查找，命令如下：</p>
-<pre><code>[root@192 ~]# grep "temporary password" /var/log/mysqld.log 
+<pre><code>[root@192 ~]# grep &quot;temporary password&quot; /var/log/mysqld.log 
 2021-04-24T06:08:09.706535Z 1 [Note] A temporary password is generated for root@localhost: p-jWunqy#2q0</code></pre><p>可以看到临时密码为“p-jWunqy#2q0”，然后使用改密码登录MySQL并修改密码，命令如下：</p>
 <pre><code>[root@192 ~]# mysql -uroot -p
 Enter password:                 #输入临时密码“p-jWunqy#2q0”,按回车确认。
@@ -971,7 +971,7 @@ Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
 owners.
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
 
 mysql&gt;      #MySQL命令提示符
 
@@ -980,7 +980,7 @@ mysql&gt; show databases;
 ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.
 
 #修改密码
-mysql&gt;  ALTER USER 'root'@'localhost' IDENTIFIED BY 'CentOS@7';
+mysql&gt;  ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;CentOS@7&#39;;
 Query OK, 0 rows affected (0.00 sec)
 
 #更新权限列表
@@ -1001,7 +1001,7 @@ validate_password = off</code></pre><h2 id="三、MySQL的配置与优化"><a hr
 Securing the MySQL server deployment.
 
 Enter password for user root:                         #输入root密码（如果未设置则输入临时密码）
-The 'validate_password' plugin is installed on the server.
+The &#39;validate_password&#39; plugin is installed on the server.
 The subsequent steps will run with the existing configuration
 of the plugin.
 Using existing password for root.
@@ -1027,13 +1027,13 @@ Success.
 
 
 Normally, root should only be allowed to connect from
-'localhost'. This ensures that someone cannot guess at
+&#39;localhost&#39;. This ensures that someone cannot guess at
 the root password from the network.
 #是否禁止root用户远程登录
 Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y
 Success.
 
-By default, MySQL comes with a database named 'test' that
+By default, MySQL comes with a database named &#39;test&#39; that
 anyone can access. This is also intended only for testing,
 and should be removed before moving into a production
 environment.
@@ -1065,9 +1065,9 @@ Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
 owners.
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
 
-mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' IDENTIFIED BY 'Centos@11';
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;Centos@11&#39;;
 Query OK, 0 rows affected, 1 warning (0.01 sec)
 
 mysql&gt; flush privileges;
@@ -1104,18 +1104,18 @@ mysql&gt;SHOW TABLES FROM 数据库名；</code></pre><h4 id="3-增加用户"><a
 
 该操作只能创建用户，不能赋予权限
 
-用户名，注意加引号:如"user name"＠192.168.100100。密码也需要加引号，纯数字密码也要加引号
+用户名，注意加引号:如&quot;user name&quot;＠192.168.100100。密码也需要加引号，纯数字密码也要加引号
 
 要求密码必须包含大写字母、小写字母、数字和特殊符号，并且长度不能少于8位
 
- 例： CREATE USER "user" IDENTIFIED BY "Redhat##332"</code></pre><h4 id="4-为用户设置密码"><a href="#4-为用户设置密码" class="headerlink" title="4)为用户设置密码"></a>4)为用户设置密码</h4><pre><code>mysq&gt;SET PASSWORD=PASSWORD(密码);
+ 例： CREATE USER &quot;user&quot; IDENTIFIED BY &quot;Redhat##332&quot;</code></pre><h4 id="4-为用户设置密码"><a href="#4-为用户设置密码" class="headerlink" title="4)为用户设置密码"></a>4)为用户设置密码</h4><pre><code>mysq&gt;SET PASSWORD=PASSWORD(密码);
 为当前用户设置密码
 
 mysq&gt;SET PASSWORD FOR 用户名 PASSWORD (密码);
 为指定用户设置密码
 </code></pre><h4 id="5-删除用户"><a href="#5-删除用户" class="headerlink" title="5)删除用户"></a>5)删除用户</h4><pre><code>mysql＞ DROP USER 用户名;
 
-例: DROP USER user;</code></pre><h4 id="6-分配权限和添加用户"><a href="#6-分配权限和添加用户" class="headerlink" title="6)分配权限和添加用户"></a>6)分配权限和添加用户</h4><pre><code>mysq&gt;GRANT  权限列表 ON 库名.表名  TO  "用户名"@"%" IDENTIFIED BY "PASSWORD" 
+例: DROP USER user;</code></pre><h4 id="6-分配权限和添加用户"><a href="#6-分配权限和添加用户" class="headerlink" title="6)分配权限和添加用户"></a>6)分配权限和添加用户</h4><pre><code>mysq&gt;GRANT  权限列表 ON 库名.表名  TO  &quot;用户名&quot;@&quot;%&quot; IDENTIFIED BY &quot;PASSWORD&quot; 
 
 --all privileges表示所有权限
 
@@ -1134,7 +1134,7 @@ mysq&gt;SET PASSWORD FOR 用户名 PASSWORD (密码);
     systemctl  restart mysqld
 4、不需要用户、密码，直接登录mysql,修改root用户密码
     mysql
-mysql&gt;update mysql.user set authentication_string=password('123456') where  User='root' and Host='localhost';
+mysql&gt;update mysql.user set authentication_string=password(&#39;123456&#39;) where  User=&#39;root&#39; and Host=&#39;localhost&#39;;
 mysql&gt;flush privileges;
 mysql&gt;\q
 5、在配置文件中，去掉跳过授权
@@ -1144,25 +1144,7 @@ mysql&gt;\q
     ############################
 6、重启mysql，使用新密码登录
     systemctl restart mysqld
-    mysql -uroot -p123456</code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+    mysql -uroot -p123456</code></pre>
             </div>
             <hr/>
 
@@ -1948,7 +1930,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2155,8 +2137,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

@@ -1056,7 +1056,7 @@ httpd-2.4.6-97.el7.centos.x86_64</code></pre><p>查看使用YUM安装Apache后�
 firewall-cmd  --reload</code></pre><p>在浏览器使用“http://&lt;服务器IP&gt;”进行访问。</p>
 <h2 id="三、Apache的配置与管理"><a href="#三、Apache的配置与管理" class="headerlink" title="三、Apache的配置与管理"></a>三、Apache的配置与管理</h2><h3 id="3-1-Apache主配置文件"><a href="#3-1-Apache主配置文件" class="headerlink" title="3.1    Apache主配置文件"></a>3.1    Apache主配置文件</h3><p>在使用YUM 安装Apache服务后，在/etc/httpd/conf目录下包含了主配置文件httpd.conf；在/etc/httpd/conf.d/目录下包含了一些独立出来的配置文件；在/usr/share/doc/httpd-2.4.6目录下包含了一些常用配置为模板。</p>
 <h4 id="1、全局配置部分"><a href="#1、全局配置部分" class="headerlink" title="1、全局配置部分"></a>1、全局配置部分</h4><pre><code>#Apache安装目录
-ServerRoot "/etc/httpd"
+ServerRoot &quot;/etc/httpd&quot;
 
 #指定监听端口
 Listen 80
@@ -1067,7 +1067,7 @@ Include conf.modules.d/*.conf
 #指定运行Apache程序的用户
 User apache
 Group apache
-</code></pre><h4 id="2、主服务配置部分"><a href="#2、主服务配置部分" class="headerlink" title="2、主服务配置部分"></a>2、主服务配置部分</h4><pre><code># 'Main' server configuration
+</code></pre><h4 id="2、主服务配置部分"><a href="#2、主服务配置部分" class="headerlink" title="2、主服务配置部分"></a>2、主服务配置部分</h4><pre><code># &#39;Main&#39; server configuration
 
 #网站管理员邮箱
 ServerAdmin root@localhost
@@ -1085,17 +1085,17 @@ ServerAdmin root@localhost
 
 
 #指定网站主目录存放位置
-DocumentRoot "/var/www/html"
+DocumentRoot &quot;/var/www/html&quot;
 
 #配置/var/www/目录的权限
-&lt;Directory "/var/www"&gt;
+&lt;Directory &quot;/var/www&quot;&gt;
     AllowOverride None
     # Allow open access:
     Require all granted
 &lt;/Directory&gt;
 
 #配置/var/www/html/目录的权限
-&lt;Directory "/var/www/html"&gt;
+&lt;Directory &quot;/var/www/html&quot;&gt;
     Options Indexes FollowSymLinks
     AllowOverride None
     Require all granted
@@ -1108,12 +1108,12 @@ DocumentRoot "/var/www/html"
 &lt;/IfModule&gt;
 
 #&lt;Files&gt;指令提供了基于文件名的访问控制，类似于&lt;Directory&gt;和&lt;Location&gt;指令
-&lt;Files ".ht*"&gt;
+&lt;Files &quot;.ht*&quot;&gt;
     Require all denied
 &lt;/Files&gt;
 
 #配置主站点错误日志位置
-ErrorLog "logs/error_log"
+ErrorLog &quot;logs/error_log&quot;
 
 #配置日志级别
 LogLevel warn
@@ -1121,16 +1121,16 @@ LogLevel warn
 #IfModuole标签其作用是先检查当前模块是否已经加载，若已经加载，则标签中的配置有效，若没有加载，则标签中的配置无效。
 &lt;IfModule log_config_module&gt;
 
-    LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-    LogFormat "%h %l %u %t \"%r\" %&gt;s %b" common
+    LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%{Referer}i\&quot; \&quot;%{User-Agent}i\&quot;&quot; combined
+    LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b&quot; common
 
     &lt;IfModule logio_module&gt;
       # You need to enable mod_logio.c to use %I and %O
-      LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+      LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%{Referer}i\&quot; \&quot;%{User-Agent}i\&quot; %I %O&quot; combinedio
     &lt;/IfModule&gt;
 
 
-    CustomLog "logs/access_log" combined
+    CustomLog &quot;logs/access_log&quot; combined
 &lt;/IfModule&gt;
 
 #把conf.d目录下以“.conf”结尾的配置文件合并到主配置文件。
@@ -1182,7 +1182,7 @@ Limit
 
 Options[=Option,...]
 允许使用控制指定目录功能的指令(Options和XBitHack)。
-可以在等号后面附加一个逗号分隔的(无空格的)Options选项列表，用来控制允许Options指令使用哪些选项。</code></pre><h3 id="3-2-基本配置"><a href="#3-2-基本配置" class="headerlink" title="3.2    基本配置"></a>3.2    基本配置</h3><h4 id="1、删除默认欢迎页配置"><a href="#1、删除默认欢迎页配置" class="headerlink" title="1、删除默认欢迎页配置"></a>1、删除默认欢迎页配置</h4><pre><code>rm -rf /etc/httpd/conf.d/welcome.conf </code></pre><h4 id="2、新建主页文件"><a href="#2、新建主页文件" class="headerlink" title="2、新建主页文件"></a>2、新建主页文件</h4><pre><code>echo "My First Page" &gt;/var/www/html/index.html</code></pre><h4 id="3、优化配置"><a href="#3、优化配置" class="headerlink" title="3、优化配置"></a>3、优化配置</h4><p>通过修改配置文件可以优化Apache服务。在/usr/share/doc/httpd-2.4.6目录下有模板文件httpd-default.conf,我们可以拷贝模板文件到/etc/httpd/conf.d/目录下，进行修改：</p>
+可以在等号后面附加一个逗号分隔的(无空格的)Options选项列表，用来控制允许Options指令使用哪些选项。</code></pre><h3 id="3-2-基本配置"><a href="#3-2-基本配置" class="headerlink" title="3.2    基本配置"></a>3.2    基本配置</h3><h4 id="1、删除默认欢迎页配置"><a href="#1、删除默认欢迎页配置" class="headerlink" title="1、删除默认欢迎页配置"></a>1、删除默认欢迎页配置</h4><pre><code>rm -rf /etc/httpd/conf.d/welcome.conf </code></pre><h4 id="2、新建主页文件"><a href="#2、新建主页文件" class="headerlink" title="2、新建主页文件"></a>2、新建主页文件</h4><pre><code>echo &quot;My First Page&quot; &gt;/var/www/html/index.html</code></pre><h4 id="3、优化配置"><a href="#3、优化配置" class="headerlink" title="3、优化配置"></a>3、优化配置</h4><p>通过修改配置文件可以优化Apache服务。在/usr/share/doc/httpd-2.4.6目录下有模板文件httpd-default.conf,我们可以拷贝模板文件到/etc/httpd/conf.d/目录下，进行修改：</p>
 <pre><code>[root@server1 ~]# cp /usr/share/doc/httpd-2.4.6/httpd-default.conf /etc/httpd/conf.d/
 [root@server1 ~]# vim /etc/httpd/conf.d/httpd-default.conf 
 
@@ -1214,7 +1214,7 @@ HostnameLookups Off
 重启Apache服务使配置文效
 systemctl restart httpd</code></pre><h3 id="3-3-身份认证"><a href="#3-3-身份认证" class="headerlink" title="3.3    身份认证"></a>3.3    身份认证</h3><p>当网站设置了隐私内容时，或许网站不希望对所有人开放时，可以使用Apache提供的身份验证功能来指定允许浏览网站的用户。</p>
 <h4 id="1、创建需要保护的站点"><a href="#1、创建需要保护的站点" class="headerlink" title="1、创建需要保护的站点"></a>1、创建需要保护的站点</h4><pre><code>[root@server1 ~]# mkdir /var/www/html/secret
-[root@server1 ~]# echo "This is secret page" &gt; /var/www/html/secret/index.html</code></pre><h4 id="2、创建密码文件"><a href="#2、创建密码文件" class="headerlink" title="2、创建密码文件"></a>2、创建密码文件</h4><p>首先需要在服务器上创建一个密码文件，此文件应该放置在无法通过web访问的位置，以免密码泄露。</p>
+[root@server1 ~]# echo &quot;This is secret page&quot; &gt; /var/www/html/secret/index.html</code></pre><h4 id="2、创建密码文件"><a href="#2、创建密码文件" class="headerlink" title="2、创建密码文件"></a>2、创建密码文件</h4><p>首先需要在服务器上创建一个密码文件，此文件应该放置在无法通过web访问的位置，以免密码泄露。</p>
 <pre><code>
 [root@server1 ~]# mkdir   /etc/httpd/passwd
 [root@server1 ~]# htpasswd -c /etc/httpd/passwd/passwords user1
@@ -1228,9 +1228,9 @@ Re-type new password:
 Adding password for user user2
 </code></pre><h4 id="3、修改Apache配置文件以支持基本身份验证"><a href="#3、修改Apache配置文件以支持基本身份验证" class="headerlink" title="3、修改Apache配置文件以支持基本身份验证"></a>3、修改Apache配置文件以支持基本身份验证</h4><pre><code>[root@server1 ~]# vim /etc/httpd/conf.d/secret.conf
 
-&lt;Directory "/var/www/html/secret"&gt;
+&lt;Directory &quot;/var/www/html/secret&quot;&gt;
 AuthType Basic
-AuthName "please enter your name &amp; passwd"
+AuthName &quot;please enter your name &amp; passwd&quot;
 AuthBasicProvider file
 AuthUserFile /etc/httpd/passwd/passwords
 Require valid-user
@@ -1446,7 +1446,7 @@ www.cc.com</code></pre><h3 id="3-5-配置支持PHP"><a href="#3-5-配置支持PH
 [root@server1 ~]# rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</code></pre><h4 id="2、安装PHP5-6及其组件"><a href="#2、安装PHP5-6及其组件" class="headerlink" title="2、安装PHP5.6及其组件"></a>2、安装PHP5.6及其组件</h4><pre><code>[root@server1 ~]# yum list php56*     #列出可用组件
 [root@server1 ~]# yum -y install php56w php56w-cli php56w-common php56w-devel php56-wembedded php56w-gd php56w-mbstring php56w-pdo php56w-xml php56w-fpm php56w-mysqlnd  php56w-opcache</code></pre><h4 id="3、验证"><a href="#3、验证" class="headerlink" title="3、验证"></a>3、验证</h4><p>在安装完成后重新启动Apache，创建PHP测试页面进行验证。</p>
 <pre><code>[root@server1 ~]# systemctl restart httpd
-[root@server1 ~]# echo '&lt;?php phpinfo() ?&gt;' &gt; /var/www/html/index.php</code></pre><p>确保防火墙关闭，或者防火墙开启策略放行TCP协议的80端口。然后使用浏览器输入地址验证：http://&lt;服务器IP&gt;</p>
+[root@server1 ~]# echo &#39;&lt;?php phpinfo() ?&gt;&#39; &gt; /var/www/html/index.php</code></pre><p>确保防火墙关闭，或者防火墙开启策略放行TCP协议的80端口。然后使用浏览器输入地址验证：http://&lt;服务器IP&gt;</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:%5CUsers%5CPing%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210423032628861.png" alt="image-20210423032628861"></p>
 <h3 id="3-6-配置ssl加密传输"><a href="#3-6-配置ssl加密传输" class="headerlink" title="3.6 配置ssl加密传输"></a>3.6 配置ssl加密传输</h3><p>​    SSL(Secure  Socket Layer，安全套接字层)及其后续版本TLS（Transport Layer Security,传输层安全协议）都是将正常数据封装在受保护的加密包中的web协议。利用这样的技术，服务器与客户端之间可以发送加密的数据，而不用担心消息被外部拦截和读取。</p>
 <p>HTTPS是在HTTP上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。现在它被广泛用于万维网上安全敏感的通讯，例如交易支付方面。</p>
@@ -1475,7 +1475,7 @@ State or Province Name (full name) []:
 Locality Name (eg, city) [Default City]:
 Organization Name (eg, company) [Default Company Ltd]:
 Organizational Unit Name (eg, section) []:
-Common Name (eg, your name or your server's hostname) []:         #重点，输出站点绑定的域名或IP
+Common Name (eg, your name or your server&#39;s hostname) []:         #重点，输出站点绑定的域名或IP
 Email Address []:</code></pre><h4 id="3、修改Apache配置文件以支持SSL"><a href="#3、修改Apache配置文件以支持SSL" class="headerlink" title="3、修改Apache配置文件以支持SSL"></a>3、修改Apache配置文件以支持SSL</h4><p>通过上一步创建的密钥和证书分别被放在了/etc/pki/tls/private/和/etc/pki/tls/certs/目录下，我们需要在Apache配置文件中指定该位置。</p>
 <pre><code>[root@server1 ~]# vim /etc/httpd/conf.d/ssl.conf
 
@@ -1501,7 +1501,7 @@ SSLCertificateKeyFile /etc/pki/tls/private/server.key  #修改
     SSLCertificateKeyFile    /etc/pki/tls/private/server.key        #指定密钥位置
     DocumentRoot /var/www/101/
 
-     &lt;Directory "/var/www/101/"&gt;
+     &lt;Directory &quot;/var/www/101/&quot;&gt;
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
@@ -1516,7 +1516,7 @@ SSLCertificateKeyFile /etc/pki/tls/private/server.key  #修改
 
 &lt;VirtualHost 192.168.2.9:80&gt;
         ServerName www.aa.com
-        Redirect "/" "https://192.168.2.9"
+        Redirect &quot;/&quot; &quot;https://192.168.2.9&quot;
 &lt;/VirtualHost&gt;
 </code></pre><p>重启Apache使配置生效。</p>
 <pre><code>[root@server1 ~]# systemctl restart httpd</code></pre><p>现在在浏览器地址栏输入<a href="http://192.168.2.9" target="_blank" rel="noopener">http://192.168.2.9</a> 会自动跳转到<a href="https://192.168.2.9" target="_blank" rel="noopener">https://192.168.2.9</a></p>
@@ -1546,7 +1546,7 @@ LogFormat "%h %l %u %t \"%r\" %>s %b" common<span aria-hidden="true" class="line
 <p>这是访问服务器的用户ID，这个ID是由HTTP身份验证来确定的，这个值一般是保存到远程用户环境变量中的CGI脚本中。如果服务器不信任此值，因为用户尚未通过身份验证。如果文档不受密码保护，则此部分将与前一部分一样为“-”。</p>
 <p>Ø [19/Oct/2019:16:23:19 +0800] (%t)</p>
 <p>表示访问服务器时，服务器的时间。+0800表示服务器所处时区位于UTC之后的8小时。</p>
-<p>Ø GET /ecshop3/images/201605/thumb_img/62_thumb_G_1462952557730.jpg HTTP/1.1("%r")</p>
+<p>Ø GET /ecshop3/images/201605/thumb_img/62_thumb_G_1462952557730.jpg HTTP/1.1(&quot;%r&quot;)</p>
 <p>表示访问服务器的资源的相关信息，包括请求方式、服务器资源位置、客户端向服务器发送请求时的协议和协议版本信息。</p>
 <p>Ø 200 (%&gt;s)</p>
 <p>这表示客户端请求服务器后返回的状态码，此信息非常有价值，它揭示了请求是否成功以及失败的。关于HTTP响应状态码的详细可以查看HTTP规范RFC2616第10节内容。</p>
@@ -1555,9 +1555,9 @@ LogFormat "%h %l %u %t \"%r\" %>s %b" common<span aria-hidden="true" class="line
 <p><strong>Combined 格式的日志内容如下：</strong></p>
 <pre class="line-numbers language-text"><code class="language-text">127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326 "http://www.example.com/start.html" "Mozilla/4.08 [en] (Win98; I ;Nav)"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Combined 日志内容与common日志内容信息差不多，只是多出了以下两个字段：</p>
-<p>Ø “<a href="http://www.example.com/start.html&quot;(\&quot;%{Referer}i\&quot;)" target="_blank" rel="noopener">http://www.example.com/start.html"(\"%{Referer}i\")</a></p>
+<p>Ø “<a href="http://www.example.com/start.html&quot;(\&quot;%{Referer}i\&quot;)" target="_blank" rel="noopener">http://www.example.com/start.html&quot;(\&quot;%{Referer}i\&quot;)</a></p>
 <p>表示客户端所访问资源的引用站点。如实例中表示是所访问资源apache_pb.gif的链接或包含apache_pb.gif的页面。</p>
-<p>Ø “Mozilla/4.08 [en] (Win98; I ;Nav)”("%{User-agent}i")</p>
+<p>Ø “Mozilla/4.08 [en] (Win98; I ;Nav)”(&quot;%{User-agent}i&quot;)</p>
 <p>表示发送HTTP请求的客户端自身的标识信息。</p>
 <h4 id="3、-error-log日志文件"><a href="#3、-error-log日志文件" class="headerlink" title="3、 error_log日志文件"></a>3、 error_log日志文件</h4><p>error_log记录两类错误信息：一是文档类的错误信息；二是CGI编译类的错误信息；是最要的日志文件之一，错误日志命名和位置是由ErrorLog指令来设置，error_log日志文件会记录处理请求时遇到的任何错误相关信息，当启动服务器或服务器操作出现问题时，首先会分析error_log日志文件，分析错误的详细信息以及如何解决问题。</p>
 <p>error_log错误日志路径设置如下：</p>
@@ -1574,8 +1574,8 @@ LogFormat "%h %l %u %t \"%r\" %>s %b" common<span aria-hidden="true" class="line
 
 第五部分内容表示错误的详细信息，这种情况表示找不到资源，所访问的资源不存在。</code></pre><p>在linux或unix操作系统下，如果需要动态查看日志信息变化情况可以使用以下命令：</p>
 <pre><code>tail -f error_log</code></pre><h4 id="4、Apache日志格式定制"><a href="#4、Apache日志格式定制" class="headerlink" title="4、Apache日志格式定制"></a>4、Apache日志格式定制</h4><p>参考默认日志格式</p>
-<pre><code>LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-LogFormat "%h %l %u %t \"%r\" %&gt;s %b" common</code></pre><p>Apache文档已经给出了所有可用于格式串的变量及其含义，下面是其译文：</p>
+<pre><code>LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%{Referer}i\&quot; \&quot;%{User-Agent}i\&quot;&quot; combined
+LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b&quot; common</code></pre><p>Apache文档已经给出了所有可用于格式串的变量及其含义，下面是其译文：</p>
 <pre><code>
 %...a: 远程IP地址
 %...A: 本地IP地址
@@ -1601,25 +1601,7 @@ LogFormat "%h %l %u %t \"%r\" %&gt;s %b" common</code></pre><p>Apache文档已�
 %...u: 远程用户（来自auth；如果返回状态（%s）是401则可能是伪造的）
 %...U: 用户所请求的URL路径
 %...v: 响应请求的服务器的ServerName
-%...V: 依照UseCanonicalName设置得到的服务器名字</code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+%...V: 依照UseCanonicalName设置得到的服务器名字</code></pre>
             </div>
             <hr/>
 
@@ -2406,7 +2388,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2613,8 +2595,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

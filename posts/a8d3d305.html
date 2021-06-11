@@ -959,7 +959,7 @@ firewall-cmd  --reload</code></pre></li>
 <pre><code>rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</code></pre><p>2) 安装PHP7.2</p>
 <pre><code>[root@server1 ~]# yum -y install php72w php72w-cli php72w-common php72w-devel php72w-embedded php72w-gd php72w-mbstring php72w-pdo php72w-xml php72w-fpm php72w-mysqlnd  php72w-opcache</code></pre><p>3）创建php测试主页并验证</p>
-<pre><code>[root@server1 ~]# echo '&lt;?php phpinfo() ?&gt;' &gt; /var/www/html/index.php
+<pre><code>[root@server1 ~]# echo &#39;&lt;?php phpinfo() ?&gt;&#39; &gt; /var/www/html/index.php
 [root@server1 ~]# systemctl restart httpd</code></pre><p>4）测试浏览器能正常访问到php测试页面</p>
 </li>
 </ul>
@@ -968,21 +968,21 @@ rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</code></pre><p
 <pre><code>[root@192 ~]# yum -y install mysql-server</code></pre><p>​    3）启动mysql</p>
 <pre><code>[root@192 ~]# systemctl start mysqld        #启动MySQL
 [root@192 ~]# systemctl enable mysqld        #设置MySQL服务开机自启</code></pre><p>​    4）修改数据库临时密码</p>
-<pre><code>password=$(grep "temporary password" /var/log/mysqld.log  | awk '{print $NF}') 
+<pre><code>password=$(grep &quot;temporary password&quot; /var/log/mysqld.log  | awk &#39;{print $NF}&#39;) 
 mysqladmin -uroot -p$password password CentOS@7</code></pre><p>5）创建测试页面，检测PHP与mysql数据库的连通性</p>
 <pre><code>vim /var/www/html/mysql.php
 
 &lt;?php
-$link=mysqli_connect("localhost","root","CentOS@7","mysql");
+$link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;CentOS@7&quot;,&quot;mysql&quot;);
 if(!$link){
-        echo "Game Over." .PHP_EOL;
-        echo "Debugging errno:" .mysqli_connect_errno() .PHP_EOL;
-        echo "Debugging error:" .mysqli_connect_error() .PHP_EOL;
+        echo &quot;Game Over.&quot; .PHP_EOL;
+        echo &quot;Debugging errno:&quot; .mysqli_connect_errno() .PHP_EOL;
+        echo &quot;Debugging error:&quot; .mysqli_connect_error() .PHP_EOL;
         exit;
 }
 else{
-        echo "Very Good" .PHP_EOL;
-        echo "Host information:" .mysqli_get_host_info($link) .PHP_EOL;
+        echo &quot;Very Good&quot; .PHP_EOL;
+        echo &quot;Host information:&quot; .mysqli_get_host_info($link) .PHP_EOL;
 }
 mysqli_close($link);
     ?&gt;
@@ -999,10 +999,10 @@ mysqli_close($link);
 <p>在配置文件修改数据库连接密码，填入之前修改后的mysql数据库密码。</p>
 <p>vim /var/www/html/DVWA/config/config.inc.php</p>
 <p>将 <strong>$_DVWA[ ‘db_password’ ] = ‘p@ssw0rd’</strong>; 这行的密码修改为我们的 MySQL 数据库密码。</p>
-<pre><code>$_DVWA[ 'db_server' ]   = '127.0.0.1';
-$_DVWA[ 'db_database' ] = 'dvwa';
-$_DVWA[ 'db_user' ]     = 'root';
-$_DVWA[ 'db_password' ] = 'Centos@7';</code></pre><p>3、使用浏览器访问安装。</p>
+<pre><code>$_DVWA[ &#39;db_server&#39; ]   = &#39;127.0.0.1&#39;;
+$_DVWA[ &#39;db_database&#39; ] = &#39;dvwa&#39;;
+$_DVWA[ &#39;db_user&#39; ]     = &#39;root&#39;;
+$_DVWA[ &#39;db_password&#39; ] = &#39;Centos@7&#39;;</code></pre><p>3、使用浏览器访问安装。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:%5CUsers%5CPing%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210424184232444.png" alt="image-20210424184232444"></p>
 <p>4、解决红色报错信息</p>
 <p><strong>PHP function allow_url_include:</strong> <strong>Disabled</strong></p>
@@ -1047,42 +1047,24 @@ vim /var/www/html/DVWA/config/config.inc.php
 
 在以下两行填入验证码
 
-$_DVWA[ 'recaptcha_public_key' ] = ''; 
+$_DVWA[ &#39;recaptcha_public_key&#39; ] = &#39;&#39;; 
 
-$_DVWA[ 'recaptcha_private_key' ] = '';
+$_DVWA[ &#39;recaptcha_private_key&#39; ] = &#39;&#39;;
 
 
 
 修改后如下:
 
-$_DVWA[ 'recaptcha_public_key' ] = '6LdJJlUUAAAAAH1Q6cTpZRQ2Ah8VpyzhnffD0mBb'; 
+$_DVWA[ &#39;recaptcha_public_key&#39; ] = &#39;6LdJJlUUAAAAAH1Q6cTpZRQ2Ah8VpyzhnffD0mBb&#39;; 
 
-$_DVWA[ 'recaptcha_private_key' ] = '6LdJJlUUAAAAAM2a3HrgzLczqdYp4g05EqDs-W4K';</code></pre><p><strong>[User: nginx] Writable folder /**</strong>var/www/<strong><strong>html</strong></strong>/<strong>**DVWA/hackable/uploads/:</strong> <strong>No</strong></p>
+$_DVWA[ &#39;recaptcha_private_key&#39; ] = &#39;6LdJJlUUAAAAAM2a3HrgzLczqdYp4g05EqDs-W4K&#39;;</code></pre><p><strong>[User: nginx] Writable folder /**</strong>var/www/<strong><strong>html</strong></strong>/<strong>**DVWA/hackable/uploads/:</strong> <strong>No</strong></p>
 <p><strong>[User: nginx] Writable file</strong> <strong>/**</strong>var/www/<strong><strong>html</strong></strong>/<strong>**DVWA/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt:</strong> <strong>No</strong></p>
 <p><strong>解决方法：</strong></p>
 <pre><code>chmod 763  /var/www/html/DVWA/hackable/uploads/ -R
 
 chmod 666 /var/www/html/DVWA/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt -R
 </code></pre><p>在浏览器重新刷新页面，没有报错后单击底部 Create / Reset Database 按钮，即可跳转至 DVWA 的登陆页面。DVWA 的默认登陆帐号是 admin 密码是 password</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1869,7 +1851,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2076,8 +2058,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

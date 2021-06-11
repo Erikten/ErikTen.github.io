@@ -989,9 +989,9 @@ Internet 邮件服务器和邮件过滤器应用程序使用该端口。 仅当�
 <h5 id="msconfig"><a href="#msconfig" class="headerlink" title="msconfig"></a>msconfig</h5><p>win+r打开msconfig——&gt;服务，一般制造商是未知的可能就是木马，我觉得Win10这个优化的不行，在Win7里这些服务在那个目录下都是显示的，Win10把这块优化掉了：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200413112718297.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h5 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h5><p>第三种方法就是在cmd里输入netstat -o，如果怀疑自己中马了，被别人远控了，每次开机先打开cmd输一下这个命令，看看是不是连接到了别人服务器的端口（这个端口肯定是固定的），有可能还可以顺着网线杀回去哈哈。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200413114112829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="常用Dos命令"><a href="#常用Dos命令" class="headerlink" title="常用Dos命令"></a>常用Dos命令</h3><p>这个太多了，网上也有很详细了，多去练练吧！</p>
-<pre><code>net use ipipc$ " " /user:" " 建立IPC空链接 
-net use ipipc$ "密码" /user:"用户名" 建立IPC非空链接 
-net use h: ipc$ "密码" /user:"用户名" 直接登陆后映射对方C：到本地为H: 
+<pre><code>net use ipipc$ &quot; &quot; /user:&quot; &quot; 建立IPC空链接 
+net use ipipc$ &quot;密码&quot; /user:&quot;用户名&quot; 建立IPC非空链接 
+net use h: ipc$ &quot;密码&quot; /user:&quot;用户名&quot; 直接登陆后映射对方C：到本地为H: 
 net use h: ipc$ 登陆后映射对方C：到本地为H: 
 net use ipipc$ /del 删除IPC链接 
 net use h: /del 删除映射对方到本地的为H:的映射 
@@ -1010,7 +1010,7 @@ net view ip 查看对方局域网内开启了哪些共享
 net config 显示系统网络设置 
 net logoff 断开连接的共享 
 net pause 服务名 暂停某服务 
-net send ip "文本信息" 向对方发信息 
+net send ip &quot;文本信息&quot; 向对方发信息 
 net ver 局域网内正在使用的网络连接类型和信息 
 net share 查看本地开启的共享 
 net share ipc$ 开启ipc$共享 
@@ -1035,7 +1035,7 @@ del -F 文件名 加-F参数后就可删除只读文件,/AR、/AH、/AS、/AA分
 
 del /S /Q 目录 或用：rmdir /s /Q 目录 /S删除目录及目录下的所有子目录和文件。同时使用参数/Q 可取消删除操作时的系统确认就直接删除。（二个命令作用相同） 
 move 盘符路径要移动的文件名　存放移动文件的路径移动后文件名 移动文件,用参数/y将取消确认移动目录存在相同文件的提示就直接覆盖 
-fc one.txt two.txt &gt; 3st.txt 对比二个文件并把不同之处输出到3st.txt文件中，"&gt; "和"&gt; &gt;" 是重定向命令 
+fc one.txt two.txt &gt; 3st.txt 对比二个文件并把不同之处输出到3st.txt文件中，&quot;&gt; &quot;和&quot;&gt; &gt;&quot; 是重定向命令 
 at id号 开启已注册的某个计划任务 
 at /delete 停止所有计划任务，用参数/yes则不需要确认就直接停止 
 at id号 /delete 停止某个已注册的计划任务 
@@ -1071,8 +1071,8 @@ call 路径批处理文件名 从批处理程序中调用另一个批处理程�
 for 对一组文件中的每一个文件执行某个特定命令（更多说明见for命令及变量） 
 echo on或off 打开或关闭echo，仅用echo不加参数则显示当前echo设置 
 echo 信息 在屏幕上显示出信息 
-echo 信息 &gt;&gt; pass.txt 将"信息"保存到pass.txt文件中 
-findstr "Hello" aa.txt 在aa.txt文件中寻找字符串hello 
+echo 信息 &gt;&gt; pass.txt 将&quot;信息&quot;保存到pass.txt文件中 
+findstr &quot;Hello&quot; aa.txt 在aa.txt文件中寻找字符串hello 
 find 文件名 查找某文件 
 title 标题名字 更改CMD窗口标题名字 
 color 颜色值 设置cmd控制台前景和背景颜色；0＝黑、1＝蓝、2＝绿、3＝浅绿、4＝红、5＝紫、6＝黄、7=白、8=灰、9=淡蓝、A＝淡绿、B=淡浅绿、C=淡红、D=淡紫、E=淡黄、F=亮白 
@@ -1102,25 +1102,7 @@ regedit /e 注册表文件名 导出注册表</code></pre><p>这里需要做一�
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200413141026812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一般在渗透服务器的时候我们并不能直接添加到administrators组，我们可以添加到<strong>Remote Desktop Users</strong>这个组，这个组是远程桌面登录用户组但即使是登录了也还是普通用户，这时候就看你拿的是什么权限了，如果是system那就可以给文件降权，降到everyone就可以了。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200413141551996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>这也并不保险，因为会留下明显的痕迹，我们可以启用Guest用户，设个密码，把Guest添加到管理组即可，这样就不会有那么明显的变动了。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200413142113664.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="批处理"><a href="#批处理" class="headerlink" title="批处理"></a>批处理</h3><p>批处理就是把很多条命令添加到一个后缀为.bat的文件里，逐条执行，现在网上有很多什么一键开3389，一键留后门这种程序，就是传上大马的时候用的，直接在肉鸡的命令行里执行bat就行了：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20200413143732746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTczNjc2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1922,7 +1904,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">149.7k</span> 字
+                <span class="white-color">146.4k</span> 字
 	<br>
             
 
@@ -2129,8 +2111,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
